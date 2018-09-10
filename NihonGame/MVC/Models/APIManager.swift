@@ -15,19 +15,27 @@ class APIManager {
         apiSession = session
     }
 
-    func launchQuery() {
-        apiSession.request(completionHandler: { (success) in self.handleAnswer(queryStatus: success)})
+    func launchQuery(completionHandler: @escaping (GameData?) -> ()) {
+        apiSession.request(completionHandler: { (success) in
+            completionHandler(self.handleAnswer(queryStatus: success))
+        })
     }
 
-    func handleAnswer(queryStatus : Success) {
+    func handleAnswer(queryStatus : Success) -> GameData?{
         switch queryStatus {
         case .success(let data):
-            print(String(data: data!, encoding: .utf8))
+            do {
+                let parsedData = try JSONDecoder().decode([KanjiStruct].self, from: data)
+                return Kanji(parsedData: parsedData)
+            }catch {
+                return nil
+            }
         case .failed(let httpResponse):
             print(String("HTTP ERROR : \(httpResponse.statusCode)"))
         case .error(let error):
             print(error.localizedDescription)
         }
+        return nil
     }
 }
 

@@ -27,6 +27,10 @@
 		376BC8BB2146544400AFC34B /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8BA2146544400AFC34B /* Text.swift */; };
 		376BC8BD214656E700AFC34B /* FR_fr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8BC214656E700AFC34B /* FR_fr.swift */; };
 		376BC8BF21465B3D00AFC34B /* EN_en.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8BE21465B3D00AFC34B /* EN_en.swift */; };
+		376BC8C4214665D100AFC34B /* Kanji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8C3214665D100AFC34B /* Kanji.swift */; };
+		376BC8C6214668CD00AFC34B /* LanguageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8C5214668CD00AFC34B /* LanguageTest.swift */; };
+		376BC8C8214668DB00AFC34B /* APIManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8C7214668DB00AFC34B /* APIManagerTest.swift */; };
+		376BC8CA214669B400AFC34B /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8C9214669B400AFC34B /* GameData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +69,10 @@
 		376BC8BA2146544400AFC34B /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		376BC8BC214656E700AFC34B /* FR_fr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FR_fr.swift; sourceTree = "<group>"; };
 		376BC8BE21465B3D00AFC34B /* EN_en.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EN_en.swift; sourceTree = "<group>"; };
+		376BC8C3214665D100AFC34B /* Kanji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kanji.swift; sourceTree = "<group>"; };
+		376BC8C5214668CD00AFC34B /* LanguageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTest.swift; sourceTree = "<group>"; };
+		376BC8C7214668DB00AFC34B /* APIManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerTest.swift; sourceTree = "<group>"; };
+		376BC8C9214669B400AFC34B /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +127,8 @@
 			children = (
 				37613051213E644900FBCA24 /* NihonGameTests.swift */,
 				37613053213E644900FBCA24 /* Info.plist */,
+				376BC8C5214668CD00AFC34B /* LanguageTest.swift */,
+				376BC8C7214668DB00AFC34B /* APIManagerTest.swift */,
 			);
 			path = NihonGameTests;
 			sourceTree = "<group>";
@@ -136,10 +146,12 @@
 		3761305D213E648100FBCA24 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				376BC8C02146657600AFC34B /* GameData */,
 				376BC8B92146541F00AFC34B /* Language */,
 				37613065213FB34300FBCA24 /* APIProtocole.swift */,
 				37613067213FB4AF00FBCA24 /* APISession.swift */,
 				3761306F213FB62900FBCA24 /* APIManager.swift */,
+				376BC8C9214669B400AFC34B /* GameData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -166,7 +178,6 @@
 		37613060213E649D00FBCA24 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				3761306E213FB52200FBCA24 /* Language */,
 				37613036213E644700FBCA24 /* AppDelegate.swift */,
 				37613043213E644800FBCA24 /* Assets.xcassets */,
 				37613069213FB4D200FBCA24 /* Constant.swift */,
@@ -182,13 +193,6 @@
 				3761305D213E648100FBCA24 /* Models */,
 			);
 			path = MVC;
-			sourceTree = "<group>";
-		};
-		3761306E213FB52200FBCA24 /* Language */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Language;
 			sourceTree = "<group>";
 		};
 		37613073213FC5B900FBCA24 /* InterfaceBuilding */ = {
@@ -209,6 +213,14 @@
 				376BC8BE21465B3D00AFC34B /* EN_en.swift */,
 			);
 			path = Language;
+			sourceTree = "<group>";
+		};
+		376BC8C02146657600AFC34B /* GameData */ = {
+			isa = PBXGroup;
+			children = (
+				376BC8C3214665D100AFC34B /* Kanji.swift */,
+			);
+			path = GameData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,6 +331,7 @@
 				376BC8BF21465B3D00AFC34B /* EN_en.swift in Sources */,
 				376BC8BD214656E700AFC34B /* FR_fr.swift in Sources */,
 				37613068213FB4AF00FBCA24 /* APISession.swift in Sources */,
+				376BC8CA214669B400AFC34B /* GameData.swift in Sources */,
 				3761303D213E644700FBCA24 /* GameScene.swift in Sources */,
 				3761303F213E644700FBCA24 /* GameViewController.swift in Sources */,
 				37613079213FC81E00FBCA24 /* UIViewExtension.swift in Sources */,
@@ -327,6 +340,7 @@
 				37613075213FC5DE00FBCA24 /* MainMenuInterFaceBuildingExtension.swift in Sources */,
 				37613037213E644700FBCA24 /* AppDelegate.swift in Sources */,
 				37613077213FC75E00FBCA24 /* LevelButton.swift in Sources */,
+				376BC8C4214665D100AFC34B /* Kanji.swift in Sources */,
 				3761306A213FB4D200FBCA24 /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +350,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				37613052213E644900FBCA24 /* NihonGameTests.swift in Sources */,
+				376BC8C6214668CD00AFC34B /* LanguageTest.swift in Sources */,
+				376BC8C8214668DB00AFC34B /* APIManagerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,17 +17,25 @@ extension MainMenuViewController {
 
     func createOutlets() {
         // --------- Creation of Elements
+        // Menu Titel
         menuName = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
-        menuName?.text = text?.mainMenuTitle
-        menuName?.textAlignment = .center
+        guard let text = text, let menuName = menuName else {
+            return
+        }
+        menuName.text = text.mainMenuTitle
+        menuName.textAlignment = .center
+
+        // Game Choice Buttons
+        //Kanji
 
         // --------- Add To SubView
-        view.addSubview(menuName!)
+        view.addSubview(menuName)
     }
 
     func setConstraint() {
         menuName?.setAnchors(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor,
                              trailing: view.trailingAnchor, bottom: nil, padding: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0))
+
     }
 
 }

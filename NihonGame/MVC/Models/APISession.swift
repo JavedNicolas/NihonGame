@@ -9,7 +9,7 @@
 import Foundation
 
 enum Success {
-    case success(Data?)
+    case success(Data)
     case failed(HTTPURLResponse)
     case error(Error)
 }
@@ -19,7 +19,7 @@ class APISession : APIProtocole {
     private var session : URLSession
     internal var urlRequest : URLRequest
 
-    init(urlRequest : URLRequest, session: URLSession) {
+    init(urlRequest : URLRequest, session: URLSession = URLSession(configuration: .default)) {
         self.urlRequest = urlRequest
         self.session = session
     }

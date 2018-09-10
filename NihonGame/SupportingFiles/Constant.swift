@@ -9,5 +9,5 @@
 import Foundation
 
 struct KanjiAPI {
-    static let EndPoint = ""
+    static let EndPoint = "https://bridge.buddyweb.fr/api/jlptkanji/kanji"
 }
