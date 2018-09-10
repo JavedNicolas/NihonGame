@@ -13,9 +13,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    static var delegate : AppDelegate {
+        return  (UIApplication.shared.delegate as! AppDelegate)
+    }
+
+    var textLanguage : Language?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // ----- create windows and VC
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let firstVC = MainMenuViewController()
+        window?.rootViewController = firstVC
+        window?.makeKeyAndVisible()
         return true
     }
 
