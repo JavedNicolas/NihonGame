@@ -20,12 +20,13 @@ class MainMenuViewController: UIViewController {
     }
 
     func getGameData() {
-        for kanji  in KanjiData().kanjis {
-            print("Kanji: \(kanji.kanji), level: \(kanji.level.rawValue)")
+        let kanjis = KanjiData()
+        for kanji  in kanjis.kanjis {
+            print("Kanji: \(kanji.value), level: \(kanji.groupName)")
         }
 
-        for group  in KanjiData().groups {
-            print("Group lvl : \(group.jlptLevel), Kanji from : \(group.kanjiRange.0) to \(group.kanjiRange.1)")
+        for group  in kanjis.groups {
+            print("Group lvl : \(group.groupName), Kanji from : \(group.groupElementRange.0) to \(group.groupElementRange.1)")
         }
     }
 }

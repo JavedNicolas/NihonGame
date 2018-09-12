@@ -8,11 +8,7 @@
 
 import Foundation
 
-enum KanjiLevel : String {
-    case N5, N4, N3, N2, N1
-}
-
-class KanjiData : GameData {
+class KanjiData : GameDataParsing {
     // MARK: - Attributs
     var kanjis: [Kanji] {
         guard let data = parseData(for: KanjiData.self, json: "KanjiList") else {
@@ -22,7 +18,7 @@ class KanjiData : GameData {
     }
 
     var groups : [Group] {
-        return getGroupes()
+        return createGroupes()
     }
 
     /**
@@ -38,12 +34,12 @@ class KanjiData : GameData {
             let kanjiParsed = try JSONDecoder().decode([KanjiParsing].self, from: data)
             for (index, kanji) in kanjiParsed.enumerated() {
                 let id = index + 1
-                let level = KanjiLevel(rawValue: kanji.level)
+                let groupName = KanjiGroups.init(rawValue: kanji.level)
                 let kanjiString = kanji.kanji
                 let onyomi = kanji.onyomi.split(separator: ",")
                 let kunyomi = kanji.kunyomi.split(separator: ",")
                 let traduction = kanji.traduction.split(separator: ",")
-                let reformatedKanji = Kanji(id: id, level: level!, kanji: kanjiString, onyomi: onyomi, kunyomi: kunyomi, traduction: traduction)
+                let reformatedKanji = Kanji(id: id, groupName: groupName!, value: kanjiString, onyomi: onyomi, kunyomi: kunyomi, traduction: traduction)
                 kanjisConstructor.append(reformatedKanji)
             }
             return kanjisConstructor
@@ -52,13 +48,13 @@ class KanjiData : GameData {
         }
     }
 
-    private func getGroupes() -> [Group]{
-        var groupDict = [ KanjiLevel.N5: [Int](), KanjiLevel.N4 : [Int](), KanjiLevel.N3 : [Int](),
-                          KanjiLevel.N2 : [Int]() , KanjiLevel.N1 : [Int]() ]
+    private func createGroupes() -> [Group]{
+        var groupDict = [ KanjiGroups.N5 : [Int](), KanjiGroups.N4 : [Int](), KanjiGroups.N3 : [Int](),
+        KanjiGroups.N2 : [Int](), KanjiGroups.N1 : [Int]()]
         var groups : [Group] = []
 
         for kanji in kanjis {
-            groupDict[kanji.level]?.append(kanji.id)
+            groupDict[kanji.groupName]?.append(kanji.id)
         }
 
         for group in groupDict {
@@ -66,7 +62,7 @@ class KanjiData : GameData {
                 return []
             }
 
-            groups.append(Group(jlptLevel: group.key, kanjiRange: (firstKanjiID, lastKanjiID)))
+            groups.append(Group(groupName: group.key.rawValue, groupElementRange: (firstKanjiID, lastKanjiID)))
         }
 
         return groups

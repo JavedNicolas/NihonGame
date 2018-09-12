@@ -21,12 +21,13 @@
 		37613077213FC75E00FBCA24 /* LevelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37613076213FC75E00FBCA24 /* LevelButton.swift */; };
 		37613079213FC81E00FBCA24 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37613078213FC81E00FBCA24 /* UIViewExtension.swift */; };
 		376BC8C4214665D100AFC34B /* KanjiData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8C3214665D100AFC34B /* KanjiData.swift */; };
-		376BC8CA214669B400AFC34B /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8C9214669B400AFC34B /* GameData.swift */; };
+		376BC8CA214669B400AFC34B /* GameDataParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8C9214669B400AFC34B /* GameDataParsing.swift */; };
 		378F81422147B287001D6980 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 378F81412147B287001D6980 /* Localizable.strings */; };
 		37A5664B2148EDCE00F53B43 /* KanjiList.json in Resources */ = {isa = PBXBuildFile; fileRef = 37A5664A2148EDCE00F53B43 /* KanjiList.json */; };
 		37A5664D2149019D00F53B43 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5664C2149019D00F53B43 /* Group.swift */; };
 		37A5664F21490B7500F53B43 /* KanjiDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5664E21490B7500F53B43 /* KanjiDataTest.swift */; };
 		37A5665221490E1400F53B43 /* KanjiStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5665121490E1400F53B43 /* KanjiStructs.swift */; };
+		37A5665D214959F000F53B43 /* GameDataEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5665C214959F000F53B43 /* GameDataEnum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,12 +60,13 @@
 		37613078213FC81E00FBCA24 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		3761307A213FDE8B00FBCA24 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		376BC8C3214665D100AFC34B /* KanjiData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiData.swift; sourceTree = "<group>"; };
-		376BC8C9214669B400AFC34B /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
+		376BC8C9214669B400AFC34B /* GameDataParsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataParsing.swift; sourceTree = "<group>"; };
 		378F81412147B287001D6980 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		37A5664A2148EDCE00F53B43 /* KanjiList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = KanjiList.json; sourceTree = "<group>"; };
 		37A5664C2149019D00F53B43 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		37A5664E21490B7500F53B43 /* KanjiDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiDataTest.swift; sourceTree = "<group>"; };
 		37A5665121490E1400F53B43 /* KanjiStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiStructs.swift; sourceTree = "<group>"; };
+		37A5665C214959F000F53B43 /* GameDataEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataEnum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,9 +198,9 @@
 		376BC8C02146657600AFC34B /* GameData */ = {
 			isa = PBXGroup;
 			children = (
-				376BC8C9214669B400AFC34B /* GameData.swift */,
+				37A56655214945DB00F53B43 /* Protocols */,
 				376BC8C3214665D100AFC34B /* KanjiData.swift */,
-				37A5664C2149019D00F53B43 /* Group.swift */,
+				37A5665C214959F000F53B43 /* GameDataEnum.swift */,
 			);
 			path = GameData;
 			sourceTree = "<group>";
@@ -207,8 +209,17 @@
 			isa = PBXGroup;
 			children = (
 				37A5665121490E1400F53B43 /* KanjiStructs.swift */,
+				37A5664C2149019D00F53B43 /* Group.swift */,
 			);
 			path = Struct;
+			sourceTree = "<group>";
+		};
+		37A56655214945DB00F53B43 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				376BC8C9214669B400AFC34B /* GameDataParsing.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,7 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37613072213FC47300FBCA24 /* MainMenuViewController.swift in Sources */,
-				376BC8CA214669B400AFC34B /* GameData.swift in Sources */,
+				376BC8CA214669B400AFC34B /* GameDataParsing.swift in Sources */,
 				37A5665221490E1400F53B43 /* KanjiStructs.swift in Sources */,
 				3761303D213E644700FBCA24 /* GameScene.swift in Sources */,
 				3761303F213E644700FBCA24 /* GameViewController.swift in Sources */,
@@ -325,6 +336,7 @@
 				37613075213FC5DE00FBCA24 /* MainMenuInterFaceBuildingExtension.swift in Sources */,
 				37613037213E644700FBCA24 /* AppDelegate.swift in Sources */,
 				37613077213FC75E00FBCA24 /* LevelButton.swift in Sources */,
+				37A5665D214959F000F53B43 /* GameDataEnum.swift in Sources */,
 				376BC8C4214665D100AFC34B /* KanjiData.swift in Sources */,
 				3761306A213FB4D200FBCA24 /* Constant.swift in Sources */,
 			);
