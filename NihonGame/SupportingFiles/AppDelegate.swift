@@ -17,8 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return  (UIApplication.shared.delegate as! AppDelegate)
     }
 
-    var textLanguage : Language?
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // ----- create windows and VC
         window = UIWindow(frame: UIScreen.main.bounds)

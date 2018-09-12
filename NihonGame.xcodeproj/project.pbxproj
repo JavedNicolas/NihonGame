@@ -15,22 +15,18 @@
 		37613052213E644900FBCA24 /* NihonGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37613051213E644900FBCA24 /* NihonGameTests.swift */; };
 		37613063213E64F500FBCA24 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37613061213E64F500FBCA24 /* Actions.sks */; };
 		37613064213E64F500FBCA24 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 37613062213E64F500FBCA24 /* GameScene.sks */; };
-		37613066213FB34300FBCA24 /* APIProtocole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37613065213FB34300FBCA24 /* APIProtocole.swift */; };
-		37613068213FB4AF00FBCA24 /* APISession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37613067213FB4AF00FBCA24 /* APISession.swift */; };
 		3761306A213FB4D200FBCA24 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37613069213FB4D200FBCA24 /* Constant.swift */; };
-		3761306C213FB50900FBCA24 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3761306B213FB50900FBCA24 /* Language.swift */; };
-		37613070213FB62900FBCA24 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3761306F213FB62900FBCA24 /* APIManager.swift */; };
 		37613072213FC47300FBCA24 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37613071213FC47300FBCA24 /* MainMenuViewController.swift */; };
 		37613075213FC5DE00FBCA24 /* MainMenuInterFaceBuildingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37613074213FC5DE00FBCA24 /* MainMenuInterFaceBuildingExtension.swift */; };
 		37613077213FC75E00FBCA24 /* LevelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37613076213FC75E00FBCA24 /* LevelButton.swift */; };
 		37613079213FC81E00FBCA24 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37613078213FC81E00FBCA24 /* UIViewExtension.swift */; };
-		376BC8BB2146544400AFC34B /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8BA2146544400AFC34B /* Text.swift */; };
-		376BC8BD214656E700AFC34B /* FR_fr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8BC214656E700AFC34B /* FR_fr.swift */; };
-		376BC8BF21465B3D00AFC34B /* EN_en.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8BE21465B3D00AFC34B /* EN_en.swift */; };
-		376BC8C4214665D100AFC34B /* Kanji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8C3214665D100AFC34B /* Kanji.swift */; };
+		376BC8C4214665D100AFC34B /* KanjiData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8C3214665D100AFC34B /* KanjiData.swift */; };
 		376BC8C6214668CD00AFC34B /* LanguageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8C5214668CD00AFC34B /* LanguageTest.swift */; };
 		376BC8C8214668DB00AFC34B /* APIManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8C7214668DB00AFC34B /* APIManagerTest.swift */; };
 		376BC8CA214669B400AFC34B /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8C9214669B400AFC34B /* GameData.swift */; };
+		378F81422147B287001D6980 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 378F81412147B287001D6980 /* Localizable.strings */; };
+		37A5664B2148EDCE00F53B43 /* KanjiList.json in Resources */ = {isa = PBXBuildFile; fileRef = 37A5664A2148EDCE00F53B43 /* KanjiList.json */; };
+		37A5664D2149019D00F53B43 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5664C2149019D00F53B43 /* Group.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,23 +52,19 @@
 		37613053213E644900FBCA24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37613061213E64F500FBCA24 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		37613062213E64F500FBCA24 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		37613065213FB34300FBCA24 /* APIProtocole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProtocole.swift; sourceTree = "<group>"; };
-		37613067213FB4AF00FBCA24 /* APISession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISession.swift; sourceTree = "<group>"; };
 		37613069213FB4D200FBCA24 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
-		3761306B213FB50900FBCA24 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
-		3761306F213FB62900FBCA24 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		37613071213FC47300FBCA24 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		37613074213FC5DE00FBCA24 /* MainMenuInterFaceBuildingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuInterFaceBuildingExtension.swift; sourceTree = "<group>"; };
 		37613076213FC75E00FBCA24 /* LevelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelButton.swift; sourceTree = "<group>"; };
 		37613078213FC81E00FBCA24 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		3761307A213FDE8B00FBCA24 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		376BC8BA2146544400AFC34B /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
-		376BC8BC214656E700AFC34B /* FR_fr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FR_fr.swift; sourceTree = "<group>"; };
-		376BC8BE21465B3D00AFC34B /* EN_en.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EN_en.swift; sourceTree = "<group>"; };
-		376BC8C3214665D100AFC34B /* Kanji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kanji.swift; sourceTree = "<group>"; };
+		376BC8C3214665D100AFC34B /* KanjiData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiData.swift; sourceTree = "<group>"; };
 		376BC8C5214668CD00AFC34B /* LanguageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTest.swift; sourceTree = "<group>"; };
 		376BC8C7214668DB00AFC34B /* APIManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerTest.swift; sourceTree = "<group>"; };
 		376BC8C9214669B400AFC34B /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
+		378F81412147B287001D6980 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		37A5664A2148EDCE00F53B43 /* KanjiList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = KanjiList.json; sourceTree = "<group>"; };
+		37A5664C2149019D00F53B43 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +110,7 @@
 				3761306D213FB50D00FBCA24 /* MVC */,
 				37613048213E644900FBCA24 /* Info.plist */,
 				3761305F213E649400FBCA24 /* GameScenes */,
+				37A5664A2148EDCE00F53B43 /* KanjiList.json */,
 			);
 			path = NihonGame;
 			sourceTree = "<group>";
@@ -147,11 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				376BC8C02146657600AFC34B /* GameData */,
-				376BC8B92146541F00AFC34B /* Language */,
-				37613065213FB34300FBCA24 /* APIProtocole.swift */,
-				37613067213FB4AF00FBCA24 /* APISession.swift */,
-				3761306F213FB62900FBCA24 /* APIManager.swift */,
-				376BC8C9214669B400AFC34B /* GameData.swift */,
+				378F81412147B287001D6980 /* Localizable.strings */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,21 +193,12 @@
 			path = InterfaceBuilding;
 			sourceTree = "<group>";
 		};
-		376BC8B92146541F00AFC34B /* Language */ = {
-			isa = PBXGroup;
-			children = (
-				3761306B213FB50900FBCA24 /* Language.swift */,
-				376BC8BA2146544400AFC34B /* Text.swift */,
-				376BC8BC214656E700AFC34B /* FR_fr.swift */,
-				376BC8BE21465B3D00AFC34B /* EN_en.swift */,
-			);
-			path = Language;
-			sourceTree = "<group>";
-		};
 		376BC8C02146657600AFC34B /* GameData */ = {
 			isa = PBXGroup;
 			children = (
-				376BC8C3214665D100AFC34B /* Kanji.swift */,
+				376BC8C3214665D100AFC34B /* KanjiData.swift */,
+				376BC8C9214669B400AFC34B /* GameData.swift */,
+				37A5664C2149019D00F53B43 /* Group.swift */,
 			);
 			path = GameData;
 			sourceTree = "<group>";
@@ -304,7 +284,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				378F81422147B287001D6980 /* Localizable.strings in Resources */,
 				37613064213E64F500FBCA24 /* GameScene.sks in Resources */,
+				37A5664B2148EDCE00F53B43 /* KanjiList.json in Resources */,
 				37613044213E644800FBCA24 /* Assets.xcassets in Resources */,
 				37613063213E64F500FBCA24 /* Actions.sks in Resources */,
 				37613047213E644900FBCA24 /* LaunchScreen.storyboard in Resources */,
@@ -326,21 +308,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				37613072213FC47300FBCA24 /* MainMenuViewController.swift in Sources */,
-				37613070213FB62900FBCA24 /* APIManager.swift in Sources */,
-				3761306C213FB50900FBCA24 /* Language.swift in Sources */,
-				376BC8BF21465B3D00AFC34B /* EN_en.swift in Sources */,
-				376BC8BD214656E700AFC34B /* FR_fr.swift in Sources */,
-				37613068213FB4AF00FBCA24 /* APISession.swift in Sources */,
 				376BC8CA214669B400AFC34B /* GameData.swift in Sources */,
 				3761303D213E644700FBCA24 /* GameScene.swift in Sources */,
 				3761303F213E644700FBCA24 /* GameViewController.swift in Sources */,
+				37A5664D2149019D00F53B43 /* Group.swift in Sources */,
 				37613079213FC81E00FBCA24 /* UIViewExtension.swift in Sources */,
-				37613066213FB34300FBCA24 /* APIProtocole.swift in Sources */,
-				376BC8BB2146544400AFC34B /* Text.swift in Sources */,
 				37613075213FC5DE00FBCA24 /* MainMenuInterFaceBuildingExtension.swift in Sources */,
 				37613037213E644700FBCA24 /* AppDelegate.swift in Sources */,
 				37613077213FC75E00FBCA24 /* LevelButton.swift in Sources */,
-				376BC8C4214665D100AFC34B /* Kanji.swift in Sources */,
+				376BC8C4214665D100AFC34B /* KanjiData.swift in Sources */,
 				3761306A213FB4D200FBCA24 /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

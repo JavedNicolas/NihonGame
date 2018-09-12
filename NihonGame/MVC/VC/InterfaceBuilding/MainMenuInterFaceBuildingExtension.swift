@@ -19,10 +19,10 @@ extension MainMenuViewController {
         // --------- Creation of Elements
         // Menu Titel
         menuName = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
-        guard let text = text, let menuName = menuName else {
+        guard let menuName = menuName else {
             return
         }
-        menuName.text = text.mainMenuTitle
+        menuName.text = "Menu Principale"
         menuName.textAlignment = .center
 
         // Game Choice Buttons
