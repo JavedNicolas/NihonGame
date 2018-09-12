@@ -8,23 +8,9 @@
 
 import Foundation
 
-struct KanjiParsing : Decodable {
-    var level : String
-    var kanji : String
-    var onyomi : String
-    var kunyomi : String
-    var traduction : String
+enum KanjiLevel : String {
+    case N5, N4, N3, N2, N1
 }
-
-
-struct Kanji {
-    var level : String
-    var kanji : String
-    var onyomi : [Substring]
-    var kunyomi : [Substring]
-    var traduction : [Substring]
-}
-
 
 class KanjiData : GameData {
     // MARK: - Attributs
@@ -35,6 +21,9 @@ class KanjiData : GameData {
         return parseAndReformateKanjis(data: data)
     }
 
+    var groups : [Group] {
+        return getGroupes()
+    }
 
     /**
      Parse Data from json file and reformate it to conform to Kanji formate
@@ -43,22 +32,43 @@ class KanjiData : GameData {
      - Parameters:
         - data: Data from the JSON
      */
-    func parseAndReformateKanjis(data : Data) -> [Kanji] {
+    private func parseAndReformateKanjis(data : Data) -> [Kanji] {
         var kanjisConstructor : [Kanji] = []
         do {
             let kanjiParsed = try JSONDecoder().decode([KanjiParsing].self, from: data)
-            for kanji in kanjiParsed {
-                let level = kanji.level
+            for (index, kanji) in kanjiParsed.enumerated() {
+                let id = index + 1
+                let level = KanjiLevel(rawValue: kanji.level)
                 let kanjiString = kanji.kanji
                 let onyomi = kanji.onyomi.split(separator: ",")
                 let kunyomi = kanji.kunyomi.split(separator: ",")
                 let traduction = kanji.traduction.split(separator: ",")
-                let reformatedKanji = Kanji(level: level, kanji: kanjiString, onyomi: onyomi, kunyomi: kunyomi, traduction: traduction)
+                let reformatedKanji = Kanji(id: id, level: level!, kanji: kanjiString, onyomi: onyomi, kunyomi: kunyomi, traduction: traduction)
                 kanjisConstructor.append(reformatedKanji)
             }
             return kanjisConstructor
         }catch {
             return []
         }
+    }
+
+    private func getGroupes() -> [Group]{
+        var groupDict = [ KanjiLevel.N5: [Int](), KanjiLevel.N4 : [Int](), KanjiLevel.N3 : [Int](),
+                          KanjiLevel.N2 : [Int]() , KanjiLevel.N1 : [Int]() ]
+        var groups : [Group] = []
+
+        for kanji in kanjis {
+            groupDict[kanji.level]?.append(kanji.id)
+        }
+
+        for group in groupDict {
+            guard let firstKanjiID = group.value.first, let lastKanjiID = group.value.last else {
+                return []
+            }
+
+            groups.append(Group(jlptLevel: group.key, kanjiRange: (firstKanjiID, lastKanjiID)))
+        }
+
+        return groups
     }
 }

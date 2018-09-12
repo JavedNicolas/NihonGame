@@ -9,11 +9,13 @@
 import Foundation
 
 class Group {
-    let level : String
+    var jlptLevel : KanjiLevel
+    var kanjiRange : (Int, Int)
+    //var levels : [Level]
 
-    init(level: String){
-        self.level = level
-
+    init(jlptLevel: KanjiLevel, kanjiRange: (Int, Int)){
+        self.jlptLevel = jlptLevel
+        self.kanjiRange = kanjiRange
     }
     
 }

@@ -21,7 +21,11 @@ class MainMenuViewController: UIViewController {
 
     func getGameData() {
         for kanji  in KanjiData().kanjis {
-            print(kanji.kanji)
+            print("Kanji: \(kanji.kanji), level: \(kanji.level.rawValue)")
+        }
+
+        for group  in KanjiData().groups {
+            print("Group lvl : \(group.jlptLevel), Kanji from : \(group.kanjiRange.0) to \(group.kanjiRange.1)")
         }
     }
 }
