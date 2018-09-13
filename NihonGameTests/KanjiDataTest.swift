@@ -27,4 +27,14 @@ class KanjiDataTest: XCTestCase {
         // Then
         XCTAssertNotNil(kanjis)
     }
+
+    func testGivenWeWantToCreateGroupFromKanjiListWhenWeDoThenWeGetAnArrayOfGroup() {
+        // Given
+
+        // When
+        let groups = kanjiData?.groups
+
+        // Then
+        XCTAssertNotNil(groups)
+    }
 }
