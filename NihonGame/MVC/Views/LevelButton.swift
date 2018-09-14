@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class LevelButton : UIButton {
+class LevelButton : UIView {
     private var progression : (Int,Int)
     private var title : String
 
@@ -15,7 +15,6 @@ class LevelButton : UIButton {
         self.progression = progression
         self.title = title
         super.init(frame: rect)
-        self.setTitle(title, for: .normal)
         style()
     }
 

@@ -10,7 +10,7 @@ import Foundation
 
 class KanjiData : GameDataParsing, GameDataModel {
     // MARK: - Attributs
-    var name : String = "Kanji".localize()
+    var name : String = "Kanji"
     var kanjis: [Kanji] = []
     var groups : [Group] = []
 

@@ -28,14 +28,13 @@ extension MainMenuViewController {
 
         // MARK: - MenuButton
             createGameButton()
-
-
     }
 
     func createGameButton() {
         gameButtonTV = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         if let gameButtonTV = gameButtonTV {
             gameButtonTV.dataSource = self
+            gameButtonTV.delegate = self
             gameButtonTV.separatorStyle = .none
             gameButtonTV.register(GameButtonTableViewCell.self, forCellReuseIdentifier: "gameButtonCell")
             gameButtonTV.rowHeight = 100

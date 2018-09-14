@@ -9,5 +9,5 @@
 import Foundation
 
 protocol GameDataModel {
-    var name : String { get }
+    var name : String { get set }
 }
