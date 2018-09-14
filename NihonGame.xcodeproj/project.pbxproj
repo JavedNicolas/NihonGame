@@ -29,7 +29,8 @@
 		376BC8CA214669B400AFC34B /* GameDataParsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8C9214669B400AFC34B /* GameDataParsing.swift */; };
 		3776D5E0214B91B800536A8D /* MainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3776D5DF214B91B800536A8D /* MainMenuVC.swift */; };
 		3776D5E2214B927B00536A8D /* GameButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3776D5E1214B927B00536A8D /* GameButtonTableViewCell.swift */; };
-		378F81422147B287001D6980 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 378F81412147B287001D6980 /* Localizable.strings */; };
+		3776D5E3214BA65600536A8D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3776D5E5214BA65600536A8D /* Localizable.strings */; };
+		3776D5E8214BA78E00536A8D /* LocalizableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3776D5E7214BA78E00536A8D /* LocalizableExtension.swift */; };
 		37A5664B2148EDCE00F53B43 /* KanjiList.json in Resources */ = {isa = PBXBuildFile; fileRef = 37A5664A2148EDCE00F53B43 /* KanjiList.json */; };
 		37A5664D2149019D00F53B43 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5664C2149019D00F53B43 /* Group.swift */; };
 		37A5664F21490B7500F53B43 /* KanjiDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5664E21490B7500F53B43 /* KanjiDataTest.swift */; };
@@ -75,7 +76,9 @@
 		376BC8C9214669B400AFC34B /* GameDataParsing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataParsing.swift; sourceTree = "<group>"; };
 		3776D5DF214B91B800536A8D /* MainMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuVC.swift; sourceTree = "<group>"; };
 		3776D5E1214B927B00536A8D /* GameButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButtonTableViewCell.swift; sourceTree = "<group>"; };
-		378F81412147B287001D6980 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		3776D5E4214BA65600536A8D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3776D5E6214BA65D00536A8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3776D5E7214BA78E00536A8D /* LocalizableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableExtension.swift; sourceTree = "<group>"; };
 		37A5664A2148EDCE00F53B43 /* KanjiList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = KanjiList.json; sourceTree = "<group>"; };
 		37A5664C2149019D00F53B43 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		37A5664E21490B7500F53B43 /* KanjiDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiDataTest.swift; sourceTree = "<group>"; };
@@ -169,7 +172,7 @@
 			children = (
 				37A5665021490E0400F53B43 /* Struct */,
 				376BC8C02146657600AFC34B /* GameData */,
-				378F81412147B287001D6980 /* Localizable.strings */,
+				3776D5E5214BA65600536A8D /* Localizable.strings */,
 				37484747214A3F2A006E35D1 /* MainMenuModel.swift */,
 			);
 			path = Models;
@@ -220,6 +223,7 @@
 			children = (
 				37613074213FC5DE00FBCA24 /* MainMenuInterFaceBuildingExtension.swift */,
 				37613078213FC81E00FBCA24 /* UIViewExtension.swift */,
+				3776D5E7214BA78E00536A8D /* LocalizableExtension.swift */,
 			);
 			path = InterfaceBuilding;
 			sourceTree = "<group>";
@@ -348,7 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				378F81422147B287001D6980 /* Localizable.strings in Resources */,
+				3776D5E3214BA65600536A8D /* Localizable.strings in Resources */,
 				37613064213E64F500FBCA24 /* GameScene.sks in Resources */,
 				37A5664B2148EDCE00F53B43 /* KanjiList.json in Resources */,
 				37613044213E644800FBCA24 /* Assets.xcassets in Resources */,
@@ -383,6 +387,7 @@
 				37A5664D2149019D00F53B43 /* Group.swift in Sources */,
 				37484746214A3DE8006E35D1 /* GameDataModel.swift in Sources */,
 				37613079213FC81E00FBCA24 /* UIViewExtension.swift in Sources */,
+				3776D5E8214BA78E00536A8D /* LocalizableExtension.swift in Sources */,
 				3776D5E2214B927B00536A8D /* GameButtonTableViewCell.swift in Sources */,
 				37613075213FC5DE00FBCA24 /* MainMenuInterFaceBuildingExtension.swift in Sources */,
 				37613037213E644700FBCA24 /* AppDelegate.swift in Sources */,
@@ -421,6 +426,15 @@
 				3761307A213FDE8B00FBCA24 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3776D5E5214BA65600536A8D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3776D5E4214BA65600536A8D /* fr */,
+				3776D5E6214BA65D00536A8D /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

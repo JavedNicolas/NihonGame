@@ -22,7 +22,7 @@ extension MainMenuViewController {
             guard let menuName = menuName else {
                 return
             }
-            menuName.text = "Menu Principale"
+            menuName.text = "Main_Menu_Title".localize()
             menuName.textAlignment = .center
             view.addSubview(menuName)
 
