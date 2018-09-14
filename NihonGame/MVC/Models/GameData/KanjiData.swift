@@ -8,19 +8,19 @@
 
 import Foundation
 
-class KanjiData : GameDataParsing {
+class KanjiData : GameDataParsing, GameDataModel {
     // MARK: - Attributs
-    var kanjis: [Kanji] {
-        guard let data = parseData(for: KanjiData.self, json: "KanjiList") else {
-            return []
-        }
-        return parseAndReformateKanjis(data: data)
+    var name : String = "Kanji"
+    var kanjis: [Kanji] = []
+    var groups : [Group] = []
+
+    // MARK: - init
+    init() {
+        self.kanjis = parseAndReformateKanjis()
+        self.groups = createGroupes()
     }
 
-    var groups : [Group] {
-        return createGroupes()
-    }
-
+    // MARK: - Functions
     /**
      Parse Data from json file and reformate it to conform to Kanji formate
      and return it
@@ -28,7 +28,11 @@ class KanjiData : GameDataParsing {
      - Parameters:
         - data: Data from the JSON
      */
-    private func parseAndReformateKanjis(data : Data) -> [Kanji] {
+    private func parseAndReformateKanjis() -> [Kanji] {
+        guard let data = parseData(for: KanjiData.self, json: "KanjiList") else {
+            return []
+        }
+
         var kanjisConstructor : [Kanji] = []
         do {
             let kanjiParsed = try JSONDecoder().decode([KanjiParsing].self, from: data)
@@ -48,6 +52,7 @@ class KanjiData : GameDataParsing {
         }
     }
 
+    /** Init groups from the kanjis */
     private func createGroupes() -> [Group]{
         var groupDict = [ KanjiGroups.N5 : [Int](), KanjiGroups.N4 : [Int](), KanjiGroups.N3 : [Int](),
         KanjiGroups.N2 : [Int](), KanjiGroups.N1 : [Int]()]

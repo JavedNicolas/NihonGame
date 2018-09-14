@@ -28,4 +28,32 @@ extension UIView {
     func squareSize() {
         widthAnchor.constraint(equalTo: heightAnchor).isActive = true
     }
+
+    var safeTopAnchor : NSLayoutYAxisAnchor {
+        if #available(iOS 11.0, *){
+            return safeAreaLayoutGuide.topAnchor
+        }
+        return topAnchor
+    }
+
+    var safeBottomAnchor : NSLayoutYAxisAnchor {
+        if #available(iOS 11.0, *){
+            return safeAreaLayoutGuide.bottomAnchor
+        }
+        return bottomAnchor
+    }
+
+    var safeTrailingAnchor : NSLayoutXAxisAnchor {
+        if #available(iOS 11.0, *){
+            return safeAreaLayoutGuide.trailingAnchor
+        }
+        return trailingAnchor
+    }
+
+    var safeLeadingAnchor : NSLayoutXAxisAnchor {
+        if #available(iOS 11.0, *){
+            return safeAreaLayoutGuide.leadingAnchor
+        }
+        return leadingAnchor
+    }
 }

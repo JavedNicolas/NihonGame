@@ -10,23 +10,16 @@ import UIKit
 
 class MainMenuViewController: UIViewController {
     internal var menuName : UILabel?
-    internal var gameButtons : [LevelButton]?
+    internal var gameButtonTV : UITableView?
     internal var backButton : UIButton?
+    internal var model : MainMenuModel?
+    internal var menuItems : [GameDataModel]?
 
     override func viewDidLoad() {
         view.backgroundColor = .white
-        getGameData()
-        setView()
-    }
-
-    func getGameData() {
-        let kanjis = KanjiData()
-        for kanji  in kanjis.kanjis {
-            print("Kanji: \(kanji.value), level: \(kanji.groupName)")
-        }
-
-        for group  in kanjis.groups {
-            print("Group lvl : \(group.groupName), Kanji from : \(group.groupElementRange.0) to \(group.groupElementRange.1)")
-        }
+        model = MainMenuModel(completionHandler: { (menuItems) in
+            self.menuItems = menuItems
+            self.setView()
+        })
     }
 }

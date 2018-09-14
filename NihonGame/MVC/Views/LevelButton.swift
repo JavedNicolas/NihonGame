@@ -15,10 +15,18 @@ class LevelButton : UIButton {
         self.progression = progression
         self.title = title
         super.init(frame: rect)
+        self.setTitle(title, for: .normal)
+        style()
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func style() {
+        self.layer.cornerRadius = 10
+        self.contentMode = .left
+        self.backgroundColor = .blue
     }
 
 

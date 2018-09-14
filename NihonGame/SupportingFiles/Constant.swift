@@ -8,10 +8,6 @@
 
 import Foundation
 
-struct KanjiAPI {
-    static let EndPoint = "https://bridge.buddyweb.fr/api/jlptkanji/kanji"
-}
-
 struct KanjiJSON {
     static let JSONName = "KanjiList"
 }
