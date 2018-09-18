@@ -16,6 +16,7 @@ class LevelButton : UIView {
         self.title = title
         super.init(frame: rect)
         style()
+        setContent()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -25,7 +26,15 @@ class LevelButton : UIView {
     func style() {
         self.layer.cornerRadius = 10
         self.contentMode = .left
-        self.backgroundColor = .blue
+        self.backgroundColor = .white
+    }
+
+    func setContent() {
+        let labelTitle = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: self.frame.height))
+        labelTitle.contentMode = .center
+        labelTitle.text = title
+        self.addSubview(labelTitle)
+        labelTitle.setAnchors(top: self.topAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, bottom: self.bottomAnchor)
     }
 
 

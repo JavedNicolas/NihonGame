@@ -13,5 +13,4 @@ extension MainMenuViewController : UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         print("Change VC")
     }
-
 }

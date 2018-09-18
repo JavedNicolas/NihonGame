@@ -18,7 +18,11 @@ extension MainMenuViewController : UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = GameButtonTableViewCell(style: .default, reuseIdentifier: "gameButtonCell", gameData: (menuItems?[indexPath.row])!)
+        guard let menuItems = menuItems else {
+            return UITableViewCell()
+        }
+
+        let cell = GameButtonTableViewCell(style: .default, reuseIdentifier: "gameButtonCell", gameData: menuItems[indexPath.row])
 
         return cell
     }

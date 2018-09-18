@@ -17,9 +17,9 @@ struct KanjiParsing : Decodable {
 }
 
 
-struct Kanji {
+struct Kanji : GameData{
     var id : Int
-    var groupName : KanjiGroups
+    var groupName : String
     var value : String
     let onyomi : [Substring]
     let kunyomi : [Substring]

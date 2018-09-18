@@ -13,10 +13,10 @@ class MainMenuViewController: UIViewController {
     internal var gameButtonTV : UITableView?
     internal var backButton : UIButton?
     internal var model : MainMenuModel?
-    internal var menuItems : [GameDataModel]?
+    internal var menuItems : [GameMode]?
 
     override func viewDidLoad() {
-        view.backgroundColor = .white
+        view.backgroundColor = .green
         model = MainMenuModel(completionHandler: { (menuItems) in
             self.menuItems = menuItems
             self.setView()

@@ -8,9 +8,9 @@
 
 import Foundation
 
-class KanjiData : GameDataParsing, GameDataModel {
+class KanjiData : GameDataParsing, GameMode {
     // MARK: - Attributs
-    var name : String = "Kanji"
+    var groupName : String = "Kanji".localize()
     var kanjis: [Kanji] = []
     var groups : [Group] = []
 
@@ -38,12 +38,12 @@ class KanjiData : GameDataParsing, GameDataModel {
             let kanjiParsed = try JSONDecoder().decode([KanjiParsing].self, from: data)
             for (index, kanji) in kanjiParsed.enumerated() {
                 let id = index + 1
-                let groupName = KanjiGroups.init(rawValue: kanji.level)
+                let groupName = kanji.level
                 let kanjiString = kanji.kanji
                 let onyomi = kanji.onyomi.split(separator: ",")
                 let kunyomi = kanji.kunyomi.split(separator: ",")
                 let traduction = kanji.traduction.split(separator: ",")
-                let reformatedKanji = Kanji(id: id, groupName: groupName!, value: kanjiString, onyomi: onyomi, kunyomi: kunyomi, traduction: traduction)
+                let reformatedKanji = Kanji(id: id, groupName: groupName, value: kanjiString, onyomi: onyomi, kunyomi: kunyomi, traduction: traduction)
                 kanjisConstructor.append(reformatedKanji)
             }
             return kanjisConstructor
@@ -54,22 +54,7 @@ class KanjiData : GameDataParsing, GameDataModel {
 
     /** Init groups from the kanjis */
     private func createGroupes() -> [Group]{
-        var groupDict = [ KanjiGroups.N5 : [Int](), KanjiGroups.N4 : [Int](), KanjiGroups.N3 : [Int](),
-        KanjiGroups.N2 : [Int](), KanjiGroups.N1 : [Int]()]
-        var groups : [Group] = []
-
-        for kanji in kanjis {
-            groupDict[kanji.groupName]?.append(kanji.id)
-        }
-
-        for group in groupDict {
-            guard let firstKanjiID = group.value.first, let lastKanjiID = group.value.last else {
-                return []
-            }
-
-            groups.append(Group(groupName: group.key.rawValue, groupElementRange: (firstKanjiID, lastKanjiID)))
-        }
-
-        return groups
+        let groupNames = ["N5","N4","N3","N2","N1"]
+        return GameDataGroupCreator().createGroups(dataToSplit: kanjis, groupName: groupNames)
     }
 }

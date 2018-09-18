@@ -9,9 +9,9 @@
 import Foundation
 
 class MainMenuModel {
-    private var menuItems : [GameDataModel] = []
+    private var menuItems : [GameMode] = []
 
-    init(completionHandler: @escaping ([GameDataModel]) -> ()) {
+    init(completionHandler: @escaping ([GameMode]) -> ()) {
         menuItems.append(KanjiData())
         menuItems.append(KanjiData())
 

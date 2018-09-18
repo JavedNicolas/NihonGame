@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol GameDataModel {
-    var name : String { get set }
+protocol GameData {
+    var groupName : String { get set }
 }
