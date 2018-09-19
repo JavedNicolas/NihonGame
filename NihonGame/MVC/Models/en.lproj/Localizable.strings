@@ -6,5 +6,9 @@
   Copyright © 2018 Nicolas. All rights reserved.
 */
 
+// Mark: - Menu Titles
 "Main_Menu_Title" = "Main Menu";
-"Kanji" = "Kanji";
+"Kanji_Mode_Menu" = "Game Mode : Kanji";
+
+// Mark: - GameModes
+"Kanji_Mode_Name" = "Kanji";

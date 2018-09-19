@@ -11,7 +11,7 @@ import UIKit
 class GameButtonTableViewCell: UITableViewCell {
     private var gameButton : LevelButton?
 
-    init(style: UITableViewCellStyle, reuseIdentifier: String?, gameData: GameMode) {
+    init(style: UITableViewCellStyle, reuseIdentifier: String?, gameData: String) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setGameButton(gameData: gameData)
 
@@ -21,9 +21,9 @@ class GameButtonTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setGameButton(gameData : GameMode){
+    func setGameButton(gameData : String){
         let buttonsize = CGRect(x: 0, y: 0, width: self.bounds.width / 2, height: 400)
-        gameButton = LevelButton(rect: buttonsize, progression: (0,0), title: gameData.gameModeName)
+        gameButton = LevelButton(rect: buttonsize, progression: (0,0), title: gameData)
         if let gameButton = gameButton {
             self.addSubview(gameButton)
             gameButton.setAnchors(top: self.topAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, bottom: self.bottomAnchor,

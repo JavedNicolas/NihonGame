@@ -12,7 +12,7 @@ extension String {
     func localize() -> String{
         let localizableString = Bundle.main.localizedString(forKey: self, value: nil, table: nil)
         if localizableString == self {
-            return " "
+            return "Failed to localize"
         }
         return localizableString
     }

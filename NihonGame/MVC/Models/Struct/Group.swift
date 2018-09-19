@@ -11,5 +11,5 @@ import Foundation
 struct Group: GameDataGroup {
     var groupName : String
     var groupElementRange : (Int, Int)
-    //var levels : [Level]
+    var levels : [Level]
 }

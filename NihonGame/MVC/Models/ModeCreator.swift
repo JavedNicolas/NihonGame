@@ -13,7 +13,7 @@ class ModeCreator {
     private var gameModeDatas : [GameMode] = []
 
     init(completionHandler: @escaping ([GameMode]) -> ()) {
-        menuItems.append(createModeData(modeName: "Kanji".localize(), dataParser: KanjiData()))
+        menuItems.append(createModeData(modeName: "Kanji_Mode_Name".localize(), dataParser: KanjiData()))
 
         completionHandler(menuItems)
     }

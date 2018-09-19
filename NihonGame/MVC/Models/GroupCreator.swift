@@ -21,35 +21,37 @@ class GroupCreator {
 
         for (index, gameData) in data.enumerated() {
             if let groupIndex = groupName.index(of: gameData.groupName) {
-                groupLastElement[groupIndex] = index
+                groupLastElement[groupIndex] = index + 1
             }
         }
 
         for (index, name) in groupName.enumerated() {
-            var firstElement = 0
+            var firstElement = 1
             if groups.count != 0 {
                 firstElement = groups[index-1].groupElementRange.1 + 1
             }
-            let group = Group(groupName: name, groupElementRange: (firstElement, groupLastElement[index]))
+            let range = (firstElement, groupLastElement[index])
+            let levelForThisGroup = createGroups(rangetosplit: range)
+            let group = Group(groupName: name, groupElementRange: range, levels: levelForThisGroup)
             groups.append(group)
         }
 
         return groups
     }
 
-    func createGroups(dataToSplit data: [GameData]) -> [Level]{
+    func createGroups(rangetosplit data: (Int,Int)) -> [Level]{
         var levels = [Level]()
-        let elementsCount = data.count
-        let groupSize = elementsCount / 10
-        var level = Level(groupName: "0-\(groupSize)", groupElementRange: (0,groupSize))
-        for (index, _) in data.enumerated() {
-            if index % groupSize == 0 {
-                let endRange = groupSize + index
-                level = Level(groupName: "\(index)-\(endRange)", groupElementRange: (index,endRange))
-                levels.append(level)
-            }else {
-                // TODO
-            }
+        let elementsCount = data.1 - data.0
+        let groupSize = 9
+        let firstElementIndex = data.0
+        let numberOfGroup : Int = elementsCount / groupSize
+        var level = Level(groupName: "0-0", groupElementRange: (0,0))
+        for index in 0...(numberOfGroup - 1){
+            let startRange = (index * groupSize) + firstElementIndex + (index == 0 ? 0 : index)
+            let endRange = startRange + (index == numberOfGroup - 1 ? data.1 - startRange : groupSize)
+            level = Level(groupName: "\(startRange)-\(endRange)", groupElementRange: (startRange,endRange))
+            levels.append(level)
+
         }
         return levels
     }
