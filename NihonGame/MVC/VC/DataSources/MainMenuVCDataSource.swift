@@ -26,6 +26,5 @@ extension MainMenuViewController : UITableViewDataSource {
 
         return cell
     }
-
-    
 }
+

@@ -23,7 +23,7 @@ class GameButtonTableViewCell: UITableViewCell {
 
     func setGameButton(gameData : GameMode){
         let buttonsize = CGRect(x: 0, y: 0, width: self.bounds.width / 2, height: 400)
-        gameButton = LevelButton(rect: buttonsize, progression: (0,0), title: gameData.groupName)
+        gameButton = LevelButton(rect: buttonsize, progression: (0,0), title: gameData.gameModeName)
         if let gameButton = gameButton {
             self.addSubview(gameButton)
             gameButton.setAnchors(top: self.topAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, bottom: self.bottomAnchor,

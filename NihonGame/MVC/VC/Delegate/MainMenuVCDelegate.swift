@@ -11,6 +11,7 @@ import UIKit
 extension MainMenuViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print("Change VC")
+        let coordinator = GroupLevelCoordinator(currentViewController: self)
+        coordinator.start()
     }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GameDataGroupCreator {
+class GroupCreator {
     init(){}
 
     func createGroups(dataToSplit data: [GameData], groupName: [String]) -> [Group]{
@@ -30,7 +30,7 @@ class GameDataGroupCreator {
             if groups.count != 0 {
                 firstElement = groups[index-1].groupElementRange.1 + 1
             }
-            let group = Group(name: name, range: (firstElement, groupLastElement[index]))
+            let group = Group(groupName: name, groupElementRange: (firstElement, groupLastElement[index]))
             groups.append(group)
         }
 
@@ -41,11 +41,11 @@ class GameDataGroupCreator {
         var levels = [Level]()
         let elementsCount = data.count
         let groupSize = elementsCount / 10
-        var level = Level(name: "0-\(groupSize)", range: (0,groupSize))
+        var level = Level(groupName: "0-\(groupSize)", groupElementRange: (0,groupSize))
         for (index, _) in data.enumerated() {
             if index % groupSize == 0 {
                 let endRange = groupSize + index
-                level = Level(name: "\(index)-\(endRange)", range: (index,endRange))
+                level = Level(groupName: "\(index)-\(endRange)", groupElementRange: (index,endRange))
                 levels.append(level)
             }else {
                 // TODO

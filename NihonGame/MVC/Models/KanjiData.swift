@@ -8,16 +8,14 @@
 
 import Foundation
 
-class KanjiData : GameDataParsing, GameMode {
+class KanjiData : GameDataParser {
     // MARK: - Attributs
-    var groupName : String = "Kanji".localize()
-    var kanjis: [Kanji] = []
-    var groups : [Group] = []
+    var datas: [GameData] = [Kanji]()
+    var groupNames = ["N5", "N4", "N3", "N2", "N1" ]
 
     // MARK: - init
     init() {
-        self.kanjis = parseAndReformateKanjis()
-        self.groups = createGroupes()
+        self.datas = parseAndReformateKanjis()
     }
 
     // MARK: - Functions
@@ -50,11 +48,5 @@ class KanjiData : GameDataParsing, GameMode {
         }catch {
             return []
         }
-    }
-
-    /** Init groups from the kanjis */
-    private func createGroupes() -> [Group]{
-        let groupNames = ["N5","N4","N3","N2","N1"]
-        return GameDataGroupCreator().createGroups(dataToSplit: kanjis, groupName: groupNames)
     }
 }

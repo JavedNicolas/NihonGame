@@ -8,6 +8,8 @@
 
 import UIKit
 
-class GroupLevelViewController {
-    
+class GroupLevelViewController : UIViewController {
+    override func viewDidLoad() {
+        self.view.backgroundColor = .white
+    }
 }

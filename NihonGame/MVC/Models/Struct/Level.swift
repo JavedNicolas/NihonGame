@@ -8,12 +8,7 @@
 
 import Foundation
 
-class Level : GameDataGroup {
+struct Level : GameDataGroup {
     var groupName : String
     var groupElementRange : (Int, Int)
-
-    init(name: String, range: (Int, Int)) {
-        self.groupName = name
-        self.groupElementRange = range
-    }
 }

@@ -26,7 +26,7 @@ class LevelButton : UIView {
     func style() {
         self.layer.cornerRadius = 10
         self.contentMode = .left
-        self.backgroundColor = .white
+        self.backgroundColor = .gray
     }
 
     func setContent() {

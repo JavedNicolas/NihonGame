@@ -8,11 +8,13 @@
 
 import Foundation
 
-protocol GameDataParsing {
+protocol GameDataParser {
+    var datas : [GameData] { get }
+    var groupNames : [String] { get }
     func parseData(for: AnyObject.Type, json: String) -> Data?
 }
 
-extension GameDataParsing {
+extension GameDataParser {
     func parseData(for type: AnyObject.Type, json: String) -> Data?{
         guard let url = Bundle(for: type).url(forResource: json, withExtension: "json") else {
             return nil
