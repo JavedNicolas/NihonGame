@@ -2,12 +2,12 @@
 //  LevelButton.swift
 //  NihonGame
 //
-//  Created by Nicolas on 20/09/2018.
+//  Created by Nicolas on 05/09/2018.
 //  Copyright © 2018 Nicolas. All rights reserved.
 //
 
 import UIKit
-class LevelButton : UIView {
+class GameModeButton : UIView {
     private var progression : (Int,Int)
     private var title : String
 

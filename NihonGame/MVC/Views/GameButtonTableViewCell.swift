@@ -9,7 +9,7 @@
 import UIKit
 
 class GameButtonTableViewCell: UITableViewCell {
-    private var gameButton : LevelButton?
+    private var gameButton : GameModeButton?
 
     init(style: UITableViewCellStyle, reuseIdentifier: String?, gameData: String) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -24,7 +24,7 @@ class GameButtonTableViewCell: UITableViewCell {
 
     func setGameButton(gameData : String){
         let buttonsize = CGRect(x: 0, y: 0, width: self.bounds.width / 2, height: 400)
-        gameButton = LevelButton(rect: buttonsize, progression: (0,0), title: gameData)
+        gameButton = GameModeButton(rect: buttonsize, progression: (0,0), title: gameData)
         if let gameButton = gameButton {
             self.addSubview(gameButton)
             gameButton.setAnchors(top: self.topAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, bottom: self.bottomAnchor,
