@@ -19,7 +19,6 @@ extension LevelMenuViewController : UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LevelCell", for: indexPath)
-
         cell.backgroundColor = .green
 
         return cell

@@ -9,7 +9,16 @@
 import UIKit
 
 class LevelCollectionView : UICollectionView {
-    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+    init(view: UIView) {
+        let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+
+        let cellSize = view.frame.width / 4
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        layout.itemSize = CGSize(width: cellSize, height: cellSize)
+        layout.minimumLineSpacing = 20
+        layout.minimumInteritemSpacing = 10
+
         super.init(frame: frame, collectionViewLayout: layout)
     }
 

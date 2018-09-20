@@ -37,13 +37,11 @@ class LevelMenuViewController : UIViewController {
     }
 
     func setCollectionView() {
-        let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        layout.itemSize = CGSize(width: 50, height: 50)
-        levelCollectionView = LevelCollectionView(frame: self.view.frame, collectionViewLayout: layout)
+
+        levelCollectionView = LevelCollectionView(view: self.view)
         if let menuName = menuName, let levelCollectionView = levelCollectionView {
             self.view.addSubview(levelCollectionView)
-            levelCollectionView.set(delegate: nil, dataSource: self)
+            levelCollectionView.set(delegate: self, dataSource: self)
             levelCollectionView.setConstraint(view: self.view, topAnchor: menuName.bottomAnchor, bottomAnchor: self.view.bottomAnchor)
         }
     }
