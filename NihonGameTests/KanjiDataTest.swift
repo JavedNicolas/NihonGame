@@ -10,31 +10,35 @@ import XCTest
 @testable import NihonGame
 
 class KanjiDataTest: XCTestCase {
-
-    var kanjiData : KanjiData?
-    
     override func setUp() {
         super.setUp()
-        kanjiData = KanjiData()
     }
 
     func testGivenWeWantAllAvailableKanjiWhenWeAskForItThenWeGetAnArrayOfKanji() {
         // Given
 
         // When
-        let kanjis = kanjiData?.kanjis
+        let kanjis = KanjiData().datas
 
         // Then
-        XCTAssertNotNil(kanjis)
+        XCTAssertNotEqual(kanjis.count, 0)
     }
 
-    func testGivenWeWantToCreateGroupFromKanjiListWhenWeDoThenWeGetAnArrayOfGroup() {
+    func testGivenWeWantToParseDataFromJSONWhenWeGiveWrongBundleThenWeGetANilValue() {
+    // Given
+        let kanjiData = KanjiData()
+    // When
+        let parsedData = kanjiData.parseData(for: KanjiDataTest.self, json: "KanjiList")
+    // Then
+        XCTAssertNil(parsedData)
+    }
+
+    func testGivenWeWantToParseDataFromJSONWhenWeGiveWrongJSONThenWeGetANilValue() {
         // Given
-
+        let kanjiData = KanjiData()
         // When
-        let groups = kanjiData?.groups
-
+        let parsedData = kanjiData.parseData(for: KanjiData.self, json: "BadJSOName")
         // Then
-        XCTAssertNotNil(groups)
+        XCTAssertNil(parsedData)
     }
 }

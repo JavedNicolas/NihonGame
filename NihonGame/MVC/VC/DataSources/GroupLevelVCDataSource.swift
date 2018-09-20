@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension GroupLevelViewController : UITableViewDataSource {
+extension GroupMenuViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let groupItems = groupItems else {
             return 0

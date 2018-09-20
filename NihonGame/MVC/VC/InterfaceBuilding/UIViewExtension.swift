@@ -9,6 +9,15 @@
 import UIKit
 
 extension UIView {
+    func setNihonGameBackground() {
+        let backgroundImageView = UIImageView(frame: self.frame)
+        self.addSubview(backgroundImageView)
+
+        if let image = UIImage(named: "NihonGameBackground.png") {
+            backgroundImageView.image = image
+        }
+    }
+
     func setAnchors(top : NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, trailing: NSLayoutXAxisAnchor?,
                     bottom: NSLayoutYAxisAnchor?, padding: UIEdgeInsets = .zero) {
         translatesAutoresizingMaskIntoConstraints = false

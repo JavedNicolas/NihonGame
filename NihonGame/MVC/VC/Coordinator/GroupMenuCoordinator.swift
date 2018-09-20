@@ -8,15 +8,15 @@
 
 import UIKit
 
-class GroupLevelCoordinator : Coordinator {
-    private var groupLevelViewController : GroupLevelViewController
+class GroupMenuCoordinator : Coordinator {
+    private var groupLevelViewController : GroupMenuViewController
     private var currentViewController : UIViewController
     private var gameMode : GameMode
 
     init(currentViewController : UIViewController, gameMode: GameMode) {
         self.currentViewController = currentViewController
         self.gameMode = gameMode
-        groupLevelViewController = GroupLevelViewController()
+        groupLevelViewController = GroupMenuViewController()
     }
 
     func start() {

@@ -16,7 +16,7 @@ class MainMenuViewController: UIViewController {
     internal var menuItems : [GameMode]?
 
     override func viewDidLoad() {
-        self.view.backgroundColor = .white
+        self.view.setNihonGameBackground()
         model = ModeCreator(completionHandler: { (menuItems) in
             self.menuItems = menuItems
             self.createMenuTitle()

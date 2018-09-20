@@ -14,7 +14,8 @@ class GameButtonTableViewCell: UITableViewCell {
     init(style: UITableViewCellStyle, reuseIdentifier: String?, gameData: String) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setGameButton(gameData: gameData)
-
+        self.backgroundColor = .clear
+        self.selectionStyle = .none
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -31,14 +32,13 @@ class GameButtonTableViewCell: UITableViewCell {
         }
     }
 
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

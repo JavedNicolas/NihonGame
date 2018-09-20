@@ -8,14 +8,14 @@
 
 import UIKit
 
-class GroupLevelViewController : UIViewController {
+class GroupMenuViewController : UIViewController {
     internal var groupItems : [Group]?
     private var gameMode: GameMode?
     internal var menuName : UILabel?
     internal var gameButtonTableView : MenuTableView?
     
     override func viewDidLoad() {
-        self.view.backgroundColor = .white
+        self.view.setNihonGameBackground()
         if let gameMode = gameMode {
             groupItems = gameMode.gameModeGroups
             createMenuTitle()
@@ -37,13 +37,12 @@ class GroupLevelViewController : UIViewController {
         view.addSubview(menuName)
         menuName.setAnchors(top: view.safeTopAnchor, leading: view.leadingAnchor,
                             trailing: view.trailingAnchor, bottom: nil, padding: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0))
-
     }
 
     func createTableView() {
         gameButtonTableView = MenuTableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: .plain)
         if let gameButtonTableView = gameButtonTableView, let menuName = menuName {
-            gameButtonTableView.set(delegate: nil, datasource: self)
+            gameButtonTableView.set(delegate: self, datasource: self)
             self.view.addSubview(gameButtonTableView)
             gameButtonTableView.setMenuConstraints(view: view, topElementAnchor: menuName.bottomAnchor, bottomElementAnchor: view.bottomAnchor)
         }

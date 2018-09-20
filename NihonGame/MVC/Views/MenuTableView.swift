@@ -26,6 +26,7 @@ class MenuTableView : UITableView {
         self.separatorStyle = .none
         self.register(GameButtonTableViewCell.self, forCellReuseIdentifier: "gameButtonCell")
         self.rowHeight = 100
+        self.backgroundColor = .clear
     }
 
     func setMenuConstraints(view: UIView, topElementAnchor: NSLayoutYAxisAnchor, bottomElementAnchor: NSLayoutYAxisAnchor){
@@ -34,5 +35,4 @@ class MenuTableView : UITableView {
                         bottom: bottomElementAnchor,
                         padding: UIEdgeInsets(top: 50, left: tableViewleftPadding, bottom: 0, right: 0))
     }
-
 }
