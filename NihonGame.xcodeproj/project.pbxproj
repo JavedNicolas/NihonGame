@@ -34,6 +34,7 @@
 		37685A2021538FDC00D8B585 /* LevelMenuVCDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37685A1F21538FDC00D8B585 /* LevelMenuVCDataSource.swift */; };
 		37685A22215394B800D8B585 /* LevelMenuVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37685A21215394B800D8B585 /* LevelMenuVCDelegate.swift */; };
 		37685A2421539DDD00D8B585 /* LevelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37685A2321539DDD00D8B585 /* LevelButton.swift */; };
+		37685A2621539E6500D8B585 /* LevelMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37685A2521539E6500D8B585 /* LevelMenuCollectionViewCell.swift */; };
 		376BC8C4214665D100AFC34B /* KanjiData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8C3214665D100AFC34B /* KanjiData.swift */; };
 		376BC8CA214669B400AFC34B /* GameDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8C9214669B400AFC34B /* GameDataParser.swift */; };
 		3776D5E0214B91B800536A8D /* MainMenuVCDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3776D5DF214B91B800536A8D /* MainMenuVCDataSource.swift */; };
@@ -97,6 +98,7 @@
 		37685A1F21538FDC00D8B585 /* LevelMenuVCDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelMenuVCDataSource.swift; sourceTree = "<group>"; };
 		37685A21215394B800D8B585 /* LevelMenuVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelMenuVCDelegate.swift; sourceTree = "<group>"; };
 		37685A2321539DDD00D8B585 /* LevelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelButton.swift; sourceTree = "<group>"; };
+		37685A2521539E6500D8B585 /* LevelMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelMenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		376BC8C3214665D100AFC34B /* KanjiData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiData.swift; sourceTree = "<group>"; };
 		376BC8C9214669B400AFC34B /* GameDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataParser.swift; sourceTree = "<group>"; };
 		3776D5DF214B91B800536A8D /* MainMenuVCDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuVCDataSource.swift; sourceTree = "<group>"; };
@@ -225,8 +227,9 @@
 				37613076213FC75E00FBCA24 /* GameModeButton.swift */,
 				3776D5E1214B927B00536A8D /* GameButtonTableViewCell.swift */,
 				37613074213FC5DE00FBCA24 /* MenuTableView.swift */,
-				37685A1D21538C2F00D8B585 /* LevelColletionView.swift */,
 				37685A2321539DDD00D8B585 /* LevelButton.swift */,
+				37685A2521539E6500D8B585 /* LevelMenuCollectionViewCell.swift */,
+				37685A1D21538C2F00D8B585 /* LevelColletionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				37613075213FC5DE00FBCA24 /* MenuTableView.swift in Sources */,
 				37613037213E644700FBCA24 /* AppDelegate.swift in Sources */,
 				37613077213FC75E00FBCA24 /* GameModeButton.swift in Sources */,
+				37685A2621539E6500D8B585 /* LevelMenuCollectionViewCell.swift in Sources */,
 				37EBC377215286BB0049DB66 /* GameMode.swift in Sources */,
 				37484748214A3F2A006E35D1 /* ModeCreator.swift in Sources */,
 				376BC8C4214665D100AFC34B /* KanjiData.swift in Sources */,

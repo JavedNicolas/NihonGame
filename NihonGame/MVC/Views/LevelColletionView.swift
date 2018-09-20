@@ -27,7 +27,7 @@ class LevelCollectionView : UICollectionView {
     }
 
     func set(delegate : UICollectionViewDelegate?, dataSource: UICollectionViewDataSource?) {
-        self.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "LevelCell")
+        self.register(LevelMenuCollectionviewCell.self, forCellWithReuseIdentifier: "LevelCell")
         self.delegate = delegate
         self.dataSource = dataSource
         self.backgroundColor = .clear

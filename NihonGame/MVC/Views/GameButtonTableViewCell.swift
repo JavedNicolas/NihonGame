@@ -13,13 +13,17 @@ class GameButtonTableViewCell: UITableViewCell {
 
     init(style: UITableViewCellStyle, reuseIdentifier: String?, gameData: String) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setGameButton(gameData: gameData)
-        self.backgroundColor = .clear
-        self.selectionStyle = .none
+        set(gameData: gameData)
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    func set(gameData: String){
+        setGameButton(gameData: gameData)
+        self.backgroundColor = .clear
+        self.selectionStyle = .none
     }
 
     func setGameButton(gameData : String){
@@ -31,14 +35,4 @@ class GameButtonTableViewCell: UITableViewCell {
                                   padding: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: -20))
         }
     }
-
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
 }
