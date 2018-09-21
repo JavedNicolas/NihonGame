@@ -21,24 +21,28 @@ class GroupCreator {
         for index in 0...(numberOfGroup - 1){
             let startRange = (index * groupSize) + firstElementIndex
             let endRange = (index == numberOfGroup - 1 ? elementsCount - 1 : groupSize + startRange - 1)
-            let levels = createGroups(rangetosplit: (startRange, endRange))
+            let levels = createGroups(rangetosplit: (startRange, endRange), groupIndex: index)
             group = Group(groupName: "\("Kanji_Mode_Name".localize()) \(startRange)-\(endRange)", groupElementRange: (startRange,endRange), levels : levels)
             groups.append(group)
         }
         return groups
     }
 
-    func createGroups(rangetosplit data: (Int,Int)) -> [Level]{
+    func createGroups(rangetosplit data: (Int,Int), groupIndex: Int) -> [Level]{
         var levels = [Level]()
-        let numberOfLevelToewKanji = 2
+        // Element to calcule the level range of GameData Elements
+        let numberOfLevelToNewKanji = 2
         let elementsCount = data.1 - data.0
+        let firstElement = data.0
         let groupSize = 1
         let numberOfGroup : Int = elementsCount / groupSize
         var level = Level(groupName: "", groupElementRange: (0,0))
-        for index in 1...((numberOfGroup * numberOfLevelToewKanji)){
-            let startRange = index-(index / numberOfLevelToewKanji)
+
+        //
+        for index in 1...((numberOfGroup * numberOfLevelToNewKanji)){
+            let startRange = (index + firstElement - 1)  - (index / numberOfLevelToNewKanji)
             let endRange = startRange + (index == 1 ? 0 : 1)
-            level = Level(groupName: "\("Level_String".localize()) \(index)", groupElementRange: (startRange,endRange))
+            level = Level(groupName: /*"\("Level_String".localize()) \(index)"*/"\(startRange)-\(endRange)", groupElementRange: (startRange,endRange))
             levels.append(level)
 
         }

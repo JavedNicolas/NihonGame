@@ -11,6 +11,7 @@ import UIKit
 class MainCoordinator : Coordinator {
     private var appDelegate : AppDelegate
     private var mainMenuCoordinator : MainMenuCoordinator?
+    private var navigationController = UINavigationController()
 
     init(appDelegate: AppDelegate){
         self.appDelegate = appDelegate
@@ -18,13 +19,15 @@ class MainCoordinator : Coordinator {
 
     func start() {
         appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
-        appDelegate.window!.rootViewController = UIViewController()
+
+        appDelegate.window!.rootViewController = navigationController
         appDelegate.window!.makeKeyAndVisible()
         showMainMenu()
     }
 
     private func showMainMenu() {
         mainMenuCoordinator = MainMenuCoordinator(window: appDelegate.window!)
+        navigationController.viewControllers = [MainMenuViewController()]
         mainMenuCoordinator!.start()
     }
 }
