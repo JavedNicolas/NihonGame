@@ -11,45 +11,34 @@ import Foundation
 class GroupCreator {
     init(){}
 
-    func createGroups(dataToSplit data: [GameData], groupName: [String]) -> [Group]{
+    func createGroups(dataToSplit data: [GameData]) -> [Group]{
         var groups = [Group]()
-        var groupLastElement = [Int]()
-
-        for _ in groupName {
-            groupLastElement.append(0)
-        }
-
-        for (index, gameData) in data.enumerated() {
-            if let groupIndex = groupName.index(of: gameData.groupName) {
-                groupLastElement[groupIndex] = index + 1
-            }
-        }
-
-        for (index, name) in groupName.enumerated() {
-            var firstElement = 1
-            if groups.count != 0 {
-                firstElement = groups[index-1].groupElementRange.1 + 1
-            }
-            let range = (firstElement, groupLastElement[index])
-            let levelForThisGroup = createGroups(rangetosplit: range)
-            let group = Group(groupName: name, groupElementRange: range, levels: levelForThisGroup)
+        let elementsCount = data.count
+        let groupSize = 10
+        let firstElementIndex = 1
+        let numberOfGroup : Int = elementsCount / groupSize
+        var group = Group(groupName: "0-0", groupElementRange: (0,0), levels: [])
+        for index in 0...(numberOfGroup - 1){
+            let startRange = (index * groupSize) + firstElementIndex
+            let endRange = (index == numberOfGroup - 1 ? elementsCount - 1 : groupSize + startRange - 1)
+            let levels = createGroups(rangetosplit: (startRange, endRange))
+            group = Group(groupName: "\("Kanji_Mode_Name".localize()) \(startRange)-\(endRange)", groupElementRange: (startRange,endRange), levels : levels)
             groups.append(group)
         }
-
         return groups
     }
 
     func createGroups(rangetosplit data: (Int,Int)) -> [Level]{
         var levels = [Level]()
+        let numberOfLevelToewKanji = 2
         let elementsCount = data.1 - data.0
-        let groupSize = 9
-        let firstElementIndex = data.0
+        let groupSize = 1
         let numberOfGroup : Int = elementsCount / groupSize
-        var level = Level(groupName: "0-0", groupElementRange: (0,0))
-        for index in 0...(numberOfGroup - 1){
-            let startRange = (index * groupSize) + firstElementIndex + (index == 0 ? 0 : index)
-            let endRange = startRange + (index == numberOfGroup - 1 ? data.1 - startRange : groupSize)
-            level = Level(groupName: "\(startRange)-\(endRange)", groupElementRange: (startRange,endRange))
+        var level = Level(groupName: "", groupElementRange: (0,0))
+        for index in 1...((numberOfGroup * numberOfLevelToewKanji)){
+            let startRange = index-(index / numberOfLevelToewKanji)
+            let endRange = startRange + (index == 1 ? 0 : 1)
+            level = Level(groupName: "\("Level_String".localize()) \(index)", groupElementRange: (startRange,endRange))
             levels.append(level)
 
         }

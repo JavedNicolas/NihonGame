@@ -20,7 +20,7 @@ class ModeCreator {
 
     private func createModeData(modeName: String, dataParser: GameDataParser) -> GameMode{
         let gameDatas = dataParser.datas
-        let groups = GroupCreator().createGroups(dataToSplit: gameDatas, groupName: dataParser.groupNames)
+        let groups = GroupCreator().createGroups(dataToSplit: gameDatas)
         return GameMode(gameModeName: modeName, gameDatas: gameDatas, gameModeGroups: groups)
     }
 

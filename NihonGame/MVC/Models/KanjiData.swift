@@ -11,7 +11,6 @@ import Foundation
 class KanjiData : GameDataParser {
     // MARK: - Attributs
     var datas: [GameData] = [Kanji]()
-    var groupNames = ["N5", "N4", "N3", "N2", "N1" ]
 
     // MARK: - init
     init() {

@@ -10,7 +10,6 @@ import Foundation
 
 protocol GameDataParser {
     var datas : [GameData] { get }
-    var groupNames : [String] { get }
     func parseData(for: AnyObject.Type, json: String) -> Data?
 }
 
