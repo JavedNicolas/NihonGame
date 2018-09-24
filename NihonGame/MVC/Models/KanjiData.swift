@@ -33,8 +33,8 @@ class KanjiData : GameDataParser {
         var kanjisConstructor : [Kanji] = []
         do {
             let kanjiParsed = try JSONDecoder().decode([KanjiParsing].self, from: data)
-            for (index, kanji) in kanjiParsed.enumerated() {
-                let id = index + 1
+            for kanji in kanjiParsed {
+                let id = kanji.id
                 let groupName = kanji.level
                 let kanjiString = kanji.kanji
                 let onyomi = kanji.onyomi.split(separator: ",")

@@ -11,9 +11,15 @@ import UIKit
 extension LevelMenuViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? LevelMenuCollectionviewCell, let isLocked = cell.islocked(),
-            isLocked else {
+            !isLocked else {
                 return
         }
-        print("Selected")
+
+        if let levels = levels {
+            let level = levels[indexPath.row]
+            let gameCoordinator = GameCoordinator(currentViewController: self, level: level)
+            gameCoordinator.start()
+        }
+
     }
 }

@@ -23,7 +23,7 @@ extension LevelMenuViewController : UICollectionViewDataSource {
         let levels = levels else {
             return UICollectionViewCell()
         }
-        
+
         cell.level = levels[indexPath.row]
 
         return cell
