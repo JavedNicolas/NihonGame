@@ -15,7 +15,7 @@ class GroupCreatorTest: XCTestCase {
     override func setUp() {
         let kanjiData = KanjiData()
         let kanjis = kanjiData.datas
-        groups = GroupCreator().createGroups(dataToSplit: kanjis, groupName: kanjiData.groupNames)
+        groups = GroupCreator().createGroups(dataToSplit: kanjis)
     }
 
     func testGivenWeHaveGameDatapWhenWeWantToSplitThemToMakeGroupsThenWeGetGroups() {

@@ -12,10 +12,11 @@ class ModeCreator {
     private var menuItems : [GameMode] = []
     private var gameModeDatas : [GameMode] = []
 
-    init(completionHandler: @escaping ([GameMode]) -> ()) {
-        menuItems.append(createModeData(modeName: "Kanji_Mode_Name".localize(), dataParser: KanjiData()))
+    init() {}
 
-        completionHandler(menuItems)
+    func getModes() -> [GameMode]{
+        menuItems.append(createModeData(modeName: "Kanji_Mode_Name".localize(), dataParser: KanjiData()))
+        return menuItems
     }
 
     private func createModeData(modeName: String, dataParser: GameDataParser) -> GameMode{

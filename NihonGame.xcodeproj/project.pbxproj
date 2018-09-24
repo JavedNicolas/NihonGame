@@ -52,6 +52,7 @@
 		37A5665221490E1400F53B43 /* Kanjis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5665121490E1400F53B43 /* Kanjis.swift */; };
 		37BF519F21590D670093F04E /* LevelProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BF519E21590D670093F04E /* LevelProgression.swift */; };
 		37BF51A221590DA50093F04E /* KanjiProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BF51A121590DA50093F04E /* KanjiProgression.swift */; };
+		37BF51A4215910FB0093F04E /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BF51A3215910FB0093F04E /* CoreDataTest.swift */; };
 		37E0B02B2158BE4A0064019F /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E0B02A2158BE4A0064019F /* MenuButton.swift */; };
 		37E0B0312158C0BD0064019F /* GameGroupButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E0B0302158C0BD0064019F /* GameGroupButton.swift */; };
 		37E0B0332158C0EC0064019F /* GroupMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E0B0322158C0EC0064019F /* GroupMenuTableViewCell.swift */; };
@@ -126,6 +127,7 @@
 		37A5665121490E1400F53B43 /* Kanjis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kanjis.swift; sourceTree = "<group>"; };
 		37BF519E21590D670093F04E /* LevelProgression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelProgression.swift; sourceTree = "<group>"; };
 		37BF51A121590DA50093F04E /* KanjiProgression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiProgression.swift; sourceTree = "<group>"; };
+		37BF51A3215910FB0093F04E /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
 		37E0B02A2158BE4A0064019F /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		37E0B0302158C0BD0064019F /* GameGroupButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameGroupButton.swift; sourceTree = "<group>"; };
 		37E0B0322158C0EC0064019F /* GroupMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				37A5664E21490B7500F53B43 /* KanjiDataTest.swift */,
 				37685A132153745900D8B585 /* GroupCreatorTest.swift */,
 				37685A15215377DA00D8B585 /* ModeCreatorTest.swift */,
+				37BF51A3215910FB0093F04E /* CoreDataTest.swift */,
 			);
 			path = NihonGameTests;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37BF51A4215910FB0093F04E /* CoreDataTest.swift in Sources */,
 				37613052213E644900FBCA24 /* NihonGameTests.swift in Sources */,
 				37685A16215377DA00D8B585 /* ModeCreatorTest.swift in Sources */,
 				37685A142153745900D8B585 /* GroupCreatorTest.swift in Sources */,

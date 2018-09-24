@@ -10,5 +10,6 @@ import Foundation
 
 protocol GameData {
     var id : Int { get }
-    var groupName : String { get set }
+    var groupName : String { get }
+    var learningScore : Int { get }
 }

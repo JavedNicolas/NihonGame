@@ -25,13 +25,14 @@ class KanjiProgression : NSManagedObject {
         return progressions
     }
 
-    func saveKanjiProgression(kanjis: [Kanji]) {
+    func saveProgression(kanjis: [Kanji]) {
         for kanji in kanjis {
-            let kanjiProgression = KanjiProgression(context: context)
-            kanjiProgression.id = Int16(kanji.id)
-            kanjiProgression.progressionScore = Int64(kanji.learningScore)
+            if kanji.learningScore != 0 {
+                let kanjiProgression = KanjiProgression(context: context)
+                kanjiProgression.id = Int16(kanji.id)
+                kanjiProgression.progressionScore = Int64(kanji.learningScore)
+            }
         }
-
         coreDataManager.saveContext()
     }
 }

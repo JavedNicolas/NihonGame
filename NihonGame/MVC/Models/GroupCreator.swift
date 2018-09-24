@@ -45,7 +45,7 @@ class GroupCreator {
             let locked = index == 1 ? false : true
             let startRange = (index + firstElement - 1)  - (index / numberOfLevelToNewKanji)
             let endRange = startRange + (index == 1 ? 0 : 1)
-            level = Level(groupName: /*"\("Level_String".localize()) \(index)"*/"\(startRange)-\(endRange)",
+            level = Level(groupName: "\("Level_String".localize()) \(index)",
                 groupElementRange: (startRange,endRange), locked: locked)
             levels.append(level)
 

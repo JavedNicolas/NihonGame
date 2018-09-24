@@ -26,12 +26,14 @@ class LevelProgression : NSManagedObject {
         return progressions
     }
 
-    func saveLevelProgression(levels: [Level]) {
+    func saveProgression(levels: [Level]) {
         for level in levels {
-            let levelProgression = LevelProgression(context: context)
-            levelProgression.id = level.id
-            levelProgression.levelScore = Int64(level.score)
-            levelProgression.stars = Int16(level.stars)
+            if level.score != 0 {
+                let levelProgression = LevelProgression(context: context)
+                levelProgression.id = level.id
+                levelProgression.levelScore = Int64(level.score)
+                levelProgression.stars = Int16(level.stars)
+            }
         }
 
         coreDataManager.saveContext()

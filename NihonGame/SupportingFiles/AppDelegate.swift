@@ -14,6 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var mainCoordinator : MainCoordinator?
+    static var modes : [GameMode] {
+        let modeList = ModeCreator()
+        return modeList.getModes()
+    }
 
     static var delegate : AppDelegate {
         return  (UIApplication.shared.delegate as! AppDelegate)
@@ -21,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // ----- create windows and VC
+
+
         mainCoordinator = MainCoordinator(appDelegate: self)
         mainCoordinator?.start()
         return true
@@ -50,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "GameData")
+        let container = NSPersistentContainer(name: "GameDataModel")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")

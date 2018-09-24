@@ -12,16 +12,14 @@ class MainMenuViewController: UIViewController {
     internal var menuName : UILabel?
     internal var gameButtonTableView : MenuTableView?
     internal var backButton : UIButton?
-    internal var model : ModeCreator?
     internal var menuItems : [GameMode]?
 
     override func viewDidLoad() {
         self.view.setNihonGameBackground()
-        model = ModeCreator(completionHandler: { (menuItems) in
-            self.menuItems = menuItems
-            self.createMenuTitle()
-            self.createTableView()
-        })
+        self.menuItems = AppDelegate.modes
+        self.createMenuTitle()
+        self.createTableView()
+
     }
 
     func createMenuTitle() {
