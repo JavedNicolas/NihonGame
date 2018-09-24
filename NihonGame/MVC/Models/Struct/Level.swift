@@ -9,6 +9,7 @@
 import Foundation
 
 struct Level : GameDataGroup {
+    var id : String
     var name : String
     var elementRange : (Int, Int)
     var done : Bool
@@ -16,8 +17,9 @@ struct Level : GameDataGroup {
     var score: Int
     var stars: Int
 
-    init(groupName: String, groupElementRange: (Int,Int), done: Bool = false, locked: Bool = true,
+    init(id: String = "", groupName: String, groupElementRange: (Int,Int), done: Bool = false, locked: Bool = true,
          score: Int = 0, stars: Int = 0) {
+        self.id = "\(groupElementRange.0)-\(groupElementRange.1)"
         self.name = groupName
         self.elementRange = groupElementRange
         self.done = done

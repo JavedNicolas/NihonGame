@@ -7,20 +7,21 @@
 //
 
 import Foundation
+import CoreData
 
 class CoreDataManager {
     private var context = AppDelegate.viewContext
 
-    init() {
-
-    }
+    init() {}
 
     /* Context for test */
     func contextForTest() {
         context = AppDelegate.persistentConainer.newBackgroundContext()
     }
 
-   
+    func getContext() -> NSManagedObjectContext{
+        return context
+    }
 
     func saveContext() {
         do {
