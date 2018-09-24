@@ -38,11 +38,11 @@ class CoreDataTest: XCTestCase {
 
     func testGivenWeNeedKanjiProgressionWhenWeFetchItFromCoreDataThenWeHaveKanjiProgression() {
     // Given
-        let kanjiProgression = KanjiProgression()
-        kanjiProgression.saveProgression(kanjis: createDataInCoreDataForKanji())
+        let coreDataManager = CoreDataManager()
+        coreDataManager.saveProgression(kanjis: createDataInCoreDataForKanji())
 
     // When
-        let progression = kanjiProgression.fetchProgression()
+        let progression = coreDataManager.fetchKanjiProgression()
 
     // Then
         XCTAssertNotNil(progression)
@@ -51,11 +51,11 @@ class CoreDataTest: XCTestCase {
 
     func testGivenWeNeedLevelProgressionWhenWeFetchItFromCoreDataThenWeHaveLevelProgression() {
         // Given
-        let levelProgression = LevelProgression()
-        levelProgression.saveProgression(levels: createDataInCoreDataForLevel())
+        let coreDataManager = CoreDataManager()
+        coreDataManager.saveProgression(levels: createDataInCoreDataForLevel())
 
         // When
-        let progression = levelProgression.fetchProgression()
+        let progression = coreDataManager.fetchLevelProgression()
 
         // Then
         XCTAssertNotNil(progression)

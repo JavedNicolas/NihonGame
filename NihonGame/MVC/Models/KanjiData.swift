@@ -30,6 +30,10 @@ class KanjiData : GameDataParser {
             return []
         }
 
+        guard let kanjiProgression = getKanjiProgression() else {
+            return []
+        }
+
         var kanjisConstructor : [Kanji] = []
         do {
             let kanjiParsed = try JSONDecoder().decode([KanjiParsing].self, from: data)
@@ -40,12 +44,38 @@ class KanjiData : GameDataParser {
                 let onyomi = kanji.onyomi.split(separator: ",")
                 let kunyomi = kanji.kunyomi.split(separator: ",")
                 let traduction = kanji.traduction.split(separator: ",")
-                let reformatedKanji = Kanji(id: id, groupName: groupName, value: kanjiString, onyomi: onyomi, kunyomi: kunyomi, traduction: traduction)
+                let progression = hasProgression(kanjiID: kanji.id, kanjiProgression: kanjiProgression)
+                var learningScore = 0
+                if progression.0 {
+                    learningScore = progression.1
+                }
+
+                let reformatedKanji = Kanji(id: id, groupName: groupName, value: kanjiString, onyomi: onyomi, kunyomi: kunyomi, traduction: traduction, learningScore: learningScore)
                 kanjisConstructor.append(reformatedKanji)
             }
             return kanjisConstructor
         }catch {
             return []
+        }
+    }
+
+    private func getKanjiProgression() -> [KanjiProgression]? {
+        let coreDataManager = CoreDataManager()
+        if let kanjiProgressions = coreDataManager.fetchKanjiProgression() {
+            return kanjiProgressions
+        }
+
+        return nil
+    }
+
+    private func hasProgression(kanjiID: Int, kanjiProgression: [KanjiProgression]) -> (Bool, Int){
+        let comparingKanjiProgression = KanjiProgression()
+        comparingKanjiProgression.id = Int16(kanjiID)
+        if let progression = kanjiProgression.firstIndex(of: comparingKanjiProgression)  {
+            let currentProgression = Int(kanjiProgression[progression].progressionScore)
+            return (true, currentProgression)
+        } else {
+            return (false, 0)
         }
     }
 }

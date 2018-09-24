@@ -19,13 +19,13 @@ class ModeCreatorTest: XCTestCase {
     // Given
 
     // When and Then
-        let _ = ModeCreator { (gameModes) in
-            XCTAssertNotEqual(gameModes.count, 0)
-            for mode in gameModes {
-                XCTAssertNotNil(mode.gameModeName)
-                XCTAssertNotEqual(mode.gameDatas.count, 0)
-                XCTAssertNotEqual(mode.gameModeGroups.count, 0)
-            }
+        let modes = ModeCreator()
+        let gameModes = modes.getModes()
+        XCTAssertNotEqual(gameModes.count, 0)
+        for mode in gameModes {
+            XCTAssertNotNil(mode.gameModeName)
+            XCTAssertNotEqual(mode.gameDatas.count, 0)
+            XCTAssertNotEqual(mode.gameModeGroups.count, 0)
         }
     }
 
