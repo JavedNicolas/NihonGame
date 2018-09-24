@@ -22,7 +22,8 @@ extension GroupMenuViewController : UITableViewDataSource {
             return UITableViewCell()
         }
 
-        let cell = GameButtonTableViewCell(style: .default, reuseIdentifier: "gameButtonCell", gameData: groupItems[indexPath.row].groupName)
+        let cell = GroupMenuTableViewCell(style: .default, reuseIdentifier: "GroupMenuCell")
+        cell.group = groupItems[indexPath.row]
 
         return cell
     }

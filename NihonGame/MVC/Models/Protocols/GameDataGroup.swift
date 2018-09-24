@@ -9,6 +9,8 @@
 import Foundation
 
 protocol GameDataGroup {
-    var groupName : String { get }
-    var groupElementRange : (Int, Int) { get }
+    var name : String { get }
+    var elementRange : (Int, Int) { get }
+    var done : Bool { get }
+    var locked : Bool { get }
 }

@@ -34,8 +34,8 @@ class GroupCreatorTest: XCTestCase {
         // in the setup
     // Then
         for group in groups {
-            XCTAssertNotNil(group.groupName)
-            XCTAssertNotNil(group.groupElementRange)
+            XCTAssertNotNil(group.name)
+            XCTAssertNotNil(group.elementRange)
         }
     }
 

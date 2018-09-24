@@ -10,6 +10,11 @@ import UIKit
 
 extension GroupMenuViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? GroupMenuTableViewCell, let isLocked = cell.islocked(),
+        !isLocked else {
+            return
+        }
+
         if let groupItems = groupItems {
             let levelMenuCoordinator = LevelMenuCoordinator(currentViewController: self, levels: groupItems[indexPath.row].levels)
             levelMenuCoordinator.start()

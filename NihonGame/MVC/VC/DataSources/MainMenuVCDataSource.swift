@@ -22,7 +22,8 @@ extension MainMenuViewController : UITableViewDataSource {
             return UITableViewCell()
         }
 
-        let cell = GameButtonTableViewCell(style: .default, reuseIdentifier: "gameButtonCell", gameData: menuItems[indexPath.row].gameModeName)
+        let cell = ModeMenuTableViewCell(style: .default, reuseIdentifier: "ModeMenuCell")
+        cell.gameMode = menuItems[indexPath.row]
 
         return cell
     }

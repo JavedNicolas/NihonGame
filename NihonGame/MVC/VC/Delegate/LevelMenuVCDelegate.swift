@@ -10,6 +10,10 @@ import UIKit
 
 extension LevelMenuViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? LevelMenuCollectionviewCell, let isLocked = cell.islocked(),
+            isLocked else {
+                return
+        }
         print("Selected")
     }
 }

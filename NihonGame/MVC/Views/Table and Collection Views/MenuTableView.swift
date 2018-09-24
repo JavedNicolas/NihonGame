@@ -20,11 +20,11 @@ class MenuTableView : UITableView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func set(delegate: UITableViewDelegate?, datasource: UITableViewDataSource?) {
+    func set(delegate: UITableViewDelegate?, datasource: UITableViewDataSource?, cellType: MenuTableViewCell.Type, identifier: String) {
         self.dataSource = datasource
         self.delegate = delegate
         self.separatorStyle = .none
-        self.register(GameButtonTableViewCell.self, forCellReuseIdentifier: "gameButtonCell")
+        self.register(cellType, forCellReuseIdentifier: identifier)
         self.rowHeight = 100
         self.backgroundColor = .clear
     }

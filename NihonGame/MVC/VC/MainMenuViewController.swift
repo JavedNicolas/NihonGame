@@ -40,7 +40,7 @@ class MainMenuViewController: UIViewController {
     func createTableView() {
         gameButtonTableView = MenuTableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: .plain)
         if let gameButtonTableView = gameButtonTableView, let menuName = menuName {
-            gameButtonTableView.set(delegate: self, datasource: self)
+            gameButtonTableView.set(delegate: self, datasource: self, cellType: ModeMenuTableViewCell.self, identifier: "ModeMenuCell")
             self.view.addSubview(gameButtonTableView)
             gameButtonTableView.setMenuConstraints(view: view, topElementAnchor: menuName.bottomAnchor, bottomElementAnchor: view.bottomAnchor)
         }

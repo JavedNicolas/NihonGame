@@ -24,7 +24,7 @@ extension LevelMenuViewController : UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.set(level: levels[indexPath.row])
+        cell.level = levels[indexPath.row]
 
         return cell
     }

@@ -8,28 +8,21 @@
 
 import UIKit
 
-class GameButtonTableViewCell: UITableViewCell {
+class ModeMenuTableViewCell: MenuTableViewCell {
     private var gameButton : GameModeButton?
-
-    init(style: UITableViewCellStyle, reuseIdentifier: String?, gameData: String) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        set(gameData: gameData)
+    var gameMode : GameMode? = nil {
+        didSet {
+            if let gameMode = gameMode {
+                setGameButton(gameMode: gameMode)
+            }
+        }
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    func set(gameData: String){
-        setGameButton(gameData: gameData)
-        self.backgroundColor = .clear
-        self.selectionStyle = .none
-    }
-
-    func setGameButton(gameData : String){
+    private func setGameButton(gameMode: GameMode){
         let buttonsize = CGRect(x: 0, y: 0, width: self.bounds.width / 2, height: 400)
-        gameButton = GameModeButton(rect: buttonsize, progression: (0,0), title: gameData)
+        gameButton = GameModeButton(rect: buttonsize)
         if let gameButton = gameButton {
+            gameButton.mode = gameMode
             self.addSubview(gameButton)
             gameButton.setAnchors(top: self.topAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, bottom: self.bottomAnchor,
                                   padding: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: -20))

@@ -19,10 +19,12 @@ class GroupCreator {
         let numberOfGroup : Int = elementsCount / groupSize
         var group = Group(groupName: "0-0", groupElementRange: (0,0), levels: [])
         for index in 0...(numberOfGroup - 1){
+            let locked = index == 0 ? false : true
             let startRange = (index * groupSize) + firstElementIndex
             let endRange = (index == numberOfGroup - 1 ? elementsCount - 1 : groupSize + startRange - 1)
             let levels = createGroups(rangetosplit: (startRange, endRange), groupIndex: index)
-            group = Group(groupName: "\("Kanji_Mode_Name".localize()) \(startRange)-\(endRange)", groupElementRange: (startRange,endRange), levels : levels)
+            group = Group(groupName: "\("Kanji_Mode_Name".localize()) \(startRange)-\(endRange)", groupElementRange: (startRange,endRange),
+                          levels : levels, locked: locked)
             groups.append(group)
         }
         return groups
@@ -40,9 +42,11 @@ class GroupCreator {
 
         //
         for index in 1...((numberOfGroup * numberOfLevelToNewKanji)){
+            let locked = index == 1 ? false : true
             let startRange = (index + firstElement - 1)  - (index / numberOfLevelToNewKanji)
             let endRange = startRange + (index == 1 ? 0 : 1)
-            level = Level(groupName: /*"\("Level_String".localize()) \(index)"*/"\(startRange)-\(endRange)", groupElementRange: (startRange,endRange))
+            level = Level(groupName: /*"\("Level_String".localize()) \(index)"*/"\(startRange)-\(endRange)",
+                groupElementRange: (startRange,endRange), locked: locked)
             levels.append(level)
 
         }

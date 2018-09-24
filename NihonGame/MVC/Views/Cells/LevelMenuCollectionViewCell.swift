@@ -10,6 +10,13 @@ import UIKit
 
 class LevelMenuCollectionviewCell : UICollectionViewCell {
     private var button : LevelButton?
+    var level : Level? = nil {
+        didSet {
+            if let level = level {
+                set(level: level)
+            }
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -19,17 +26,26 @@ class LevelMenuCollectionviewCell : UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func set(level: Level) {
+    private func set(level: Level) {
         self.backgroundColor = .clear
         setLevelButton(level: level)
     }
 
-    func setLevelButton(level: Level){
-        button = LevelButton(rect: self.frame, progression: (0,0), title: level.groupName)
+    private func setLevelButton(level: Level){
+        button = LevelButton(rect: self.frame)
 
         if let button = button {
+            button.level = level
             self.addSubview(button)
             button.setAnchors(top: self.topAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, bottom: self.bottomAnchor)
         }
+    }
+
+    func islocked() -> Bool? {
+        guard let button = button else {
+            return nil
+        }
+
+        return button.islocked()
     }
 }

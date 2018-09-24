@@ -38,7 +38,7 @@
 		376BC8C4214665D100AFC34B /* KanjiData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8C3214665D100AFC34B /* KanjiData.swift */; };
 		376BC8CA214669B400AFC34B /* GameDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376BC8C9214669B400AFC34B /* GameDataParser.swift */; };
 		3776D5E0214B91B800536A8D /* MainMenuVCDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3776D5DF214B91B800536A8D /* MainMenuVCDataSource.swift */; };
-		3776D5E2214B927B00536A8D /* GameButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3776D5E1214B927B00536A8D /* GameButtonTableViewCell.swift */; };
+		3776D5E2214B927B00536A8D /* ModeMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3776D5E1214B927B00536A8D /* ModeMenuTableViewCell.swift */; };
 		3776D5E3214BA65600536A8D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3776D5E5214BA65600536A8D /* Localizable.strings */; };
 		3776D5E8214BA78E00536A8D /* LocalizableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3776D5E7214BA78E00536A8D /* LocalizableExtension.swift */; };
 		3776D5EA214BAA4E00536A8D /* MainMenuVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3776D5E9214BAA4E00536A8D /* MainMenuVCDelegate.swift */; };
@@ -50,6 +50,10 @@
 		37A5664D2149019D00F53B43 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5664C2149019D00F53B43 /* Group.swift */; };
 		37A5664F21490B7500F53B43 /* KanjiDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5664E21490B7500F53B43 /* KanjiDataTest.swift */; };
 		37A5665221490E1400F53B43 /* Kanjis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A5665121490E1400F53B43 /* Kanjis.swift */; };
+		37E0B02B2158BE4A0064019F /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E0B02A2158BE4A0064019F /* MenuButton.swift */; };
+		37E0B0312158C0BD0064019F /* GameGroupButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E0B0302158C0BD0064019F /* GameGroupButton.swift */; };
+		37E0B0332158C0EC0064019F /* GroupMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E0B0322158C0EC0064019F /* GroupMenuTableViewCell.swift */; };
+		37E0B0352158C3C80064019F /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E0B0342158C3C80064019F /* MenuTableViewCell.swift */; };
 		37EBC375215284810049DB66 /* GroupMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EBC374215284810049DB66 /* GroupMenuCoordinator.swift */; };
 		37EBC377215286BB0049DB66 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EBC376215286BB0049DB66 /* GameMode.swift */; };
 		37EBC379215291F60049DB66 /* GroupLevelVCDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EBC378215291F60049DB66 /* GroupLevelVCDataSource.swift */; };
@@ -102,7 +106,7 @@
 		376BC8C3214665D100AFC34B /* KanjiData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiData.swift; sourceTree = "<group>"; };
 		376BC8C9214669B400AFC34B /* GameDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataParser.swift; sourceTree = "<group>"; };
 		3776D5DF214B91B800536A8D /* MainMenuVCDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuVCDataSource.swift; sourceTree = "<group>"; };
-		3776D5E1214B927B00536A8D /* GameButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButtonTableViewCell.swift; sourceTree = "<group>"; };
+		3776D5E1214B927B00536A8D /* ModeMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeMenuTableViewCell.swift; sourceTree = "<group>"; };
 		3776D5E4214BA65600536A8D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3776D5E6214BA65D00536A8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3776D5E7214BA78E00536A8D /* LocalizableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableExtension.swift; sourceTree = "<group>"; };
@@ -115,6 +119,10 @@
 		37A5664C2149019D00F53B43 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		37A5664E21490B7500F53B43 /* KanjiDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiDataTest.swift; sourceTree = "<group>"; };
 		37A5665121490E1400F53B43 /* Kanjis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kanjis.swift; sourceTree = "<group>"; };
+		37E0B02A2158BE4A0064019F /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		37E0B0302158C0BD0064019F /* GameGroupButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameGroupButton.swift; sourceTree = "<group>"; };
+		37E0B0322158C0EC0064019F /* GroupMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMenuTableViewCell.swift; sourceTree = "<group>"; };
+		37E0B0342158C3C80064019F /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		37EBC374215284810049DB66 /* GroupMenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMenuCoordinator.swift; sourceTree = "<group>"; };
 		37EBC376215286BB0049DB66 /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 		37EBC378215291F60049DB66 /* GroupLevelVCDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupLevelVCDataSource.swift; sourceTree = "<group>"; };
@@ -223,13 +231,10 @@
 		3761305E213E648900FBCA24 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				37E0B02C2158C0500064019F /* Buttons */,
+				37E0B02D2158C05E0064019F /* Cells */,
+				37E0B02F2158C08B0064019F /* Table and Collection Views */,
 				37613045213E644900FBCA24 /* LaunchScreen.storyboard */,
-				37613076213FC75E00FBCA24 /* GameModeButton.swift */,
-				3776D5E1214B927B00536A8D /* GameButtonTableViewCell.swift */,
-				37613074213FC5DE00FBCA24 /* MenuTableView.swift */,
-				37685A2321539DDD00D8B585 /* LevelButton.swift */,
-				37685A2521539E6500D8B585 /* LevelMenuCollectionViewCell.swift */,
-				37685A1D21538C2F00D8B585 /* LevelColletionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -312,6 +317,37 @@
 				3776D5EF2150D34A00536A8D /* GameDataGroup.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		37E0B02C2158C0500064019F /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				37E0B02A2158BE4A0064019F /* MenuButton.swift */,
+				37685A2321539DDD00D8B585 /* LevelButton.swift */,
+				37613076213FC75E00FBCA24 /* GameModeButton.swift */,
+				37E0B0302158C0BD0064019F /* GameGroupButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		37E0B02D2158C05E0064019F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				37E0B0342158C3C80064019F /* MenuTableViewCell.swift */,
+				3776D5E1214B927B00536A8D /* ModeMenuTableViewCell.swift */,
+				37E0B0322158C0EC0064019F /* GroupMenuTableViewCell.swift */,
+				37685A2521539E6500D8B585 /* LevelMenuCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		37E0B02F2158C08B0064019F /* Table and Collection Views */ = {
+			isa = PBXGroup;
+			children = (
+				37613074213FC5DE00FBCA24 /* MenuTableView.swift */,
+				37685A1D21538C2F00D8B585 /* LevelColletionView.swift */,
+			);
+			path = "Table and Collection Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,7 +460,9 @@
 				37613072213FC47300FBCA24 /* MainMenuViewController.swift in Sources */,
 				37484740214A3824006E35D1 /* MainCoordinator.swift in Sources */,
 				376BC8CA214669B400AFC34B /* GameDataParser.swift in Sources */,
+				37E0B0352158C3C80064019F /* MenuTableViewCell.swift in Sources */,
 				37685A182153808800D8B585 /* LevelMenuCoordinator.swift in Sources */,
+				37E0B0312158C0BD0064019F /* GameGroupButton.swift in Sources */,
 				37685A1A215380DC00D8B585 /* LevelMenuViewController.swift in Sources */,
 				37A5665221490E1400F53B43 /* Kanjis.swift in Sources */,
 				3761303D213E644700FBCA24 /* GameScene.swift in Sources */,
@@ -441,10 +479,12 @@
 				37613079213FC81E00FBCA24 /* UIViewExtension.swift in Sources */,
 				3776D5E8214BA78E00536A8D /* LocalizableExtension.swift in Sources */,
 				37EBC379215291F60049DB66 /* GroupLevelVCDataSource.swift in Sources */,
-				3776D5E2214B927B00536A8D /* GameButtonTableViewCell.swift in Sources */,
+				37E0B0332158C0EC0064019F /* GroupMenuTableViewCell.swift in Sources */,
+				3776D5E2214B927B00536A8D /* ModeMenuTableViewCell.swift in Sources */,
 				3776D5F02150D34A00536A8D /* GameDataGroup.swift in Sources */,
 				37613075213FC5DE00FBCA24 /* MenuTableView.swift in Sources */,
 				37613037213E644700FBCA24 /* AppDelegate.swift in Sources */,
+				37E0B02B2158BE4A0064019F /* MenuButton.swift in Sources */,
 				37613077213FC75E00FBCA24 /* GameModeButton.swift in Sources */,
 				37685A2621539E6500D8B585 /* LevelMenuCollectionViewCell.swift in Sources */,
 				37EBC377215286BB0049DB66 /* GameMode.swift in Sources */,
