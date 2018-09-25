@@ -15,8 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var mainCoordinator : MainCoordinator?
     static var modes : [GameMode] {
-        let modeList = ModeCreator()
-        return modeList.getModes()
+        let modeList = GameModes()
+        return modeList.getGameModes()
     }
 
     static var delegate : AppDelegate {
@@ -58,6 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "GameDataModel")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
