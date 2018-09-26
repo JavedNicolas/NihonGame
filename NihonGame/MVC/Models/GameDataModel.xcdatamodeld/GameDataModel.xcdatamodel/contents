@@ -15,7 +15,7 @@
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastElement" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="levels" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataLevel" inverseName="parentGroup" inverseEntity="CoreDataLevel" syncable="YES"/>
+        <relationship name="levels" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreDataLevel" inverseName="parentGroup" inverseEntity="CoreDataLevel" syncable="YES"/>
         <relationship name="parentGameMode" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataGameMode" inverseName="groups" inverseEntity="CoreDataGameMode" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -25,7 +25,7 @@
     </entity>
     <entity name="CoreDataLevel" representedClassName=".CoreDataLevel" syncable="YES" codeGenerationType="class">
         <attribute name="firstElement" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastElement" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="levelScore" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="stars" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -46,9 +46,9 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="KanjiProgression" positionX="-300.140625" positionY="-15.28125" width="128" height="75"/>
-        <element name="CoreDataLevel" positionX="-67.12109375" positionY="-9.078125" width="128" height="135"/>
-        <element name="CoreDataGameMode" positionX="-171" positionY="18" width="128" height="90"/>
-        <element name="CoreDataGroup" positionX="-162" positionY="54" width="128" height="135"/>
+        <element name="CoreDataGameMode" positionX="-25.71875" positionY="424.05859375" width="128" height="90"/>
+        <element name="CoreDataGroup" positionX="-377.70703125" positionY="236.64453125" width="128" height="135"/>
+        <element name="CoreDataLevel" positionX="-31.671875" positionY="220.32421875" width="128" height="135"/>
+        <element name="KanjiProgression" positionX="-39.17578125" positionY="102.54296875" width="128" height="75"/>
     </elements>
 </model>

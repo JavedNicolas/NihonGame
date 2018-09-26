@@ -13,29 +13,37 @@ class GroupCreatorTest: XCTestCase {
     var groups : [Group] = []
 
     override func setUp() {
-        let kanjiData = KanjiData()
-        let kanjis = kanjiData.datas
-        groups = GroupCreator().createGroups(dataToSplit: kanjis)
+        groups = Groups().getGroups()
     }
 
     func testGivenWeHaveGameDatapWhenWeWantToSplitThemToMakeGroupsThenWeGetGroups() {
-    // Given
-        // in the setup
-    // When
-        // in the setup
-    // Then
+        // Given
+            // in the setup
+        // When
+            // in the setup
+        // Then
         XCTAssertNotEqual(groups.count, 0)
     }
 
     func testGivenWeHaveGroupsWhenWeWantToUseThemThenTheyHaveNameAndRange() {
-    // Given
-        // in the setup
-    // When
-        // in the setup
-    // Then
+        // Given
+            // in the setup
+        // When
+            // in the setup
+        // Then
         for group in groups {
             XCTAssertNotNil(group.name)
             XCTAssertNotNil(group.elementRange)
+        }
+    }
+
+    func testGivenWeHaveGroupsWhenNeedTheirLevelThenWeCanFetchThem() {
+        // Given
+            // int the setup
+        // When
+        for group in groups {
+            // Then
+            XCTAssertNotEqual(0, group.levels.count)
         }
     }
 

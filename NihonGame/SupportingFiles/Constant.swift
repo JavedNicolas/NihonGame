@@ -8,12 +8,8 @@
 
 import Foundation
 
-struct KanjiJSON {
-    static let JSONName = "KanjiList"
-}
-
-struct Menu {
-    static let kanjiJSON = ""
+struct MenuJSON {
+    static let kanjiJSON = "KanjiList"
     static let gameModesJSON = ""
     static let groupsJSON = "KanjiGroupList"
     static let levelsJSON = ""

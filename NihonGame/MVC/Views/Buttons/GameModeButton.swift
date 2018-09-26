@@ -11,7 +11,7 @@ class GameModeButton : MenuButton {
     var mode : GameMode? = nil {
         didSet {
             if let mode = mode {
-                setContent(title: mode.gameModeName)
+                setContent(title: mode.name)
             }
         }
     }

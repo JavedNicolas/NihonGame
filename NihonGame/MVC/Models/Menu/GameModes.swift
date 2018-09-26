@@ -8,22 +8,24 @@
 
 import Foundation
 
-class GameMode {
-    var gameModeName : String
+struct GameMode {
+    var name : String
+    var id : Int
     var gameDatas : [GameData]
-    var gameModeGroups : [Group]
+    var groups : [Group]
 
-    init(gameModeName: String, gameDatas: [GameData], gameModeGroups: [Group]) {
-        self.gameModeName = gameModeName
+    init(gameModeName: String, gameModeID: Int, gameDatas: [GameData], gameModeGroups: [Group]) {
+        self.name = gameModeName
         self.gameDatas = gameDatas
-        self.gameModeGroups = gameModeGroups
+        self.groups = gameModeGroups
+        self.id = gameModeID
     }
 }
 
 
 class GameModes {
     private var gameModes : [GameMode] = []
-    private var gameModeFile = Menu.gameModesJSON
+    private var gameModeFile = MenuJSON.gameModesJSON
     private var modes : [GameMode] = []
 
     init() {
@@ -31,11 +33,33 @@ class GameModes {
     }
 
     private func createModesList() {
-        let kanjis = Kanjis().getKanjis()
-        let groups = Groups().getGroups()
-        print(kanjis)
-        gameModes.append(GameMode(gameModeName: "Kanji_Mode_Name".localize(), gameDatas: kanjis, gameModeGroups: groups))
+        createKanjiMode()
     }
+
+    private func createKanjiMode() {
+        var kanjis : [Kanji] = []
+        var groups : [Group] = []
+
+        if let progression = getSavedProgression()  {
+            kanjis = Kanjis().getKanjis()
+            groups = Groups(coreDataGroups: progression[0].groups).getGroups()
+        }else {
+            kanjis = Kanjis().getKanjis()
+            groups = Groups().getGroups()
+        }
+
+        gameModes.append(GameMode(gameModeName: "Kanji_Mode_Name".localize(), gameModeID: 0, gameDatas: kanjis, gameModeGroups: groups))
+    }
+
+    private func getSavedProgression() -> [CoreDataGameMode]? {
+        let coreDataManager = CoreDataManager()
+        guard let coreDataGameMode = coreDataManager.fetchMenu(modeID: 0) else {
+            return nil
+        }
+
+        return coreDataGameMode
+    }
+
 
     func getGameModes() -> [GameMode]{
         return gameModes

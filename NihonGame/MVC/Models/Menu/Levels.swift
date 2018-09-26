@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Level : GameDataGroup {
+struct Level : GameDataGroup {
     var id : Int
     var name : String
     var elementRange : (Int, Int)
@@ -28,26 +28,55 @@ class Level : GameDataGroup {
         self.stars = stars
     }
 
-    init(parsedLevel levels: LevelsParsing){
-        self.id = levels.id
-        self.name = "\(levels.startRange)-\(levels.endRange)"
-        self.elementRange = (levels.startRange,levels.endRange)
+    init(parsedLevel level: LevelsParsing){
+        self.id = level.id
+        self.name = "\(level.startRange)-\(level.endRange)"
+        self.elementRange = (level.startRange,level.endRange)
         self.done = false
         self.locked = false
         self.score = 0
         self.stars = 0
+    }
+
+    init(coreDataLevel level: CoreDataLevel){
+        self.id = level.id.int
+        self.name = "\(level.firstElement)-\(level.lastElement)"
+        self.elementRange = (level.firstElement.int ,level.lastElement.int)
+        self.done = false
+        self.locked = true
+        self.score = level.levelScore.int
+        self.stars = level.stars.int
     }
 }
 
 
 class Levels {
     private var levels : [Level] = []
-    private var levelsList = Menu.levelsJSON
+    private var levelsList = MenuJSON.levelsJSON
 
     init(parsedLevel: [LevelsParsing]){
+        setLevels(parsedLevel: parsedLevel)
+    }
 
+    init(coreDataLevels: NSSet?) {
+        setLevels(coreDataLevels: coreDataLevels)
+    }
+
+    private func setLevels(parsedLevel: [LevelsParsing]) {
         for level in parsedLevel {
             levels.append(Level(parsedLevel: level))
+        }
+    }
+
+    private func setLevels(coreDataLevels: NSSet?) {
+        guard let coreDataLevels = coreDataLevels else {
+            return
+        }
+
+        for element in coreDataLevels.enumerated() {
+            if let level = element.element as? CoreDataLevel {
+                levels.append(Level(coreDataLevel: level))
+            }
         }
     }
 

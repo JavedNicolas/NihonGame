@@ -9,6 +9,7 @@
 import Foundation
 
 protocol GameDataGroup {
+    var id : Int { get }
     var name : String { get }
     var elementRange : (Int, Int) { get }
     var done : Bool { get }

@@ -9,12 +9,12 @@
 import Foundation
 
 struct KanjiParsing : Decodable {
-    let id : Int
     let level : String
     let kanji : String
     let onyomi : String
     let kunyomi : String
     let traduction : String
+    let id : Int
 }
 
 

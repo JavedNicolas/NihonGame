@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Kanji : GameData {
+struct Kanji : GameData {
     var id : Int
     var groupName : String
     var value : String
@@ -45,10 +45,6 @@ class Kanji : GameData {
     }
     
     private func getKanjiProgression() -> [KanjiProgression]? {
-        let coreDataManager = CoreDataManager()
-        if let kanjiProgressions = coreDataManager.fetchKanjiProgression() {
-            return kanjiProgressions
-        }
 
         return nil
     }
@@ -67,7 +63,7 @@ class Kanji : GameData {
 
 class Kanjis {
     private var kanjis : [Kanji] = []
-    private var kanjisJSON = Menu.kanjiJSON
+    private var kanjisJSON = MenuJSON.kanjiJSON
 
     init() {
         let kanjiData = JSONParser(json: kanjisJSON, withExtension: "json").data
