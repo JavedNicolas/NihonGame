@@ -14,7 +14,7 @@
 		37484742214A3992006E35D1 /* MainMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37484741214A3992006E35D1 /* MainMenuCoordinator.swift */; };
 		37484744214A3B90006E35D1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37484743214A3B90006E35D1 /* Coordinator.swift */; };
 		37484746214A3DE8006E35D1 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37484745214A3DE8006E35D1 /* GameData.swift */; };
-		37548098215A4F7500CE2335 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37548097215A4F7500CE2335 /* Groups.swift */; };
+		37548098215A4F7500CE2335 /* groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37548097215A4F7500CE2335 /* groups.swift */; };
 		3754809A215A4F9800CE2335 /* Levels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37548099215A4F9800CE2335 /* Levels.swift */; };
 		3754809C215A4FCE00CE2335 /* GameModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754809B215A4FCE00CE2335 /* GameModes.swift */; };
 		3754809F215A505100CE2335 /* Kanji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754809E215A505100CE2335 /* Kanji.swift */; };
@@ -82,7 +82,7 @@
 		37484741214A3992006E35D1 /* MainMenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCoordinator.swift; sourceTree = "<group>"; };
 		37484743214A3B90006E35D1 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		37484745214A3DE8006E35D1 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
-		37548097215A4F7500CE2335 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
+		37548097215A4F7500CE2335 /* groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = groups.swift; sourceTree = "<group>"; };
 		37548099215A4F9800CE2335 /* Levels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Levels.swift; sourceTree = "<group>"; };
 		3754809B215A4FCE00CE2335 /* GameModes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModes.swift; sourceTree = "<group>"; };
 		3754809E215A505100CE2335 /* Kanji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kanji.swift; sourceTree = "<group>"; };
@@ -343,7 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				3754809B215A4FCE00CE2335 /* GameModes.swift */,
-				37548097215A4F7500CE2335 /* Groups.swift */,
+				37548097215A4F7500CE2335 /* groups.swift */,
 				37548099215A4F9800CE2335 /* Levels.swift */,
 			);
 			path = Menu;
@@ -539,7 +539,7 @@
 				3743A3A6215B79800012B02A /* ModelMapping.xcmappingmodel in Sources */,
 				37E0B0372158D4460064019F /* GameCoordinator.swift in Sources */,
 				37613077213FC75E00FBCA24 /* GameModeButton.swift in Sources */,
-				37548098215A4F7500CE2335 /* Groups.swift in Sources */,
+				37548098215A4F7500CE2335 /* groups.swift in Sources */,
 				37685A2621539E6500D8B585 /* LevelMenuCollectionViewCell.swift in Sources */,
 				3754809F215A505100CE2335 /* Kanji.swift in Sources */,
 				37EBC375215284810049DB66 /* GroupMenuCoordinator.swift in Sources */,

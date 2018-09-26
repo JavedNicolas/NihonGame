@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Group: GameDataGroup {
+struct Group: GameDataGroup {
     var id : Int
     var name : String
     var elementRange : (Int, Int)
@@ -33,13 +33,51 @@ class Group: GameDataGroup {
         self.done = false
         self.locked = false
     }
+
+    init(coreDataGroup group: CoreDataGroup, levels: [Level]) {
+        self.name = "\(group.firstElement)-\(group.lastElement)"
+        self.id = group.id.int
+        self.elementRange = (group.firstElement.int,group.lastElement.int)
+        self.levels = levels
+        self.done = false
+        self.locked = false
+        var numberOfLockedLevels = 0
+        for level in levels {
+            if level.locked {
+                numberOfLockedLevels = numberOfLockedLevels + 1
+            }
+        }
+        if numberOfLockedLevels == levels.count {
+            self.locked = true
+        }
+
+    }
 }
 
 class Groups {
     private var groups : [Group] = []
-    private var groupsJSON = Menu.groupsJSON
+    private var groupsJSON = MenuJSON.groupsJSON
 
     init() {
+        setGroups()
+    }
+
+    init(coreDataGroups: NSSet?) {
+        setGroup(coreDataGroups: coreDataGroups)
+    }
+
+    private func parseData(data: Data?) -> [GroupsParsing] {
+        guard let data = data else { return [] }
+
+        do {
+            return try JSONDecoder().decode([GroupsParsing].self, from: data)
+        } catch let error {
+            print(error)
+            return []
+        }
+    }
+
+    private func setGroups() {
         let groupsData = JSONParser(json: groupsJSON, withExtension: "json").data
         let groupsList = parseData(data: groupsData)
 
@@ -49,18 +87,19 @@ class Groups {
         }
     }
 
-    private func parseData(data: Data?) -> [GroupsParsing] {
-        guard let data = data else {
-            return []
+    private func setGroup(coreDataGroups: NSSet?) {
+        guard let coreDataGroups = coreDataGroups else {
+            return
         }
 
-        do {
-            let parsedGroups = try JSONDecoder().decode([GroupsParsing].self, from: data)
-            return parsedGroups
-        } catch let error {
-            print(error)
-            return []
+        for element in coreDataGroups.enumerated() {
+            if let group = element.element as? CoreDataGroup {
+                let levels = Levels(coreDataLevels: group.levels).getLevels()
+                groups.append(Group(coreDataGroup: group, levels: levels))
+            }
         }
+
+        groups.sort(by: { $0.id < $1.id })
     }
 
     func getGroups() -> [Group] {
