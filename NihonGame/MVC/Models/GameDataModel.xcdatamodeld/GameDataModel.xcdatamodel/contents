@@ -36,7 +36,7 @@
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
-    <entity name="KanjiProgression" representedClassName=".KanjiProgression" syncable="YES" codeGenerationType="class">
+    <entity name="KanjiProgression" representedClassName=".KanjiProgression" syncable="YES" codeGenerationType="category">
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="progressionScore" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <uniquenessConstraints>

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Kanji : GameData {
+class Kanji : GameData {
     var id : Int
     var groupName : String
     var value : String
@@ -35,60 +35,15 @@ struct Kanji : GameData {
         self.kunyomi = kanji.kunyomi.split(separator: ",")
         self.traduction = kanji.traduction.split(separator: ",")
         self.learningScore = 0
+        updateProgression()
+    }
 
-        if let kanjiProgression = getKanjiProgression() {
-            let progression = hasProgression(kanjiID: kanji.id, kanjiProgression: kanjiProgression)
-            if progression.0 {
-                learningScore = progression.1
+    private func updateProgression(){
+        let kanjiProgression = KanjiProgression(context: CoreDataManager().getContext())
+        if kanjiProgression.fetch(kanjiID: id) {
+            if kanjiProgression.progressionScore != 0 {
+                learningScore = kanjiProgression.progressionScore.int
             }
         }
-    }
-    
-    private func getKanjiProgression() -> [KanjiProgression]? {
-
-        return nil
-    }
-
-    private func hasProgression(kanjiID: Int, kanjiProgression: [KanjiProgression]) -> (Bool, Int){
-        let comparingKanjiProgression = KanjiProgression(context: CoreDataManager().getContext())
-        comparingKanjiProgression.id = Int16(kanjiID)
-        if let progression = kanjiProgression.firstIndex(of: comparingKanjiProgression)  {
-            let currentProgression = Int(kanjiProgression[progression].progressionScore)
-            return (true, currentProgression)
-        } else {
-            return (false, 0)
-        }
-    }
-}
-
-class Kanjis {
-    private var kanjis : [Kanji] = []
-    private var kanjisJSON = MenuJSON.kanjiJSON
-
-    init() {
-        let kanjiData = JSONParser(json: kanjisJSON, withExtension: "json").data
-        let kanjisList = parseData(data: kanjiData)
-
-        for kanji in kanjisList {
-            kanjis.append(Kanji(parsedKanji: kanji))
-        }
-    }
-
-    private func parseData(data: Data?) -> [KanjiParsing] {
-        guard let data = data else {
-            return []
-        }
-
-        do {
-            let parsedGroups = try JSONDecoder().decode([KanjiParsing].self, from: data)
-            return parsedGroups
-        } catch let error {
-            print(error)
-            return []
-        }
-    }
-
-    func getKanjis() -> [Kanji] {
-        return kanjis
     }
 }
