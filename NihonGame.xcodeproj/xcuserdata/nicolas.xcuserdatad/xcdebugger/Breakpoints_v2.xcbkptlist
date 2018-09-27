@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NihonGame/MVC/Models/CoreData/CoreDataManager.swift"
-            timestampString = "559651122.588393"
+            filePath = "NihonGame/MVC/Models/CoreData/CoreDataGameMode.swift"
+            timestampString = "559743475.042998"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "saveProgression(gameMode:)"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "fetch(modeID:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		373570EB215CCE4E0033A5F7 /* CoreDataLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373570EA215CCE4E0033A5F7 /* CoreDataLevel.swift */; };
+		373570ED215CCEB50033A5F7 /* CoreDataGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373570EC215CCEB50033A5F7 /* CoreDataGroup.swift */; };
+		373570EF215CCEC50033A5F7 /* CoreDataGameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373570EE215CCEC50033A5F7 /* CoreDataGameMode.swift */; };
 		3743A3A1215B73290012B02A /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3743A3A0215B73290012B02A /* IntExtension.swift */; };
 		3743A3A4215B789C0012B02A /* GameDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3743A3A2215B789C0012B02A /* GameDataModel.xcdatamodeld */; };
 		3743A3A6215B79800012B02A /* ModelMapping.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3743A3A5215B79800012B02A /* ModelMapping.xcmappingmodel */; };
@@ -75,6 +78,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		373570EA215CCE4E0033A5F7 /* CoreDataLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataLevel.swift; sourceTree = "<group>"; };
+		373570EC215CCEB50033A5F7 /* CoreDataGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataGroup.swift; sourceTree = "<group>"; };
+		373570EE215CCEC50033A5F7 /* CoreDataGameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataGameMode.swift; sourceTree = "<group>"; };
 		3743A3A0215B73290012B02A /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		3743A3A3215B789C0012B02A /* GameDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GameDataModel.xcdatamodel; sourceTree = "<group>"; };
 		3743A3A5215B79800012B02A /* ModelMapping.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = ModelMapping.xcmappingmodel; sourceTree = "<group>"; };
@@ -362,6 +368,9 @@
 			isa = PBXGroup;
 			children = (
 				37E0B03B2158DAA60064019F /* CoreDataManager.swift */,
+				373570EE215CCEC50033A5F7 /* CoreDataGameMode.swift */,
+				373570EC215CCEB50033A5F7 /* CoreDataGroup.swift */,
+				373570EA215CCE4E0033A5F7 /* CoreDataLevel.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -518,6 +527,7 @@
 				37685A1C215388A700D8B585 /* GroupMenuVCDelegate.swift in Sources */,
 				3776D5EC2150D2C100536A8D /* GroupMenuViewController.swift in Sources */,
 				3754809C215A4FCE00CE2335 /* GameModes.swift in Sources */,
+				373570ED215CCEB50033A5F7 /* CoreDataGroup.swift in Sources */,
 				3776D5E0214B91B800536A8D /* MainMenuVCDataSource.swift in Sources */,
 				3761303F213E644700FBCA24 /* GameViewController.swift in Sources */,
 				37484742214A3992006E35D1 /* MainMenuCoordinator.swift in Sources */,
@@ -529,8 +539,10 @@
 				3754809A215A4F9800CE2335 /* Levels.swift in Sources */,
 				3776D5E8214BA78E00536A8D /* StringExtension.swift in Sources */,
 				37EBC379215291F60049DB66 /* GroupLevelVCDataSource.swift in Sources */,
+				373570EB215CCE4E0033A5F7 /* CoreDataLevel.swift in Sources */,
 				37E0B0332158C0EC0064019F /* GroupMenuTableViewCell.swift in Sources */,
 				3776D5E2214B927B00536A8D /* ModeMenuTableViewCell.swift in Sources */,
+				373570EF215CCEC50033A5F7 /* CoreDataGameMode.swift in Sources */,
 				3776D5F02150D34A00536A8D /* GameDataGroup.swift in Sources */,
 				37613075213FC5DE00FBCA24 /* MenuTableView.swift in Sources */,
 				37613037213E644700FBCA24 /* AppDelegate.swift in Sources */,

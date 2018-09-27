@@ -14,3 +14,7 @@ struct MenuJSON {
     static let groupsJSON = "KanjiGroupList"
     static let levelsJSON = ""
 }
+
+struct Game {
+    static let levelCompleteScore = 500
+}

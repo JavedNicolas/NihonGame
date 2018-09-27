@@ -88,6 +88,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return persistentConainer.viewContext
     }
 
+    static var viewContextForTest : NSManagedObjectContext {
+        persistentConainer.newBackgroundContext()
+        return persistentConainer.viewContext
+    }
+
 
 }
 

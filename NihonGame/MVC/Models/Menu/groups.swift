@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Group: GameDataGroup {
+class Group: GameDataGroup {
     var id : Int
     var name : String
     var elementRange : (Int, Int)
@@ -41,16 +41,25 @@ struct Group: GameDataGroup {
         self.levels = levels
         self.done = false
         self.locked = false
+    }
+
+    func setDoneAndLockLevel(levels: [Level]) {
         var numberOfLockedLevels = 0
+        var numberOfDoneLevel = 0
         for level in levels {
             if level.locked {
-                numberOfLockedLevels = numberOfLockedLevels + 1
+                numberOfLockedLevels += 1
+            }
+            if level.score > 500 {
+                numberOfDoneLevel += 1
             }
         }
         if numberOfLockedLevels == levels.count {
             self.locked = true
         }
-
+        if numberOfDoneLevel == levels.count {
+            self.done = true
+        }
     }
 }
 

@@ -20,6 +20,7 @@ struct GameMode {
         self.groups = gameModeGroups
         self.id = gameModeID
     }
+
 }
 
 
@@ -27,6 +28,7 @@ class GameModes {
     private var gameModes : [GameMode] = []
     private var gameModeFile = MenuJSON.gameModesJSON
     private var modes : [GameMode] = []
+    private let coreDataManager = CoreDataManager()
 
     init() {
         createModesList()
@@ -40,26 +42,23 @@ class GameModes {
         var kanjis : [Kanji] = []
         var groups : [Group] = []
 
-        if let progression = getSavedProgression()  {
-            kanjis = Kanjis().getKanjis()
-            groups = Groups(coreDataGroups: progression[0].groups).getGroups()
-        }else {
-            kanjis = Kanjis().getKanjis()
-            groups = Groups().getGroups()
+        for modeID in 0...0 {
+            if let progression = getSavedProgression(forModeID: modeID)  {
+                kanjis = Kanjis().getKanjis()
+                groups = Groups(coreDataGroups: progression.groups).getGroups()
+            }else {
+                kanjis = Kanjis().getKanjis()
+                groups = Groups().getGroups()
+            }
+            gameModes.append(GameMode(gameModeName: "Kanji_Mode_Name".localize(), gameModeID: modeID, gameDatas: kanjis, gameModeGroups: groups))
         }
-
-        gameModes.append(GameMode(gameModeName: "Kanji_Mode_Name".localize(), gameModeID: 0, gameDatas: kanjis, gameModeGroups: groups))
     }
 
-    private func getSavedProgression() -> [CoreDataGameMode]? {
-        let coreDataManager = CoreDataManager()
-        guard let coreDataGameMode = coreDataManager.fetchMenu(modeID: 0) else {
-            return nil
-        }
+    private func getSavedProgression(forModeID: Int) -> CoreDataGameMode? {
+        let coreDataGameMode = coreDataManager.fetchMenu(modeID: forModeID)
 
         return coreDataGameMode
     }
-
 
     func getGameModes() -> [GameMode]{
         return gameModes
