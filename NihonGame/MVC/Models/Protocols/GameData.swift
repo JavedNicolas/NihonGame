@@ -12,4 +12,5 @@ protocol GameData {
     var id : Int { get }
     var groupName : String { get }
     var learningScore : Int { get }
+    func getQuestion() -> [Substring]
 }

@@ -8,6 +8,8 @@
 
 import Foundation
 
+let gameModes = GameModes()
+
 class GameModes {
     private var gameModes : [GameMode] = []
     private var gameModeFile = MenuJSON.gameModesJSON

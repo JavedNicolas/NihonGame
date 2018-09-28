@@ -16,7 +16,6 @@ class Level : GameDataGroup {
     var locked: Bool
     var score: Int
     var stars: Int
-    private var levelDatas : [GameData] = []
 
     init(parsedLevel level: LevelsParsing){
         self.id = level.id
@@ -38,7 +37,8 @@ class Level : GameDataGroup {
         self.stars = level.stars.int
     }
 
-    func setGameDataToUse(gameDatas: [GameData]) {
+    func setGameDataToUse(gameDatas: [GameData]) -> [GameData]{
+        var levelDatas : [GameData] = []
         let startElement = elementRange.0
         let endElement = elementRange.1
 
@@ -48,7 +48,7 @@ class Level : GameDataGroup {
             }
         }else {
             if startElement != 1{
-                let randomKanjiID = Int.random(in: 1..<startElement)
+                let randomKanjiID = Int.random(in: 0..<startElement)
                 let elementToAdd = gameDatas[randomKanjiID]
                 levelDatas.append(elementToAdd)
             }
@@ -57,14 +57,7 @@ class Level : GameDataGroup {
                 levelDatas.append(elementToAdd)
             }
         }
-    }
-
-    func setQuestion() {
-
-    }
-
-    func setAnswers() {
-
+        return levelDatas
     }
 }
 

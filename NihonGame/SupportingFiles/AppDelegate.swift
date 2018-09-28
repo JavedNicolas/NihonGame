@@ -14,9 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var mainCoordinator : MainCoordinator?
-    static var modes : GameModes {
-        return GameModes()
-    }
 
     static var delegate : AppDelegate {
         return  (UIApplication.shared.delegate as! AppDelegate)

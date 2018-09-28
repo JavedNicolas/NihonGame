@@ -46,4 +46,21 @@ class Kanji : GameData {
             }
         }
     }
+
+    func getQuestion() -> [Substring]{
+        let valueSubstring = value.split(separator: ",")
+        let possibleChoiceArray : [[[Substring]]] = [[valueSubstring],[kunyomi,onyomi,traduction]]
+        let randomNumber = Int.random(in: 0..<possibleChoiceArray.count)
+        if randomNumber == 0 {
+            return possibleChoiceArray[randomNumber][0]
+        }else {
+            let newPossibleChoice = possibleChoiceArray[randomNumber]
+            let randomNumber2 = Int.random(in: 0..<newPossibleChoice.count)
+            return newPossibleChoice[randomNumber2]
+        }
+    }
+
+    func getAnswer() {
+
+    }
 }

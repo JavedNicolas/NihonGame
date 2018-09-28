@@ -26,7 +26,7 @@ class MainCoordinator : Coordinator {
 
     private func showMainMenu() {
         var tabViewController : [UIViewController] = []
-        for gameMode in AppDelegate.modes.getGameModes() {
+        for gameMode in gameModes.getGameModes() {
             let VC = GroupMenuViewController()
             VC.setGameMode(gameMode: gameMode)
             tabViewController.append(VC)
