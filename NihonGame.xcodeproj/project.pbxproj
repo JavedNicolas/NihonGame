@@ -118,6 +118,7 @@
 		37613078213FC81E00FBCA24 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		3761307A213FDE8B00FBCA24 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3765F630215E051900A4D64D /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
+		3765F633215E74FA00A4D64D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		37685A132153745900D8B585 /* GroupsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTest.swift; sourceTree = "<group>"; };
 		37685A15215377DA00D8B585 /* GameModesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModesTest.swift; sourceTree = "<group>"; };
 		37685A172153808800D8B585 /* LevelMenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelMenuCoordinator.swift; sourceTree = "<group>"; };
@@ -592,6 +593,7 @@
 			children = (
 				37613046213E644900FBCA24 /* Base */,
 				3761307A213FDE8B00FBCA24 /* fr */,
+				3765F633215E74FA00A4D64D /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
