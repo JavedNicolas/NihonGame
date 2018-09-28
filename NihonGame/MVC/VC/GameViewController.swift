@@ -7,12 +7,23 @@
 //
 
 import UIKit
-import GameplayKit
 
 class GameViewController: UIViewController {
     var level : Level?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        initLevel()
+    }
+
+    func initLevel() {
+        let modes = AppDelegate.modes.getGameModes()
+//        guard let level = level, let currentModeID = tabBarController?.selectedIndex else {
+//            return
+//        }
+//
+//        let gameDatas = modes[currentModeID].gameDatas
+//
+//        level.setGameDataToUse(gameDatas: gameDatas)
     }
 }

@@ -15,16 +15,7 @@ class Group: GameDataGroup {
     var levels : [Level]
     var done : Bool
     var locked: Bool
-
-    init(id: Int, groupName: String, groupElementRange: (Int,Int), levels: [Level], done: Bool = false, locked: Bool = true) {
-        self.id = id
-        self.name = groupName
-        self.elementRange = groupElementRange
-        self.levels = levels
-        self.done = done
-        self.locked = locked
-    }
-
+    
     init(groupsParsed group: GroupsParsing, levels: [Level]) {
         self.name = "\(group.startRange)-\(group.endRange)"
         self.id = group.id

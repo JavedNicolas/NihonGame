@@ -10,8 +10,7 @@ import UIKit
 
 class MainCoordinator : Coordinator {
     private var appDelegate : AppDelegate
-    private var mainMenuCoordinator : MainMenuCoordinator?
-    private var navigationController = UINavigationController()
+    private var tabBarController = UITabBarController()
 
     init(appDelegate: AppDelegate){
         self.appDelegate = appDelegate
@@ -19,15 +18,28 @@ class MainCoordinator : Coordinator {
 
     func start() {
         appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
-
-        appDelegate.window!.rootViewController = navigationController
+        setTabBarController()
+        appDelegate.window!.rootViewController = tabBarController
         appDelegate.window!.makeKeyAndVisible()
         showMainMenu()
     }
 
     private func showMainMenu() {
-        mainMenuCoordinator = MainMenuCoordinator(window: appDelegate.window!)
-        navigationController.viewControllers = [MainMenuViewController()]
-        mainMenuCoordinator!.start()
+        var tabViewController : [UIViewController] = []
+        for gameMode in AppDelegate.modes.getGameModes() {
+            let VC = GroupMenuViewController()
+            VC.setGameMode(gameMode: gameMode)
+            tabViewController.append(VC)
+        }
+        tabBarController.viewControllers = tabViewController.map{
+            let navigationController = UINavigationController(rootViewController: $0)
+            navigationController.navigationBar.barStyle = UIBarStyle.black
+            return navigationController
+        }
+    }
+
+    private func setTabBarController() {
+        tabBarController.tabBar.barStyle = UIBarStyle.black
+
     }
 }

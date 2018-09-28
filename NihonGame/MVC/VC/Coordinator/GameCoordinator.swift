@@ -19,6 +19,8 @@ class GameCoordinator : Coordinator {
     }
 
     func start() {
-        currentViewController.present(gameViewController, animated: true, completion: nil)
+        if let navigationController = currentViewController.navigationController {
+            navigationController.pushViewController(gameViewController, animated: true)
+        }
     }
 }

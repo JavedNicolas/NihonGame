@@ -12,13 +12,15 @@ class LevelMenuCoordinator : Coordinator {
     private var currentViewController : UIViewController
     private var levelMenuViewController : LevelMenuViewController
     
-    init(currentViewController: UIViewController, levels : [Level]) {
+    init(currentViewController: UIViewController, group: Group) {
         self.currentViewController = currentViewController
         levelMenuViewController = LevelMenuViewController()
-        levelMenuViewController.setLevels(levels: levels)
+        levelMenuViewController.setGroup(group: group)
     }
 
     func start() {
-        currentViewController.present(levelMenuViewController, animated: true, completion: nil)
+        if let navigationController = currentViewController.navigationController {
+            navigationController.pushViewController(levelMenuViewController, animated: true)
+        }
     }
 }

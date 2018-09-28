@@ -14,9 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var mainCoordinator : MainCoordinator?
-    static var modes : [GameMode] {
-        let modeList = GameModes()
-        return modeList.getGameModes()
+    static var modes : GameModes {
+        return GameModes()
     }
 
     static var delegate : AppDelegate {
@@ -25,8 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // ----- create windows and VC
-
-
         mainCoordinator = MainCoordinator(appDelegate: self)
         mainCoordinator?.start()
         return true

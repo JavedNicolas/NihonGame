@@ -14,6 +14,7 @@ class GameModes {
     private var modes : [GameMode] = []
     private let coreDataManager = CoreDataManager()
 
+
     init() {
         createModesList()
     }
@@ -27,13 +28,13 @@ class GameModes {
         var groups : [Group] = []
 
         for modeID in 0...0 {
-            if let progression = getSavedProgression(forModeID: modeID)  {
-                kanjis = Kanjis().getKanjis()
-                groups = Groups(coreDataGroups: progression.groups).getGroups()
-            }else {
+//            if let progression = getSavedProgression(forModeID: modeID)  {
+//                kanjis = Kanjis().getKanjis()
+//                groups = Groups(coreDataGroups: progression.groups).getGroups()
+//            }else {
                 kanjis = Kanjis().getKanjis()
                 groups = Groups().getGroups()
-            }
+//            }
             gameModes.append(GameMode(gameModeName: "Kanji_Mode_Name".localize(), gameModeID: modeID, gameDatas: kanjis, gameModeGroups: groups))
         }
     }

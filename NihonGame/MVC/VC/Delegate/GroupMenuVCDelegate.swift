@@ -16,7 +16,7 @@ extension GroupMenuViewController : UITableViewDelegate {
         }
 
         if let groupItems = groupItems {
-            let levelMenuCoordinator = LevelMenuCoordinator(currentViewController: self, levels: groupItems[indexPath.row].levels)
+            let levelMenuCoordinator = LevelMenuCoordinator(currentViewController: self, group: groupItems[indexPath.row])
             levelMenuCoordinator.start()
         }
     }
