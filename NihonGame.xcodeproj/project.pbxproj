@@ -41,6 +41,8 @@
 		37613077213FC75E00FBCA24 /* GameModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37613076213FC75E00FBCA24 /* GameModeButton.swift */; };
 		37613079213FC81E00FBCA24 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37613078213FC81E00FBCA24 /* UIViewExtension.swift */; };
 		3765F631215E051900A4D64D /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765F630215E051900A4D64D /* ArrayExtensions.swift */; };
+		3765F6352161F49D00A4D64D /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765F6342161F49D00A4D64D /* Global.swift */; };
+		3765F6372161F6B700A4D64D /* ModeDataConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765F6362161F6B700A4D64D /* ModeDataConstructor.swift */; };
 		37685A142153745900D8B585 /* GroupsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37685A132153745900D8B585 /* GroupsTest.swift */; };
 		37685A16215377DA00D8B585 /* GameModesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37685A15215377DA00D8B585 /* GameModesTest.swift */; };
 		37685A182153808800D8B585 /* LevelMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37685A172153808800D8B585 /* LevelMenuCoordinator.swift */; };
@@ -119,6 +121,8 @@
 		3761307A213FDE8B00FBCA24 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3765F630215E051900A4D64D /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		3765F633215E74FA00A4D64D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		3765F6342161F49D00A4D64D /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		3765F6362161F6B700A4D64D /* ModeDataConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeDataConstructor.swift; sourceTree = "<group>"; };
 		37685A132153745900D8B585 /* GroupsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTest.swift; sourceTree = "<group>"; };
 		37685A15215377DA00D8B585 /* GameModesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModesTest.swift; sourceTree = "<group>"; };
 		37685A172153808800D8B585 /* LevelMenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelMenuCoordinator.swift; sourceTree = "<group>"; };
@@ -230,6 +234,7 @@
 				3761305F213E649400FBCA24 /* GameScenes */,
 				37A5664A2148EDCE00F53B43 /* KanjiList.json */,
 				375480A0215A650F00CE2335 /* KanjiGroupList.json */,
+				3765F6342161F49D00A4D64D /* Global.swift */,
 			);
 			path = NihonGame;
 			sourceTree = "<group>";
@@ -239,8 +244,8 @@
 			children = (
 				37613051213E644900FBCA24 /* NihonGameTests.swift */,
 				37613053213E644900FBCA24 /* Info.plist */,
-				37685A132153745900D8B585 /* GroupsTest.swift */,
 				37685A15215377DA00D8B585 /* GameModesTest.swift */,
+				37685A132153745900D8B585 /* GroupsTest.swift */,
 				37BF51A3215910FB0093F04E /* CoreDataTest.swift */,
 			);
 			path = NihonGameTests;
@@ -360,6 +365,7 @@
 		37A56655214945DB00F53B43 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				3765F6362161F6B700A4D64D /* ModeDataConstructor.swift */,
 				37484745214A3DE8006E35D1 /* GameData.swift */,
 				3776D5EF2150D34A00536A8D /* GameDataGroup.swift */,
 				3765F630215E051900A4D64D /* ArrayExtensions.swift */,
@@ -521,6 +527,7 @@
 				373570F1215D14540033A5F7 /* Group.swift in Sources */,
 				37484740214A3824006E35D1 /* MainCoordinator.swift in Sources */,
 				37E0B0352158C3C80064019F /* MenuTableViewCell.swift in Sources */,
+				3765F6372161F6B700A4D64D /* ModeDataConstructor.swift in Sources */,
 				37685A182153808800D8B585 /* LevelMenuCoordinator.swift in Sources */,
 				37E0B0312158C0BD0064019F /* GameGroupButton.swift in Sources */,
 				37685A1A215380DC00D8B585 /* LevelMenuViewController.swift in Sources */,
@@ -556,6 +563,7 @@
 				373570F5215D14950033A5F7 /* GameMode.swift in Sources */,
 				37E0B0372158D4460064019F /* GameCoordinator.swift in Sources */,
 				373570F9215D18ED0033A5F7 /* Kanjis.swift in Sources */,
+				3765F6352161F49D00A4D64D /* Global.swift in Sources */,
 				37613077213FC75E00FBCA24 /* GameModeButton.swift in Sources */,
 				37548098215A4F7500CE2335 /* groups.swift in Sources */,
 				37685A2621539E6500D8B585 /* LevelMenuCollectionViewCell.swift in Sources */,

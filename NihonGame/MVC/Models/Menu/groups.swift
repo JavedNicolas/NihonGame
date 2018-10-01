@@ -10,9 +10,10 @@ import Foundation
 
 class Groups {
     private var groups : [Group] = []
-    private var groupsJSON = MenuJSON.groupsJSON
+    private var groupsJSON = ""
 
-    init() {
+    init(json: String) {
+        self.groupsJSON = json
         setGroups()
     }
 

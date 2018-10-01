@@ -10,7 +10,6 @@ import Foundation
 
 class Levels {
     private var levels : [Level] = []
-    private var levelsList = MenuJSON.levelsJSON
 
     init(parsedLevel: [LevelsParsing]){
         setLevels(parsedLevel: parsedLevel)

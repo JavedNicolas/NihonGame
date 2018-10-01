@@ -13,7 +13,8 @@ class GroupCreatorTest: XCTestCase {
     var groups : [Group] = []
 
     override func setUp() {
-        groups = Groups().getGroups()
+        let groupJSON = KanjiModeJSONs.groupsJSON
+        groups = Groups(json: groupJSON).getGroups()
     }
 
     func testGivenWeHaveGameDatapWhenWeWantToSplitThemToMakeGroupsThenWeGetGroups() {

@@ -48,13 +48,15 @@ class Level : GameDataGroup {
             }
         }else {
             if startElement != 1{
-                let randomKanjiID = Int.random(in: 0..<startElement)
-                let elementToAdd = gameDatas[randomKanjiID]
-                levelDatas.append(elementToAdd)
+                let randomKanjiID = Int.random(in: 1..<startElement)
+                if let elementToAdd = gameDatas.dataAt(id: randomKanjiID) {
+                    levelDatas.append(elementToAdd)
+                }
             }
             for elementID in startElement...endElement {
-                let elementToAdd = gameDatas[elementID]
-                levelDatas.append(elementToAdd)
+                if let elementToAdd = gameDatas.dataAt(id: elementID) {
+                    levelDatas.append(elementToAdd)
+                }
             }
         }
         return levelDatas

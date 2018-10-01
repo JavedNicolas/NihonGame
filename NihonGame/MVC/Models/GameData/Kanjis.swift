@@ -8,16 +8,17 @@
 
 import Foundation
 
-class Kanjis {
-    private var kanjis : [Kanji] = []
-    private var kanjisJSON = MenuJSON.kanjiJSON
+class Kanjis : ModeDataConstructor {
+    internal var datas : [GameData] = []
+    private var kanjisJSON = KanjiModeJSONs.kanjiJSON
+    private var groupJSON = KanjiModeJSONs.groupsJSON
 
     init() {
         let kanjiData = JSONParser(json: kanjisJSON, withExtension: "json").data
         let kanjisList = parseData(data: kanjiData)
 
         for kanji in kanjisList {
-            kanjis.append(Kanji(parsedKanji: kanji))
+            datas.append(Kanji(parsedKanji: kanji))
         }
     }
 
@@ -35,7 +36,11 @@ class Kanjis {
         }
     }
 
-    func getKanjis() -> [Kanji] {
-        return kanjis
+    func getGroupJSON() -> String {
+        return groupJSON
+    }
+    
+    func getDatas() -> [GameData] {
+        return datas
     }
 }
