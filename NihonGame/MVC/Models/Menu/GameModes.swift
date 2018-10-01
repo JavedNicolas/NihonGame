@@ -23,7 +23,7 @@ class GameModes {
     }
 
     private func createKanjiMode() {
-        var gameDatas : [GameData] = []
+        var modeData : ModeDataConstructor?
         var groups : [Group] = []
 
         for modeID in 0..<modesData.count {
@@ -31,11 +31,14 @@ class GameModes {
 //                kanjis = Kanjis().getKanjis()
 //                groups = Groups(coreDataGroups: progression.groups).getGroups()
 //            }else {
-                gameDatas = modesData[modeID].getDatas()
+                modeData = modesData[modeID]
+                guard let modeData = modeData else {
+                    return
+                }
                 let groupJSON = modesData[modeID].getGroupJSON()
                 groups = Groups(json: groupJSON).getGroups()
 //            }
-            gameModes.append(GameMode(gameModeName: "Kanji_Mode_Name".localize(), gameModeID: modeID, gameDatas: gameDatas, gameModeGroups: groups))
+            gameModes.append(GameMode(gameModeName: "Kanji_Mode_Name".localize(), gameModeID: modeID, modeData: modeData, gameModeGroups: groups))
         }
     }
 
@@ -43,6 +46,10 @@ class GameModes {
         let coreDataGameMode = coreDataManager.fetchMenu(modeID: forModeID)
 
         return coreDataGameMode
+    }
+
+    func getModeData(id: Int) -> ModeDataConstructor {
+        return modesData[id]
     }
 
     func getGameModes() -> [GameMode]{

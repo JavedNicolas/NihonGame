@@ -10,6 +10,8 @@ import UIKit
 
 class GameViewController: UIViewController {
     var level : Level?
+    private var levelData : [GameData] = []
+    private var question : Question?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,21 +22,22 @@ class GameViewController: UIViewController {
     }
 
     func initLevel() {
-        let modes = gameModes.getGameModes()
         guard let level = level, let currentModeID = tabBarController?.selectedIndex else {
             return
         }
 
-        let gameDatas = modes[currentModeID].gameDatas
+        let modes = gameModes.getGameModes()
+        let modesDataConstructor = gameModes.getModeData(id: currentModeID)
+        let gameDatas = modes[currentModeID].modeData.getDatas()
+        levelData = level.setGameDataToUse(gameDatas: gameDatas)
+        setQuestion(dataNames: modesDataConstructor.getDataNameAsArray())
+    }
 
-        let levelData = level.setGameDataToUse(gameDatas: gameDatas)
-        print("levelData : ")
-        for data in levelData {
-            print(data.id)
+    func setQuestion(dataNames: [String]) {
+        self.question = Question(levelData: levelData, dataNames: dataNames)
+        if let question = question {
+            print("Question : \(question.question)\n")
+            print("Reponse : \(question.goodAnswer.answerString), de type : \(question.goodAnswer.category)")
         }
-        let question = levelData[0].getQuestion()
-        //print(question.first)
-        
-
     }
 }

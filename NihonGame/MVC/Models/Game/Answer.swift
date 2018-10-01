@@ -1,5 +1,5 @@
 //
-//  Global.swift
+//  Answer.swift
 //  NihonGame
 //
 //  Created by Nicolas on 01/10/2018.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum KanjiDataNames : String, CaseIterable {
-    case kunyomi, onyomi, kanji, traduction
+struct Answer {
+    var gameDataID : Int
+    var answerString : String
+    var category : String
 }
-
-let gameModes = GameModes()

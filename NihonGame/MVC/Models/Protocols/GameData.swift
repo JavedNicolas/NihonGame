@@ -11,6 +11,7 @@ import Foundation
 protocol GameData {
     var id : Int { get }
     var groupName : String { get }
+    var dataDictionary : [String: [Substring]] { get }
     var learningScore : Int { get }
-    func getQuestion() -> [Substring]
+    func getQuestionData() -> QuestionData?
 }

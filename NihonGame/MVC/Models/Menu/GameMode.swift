@@ -11,12 +11,12 @@ import Foundation
 class GameMode {
     var name : String
     var id : Int
-    var gameDatas : [GameData]
+    var modeData : ModeDataConstructor
     var groups : [Group]
 
-    init(gameModeName: String, gameModeID: Int, gameDatas: [GameData], gameModeGroups: [Group]) {
+    init(gameModeName: String, gameModeID: Int, modeData: ModeDataConstructor, gameModeGroups: [Group]) {
         self.name = gameModeName
-        self.gameDatas = gameDatas
+        self.modeData = modeData
         self.groups = gameModeGroups
         self.id = gameModeID
     }

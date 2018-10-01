@@ -9,32 +9,18 @@
 import Foundation
 
 class Kanji : GameData {
-    var id : Int
-    var groupName : String
-    var value : String
-    let onyomi : [Substring]
-    let kunyomi : [Substring]
-    let traduction : [Substring]
-    var learningScore : Int
-
-    init(id: Int, groupName: String, value: String, onyomi: [Substring], kunyomi: [Substring], traduction: [Substring], learningScore: Int = 0){
-        self.id = id
-        self.groupName = groupName
-        self.value = value
-        self.onyomi = onyomi
-        self.kunyomi = kunyomi
-        self.traduction = traduction
-        self.learningScore = learningScore
-    }
+    internal var id : Int
+    internal var groupName : String
+    internal var dataDictionary : [String: [Substring]] = [:]
+    var learningScore : Int = 0
 
     init(parsedKanji kanji: KanjiParsing){
         self.id = kanji.id
         self.groupName = kanji.level
-        self.value = kanji.kanji
-        self.onyomi = kanji.onyomi.split(separator: ",")
-        self.kunyomi = kanji.kunyomi.split(separator: ",")
-        self.traduction = kanji.traduction.split(separator: ",")
-        self.learningScore = 0
+        dataDictionary[KanjiDataNames.kanji.rawValue] = kanji.kanji.split(separator: ",")
+        dataDictionary[KanjiDataNames.onyomi.rawValue] = kanji.onyomi.split(separator: ",")
+        dataDictionary[KanjiDataNames.kunyomi.rawValue] = kanji.kunyomi.split(separator: ",")
+        dataDictionary[KanjiDataNames.traduction.rawValue] = kanji.traduction.split(separator: ",")
         updateProgression()
     }
 
@@ -47,20 +33,48 @@ class Kanji : GameData {
         }
     }
 
-    func getQuestion() -> [Substring]{
-        let valueSubstring = value.split(separator: ",")
-        let possibleChoiceArray : [[[Substring]]] = [[valueSubstring],[kunyomi,onyomi,traduction]]
-        let randomNumber = Int.random(in: 0..<possibleChoiceArray.count)
-        if randomNumber == 0 {
-            return possibleChoiceArray[randomNumber][0]
-        }else {
-            let newPossibleChoice = possibleChoiceArray[randomNumber]
-            let randomNumber2 = Int.random(in: 0..<newPossibleChoice.count)
-            return newPossibleChoice[randomNumber2]
+    func getQuestionData() -> QuestionData?{
+        /** Random question */
+        guard let questionRandomDict = dataDictionary.randomElement(),let questionSubString = questionRandomDict.value.randomElement() else{
+            return nil
         }
+        let questionCategoryName = questionRandomDict.key
+        let questionString = String(questionSubString)
+
+        /** Random Answer */
+        var randomIsOK = false
+        var answerCategoryName = ""
+        var answerString = ""
+        repeat {
+            guard let answerRandomDict = dataDictionary.randomElement() else{
+                return nil
+            }
+
+            if (questionCategoryName == KanjiDataNames.kanji.rawValue && answerRandomDict.key != KanjiDataNames.kanji.rawValue) ||
+                (questionCategoryName != KanjiDataNames.kanji.rawValue && answerRandomDict.key == KanjiDataNames.kanji.rawValue) {
+                if let answerSubString = answerRandomDict.value.randomElement() {
+                    answerString = String(answerSubString)
+                    answerCategoryName = answerRandomDict.key
+                    randomIsOK = true
+                }
+            }
+        }while randomIsOK == false
+
+        return QuestionData(questionCategory: questionCategoryName, questionString: questionString, goodAnswerString: answerString,
+                            answerCategoryName: answerCategoryName)
+
     }
 
-    func getAnswer() {
-
+    func getNameForID(idToSearch: Int) -> String{
+        var index = 0
+        for name in KanjiDataNames.allCases {
+            if index == idToSearch {
+                return name.rawValue
+            }else {
+                index += 1
+            }
+        }
+        return ""
     }
+
 }
