@@ -10,12 +10,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NihonGame/MVC/Models/Menu/GameMode.swift"
-            timestampString = "560261041.601609"
+            timestampString = "560332665.678321"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
             endingLineNumber = "25"
             landmarkName = "init(coreDataGameMode:modeData:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NihonGame/MVC/Models/Game/Question.swift"
+            timestampString = "560332665.678634"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "checkIfBadAnswersCanBeAdded(badAnswer:lastGameDataID:category:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NihonGame.Question.checkIfBadAnswersCanBeAdded(badAnswer: NihonGame.Answer, lastGameDataID: Swift.Int, category: Swift.String) -&gt; Swift.Bool"
+                  moduleName = "NihonGame"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolas/Documents/xcode_project/NihonGame/NihonGame/MVC/Models/Game/Question.swift"
+                  timestampString = "560328437.44271"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "580">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (NihonGame.Answer) -&gt; Swift.Bool in NihonGame.Question.checkIfBadAnswersCanBeAdded(badAnswer: NihonGame.Answer, lastGameDataID: Swift.Int, category: Swift.String) -&gt; Swift.Bool"
+                  moduleName = "NihonGame"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nicolas/Documents/xcode_project/NihonGame/NihonGame/MVC/Models/Game/Question.swift"
+                  timestampString = "560328437.4453059"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NihonGame/MVC/Models/extension/ArrayExtensions.swift"
+            timestampString = "560332665.6788779"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "randomDataFor(id:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

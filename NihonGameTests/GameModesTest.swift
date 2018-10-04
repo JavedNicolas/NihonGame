@@ -19,12 +19,12 @@ class ModeCreatorTest: XCTestCase {
     // Given
         
     // When and Then
-        let modes = GameModes()
+        let modes = GameModes.shared
         let gameModes = modes.getGameModes()
         XCTAssertNotEqual(gameModes.count, 0)
         for mode in gameModes {
             XCTAssertNotNil(mode.name)
-            XCTAssertNotEqual(mode.gameDatas.count, 0)
+            XCTAssertNotEqual(mode.modeData.datas.count, 0)
             XCTAssertNotEqual(mode.groups.count, 0)
         }
     }
@@ -34,16 +34,15 @@ class ModeCreatorTest: XCTestCase {
         let coreDataManager = CoreDataManager()
         coreDataManager.contextForTest()
 
-        var modes = GameModes()
+        let modes = GameModes.shared
         coreDataManager.saveProgression(gameMode: modes.getGameModes()[0])
         
         // When and Then
-        modes = GameModes()
         let gameModes = modes.getGameModes()
         XCTAssertNotEqual(gameModes.count, 0)
         for mode in gameModes {
             XCTAssertNotNil(mode.name)
-            XCTAssertNotEqual(mode.gameDatas.count, 0)
+            XCTAssertNotEqual(mode.modeData.datas.count, 0)
             XCTAssertNotEqual(mode.groups.count, 0)
         }
     }

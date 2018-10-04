@@ -12,6 +12,7 @@ protocol ModeDataConstructor {
     var name : String { get }
     var datas : [GameData] { get }
     var groupJSON : String { get }
+    var dataJSON : String { get }
     var answers : PossibleAnswers? { get }
     func createAnswer()
     func getGroupJSON() -> String

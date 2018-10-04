@@ -46,6 +46,7 @@
 		3765F63C2162089400A4D64D /* PossibleAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765F63B2162089400A4D64D /* PossibleAnswers.swift */; };
 		3765F6402162116F00A4D64D /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765F63F2162116F00A4D64D /* Question.swift */; };
 		3765F644216238C300A4D64D /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765F643216238C300A4D64D /* QuestionData.swift */; };
+		3765F64A2165FBA800A4D64D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765F6492165FBA800A4D64D /* Game.swift */; };
 		37685A142153745900D8B585 /* GroupsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37685A132153745900D8B585 /* GroupsTest.swift */; };
 		37685A16215377DA00D8B585 /* GameModesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37685A15215377DA00D8B585 /* GameModesTest.swift */; };
 		37685A182153808800D8B585 /* LevelMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37685A172153808800D8B585 /* LevelMenuCoordinator.swift */; };
@@ -129,6 +130,7 @@
 		3765F63B2162089400A4D64D /* PossibleAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleAnswers.swift; sourceTree = "<group>"; };
 		3765F63F2162116F00A4D64D /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		3765F643216238C300A4D64D /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
+		3765F6492165FBA800A4D64D /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		37685A132153745900D8B585 /* GroupsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTest.swift; sourceTree = "<group>"; };
 		37685A15215377DA00D8B585 /* GameModesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModesTest.swift; sourceTree = "<group>"; };
 		37685A172153808800D8B585 /* LevelMenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelMenuCoordinator.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 				3765F63B2162089400A4D64D /* PossibleAnswers.swift */,
 				3765F63F2162116F00A4D64D /* Question.swift */,
 				3765F643216238C300A4D64D /* QuestionData.swift */,
+				3765F6492165FBA800A4D64D /* Game.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -483,9 +486,11 @@
 				TargetAttributes = {
 					37613032213E644700FBCA24 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 					3761304C213E644900FBCA24 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 37613032213E644700FBCA24;
 					};
 				};
@@ -575,6 +580,7 @@
 				3776D5E2214B927B00536A8D /* ModeMenuTableViewCell.swift in Sources */,
 				373570EF215CCEC50033A5F7 /* CoreDataGameMode.swift in Sources */,
 				3776D5F02150D34A00536A8D /* GameDataGroup.swift in Sources */,
+				3765F64A2165FBA800A4D64D /* Game.swift in Sources */,
 				37613075213FC5DE00FBCA24 /* MenuTableView.swift in Sources */,
 				37613037213E644700FBCA24 /* AppDelegate.swift in Sources */,
 				375480A3215A6CF800CE2335 /* JSONParser.swift in Sources */,
@@ -767,7 +773,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicolasjaved.NihonGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -785,7 +791,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicolasjaved.NihonGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -805,7 +811,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicolasjaved.NihonGameTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NihonGame.app/NihonGame";
 			};
@@ -826,7 +832,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicolasjaved.NihonGameTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NihonGame.app/NihonGame";
 			};

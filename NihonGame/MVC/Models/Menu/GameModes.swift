@@ -12,9 +12,9 @@ class GameModes {
     private var gameModes : [GameMode] = []
     private let coreDataManager = CoreDataManager()
     private let modesData : [ModeDataConstructor] = [Kanjis()]
+    static let shared = GameModes()
 
-
-    init() {
+    private init() {
         createModesList()
     }
 

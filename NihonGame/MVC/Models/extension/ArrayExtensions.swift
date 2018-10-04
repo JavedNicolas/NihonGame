@@ -19,3 +19,22 @@ extension Array where Element == GameData {
         return nil
     }
 }
+
+extension Array where Element == Answer {
+    func randomDataFor(id: Int) -> Answer? {
+        var answers = [Answer]()
+        for element in self {
+            if element.gameDataID == id {
+                answers.append(element)
+            }
+        }
+
+        if answers.count == 0 {
+            return nil
+        }
+
+        let randomAnswersIndex = Int.random(in: answers.startIndex..<answers.endIndex)
+        return answers[randomAnswersIndex]
+
+    }
+}

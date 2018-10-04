@@ -13,7 +13,7 @@ class GroupCreatorTest: XCTestCase {
     var groups : [Group] = []
 
     override func setUp() {
-        let groupJSON = KanjiModeJSONs.groupsJSON
+        let groupJSON = GameModes.shared.getModeData(id: 0).groupJSON
         groups = Groups(json: groupJSON).getGroups()
     }
 

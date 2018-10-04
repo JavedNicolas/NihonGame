@@ -30,27 +30,33 @@ class Question {
         }
         self.question = questionString
         self.goodAnswer = Answer(gameDataID: dataID, answerString: goodAnswerString, category: goodAnswerCategory)
-        generateBadAnswer(levelData: levelData, category: goodAnswerCategory)
+        generateBadAnswer(levelData: levelData, category: goodAnswerCategory, numberOfBadAnswer: 3)
     }
 
-    func generateBadAnswer(levelData: [GameData], category: String) {
-        let badAnswerPossibility = allPossibleAnswer.getPossibleAnswersList()[category]
+    func generateBadAnswer(levelData: [GameData], category: String, numberOfBadAnswer: Int) {
+        guard let badAnswerPossibility = allPossibleAnswer.getPossibleAnswersList()[category] else {
+            return
+        }
         let lastGameData = levelData[levelData.endIndex - 1]
-        for _ in 0...2 {
+        for answersCount in 0...numberOfBadAnswer - 1 {
             repeat {
-                 
-                if let badAnswer = badAnswerPossibility?.randomElement(),
-                    checkIfBadAnswersCanBeAdded(badAnswer: badAnswer, lastGameDataID: lastGameData.id, category: category){
+                let firstBadAnswerID = badAnswerPossibility.startIndex
+                var lastBadAnswerIDPossible = 10
+                if levelData.startIndex > 4 {
+                    lastBadAnswerIDPossible = lastGameData.id
+                }
+                let randomNumber = Int.random(in: badAnswerPossibility[firstBadAnswerID].gameDataID..<lastBadAnswerIDPossible)
+                if let badAnswer = badAnswerPossibility.randomDataFor(id: randomNumber),
+                checkIfBadAnswersCanBeAdded(badAnswer: badAnswer, lastGameDataID: lastGameData.id, category: category){
                     self.badAnswers.append(badAnswer)
                 }
-            }while self.badAnswers.count < 2
+            }while self.badAnswers.count == answersCount
         }
     }
 
     func checkIfBadAnswersCanBeAdded(badAnswer: Answer, lastGameDataID: Int, category: String) -> Bool{
         print(badAnswer)
-        if badAnswer.answerString != goodAnswer.answerString,
-            badAnswer.gameDataID < lastGameDataID,
+        if badAnswer.gameDataID != goodAnswer.gameDataID, badAnswer.answerString != goodAnswer.answerString,
             !self.badAnswers.contains(where: { $0.answerString == badAnswer.answerString }){
             let allAnswersDict = allPossibleAnswer.getPossibleAnswersList()
             if let categoryDict = allAnswersDict[category] {

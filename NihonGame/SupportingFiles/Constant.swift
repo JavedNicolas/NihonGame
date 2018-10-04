@@ -8,11 +8,6 @@
 
 import Foundation
 
-struct KanjiModeJSONs {
-    static let kanjiJSON = "KanjiList"
-    static let groupsJSON = "KanjiGroupList"
-}
-
-struct Game {
+struct GameConstant {
     static let levelCompleteScore = 500
 }

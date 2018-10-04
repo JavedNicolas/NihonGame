@@ -11,12 +11,17 @@ import Foundation
 class Kanjis : ModeDataConstructor {
     var name: String = "Kanji_Mode_Name".localize()
     internal var datas : [GameData] = []
-    internal var kanjisJSON = KanjiModeJSONs.kanjiJSON
+    internal var dataJSON = KanjiModeJSONs.kanjiJSON
     internal var groupJSON = KanjiModeJSONs.groupsJSON
     internal var answers: PossibleAnswers?
 
+    struct KanjiModeJSONs {
+        static let kanjiJSON = "KanjiList"
+        static let groupsJSON = "KanjiGroupList"
+    }
+
     init() {
-        let kanjiData = JSONParser(json: kanjisJSON, withExtension: "json").data
+        let kanjiData = JSONParser(json: dataJSON, withExtension: "json").data
         let kanjisList = parseData(data: kanjiData)
 
         for kanji in kanjisList {

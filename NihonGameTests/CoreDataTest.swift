@@ -19,7 +19,7 @@ class CoreDataTest: XCTestCase {
 
     func createDataInCoreDataForLevel() {
         let coreDataManager = CoreDataManager()
-        let gameMode = GameModes().getGameModes()
+        let gameMode = GameModes.shared.getGameModes()
         coreDataManager.saveProgression(gameMode: gameMode[0])
     }
 
