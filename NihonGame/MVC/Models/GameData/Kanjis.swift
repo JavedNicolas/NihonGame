@@ -9,10 +9,11 @@
 import Foundation
 
 class Kanjis : ModeDataConstructor {
+    var name: String = "Kanji_Mode_Name".localize()
     internal var datas : [GameData] = []
     internal var kanjisJSON = KanjiModeJSONs.kanjiJSON
     internal var groupJSON = KanjiModeJSONs.groupsJSON
-    internal var answers: Answers?
+    internal var answers: PossibleAnswers?
 
     init() {
         let kanjiData = JSONParser(json: kanjisJSON, withExtension: "json").data
@@ -39,7 +40,7 @@ class Kanjis : ModeDataConstructor {
 
     internal func createAnswer() {
         let dataNamesString = getDataNameAsArray()
-        answers = Answers(modeDataCreator: self, dataComponentsName: dataNamesString)
+        answers = PossibleAnswers(modeDataCreator: self, dataComponentsName: dataNamesString)
     }
 
     func getDataNameAsArray() -> [String] {

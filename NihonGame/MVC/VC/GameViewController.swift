@@ -30,14 +30,19 @@ class GameViewController: UIViewController {
         let modesDataConstructor = gameModes.getModeData(id: currentModeID)
         let gameDatas = modes[currentModeID].modeData.getDatas()
         levelData = level.setGameDataToUse(gameDatas: gameDatas)
-        setQuestion(dataNames: modesDataConstructor.getDataNameAsArray())
+        if let possibleAnswers = gameModes.getModeData(id: currentModeID).answers {
+            setQuestion(dataNames: modesDataConstructor.getDataNameAsArray(), allAnswers: possibleAnswers)
+        }
     }
 
-    func setQuestion(dataNames: [String]) {
-        self.question = Question(levelData: levelData, dataNames: dataNames)
+    func setQuestion(dataNames: [String], allAnswers: PossibleAnswers) {
+        self.question = Question(levelData: levelData, dataNames: dataNames, AllAnswers: allAnswers)
         if let question = question {
-            print("Question : \(question.question)\n")
-            print("Reponse : \(question.goodAnswer.answerString), de type : \(question.goodAnswer.category)")
+            print("Question : \(question.question)")
+            print("Reponse : \(question.goodAnswer.answerString),")
+            for i in 0..<question.badAnswers.count {
+                print("\(question.badAnswers[i].answerString)")
+            }
         }
     }
 }

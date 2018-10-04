@@ -21,5 +21,11 @@ class GameMode {
         self.id = gameModeID
     }
 
+    init(coreDataGameMode: CoreDataGameMode, modeData : ModeDataConstructor) {
+        self.name = coreDataGameMode.name!
+        self.modeData = modeData
+        self.groups = Groups(coreDataGroups: coreDataGameMode.groups).getGroups()
+        self.id = coreDataGameMode.id.int
+    }
 }
 

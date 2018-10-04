@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Answers {
-    private var answerList : [String: [Answer]] = [:]
+class PossibleAnswers {
+    private var possibleAnswerList : [String: [Answer]] = [:]
 
     init(modeDataCreator: ModeDataConstructor, dataComponentsName: [String]) {
         let modeData = modeDataCreator.datas
@@ -18,16 +18,20 @@ class Answers {
                 if let dataForDataName = data.dataDictionary[dataName] {
                     for dataComponent in dataForDataName {
                         let answer = Answer(gameDataID: data.id, answerString: String(dataComponent), category: dataName)
-                        if answerList[dataName] == nil {
-                            answerList[dataName] = [Answer]()
+                        if possibleAnswerList[dataName] == nil {
+                            possibleAnswerList[dataName] = [Answer]()
                         }
-                        if let isNew = (answerList[dataName]?.contains(where: {$0.answerString == answer.answerString})),
+                        if let isNew = (possibleAnswerList[dataName]?.contains(where: {$0.answerString == answer.answerString})),
                             !isNew {
-                            answerList[dataName]?.append(answer)
+                            possibleAnswerList[dataName]?.append(answer)
                         }
                     }
                 }
             }
         }
+    }
+
+    func getPossibleAnswersList() -> [String: [Answer]] {
+        return possibleAnswerList
     }
 }

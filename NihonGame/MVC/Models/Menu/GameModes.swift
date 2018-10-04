@@ -19,32 +19,24 @@ class GameModes {
     }
 
     private func createModesList() {
-        createKanjiMode()
-    }
-
-    private func createKanjiMode() {
-        var modeData : ModeDataConstructor?
         var groups : [Group] = []
 
         for modeID in 0..<modesData.count {
-//            if let progression = getSavedProgression(forModeID: modeID)  {
-//                kanjis = Kanjis().getKanjis()
-//                groups = Groups(coreDataGroups: progression.groups).getGroups()
+//            if let gameModeInCoreData = getSavedProgression(forModeID: modeID), let _ = gameModeInCoreData.name{
+//                let gameMode = GameMode(coreDataGameMode: gameModeInCoreData, modeData: modesData[modeID])
+//                gameModes.append(gameMode)
 //            }else {
-                modeData = modesData[modeID]
-                guard let modeData = modeData else {
-                    return
-                }
                 let groupJSON = modesData[modeID].getGroupJSON()
                 groups = Groups(json: groupJSON).getGroups()
+                let gameMode = GameMode(gameModeName: modesData[modeID].name, gameModeID: modeID, modeData: modesData[modeID], gameModeGroups: groups)
+                gameModes.append(gameMode)
+                coreDataManager.saveProgression(gameMode: gameModes[modeID])
 //            }
-            gameModes.append(GameMode(gameModeName: "Kanji_Mode_Name".localize(), gameModeID: modeID, modeData: modeData, gameModeGroups: groups))
         }
     }
 
     private func getSavedProgression(forModeID: Int) -> CoreDataGameMode? {
         let coreDataGameMode = coreDataManager.fetchMenu(modeID: forModeID)
-
         return coreDataGameMode
     }
 

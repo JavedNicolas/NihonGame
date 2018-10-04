@@ -17,7 +17,6 @@
 		373570F9215D18ED0033A5F7 /* Kanjis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373570F8215D18ED0033A5F7 /* Kanjis.swift */; };
 		3743A3A1215B73290012B02A /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3743A3A0215B73290012B02A /* IntExtension.swift */; };
 		3743A3A4215B789C0012B02A /* GameDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3743A3A2215B789C0012B02A /* GameDataModel.xcdatamodeld */; };
-		3743A3A6215B79800012B02A /* ModelMapping.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 3743A3A5215B79800012B02A /* ModelMapping.xcmappingmodel */; };
 		37484740214A3824006E35D1 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3748473F214A3824006E35D1 /* MainCoordinator.swift */; };
 		37484744214A3B90006E35D1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37484743214A3B90006E35D1 /* Coordinator.swift */; };
 		37484746214A3DE8006E35D1 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37484745214A3DE8006E35D1 /* GameData.swift */; };
@@ -44,7 +43,7 @@
 		3765F6352161F49D00A4D64D /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765F6342161F49D00A4D64D /* Global.swift */; };
 		3765F6372161F6B700A4D64D /* ModeDataConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765F6362161F6B700A4D64D /* ModeDataConstructor.swift */; };
 		3765F63A2162088300A4D64D /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765F6392162088300A4D64D /* Answer.swift */; };
-		3765F63C2162089400A4D64D /* Answers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765F63B2162089400A4D64D /* Answers.swift */; };
+		3765F63C2162089400A4D64D /* PossibleAnswers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765F63B2162089400A4D64D /* PossibleAnswers.swift */; };
 		3765F6402162116F00A4D64D /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765F63F2162116F00A4D64D /* Question.swift */; };
 		3765F644216238C300A4D64D /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765F643216238C300A4D64D /* QuestionData.swift */; };
 		37685A142153745900D8B585 /* GroupsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37685A132153745900D8B585 /* GroupsTest.swift */; };
@@ -95,7 +94,6 @@
 		373570F8215D18ED0033A5F7 /* Kanjis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kanjis.swift; sourceTree = "<group>"; };
 		3743A3A0215B73290012B02A /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		3743A3A3215B789C0012B02A /* GameDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GameDataModel.xcdatamodel; sourceTree = "<group>"; };
-		3743A3A5215B79800012B02A /* ModelMapping.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = ModelMapping.xcmappingmodel; sourceTree = "<group>"; };
 		3748473F214A3824006E35D1 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		37484743214A3B90006E35D1 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		37484745214A3DE8006E35D1 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
@@ -128,7 +126,7 @@
 		3765F6342161F49D00A4D64D /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		3765F6362161F6B700A4D64D /* ModeDataConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeDataConstructor.swift; sourceTree = "<group>"; };
 		3765F6392162088300A4D64D /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
-		3765F63B2162089400A4D64D /* Answers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answers.swift; sourceTree = "<group>"; };
+		3765F63B2162089400A4D64D /* PossibleAnswers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleAnswers.swift; sourceTree = "<group>"; };
 		3765F63F2162116F00A4D64D /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		3765F643216238C300A4D64D /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
 		37685A132153745900D8B585 /* GroupsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTest.swift; sourceTree = "<group>"; };
@@ -180,6 +178,7 @@
 		3743A39C215B5E4D0012B02A /* GameData */ = {
 			isa = PBXGroup;
 			children = (
+				375480A2215A6CF800CE2335 /* JSONParser.swift */,
 				3754809E215A505100CE2335 /* Kanji.swift */,
 				373570F8215D18ED0033A5F7 /* Kanjis.swift */,
 			);
@@ -284,10 +283,8 @@
 				37BF51A021590D8D0093F04E /* CoreData */,
 				3754809D215A503700CE2335 /* Parsing Struct */,
 				3743A39F215B72F30012B02A /* extension */,
-				375480A2215A6CF800CE2335 /* JSONParser.swift */,
 				3776D5E5214BA65600536A8D /* Localizable.strings */,
 				3743A3A2215B789C0012B02A /* GameDataModel.xcdatamodeld */,
-				3743A3A5215B79800012B02A /* ModelMapping.xcmappingmodel */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -345,7 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				3765F6392162088300A4D64D /* Answer.swift */,
-				3765F63B2162089400A4D64D /* Answers.swift */,
+				3765F63B2162089400A4D64D /* PossibleAnswers.swift */,
 				3765F63F2162116F00A4D64D /* Question.swift */,
 				3765F643216238C300A4D64D /* QuestionData.swift */,
 			);
@@ -569,7 +566,7 @@
 				3765F63A2162088300A4D64D /* Answer.swift in Sources */,
 				37613079213FC81E00FBCA24 /* UIViewExtension.swift in Sources */,
 				3754809A215A4F9800CE2335 /* Levels.swift in Sources */,
-				3765F63C2162089400A4D64D /* Answers.swift in Sources */,
+				3765F63C2162089400A4D64D /* PossibleAnswers.swift in Sources */,
 				3776D5E8214BA78E00536A8D /* StringExtension.swift in Sources */,
 				37EBC379215291F60049DB66 /* GroupLevelVCDataSource.swift in Sources */,
 				373570F3215D146D0033A5F7 /* Level.swift in Sources */,
@@ -582,7 +579,6 @@
 				37613037213E644700FBCA24 /* AppDelegate.swift in Sources */,
 				375480A3215A6CF800CE2335 /* JSONParser.swift in Sources */,
 				37E0B02B2158BE4A0064019F /* MenuButton.swift in Sources */,
-				3743A3A6215B79800012B02A /* ModelMapping.xcmappingmodel in Sources */,
 				373570F5215D14950033A5F7 /* GameMode.swift in Sources */,
 				37E0B0372158D4460064019F /* GameCoordinator.swift in Sources */,
 				373570F9215D18ED0033A5F7 /* Kanjis.swift in Sources */,

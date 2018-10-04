@@ -9,9 +9,10 @@
 import Foundation
 
 protocol ModeDataConstructor {
+    var name : String { get }
     var datas : [GameData] { get }
     var groupJSON : String { get }
-    var answers : Answers? { get }
+    var answers : PossibleAnswers? { get }
     func createAnswer()
     func getGroupJSON() -> String
     func getDatas() -> [GameData]
@@ -27,7 +28,7 @@ extension ModeDataConstructor {
         return datas
     }
 
-    func getAnswerList() -> Answers? {
+    func getAnswerList() -> PossibleAnswers? {
         return answers
     }
 }

@@ -20,14 +20,19 @@ class CoreDataManager {
     }
 
     func fetchMenu(modeID: Int) -> CoreDataGameMode? {
-        let coreDataGameMode = CoreDataGameMode(context: context)
-        let success = coreDataGameMode.fetch(modeID: modeID)
+        let requestGameMode : NSFetchRequest<CoreDataGameMode> = CoreDataGameMode.fetchRequest()
+        requestGameMode.predicate = NSPredicate(format: "id == %i", modeID.int16)
+        requestGameMode.returnsObjectsAsFaults = false
 
-        if success {
-            return coreDataGameMode
-        }else {
+        do {
+            if let coreDataGameMode = try context.fetch(requestGameMode).first {
+                return coreDataGameMode
+            }
+        } catch let error {
+            print(error)
             return nil
         }
+        return nil
     }
 
     func saveProgression(gameMode: GameMode) {
@@ -39,9 +44,9 @@ class CoreDataManager {
 
     func deleteModes(gameModes: [GameMode]) {
         for gameMode in gameModes {
-            let coreDataGameMode = CoreDataGameMode(context: context)
-            let _ = coreDataGameMode.fetch(modeID: gameMode.id)
-            context.delete(coreDataGameMode)
+            if let coreDataGameMode = fetchMenu(modeID: gameMode.id) {
+                context.delete(coreDataGameMode)
+            }
         }
         saveContext()
     }

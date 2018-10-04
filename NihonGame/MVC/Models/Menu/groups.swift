@@ -50,11 +50,11 @@ class Groups {
         for element in coreDataGroups.enumerated() {
             if let group = element.element as? CoreDataGroup {
                 let levels = Levels(coreDataLevels: group.levels).getLevels()
-                groups.append(Group(coreDataGroup: group, levels: levels))
+                self.groups.append(Group(coreDataGroup: group, levels: levels))
             }
         }
 
-        groups.sort(by: { $0.id < $1.id })
+        self.groups.sort(by: { $0.id < $1.id })
     }
 
     func getGroups() -> [Group] {

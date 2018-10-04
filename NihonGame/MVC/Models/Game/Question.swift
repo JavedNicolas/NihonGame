@@ -11,33 +11,52 @@ import Foundation
 class Question {
     var question : String
     var goodAnswer : Answer
-    var badAnswers : [Answer]
+    var badAnswers : [Answer] = []
+    private var allPossibleAnswer : PossibleAnswers
 
-    init(levelData : [GameData], dataNames: [String]) {
-        let levelDataFirstElement = levelData[levelData.startIndex]
-        let levelDataLastElement = levelData[levelData.endIndex - 1]
-        let randomComponentsID = Int.random(in: levelDataFirstElement.id...levelDataLastElement.id)
+    init(levelData : [GameData], dataNames: [String], AllAnswers: PossibleAnswers) {
+        self.allPossibleAnswer = AllAnswers
         var dataID = 0
         var goodAnswerString = ""
-        var goodAnswerCategorie = ""
+        var goodAnswerCategory = ""
         var questionString = ""
-        if let chosenData = levelData.dataAt(id: randomComponentsID) {
+        if let chosenData = levelData.randomElement() {
             dataID = chosenData.id
             if let question = chosenData.getQuestionData() {
                 questionString = question.questionString
                 goodAnswerString = question.goodAnswerString
-                goodAnswerCategorie = question.answerCategoryName
+                goodAnswerCategory = question.answerCategoryName
             }
         }
         self.question = questionString
-        self.goodAnswer = Answer(gameDataID: dataID, answerString: goodAnswerString, category: goodAnswerCategorie)
-        self.badAnswers = []
-        generateBadAnswer(lastKanjiLearned: levelDataLastElement)
+        self.goodAnswer = Answer(gameDataID: dataID, answerString: goodAnswerString, category: goodAnswerCategory)
+        generateBadAnswer(levelData: levelData, category: goodAnswerCategory)
     }
 
-    func generateBadAnswer(lastKanjiLearned: GameData) {
-        let allAnswer = gameModes
+    func generateBadAnswer(levelData: [GameData], category: String) {
+        let badAnswerPossibility = allPossibleAnswer.getPossibleAnswersList()[category]
+        let lastGameData = levelData[levelData.endIndex - 1]
+        for _ in 0...2 {
+            repeat {
+                 
+                if let badAnswer = badAnswerPossibility?.randomElement(),
+                    checkIfBadAnswersCanBeAdded(badAnswer: badAnswer, lastGameDataID: lastGameData.id, category: category){
+                    self.badAnswers.append(badAnswer)
+                }
+            }while self.badAnswers.count < 2
+        }
     }
 
-
+    func checkIfBadAnswersCanBeAdded(badAnswer: Answer, lastGameDataID: Int, category: String) -> Bool{
+        print(badAnswer)
+        if badAnswer.answerString != goodAnswer.answerString,
+            badAnswer.gameDataID < lastGameDataID,
+            !self.badAnswers.contains(where: { $0.answerString == badAnswer.answerString }){
+            let allAnswersDict = allPossibleAnswer.getPossibleAnswersList()
+            if let categoryDict = allAnswersDict[category] {
+                return categoryDict.contains(where: {$0.gameDataID == badAnswer.gameDataID && $0.answerString == badAnswer.answerString })
+            }
+        }
+        return false
+    }
 }

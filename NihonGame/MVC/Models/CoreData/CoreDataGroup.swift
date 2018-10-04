@@ -17,6 +17,7 @@ class CoreDataGroup : NSManagedObject {
         }
 
         id = group.id.int16
+        name = group.name
         firstElement = group.elementRange.0.int16
         lastElement = group.elementRange.1.int16
         for level in group.levels {

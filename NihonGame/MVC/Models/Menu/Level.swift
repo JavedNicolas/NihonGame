@@ -19,7 +19,7 @@ class Level : GameDataGroup {
 
     init(parsedLevel level: LevelsParsing){
         self.id = level.id
-        self.name = "\(level.startRange)-\(level.endRange)"
+        self.name = "Level_String".localize() + ": \(level.startRange)-\(level.endRange)"
         self.elementRange = (level.startRange,level.endRange)
         self.done = false
         self.locked = false
