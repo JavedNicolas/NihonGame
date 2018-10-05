@@ -47,8 +47,9 @@ class Groups {
             return
         }
 
-        for element in coreDataGroups.enumerated() {
-            if let group = element.element as? CoreDataGroup {
+        for element in coreDataGroups.allObjects {
+            if let group = element as? CoreDataGroup {
+                group.fetchLevels(forGroupID: group.id)
                 let levels = Levels(coreDataLevels: group.levels).getLevels()
                 self.groups.append(Group(coreDataGroup: group, levels: levels))
             }

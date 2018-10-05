@@ -23,4 +23,22 @@ class Game {
         }
         self.currentQuestion = Question(levelData: levelData, dataNames: modesDataConstructor.getDataNameAsArray(), AllAnswers: possibleAnswers)
     }
+
+    func isCorrectAnswer(answer: Answer) -> Bool {
+        guard let currentQuestion = currentQuestion, var gameData = levelData.dataAt(id: currentQuestion.goodAnswer.gameDataID) else {
+            return false
+        }
+
+        if answer == currentQuestion.goodAnswer {
+            gameData.incrementScore()
+            return true
+        }else {
+            gameData.decrementScore()
+            return false
+        }
+    }
+
+    func getCurrentQuestion() -> Question? {
+        return currentQuestion
+    }
 }

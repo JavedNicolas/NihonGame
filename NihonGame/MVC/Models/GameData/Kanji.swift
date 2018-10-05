@@ -9,6 +9,7 @@
 import Foundation
 
 class Kanji : GameData {
+
     internal var id : Int
     internal var groupName : String
     internal var dataDictionary : [String: [Substring]] = [:]

@@ -47,4 +47,8 @@ class GameModes {
     func getGameModes() -> [GameMode]{
         return gameModes
     }
+
+    func coreDataForTest() {
+        coreDataManager.contextForTest()
+    }
 }

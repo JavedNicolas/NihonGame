@@ -23,9 +23,27 @@ class CoreDataGroup : NSManagedObject {
         for level in group.levels {
             let coreDataLevel = CoreDataLevel(context: context)
             coreDataLevel.fill(level: level)
+            coreDataLevel.parentGroup = self
             addToLevels(coreDataLevel)
         }
+    }
 
+    func fetchLevels(forGroupID id: Int16) {
+        let requestLevel : NSFetchRequest<CoreDataGroup> = CoreDataGroup.fetchRequest()
+        requestLevel.predicate = NSPredicate(format: "id == %i", id)
+        requestLevel.returnsObjectsAsFaults = false
+
+        do {
+            guard let context = self.managedObjectContext else {
+                return
+            }
+
+            if let coreDataGroup = try context.fetch(requestLevel).first {
+                self.addToLevels(coreDataGroup.levels!)
+            }
+        } catch let error {
+            print(error)
+        }
     }
 
 }

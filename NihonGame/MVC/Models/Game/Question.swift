@@ -55,7 +55,6 @@ class Question {
     }
 
     func checkIfBadAnswersCanBeAdded(badAnswer: Answer, lastGameDataID: Int, category: String) -> Bool{
-        print(badAnswer)
         if badAnswer.gameDataID != goodAnswer.gameDataID, badAnswer.answerString != goodAnswer.answerString,
             !self.badAnswers.contains(where: { $0.answerString == badAnswer.answerString }){
             let allAnswersDict = allPossibleAnswer.getPossibleAnswersList()

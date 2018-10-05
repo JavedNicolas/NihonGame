@@ -18,6 +18,13 @@ extension UIView {
         }
     }
 
+    func setGrandiantBackground(colors: [CGColor]) {
+        let gradient = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = colors
+        self.layer.insertSublayer(gradient, at: 0)
+    }
+
     func setAnchors(top : NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, trailing: NSLayoutXAxisAnchor?,
                     bottom: NSLayoutYAxisAnchor?, padding: UIEdgeInsets = .zero) {
         translatesAutoresizingMaskIntoConstraints = false

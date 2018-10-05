@@ -29,6 +29,7 @@ class Levels {
         guard let coreDataLevels = coreDataLevels else {
             return
         }
+        
         for level in coreDataLevels.allObjects {
             if let level = level as? CoreDataLevel {
                 self.levels.append(Level(coreDataLevel: level))

@@ -26,7 +26,7 @@ class GroupCreatorTest: XCTestCase {
         XCTAssertNotEqual(groups.count, 0)
     }
 
-    func testGivenWeHaveGroupsWhenWeWantToUseThemThenTheyHaveNameAndRange() {
+    func testGivenWeHaveGroupsWeCanAccessToTheirNameAndRange() {
         // Given
             // in the setup
         // When
@@ -38,7 +38,7 @@ class GroupCreatorTest: XCTestCase {
         }
     }
 
-    func testGivenWeHaveGroupsWhenNeedTheirLevelThenWeCanFetchThem() {
+    func testGivenWeHaveGroupsWeCanAccessTheirLevels() {
         // Given
             // int the setup
         // When
