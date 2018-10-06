@@ -18,9 +18,10 @@ extension UIView {
         }
     }
 
-    func setGrandiantBackground(colors: [CGColor]) {
+    func setGrandiantBackground(colors: [CGColor], cornerRadius radius: CGFloat = CGFloat(0)) {
         let gradient = CAGradientLayer()
         gradient.frame = self.bounds
+        gradient.cornerRadius = radius
         gradient.colors = colors
         self.layer.insertSublayer(gradient, at: 0)
     }

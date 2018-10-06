@@ -10,6 +10,7 @@ import UIKit
 
 class SQAnswerView : UIView {
     private var answer : Answer
+    private var label = UILabel()
     
     init(frame: CGRect, answer: Answer) {
         self.answer = answer
@@ -26,13 +27,17 @@ class SQAnswerView : UIView {
         self.layoutIfNeeded()
     }
 
-    func setLabel() {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
+    private func setLabel() {
+        label.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
         label.text = answer.answerString
         label.textAlignment = .center
-        label.textColor = .red
+        label.textColor = .white
         label.font = UIFont(name: "Arial", size: 35)
         addSubview(label)
         label.setAnchors(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, bottom: bottomAnchor)
+    }
+
+    func getlabelText() -> String? {
+        return self.label.text
     }
 }

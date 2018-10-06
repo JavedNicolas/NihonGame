@@ -35,16 +35,16 @@ class SQQuestionView : UIView {
         //you can change the line width
         shapeLayer.lineWidth = 0
 
-        self.layer.addSublayer(shapeLayer)
+        self.layer.insertSublayer(shapeLayer, at: 1)
     }
 
     func setLabel(text: String) {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
         label.text = text
         label.textAlignment = .center
-        label.textColor = .red
+        label.textColor = .white
         label.font = UIFont(name: "Arial", size: 25)
         addSubview(label)
-        //label.setAnchors(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, bottom: bottomAnchor)
+        label.setAnchors(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, bottom: bottomAnchor)
     }
 }

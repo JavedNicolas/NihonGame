@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		372E448121678A4B0079B5DF /* SQQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E448021678A4B0079B5DF /* SQQuestionView.swift */; };
 		372E44842167A5A10079B5DF /* SQAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E44832167A5A10079B5DF /* SQAnswerView.swift */; };
+		372E44862168D4C00079B5DF /* AnswerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E44852168D4C00079B5DF /* AnswerType.swift */; };
+		372E448A2168D7D30079B5DF /* PopUPMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E44892168D7D30079B5DF /* PopUPMessageView.swift */; };
+		372E448C2168DC8F0079B5DF /* PopUpImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E448B2168DC8F0079B5DF /* PopUpImageView.swift */; };
+		372E448E2168E47C0079B5DF /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E448D2168E47C0079B5DF /* PopUpView.swift */; };
 		373570EB215CCE4E0033A5F7 /* CoreDataLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373570EA215CCE4E0033A5F7 /* CoreDataLevel.swift */; };
 		373570ED215CCEB50033A5F7 /* CoreDataGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373570EC215CCEB50033A5F7 /* CoreDataGroup.swift */; };
 		373570EF215CCEC50033A5F7 /* CoreDataGameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373570EE215CCEC50033A5F7 /* CoreDataGameMode.swift */; };
@@ -48,7 +52,7 @@
 		3765F6402162116F00A4D64D /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765F63F2162116F00A4D64D /* Question.swift */; };
 		3765F644216238C300A4D64D /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765F643216238C300A4D64D /* QuestionData.swift */; };
 		3765F64A2165FBA800A4D64D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765F6492165FBA800A4D64D /* Game.swift */; };
-		3765F64E2166301B00A4D64D /* QuestionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765F64D2166301B00A4D64D /* QuestionType.swift */; };
+		3765F64E2166301B00A4D64D /* QuestionModeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3765F64D2166301B00A4D64D /* QuestionModeType.swift */; };
 		37685A142153745900D8B585 /* GroupsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37685A132153745900D8B585 /* GroupsTest.swift */; };
 		37685A16215377DA00D8B585 /* GameModesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37685A15215377DA00D8B585 /* GameModesTest.swift */; };
 		37685A182153808800D8B585 /* LevelMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37685A172153808800D8B585 /* LevelMenuCoordinator.swift */; };
@@ -89,6 +93,10 @@
 /* Begin PBXFileReference section */
 		372E448021678A4B0079B5DF /* SQQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQQuestionView.swift; sourceTree = "<group>"; };
 		372E44832167A5A10079B5DF /* SQAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQAnswerView.swift; sourceTree = "<group>"; };
+		372E44852168D4C00079B5DF /* AnswerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerType.swift; sourceTree = "<group>"; };
+		372E44892168D7D30079B5DF /* PopUPMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUPMessageView.swift; sourceTree = "<group>"; };
+		372E448B2168DC8F0079B5DF /* PopUpImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpImageView.swift; sourceTree = "<group>"; };
+		372E448D2168E47C0079B5DF /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		373570EA215CCE4E0033A5F7 /* CoreDataLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataLevel.swift; sourceTree = "<group>"; };
 		373570EC215CCEB50033A5F7 /* CoreDataGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataGroup.swift; sourceTree = "<group>"; };
 		373570EE215CCEC50033A5F7 /* CoreDataGameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataGameMode.swift; sourceTree = "<group>"; };
@@ -134,7 +142,7 @@
 		3765F63F2162116F00A4D64D /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		3765F643216238C300A4D64D /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
 		3765F6492165FBA800A4D64D /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		3765F64D2166301B00A4D64D /* QuestionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionType.swift; sourceTree = "<group>"; };
+		3765F64D2166301B00A4D64D /* QuestionModeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionModeType.swift; sourceTree = "<group>"; };
 		37685A132153745900D8B585 /* GroupsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTest.swift; sourceTree = "<group>"; };
 		37685A15215377DA00D8B585 /* GameModesTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModesTest.swift; sourceTree = "<group>"; };
 		37685A172153808800D8B585 /* LevelMenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelMenuCoordinator.swift; sourceTree = "<group>"; };
@@ -189,6 +197,25 @@
 				372E448021678A4B0079B5DF /* SQQuestionView.swift */,
 			);
 			path = SimpleQuestionMode;
+			sourceTree = "<group>";
+		};
+		372E44872168D4CB0079B5DF /* Protocoles */ = {
+			isa = PBXGroup;
+			children = (
+				3765F64D2166301B00A4D64D /* QuestionModeType.swift */,
+				372E44852168D4C00079B5DF /* AnswerType.swift */,
+			);
+			path = Protocoles;
+			sourceTree = "<group>";
+		};
+		372E44882168D7C30079B5DF /* PopUPMessage */ = {
+			isa = PBXGroup;
+			children = (
+				372E448D2168E47C0079B5DF /* PopUpView.swift */,
+				372E44892168D7D30079B5DF /* PopUPMessageView.swift */,
+				372E448B2168DC8F0079B5DF /* PopUpImageView.swift */,
+			);
+			path = PopUPMessage;
 			sourceTree = "<group>";
 		};
 		3743A39C215B5E4D0012B02A /* GameData */ = {
@@ -370,8 +397,9 @@
 		3765F64C2166300600A4D64D /* QuestionMode */ = {
 			isa = PBXGroup;
 			children = (
+				372E44882168D7C30079B5DF /* PopUPMessage */,
+				372E44872168D4CB0079B5DF /* Protocoles */,
 				372E44822167A5750079B5DF /* SimpleQuestionMode */,
-				3765F64D2166301B00A4D64D /* QuestionType.swift */,
 			);
 			path = QuestionMode;
 			sourceTree = "<group>";
@@ -568,6 +596,7 @@
 				3743A3A4215B789C0012B02A /* GameDataModel.xcdatamodeld in Sources */,
 				37685A2421539DDD00D8B585 /* LevelButton.swift in Sources */,
 				37484744214A3B90006E35D1 /* Coordinator.swift in Sources */,
+				372E448C2168DC8F0079B5DF /* PopUpImageView.swift in Sources */,
 				373570F1215D14540033A5F7 /* Group.swift in Sources */,
 				37484740214A3824006E35D1 /* MainCoordinator.swift in Sources */,
 				37E0B0352158C3C80064019F /* MenuTableViewCell.swift in Sources */,
@@ -575,7 +604,7 @@
 				3765F6372161F6B700A4D64D /* ModeDataConstructor.swift in Sources */,
 				37685A182153808800D8B585 /* LevelMenuCoordinator.swift in Sources */,
 				37E0B0312158C0BD0064019F /* GameGroupButton.swift in Sources */,
-				3765F64E2166301B00A4D64D /* QuestionType.swift in Sources */,
+				3765F64E2166301B00A4D64D /* QuestionModeType.swift in Sources */,
 				37685A1A215380DC00D8B585 /* LevelMenuViewController.swift in Sources */,
 				37A5665221490E1400F53B43 /* KanjiParsing.swift in Sources */,
 				3761303D213E644700FBCA24 /* GameScene.swift in Sources */,
@@ -593,6 +622,7 @@
 				37E0B03C2158DAA60064019F /* CoreDataManager.swift in Sources */,
 				37484746214A3DE8006E35D1 /* GameData.swift in Sources */,
 				373570F7215D17090033A5F7 /* KanjiProgression.swift in Sources */,
+				372E44862168D4C00079B5DF /* AnswerType.swift in Sources */,
 				3765F63A2162088300A4D64D /* Answer.swift in Sources */,
 				37613079213FC81E00FBCA24 /* UIViewExtension.swift in Sources */,
 				3754809A215A4F9800CE2335 /* Levels.swift in Sources */,
@@ -608,6 +638,7 @@
 				37613075213FC5DE00FBCA24 /* MenuTableView.swift in Sources */,
 				37613037213E644700FBCA24 /* AppDelegate.swift in Sources */,
 				375480A3215A6CF800CE2335 /* JSONParser.swift in Sources */,
+				372E448E2168E47C0079B5DF /* PopUpView.swift in Sources */,
 				37E0B02B2158BE4A0064019F /* MenuButton.swift in Sources */,
 				373570F5215D14950033A5F7 /* GameMode.swift in Sources */,
 				37E0B0372158D4460064019F /* GameCoordinator.swift in Sources */,
@@ -620,6 +651,7 @@
 				3743A3A1215B73290012B02A /* IntExtension.swift in Sources */,
 				3761306A213FB4D200FBCA24 /* Constant.swift in Sources */,
 				372E44842167A5A10079B5DF /* SQAnswerView.swift in Sources */,
+				372E448A2168D7D30079B5DF /* PopUPMessageView.swift in Sources */,
 				37685A2021538FDC00D8B585 /* LevelMenuVCDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,7 @@
 import UIKit
 
 class SQModeView: UIView, QuestionType {
+    // Mark:- Attributs
     private lazy var rectanglePadding = self.frame.width / 10
     private let answerViewColor = [[UIColor.orange.cgColor, UIColor.orange.cgColor],
                                    [UIColor.blue.cgColor, UIColor.blue.cgColor],
@@ -20,20 +21,20 @@ class SQModeView: UIView, QuestionType {
     private lazy var bottomAnchors = [self.centerYAnchor, self.centerYAnchor, self.bottomAnchor, self.bottomAnchor]
     private lazy var leftPadding : [CGFloat] = [0, CGFloat(-rectanglePadding), 0, CGFloat(rectanglePadding) ]
     private lazy var rightPadding : [CGFloat] = [CGFloat(rectanglePadding), 0, CGFloat(-rectanglePadding), 0 ]
-    private var question : Question
-
-    init(frame: CGRect, question: Question) {
-        self.question = question
-        super.init(frame: frame)
-        setAnswers()
-        setQuestion()
+    var notificationNameString: String = "UserAnswered"
+    var answerViews = [SQAnswerView]()
+    var question : Question? = nil {
+        didSet {
+            if let question = question {
+                setAnswers(question: question)
+                setQuestion(question: question)
+            }
+        }
     }
+    var answered = (hasAnswered: false, hasCorrectlyAnswered: false)
 
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    private func setQuestion() {
+    //Mark:- Functions
+    func setQuestion(question: Question) {
         let circleSize = CGFloat(200)
         let questionCircleRect = CGRect(x: (frame.width / 2) - (circleSize / 2), y: (frame.height / 2) - (circleSize / 2),
                                         width: circleSize, height: circleSize)
@@ -42,7 +43,7 @@ class SQModeView: UIView, QuestionType {
         addSubview(questionView)
     }
 
-    private func setAnswers() {
+    func setAnswers(question: Question) {
         var answers = question.badAnswers
         answers.append(question.goodAnswer)
         answers.shuffle()
@@ -54,6 +55,8 @@ class SQModeView: UIView, QuestionType {
                                   padding: UIEdgeInsets(top: 0, left: leftPadding[index], bottom: 0, right: rightPadding[index]))
             answerView.setFrameFromConstraint()
             answerView.setGrandiantBackground(colors: answerViewColor[index])
+            answerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(userAnswered(_:))))
+            answerViews.append(answerView)
         }
     }
 
@@ -63,4 +66,17 @@ class SQModeView: UIView, QuestionType {
         return answerView
     }
 
+    @objc func userAnswered(_ sender: UITapGestureRecognizer) {
+        if let answerView = sender.view as? SQAnswerView, let question = question {
+            answered.hasAnswered = true
+            if answerView.getlabelText() == question.goodAnswer.answerString {
+                answered.hasCorrectlyAnswered  = true
+            }else {
+                answered.hasCorrectlyAnswered = false
+            }
+            let notificationName = Notification.Name(self.notificationNameString)
+            let notification = Notification(name: notificationName)
+            NotificationCenter.default.post(notification)
+        }
+    }
 }

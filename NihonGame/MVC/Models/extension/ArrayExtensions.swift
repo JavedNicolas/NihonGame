@@ -28,11 +28,9 @@ extension Array where Element == Answer {
                 answers.append(element)
             }
         }
-
         if answers.count == 0 {
             return nil
         }
-
         let randomAnswersIndex = Int.random(in: answers.startIndex..<answers.endIndex)
         return answers[randomAnswersIndex]
 
