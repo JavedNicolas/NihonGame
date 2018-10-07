@@ -23,6 +23,7 @@ class Group: GameDataGroup {
         self.levels = levels
         self.done = false
         self.locked = false
+        setDoneAndLockLevel(levels: levels)
     }
 
     init(coreDataGroup group: CoreDataGroup, levels: [Level]) {
@@ -32,6 +33,7 @@ class Group: GameDataGroup {
         self.levels = levels
         self.done = false
         self.locked = false
+        setDoneAndLockLevel(levels: levels)
     }
 
     func setDoneAndLockLevel(levels: [Level]) {

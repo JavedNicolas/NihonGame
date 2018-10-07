@@ -22,7 +22,7 @@ class Level : GameDataGroup {
         self.name = "Level_String".localize() + ": \(level.startRange)-\(level.endRange)"
         self.elementRange = (level.startRange,level.endRange)
         self.done = false
-        self.locked = false
+        self.locked = (id == 1 && level.startRange == 1 ? false : true)
         self.score = 0
         self.stars = 0
     }
@@ -31,8 +31,8 @@ class Level : GameDataGroup {
         self.id = level.id.int
         self.name = "\(level.firstElement)-\(level.lastElement)"
         self.elementRange = (level.firstElement.int ,level.lastElement.int)
-        self.done = false
-        self.locked = true
+        self.done = (level.levelScore < GameConstant.levelCompleteScore ? true : false)
+        self.locked = level.locked
         self.score = level.levelScore.int
         self.stars = level.stars.int
     }
