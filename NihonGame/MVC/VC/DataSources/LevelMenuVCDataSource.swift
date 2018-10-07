@@ -18,7 +18,6 @@ extension LevelMenuViewController : UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LevelCell", for: indexPath) as? LevelMenuCollectionviewCell,
         let levels = levels else {
             return UICollectionViewCell()

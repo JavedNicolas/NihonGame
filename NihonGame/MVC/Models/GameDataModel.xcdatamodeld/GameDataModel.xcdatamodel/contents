@@ -38,7 +38,7 @@
         <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastElement" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="locked" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="name" transient="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="score" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="stars" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="parentGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="levels" inverseEntity="Group" syncable="YES"/>
@@ -49,9 +49,9 @@
         </uniquenessConstraints>
     </entity>
     <elements>
+        <element name="DataProgression" positionX="-39.17578125" positionY="102.54296875" width="128" height="73"/>
         <element name="GameMode" positionX="-25.71875" positionY="424.05859375" width="128" height="90"/>
         <element name="Group" positionX="-377.70703125" positionY="236.64453125" width="128" height="148"/>
-        <element name="Level" positionX="-31.671875" positionY="220.32421875" width="128" height="163"/>
-        <element name="DataProgression" positionX="-39.17578125" positionY="102.54296875" width="128" height="73"/>
+        <element name="Level" positionX="-31.671875" positionY="220.32421875" width="128" height="165"/>
     </elements>
 </model>
