@@ -23,6 +23,16 @@ class Level : NSManagedObject {
         self.stars = 0.int16
     }
 
+    func changeScore(increase: Bool) {
+        if increase {
+            score += GameConstant.scoreIncrementation.int64
+        }else {
+            if score != 0 {
+                score -= GameConstant.scoreDecrementation.int64
+            }
+        }
+    }
+
     func setGameDataToUse(gameDatas: [GameData]) -> [GameData]{
         var levelDatas : [GameData] = []
 

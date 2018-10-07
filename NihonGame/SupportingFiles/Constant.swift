@@ -12,6 +12,7 @@ struct GameConstant {
     static let levelCompleteScore = 500
     static let scoreIncrementation = 50
     static let scoreDecrementation = 50
+    static let questionsByLevel = 20
 }
 
 struct GameDataConstant {

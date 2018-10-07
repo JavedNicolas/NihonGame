@@ -13,3 +13,5 @@
 // Mark: - GameModes
 "Kanji_Mode_Name" = "Kanji";
 "Level_String" = "Niveau";
+"Level_Success" = "Bravo, vous avez fini ce niveau !";
+"Level_Failed" = "Dommage, vous n'avez pas assez de point pour finir ce niveau !/n Mais vous pouvez ressayer!";

@@ -14,16 +14,17 @@ protocol GameData {
     var dataDictionary : [String: [Substring]] { get }
     var learningScore : Int { get set }
     func getQuestionData() -> QuestionData?
-    mutating func incrementScore()
-    mutating func decrementScore()
+    mutating func changeScore(increase: Bool)
 }
 
 extension GameData {
-    mutating func incrementScore() {
-        learningScore += GameDataConstant.scoreIncrementation
-    }
-
-    mutating func decrementScore() {
-        learningScore -= GameDataConstant.scoreDecrementation
+    mutating func changeScore(increase: Bool) {
+        if increase {
+            learningScore += GameDataConstant.scoreIncrementation
+        }else {
+            if learningScore != 0 {
+                learningScore -= GameDataConstant.scoreDecrementation
+            }
+        }
     }
 }
