@@ -11,4 +11,3 @@ import Foundation
 enum KanjiDataNames : String, CaseIterable {
     case kunyomi, onyomi, kanji, traduction
 }
-

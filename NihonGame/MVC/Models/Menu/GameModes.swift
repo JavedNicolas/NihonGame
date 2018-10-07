@@ -22,17 +22,17 @@ class GameModes {
         var groups : [Group] = []
 
         for modeID in 0..<modesData.count {
-//            if let gameModeInCoreData = getSavedProgression(forModeID: modeID), let _ = gameModeInCoreData.name{
-//                let gameMode = gameModeInCoreData
-//                gameModes.append(gameMode)
-//            }else {
+            if let gameModeInCoreData = getSavedProgression(forModeID: modeID), let _ = gameModeInCoreData.name{
+                let gameMode = gameModeInCoreData
+                gameModes.append(gameMode)
+            }else {
                 let groupJSON = modesData[modeID].getGroupJSON()
                 groups = Groups(json: groupJSON).getGroups()
                 let gameMode = GameMode(context: AppDelegate.viewContext)
                 gameMode.fill(gameModeName: modesData[modeID].name, gameModeID: modeID, modeData: modesData[modeID], gameModeGroups: groups)
                 gameModes.append(gameMode)
                 coreDataManager.saveContext()
-//            }
+            }
         }
     }
 

@@ -16,6 +16,7 @@ class GameMode : NSManagedObject {
         self.name = gameModeName
         self.modeData = modeData
         for group in gameModeGroups {
+            group.parentGameMode = self
             self.addToGroups(group)
         }
         self.id = gameModeID.int16

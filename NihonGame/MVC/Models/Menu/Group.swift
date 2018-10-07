@@ -17,6 +17,7 @@ class Group: NSManagedObject {
         self.firstElement = group.startRange.int16
         self.lastElement = group.endRange.int16
         for level in levels {
+            level.parentGroup = self
             self.addToLevels(level)
         }
         self.locked = false
