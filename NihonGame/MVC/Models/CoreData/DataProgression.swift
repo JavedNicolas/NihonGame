@@ -9,22 +9,22 @@
 import Foundation
 import CoreData
 
-class KanjiProgression : NSManagedObject {
+class DataProgression : NSManagedObject {
 
-    func fill(kanjiProgression: KanjiProgression) {
-        id = kanjiProgression.id
-        progressionScore = kanjiProgression.progressionScore
+    func fill(dataProgression: DataProgression) {
+        id = dataProgression.id
+        progressionScore = dataProgression.progressionScore
     }
 
     func fetch(kanjiID: Int) -> Bool {
         guard let context = managedObjectContext else {return false}
 
-        let request : NSFetchRequest<KanjiProgression> = KanjiProgression.fetchRequest()
+        let request : NSFetchRequest<DataProgression> = DataProgression.fetchRequest()
         request.predicate = NSPredicate(format: "id == %i", kanjiID.int16)
 
         do {
-            if let kanjiProgression = try context.fetch(request).first {
-                fill(kanjiProgression: kanjiProgression)
+            if let dataProgression = try context.fetch(request).first {
+                fill(dataProgression: dataProgression)
                 return true
             }
             return false

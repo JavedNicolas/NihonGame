@@ -9,9 +9,10 @@
 import Foundation
 
 class Question {
-    var question : String
-    var goodAnswer : Answer
+    var question : String = ""
+    var goodAnswer : Answer = Answer()
     var badAnswers : [Answer] = []
+    var dataChoosed : GameData
     private var allPossibleAnswer : PossibleAnswers
 
     init(levelData : [GameData], dataNames: [String], AllAnswers: PossibleAnswers) {
@@ -20,14 +21,19 @@ class Question {
         var goodAnswerString = ""
         var goodAnswerCategory = ""
         var questionString = ""
-        if let chosenData = levelData.randomElement() {
-            dataID = chosenData.id
-            if let question = chosenData.getQuestionData() {
-                questionString = question.questionString
-                goodAnswerString = question.goodAnswerString
-                goodAnswerCategory = question.answerCategoryName
-            }
+        guard let dataChoosed = levelData.randomElement() else {
+            self.dataChoosed = levelData[levelData.count - 1]
+            return
         }
+
+        dataID = dataChoosed.id
+        if let question = dataChoosed.getQuestionData() {
+            questionString = question.questionString
+            goodAnswerString = question.goodAnswerString
+            goodAnswerCategory = question.answerCategoryName
+        }
+        self.dataChoosed = dataChoosed
+
         self.question = questionString
         self.goodAnswer = Answer(gameDataID: dataID, answerString: goodAnswerString, category: goodAnswerCategory)
         generateBadAnswer(levelData: levelData, category: goodAnswerCategory, numberOfBadAnswer: 3)

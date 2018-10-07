@@ -13,13 +13,10 @@
 		372E448A2168D7D30079B5DF /* PopUPMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E44892168D7D30079B5DF /* PopUPMessageView.swift */; };
 		372E448C2168DC8F0079B5DF /* PopUpImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E448B2168DC8F0079B5DF /* PopUpImageView.swift */; };
 		372E448E2168E47C0079B5DF /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E448D2168E47C0079B5DF /* PopUpView.swift */; };
-		373570EB215CCE4E0033A5F7 /* CoreDataLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373570EA215CCE4E0033A5F7 /* CoreDataLevel.swift */; };
-		373570ED215CCEB50033A5F7 /* CoreDataGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373570EC215CCEB50033A5F7 /* CoreDataGroup.swift */; };
-		373570EF215CCEC50033A5F7 /* CoreDataGameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373570EE215CCEC50033A5F7 /* CoreDataGameMode.swift */; };
 		373570F1215D14540033A5F7 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373570F0215D14540033A5F7 /* Group.swift */; };
 		373570F3215D146D0033A5F7 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373570F2215D146D0033A5F7 /* Level.swift */; };
 		373570F5215D14950033A5F7 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373570F4215D14950033A5F7 /* GameMode.swift */; };
-		373570F7215D17090033A5F7 /* KanjiProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373570F6215D17090033A5F7 /* KanjiProgression.swift */; };
+		373570F7215D17090033A5F7 /* DataProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373570F6215D17090033A5F7 /* DataProgression.swift */; };
 		373570F9215D18ED0033A5F7 /* Kanjis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373570F8215D18ED0033A5F7 /* Kanjis.swift */; };
 		3743A3A1215B73290012B02A /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3743A3A0215B73290012B02A /* IntExtension.swift */; };
 		3743A3A4215B789C0012B02A /* GameDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3743A3A2215B789C0012B02A /* GameDataModel.xcdatamodeld */; };
@@ -97,13 +94,10 @@
 		372E44892168D7D30079B5DF /* PopUPMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUPMessageView.swift; sourceTree = "<group>"; };
 		372E448B2168DC8F0079B5DF /* PopUpImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpImageView.swift; sourceTree = "<group>"; };
 		372E448D2168E47C0079B5DF /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
-		373570EA215CCE4E0033A5F7 /* CoreDataLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataLevel.swift; sourceTree = "<group>"; };
-		373570EC215CCEB50033A5F7 /* CoreDataGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataGroup.swift; sourceTree = "<group>"; };
-		373570EE215CCEC50033A5F7 /* CoreDataGameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataGameMode.swift; sourceTree = "<group>"; };
 		373570F0215D14540033A5F7 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		373570F2215D146D0033A5F7 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		373570F4215D14950033A5F7 /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
-		373570F6215D17090033A5F7 /* KanjiProgression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanjiProgression.swift; sourceTree = "<group>"; };
+		373570F6215D17090033A5F7 /* DataProgression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProgression.swift; sourceTree = "<group>"; };
 		373570F8215D18ED0033A5F7 /* Kanjis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kanjis.swift; sourceTree = "<group>"; };
 		3743A3A0215B73290012B02A /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		3743A3A3215B789C0012B02A /* GameDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GameDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -449,10 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				37E0B03B2158DAA60064019F /* CoreDataManager.swift */,
-				373570EE215CCEC50033A5F7 /* CoreDataGameMode.swift */,
-				373570EC215CCEB50033A5F7 /* CoreDataGroup.swift */,
-				373570EA215CCE4E0033A5F7 /* CoreDataLevel.swift */,
-				373570F6215D17090033A5F7 /* KanjiProgression.swift */,
+				373570F6215D17090033A5F7 /* DataProgression.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -615,13 +606,12 @@
 				3776D5EC2150D2C100536A8D /* GroupMenuViewController.swift in Sources */,
 				3754809C215A4FCE00CE2335 /* GameModes.swift in Sources */,
 				3765F6402162116F00A4D64D /* Question.swift in Sources */,
-				373570ED215CCEB50033A5F7 /* CoreDataGroup.swift in Sources */,
 				3761303F213E644700FBCA24 /* GameViewController.swift in Sources */,
 				37685A22215394B800D8B585 /* LevelMenuVCDelegate.swift in Sources */,
 				37685A1E21538C2F00D8B585 /* LevelColletionView.swift in Sources */,
 				37E0B03C2158DAA60064019F /* CoreDataManager.swift in Sources */,
 				37484746214A3DE8006E35D1 /* GameData.swift in Sources */,
-				373570F7215D17090033A5F7 /* KanjiProgression.swift in Sources */,
+				373570F7215D17090033A5F7 /* DataProgression.swift in Sources */,
 				372E44862168D4C00079B5DF /* AnswerType.swift in Sources */,
 				3765F63A2162088300A4D64D /* Answer.swift in Sources */,
 				37613079213FC81E00FBCA24 /* UIViewExtension.swift in Sources */,
@@ -630,9 +620,7 @@
 				3776D5E8214BA78E00536A8D /* StringExtension.swift in Sources */,
 				37EBC379215291F60049DB66 /* GroupLevelVCDataSource.swift in Sources */,
 				373570F3215D146D0033A5F7 /* Level.swift in Sources */,
-				373570EB215CCE4E0033A5F7 /* CoreDataLevel.swift in Sources */,
 				37E0B0332158C0EC0064019F /* GroupMenuTableViewCell.swift in Sources */,
-				373570EF215CCEC50033A5F7 /* CoreDataGameMode.swift in Sources */,
 				3776D5F02150D34A00536A8D /* GameDataGroup.swift in Sources */,
 				3765F64A2165FBA800A4D64D /* Game.swift in Sources */,
 				37613075213FC5DE00FBCA24 /* MenuTableView.swift in Sources */,

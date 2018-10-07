@@ -7,25 +7,18 @@
 //
 
 import Foundation
+import CoreData
 
-class GameMode {
-    var name : String
-    var id : Int
-    var modeData : ModeDataConstructor
-    var groups : [Group]
+class GameMode : NSManagedObject {
+    var modeData : ModeDataConstructor?
 
-    init(gameModeName: String, gameModeID: Int, modeData: ModeDataConstructor, gameModeGroups: [Group]) {
+    func fill(gameModeName: String, gameModeID: Int, modeData: ModeDataConstructor, gameModeGroups: [Group]) {
         self.name = gameModeName
         self.modeData = modeData
-        self.groups = gameModeGroups
-        self.id = gameModeID
-    }
-
-    init(coreDataGameMode: CoreDataGameMode, modeData : ModeDataConstructor) {
-        self.name = coreDataGameMode.name!
-        self.modeData = modeData
-        self.groups = Groups(coreDataGroups: coreDataGameMode.groups).getGroups()
-        self.id = coreDataGameMode.id.int
+        for group in gameModeGroups {
+            self.addToGroups(group)
+        }
+        self.id = gameModeID.int16
     }
 }
 

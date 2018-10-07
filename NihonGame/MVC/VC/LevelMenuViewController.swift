@@ -25,7 +25,9 @@ class LevelMenuViewController : UIViewController {
 
     func setGroup(group: Group) {
         self.group = group
-        self.levels = group.levels
+        if let groupLevels = group.levels?.allObjects as? [Level] {
+            self.levels = groupLevels
+        }
     }
 
     func setCollectionView() {

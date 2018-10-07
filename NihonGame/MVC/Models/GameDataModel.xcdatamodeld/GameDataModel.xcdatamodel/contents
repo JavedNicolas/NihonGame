@@ -1,45 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="18A391" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="CoreDataGameMode" representedClassName=".CoreDataGameMode" syncable="YES" codeGenerationType="category">
+    <entity name="DataProgression" representedClassName=".DataProgression" syncable="YES" codeGenerationType="category">
         <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CoreDataGroup" inverseName="parentGameMode" inverseEntity="CoreDataGroup" syncable="YES"/>
+        <attribute name="progressionScore" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
-    <entity name="CoreDataGroup" representedClassName=".CoreDataGroup" syncable="YES" codeGenerationType="category">
-        <attribute name="firstElement" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    <entity name="GameMode" representedClassName=".GameMode" syncable="YES" codeGenerationType="category">
         <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="lastElement" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="levels" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CoreDataLevel" inverseName="parentGroup" inverseEntity="CoreDataLevel" syncable="YES"/>
-        <relationship name="parentGameMode" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataGameMode" inverseName="groups" inverseEntity="CoreDataGameMode" syncable="YES"/>
+        <relationship name="groups" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Group" inverseName="parentGameMode" inverseEntity="Group" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>
             </uniquenessConstraint>
         </uniquenessConstraints>
     </entity>
-    <entity name="CoreDataLevel" representedClassName=".CoreDataLevel" syncable="YES" codeGenerationType="category">
+    <entity name="Group" representedClassName=".Group" syncable="YES" codeGenerationType="category">
         <attribute name="firstElement" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastElement" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="levelScore" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="locked" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="locked" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" defaultValueString="&quot;&quot;" syncable="YES"/>
+        <relationship name="levels" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Level" inverseName="parentGroup" inverseEntity="Level" syncable="YES"/>
+        <relationship name="parentGameMode" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameMode" inverseName="groups" inverseEntity="GameMode" syncable="YES"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Level" representedClassName=".Level" syncable="YES" codeGenerationType="category">
+        <attribute name="firstElement" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lastElement" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="locked" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" transient="YES" attributeType="String" defaultValueString="&quot;&quot;" syncable="YES"/>
+        <attribute name="score" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="stars" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="parentGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoreDataGroup" inverseName="levels" inverseEntity="CoreDataGroup" syncable="YES"/>
-        <uniquenessConstraints>
-            <uniquenessConstraint>
-                <constraint value="id"/>
-            </uniquenessConstraint>
-        </uniquenessConstraints>
-    </entity>
-    <entity name="KanjiProgression" representedClassName=".KanjiProgression" syncable="YES" codeGenerationType="category">
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="progressionScore" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="parentGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="levels" inverseEntity="Group" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>
@@ -47,9 +49,9 @@
         </uniquenessConstraints>
     </entity>
     <elements>
-        <element name="CoreDataGameMode" positionX="-25.71875" positionY="424.05859375" width="128" height="90"/>
-        <element name="CoreDataGroup" positionX="-377.70703125" positionY="236.64453125" width="128" height="135"/>
-        <element name="CoreDataLevel" positionX="-31.671875" positionY="220.32421875" width="128" height="150"/>
-        <element name="KanjiProgression" positionX="-39.17578125" positionY="102.54296875" width="128" height="75"/>
+        <element name="GameMode" positionX="-25.71875" positionY="424.05859375" width="128" height="90"/>
+        <element name="Group" positionX="-377.70703125" positionY="236.64453125" width="128" height="148"/>
+        <element name="Level" positionX="-31.671875" positionY="220.32421875" width="128" height="163"/>
+        <element name="DataProgression" positionX="-39.17578125" positionY="102.54296875" width="128" height="73"/>
     </elements>
 </model>

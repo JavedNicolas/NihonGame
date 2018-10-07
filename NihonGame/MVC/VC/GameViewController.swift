@@ -62,7 +62,6 @@ class GameViewController: UIViewController {
         if let questionMode = questionMode{
             if questionMode.answered.hasAnswered {
                 let popUpImageView = setAnswerStatutView(isCorrect: questionMode.answered.hasCorrectlyAnswered)
-
                 if let questionModeasView = questionMode as? UIView {
                     questionModeasView.removeFromSuperview()
                     self.view.addSubview(popUpImageView)
@@ -73,6 +72,14 @@ class GameViewController: UIViewController {
                 }
             }
         }
+    }
+
+    private func updateScores(AnswerIsCorrect: Bool) {
+        guard let question = question else {
+            return
+        }
+
+        question.dataChoosed.incrementScore()
     }
 
     private func setAnswerStatutView(isCorrect: Bool) -> PopUpImageView{

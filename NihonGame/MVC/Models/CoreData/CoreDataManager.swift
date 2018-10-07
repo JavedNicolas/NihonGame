@@ -19,8 +19,8 @@ class CoreDataManager {
         context = AppDelegate.viewContextForTest
     }
 
-    func fetchMenu(modeID: Int) -> CoreDataGameMode? {
-        let requestGameMode : NSFetchRequest<CoreDataGameMode> = CoreDataGameMode.fetchRequest()
+    func fetchMenu(modeID: Int) -> GameMode? {
+        let requestGameMode : NSFetchRequest<GameMode> = GameMode.fetchRequest()
         requestGameMode.predicate = NSPredicate(format: "id == %i", modeID.int16)
         requestGameMode.relationshipKeyPathsForPrefetching = ["groups","levels"]
         requestGameMode.returnsObjectsAsFaults = false
@@ -36,13 +36,6 @@ class CoreDataManager {
         return nil
     }
 
-    func saveProgression(gameMode: GameMode) {
-        let gameModeProgression = CoreDataGameMode(context: context)
-        gameModeProgression.fill(gameMode: gameMode)
-
-        saveContext()
-    }
-
     func deleteMode(modeID: Int) {
         if let coreDataGameMode = fetchMenu(modeID: modeID) {
             context.delete(coreDataGameMode)
@@ -55,7 +48,7 @@ class CoreDataManager {
         return context
     }
 
-    private func saveContext() {
+    func saveContext() {
         do {
             try context.save()
         } catch {}

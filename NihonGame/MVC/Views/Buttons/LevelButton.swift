@@ -11,7 +11,9 @@ class LevelButton : MenuButton {
     var level : Level? = nil {
         didSet {
             if let level = level {
-                setContent(title: level.name)
+                if let name = level.name {
+                    setContent(title: name)
+                }
                 locked = level.locked
             }
         }

@@ -23,19 +23,20 @@ class GameModes {
 
         for modeID in 0..<modesData.count {
 //            if let gameModeInCoreData = getSavedProgression(forModeID: modeID), let _ = gameModeInCoreData.name{
-//                let gameMode = GameMode(coreDataGameMode: gameModeInCoreData, modeData: modesData[modeID])
+//                let gameMode = gameModeInCoreData
 //                gameModes.append(gameMode)
 //            }else {
                 let groupJSON = modesData[modeID].getGroupJSON()
                 groups = Groups(json: groupJSON).getGroups()
-                let gameMode = GameMode(gameModeName: modesData[modeID].name, gameModeID: modeID, modeData: modesData[modeID], gameModeGroups: groups)
+                let gameMode = GameMode(context: AppDelegate.viewContext)
+                gameMode.fill(gameModeName: modesData[modeID].name, gameModeID: modeID, modeData: modesData[modeID], gameModeGroups: groups)
                 gameModes.append(gameMode)
-                coreDataManager.saveProgression(gameMode: gameModes[modeID])
+                coreDataManager.saveContext()
 //            }
         }
     }
 
-    private func getSavedProgression(forModeID: Int) -> CoreDataGameMode? {
+    private func getSavedProgression(forModeID: Int) -> GameMode? {
         let coreDataGameMode = coreDataManager.fetchMenu(modeID: forModeID)
         return coreDataGameMode
     }

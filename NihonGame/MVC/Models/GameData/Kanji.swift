@@ -26,7 +26,7 @@ class Kanji : GameData {
     }
 
     private func updateProgression(){
-        let kanjiProgression = KanjiProgression(context: CoreDataManager().getContext())
+        let kanjiProgression = DataProgression(context: CoreDataManager().getContext())
         if kanjiProgression.fetch(kanjiID: id) {
             if kanjiProgression.progressionScore != 0 {
                 learningScore = kanjiProgression.progressionScore.int

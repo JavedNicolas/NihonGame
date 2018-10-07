@@ -11,29 +11,19 @@ import Foundation
 class Levels {
     private var levels : [Level] = []
 
-    init(parsedLevel: [LevelsParsing]){
-        setLevels(parsedLevel: parsedLevel)
+    init(parsedLevels: [LevelsParsing]){
+        setLevels(parsedLevels: parsedLevels)
     }
 
-    init(coreDataLevels: NSSet?) {
-        setLevels(coreDataLevels: coreDataLevels)
+    init(levels: [Level]) {
+        self.levels = levels
     }
 
-    private func setLevels(parsedLevel: [LevelsParsing]) {
-        for level in parsedLevel {
-            levels.append(Level(parsedLevel: level))
-        }
-    }
-
-    private func setLevels(coreDataLevels: NSSet?) {
-        guard let coreDataLevels = coreDataLevels else {
-            return
-        }
-        
-        for level in coreDataLevels.allObjects {
-            if let level = level as? CoreDataLevel {
-                self.levels.append(Level(coreDataLevel: level))
-            }
+    private func setLevels(parsedLevels: [LevelsParsing]) {
+        for parsedlevel in parsedLevels {
+            let level = Level(context: AppDelegate.viewContext)
+            level.fill(parsedLevel: parsedlevel)
+            levels.append(level)
         }
     }
 

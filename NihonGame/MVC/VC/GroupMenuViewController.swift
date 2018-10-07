@@ -16,8 +16,8 @@ class GroupMenuViewController : UIViewController {
     
     override func viewDidLoad() {
         self.view.setNihonGameBackground()
-        if let gameMode = gameMode {
-            groupItems = gameMode.groups
+        if let gameMode = gameMode, let groups = gameMode.groups, let gameModeGroups = groups.allObjects as? [Group]  {
+            groupItems = gameModeGroups.sorted(by: { $0.id < $1.id })
             title = gameMode.name
             createTableView()
         }

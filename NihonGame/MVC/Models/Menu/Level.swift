@@ -7,53 +7,37 @@
 //
 
 import Foundation
+import CoreData
 
-class Level : GameDataGroup {
-    var id : Int
-    var name : String
-    var elementRange : (Int, Int)
-    var done : Bool
-    var locked: Bool
-    var score: Int
-    var stars: Int
-
-    init(parsedLevel level: LevelsParsing){
-        self.id = level.id
+class Level : NSManagedObject {
+    var done = false
+    
+    func fill(parsedLevel level: LevelsParsing){
+        self.id = level.id.int16
         self.name = "Level_String".localize() + ": \(level.startRange)-\(level.endRange)"
-        self.elementRange = (level.startRange,level.endRange)
+        self.firstElement = level.startRange.int16
+        self.lastElement = level.endRange.int16
         self.done = false
         self.locked = (id == 1 && level.startRange == 1 ? false : true)
-        self.score = 0
-        self.stars = 0
-    }
-
-    init(coreDataLevel level: CoreDataLevel){
-        self.id = level.id.int
-        self.name = "\(level.firstElement)-\(level.lastElement)"
-        self.elementRange = (level.firstElement.int ,level.lastElement.int)
-        self.done = (level.levelScore < GameConstant.levelCompleteScore ? true : false)
-        self.locked = level.locked
-        self.score = level.levelScore.int
-        self.stars = level.stars.int
+        self.score = 0.int64
+        self.stars = 0.int16
     }
 
     func setGameDataToUse(gameDatas: [GameData]) -> [GameData]{
         var levelDatas : [GameData] = []
-        let startElement = elementRange.0
-        let endElement = elementRange.1
 
-        if startElement == endElement {
-            if let elementToAdd = gameDatas.dataAt(id: startElement) {
+        if firstElement == lastElement {
+            if let elementToAdd = gameDatas.dataAt(id: firstElement.int) {
                 levelDatas.append(elementToAdd)
             }
         }else {
-            if startElement != 1{
-                let randomKanjiID = Int.random(in: 1..<startElement)
+            if firstElement != 1{
+                let randomKanjiID = Int.random(in: 1..<firstElement.int)
                 if let elementToAdd = gameDatas.dataAt(id: randomKanjiID) {
                     levelDatas.append(elementToAdd)
                 }
             }
-            for elementID in startElement...endElement {
+            for elementID in firstElement.int...lastElement.int{
                 if let elementToAdd = gameDatas.dataAt(id: elementID) {
                     levelDatas.append(elementToAdd)
                 }

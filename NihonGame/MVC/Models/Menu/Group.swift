@@ -7,31 +7,18 @@
 //
 
 import Foundation
+import CoreData
 
-class Group: GameDataGroup {
-    var id : Int
-    var name : String
-    var elementRange : (Int, Int)
-    var levels : [Level]
-    var done : Bool
-    var locked: Bool
-    
-    init(groupsParsed group: GroupsParsing, levels: [Level]) {
+class Group: NSManagedObject {
+    var done = false
+    func fill(groupsParsed group: GroupsParsing, levels: [Level]) {
         self.name = "\(group.startRange)-\(group.endRange)"
-        self.id = group.id
-        self.elementRange = (group.startRange,group.endRange)
-        self.levels = levels
-        self.done = false
-        self.locked = false
-        setDoneAndLockLevel(levels: levels)
-    }
-
-    init(coreDataGroup group: CoreDataGroup, levels: [Level]) {
-        self.name = "\(group.firstElement)-\(group.lastElement)"
-        self.id = group.id.int
-        self.elementRange = (group.firstElement.int,group.lastElement.int)
-        self.levels = levels
-        self.done = false
+        self.id = group.id.int16
+        self.firstElement = group.startRange.int16
+        self.lastElement = group.endRange.int16
+        for level in levels {
+            self.addToLevels(level)
+        }
         self.locked = false
         setDoneAndLockLevel(levels: levels)
     }

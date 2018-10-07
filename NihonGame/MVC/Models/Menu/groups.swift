@@ -17,8 +17,8 @@ class Groups {
         setGroups()
     }
 
-    init(coreDataGroups: NSSet?) {
-        setGroup(coreDataGroups: coreDataGroups)
+    init(coreDataGroups: [Group]) {
+        groups = coreDataGroups
     }
 
     private func parseData(data: Data?) -> [GroupsParsing] {
@@ -37,25 +37,11 @@ class Groups {
         let groupsList = parseData(data: groupsData)
 
         for group in groupsList {
-            let levels = Levels(parsedLevel: group.levels).getLevels()
-            groups.append(Group(groupsParsed: group, levels: levels))
+            let levels = Levels(parsedLevels: group.levels).getLevels()
+            let groupToSet = Group(context: AppDelegate.viewContext)
+            groupToSet.fill(groupsParsed: group, levels: levels)
+            groups.append(groupToSet)
         }
-    }
-
-    private func setGroup(coreDataGroups: NSSet?) {
-        guard let coreDataGroups = coreDataGroups else {
-            return
-        }
-
-        for element in coreDataGroups.allObjects {
-            if let group = element as? CoreDataGroup {
-                group.fetchLevels(forGroupID: group.id)
-                let levels = Levels(coreDataLevels: group.levels).getLevels()
-                self.groups.append(Group(coreDataGroup: group, levels: levels))
-            }
-        }
-
-        self.groups.sort(by: { $0.id < $1.id })
     }
 
     func getGroups() -> [Group] {

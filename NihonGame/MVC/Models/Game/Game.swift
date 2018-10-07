@@ -15,7 +15,7 @@ class Game {
     init(currentModeID: Int, level: Level) {
         let modes = GameModes.shared.getGameModes()
         let modesDataConstructor = GameModes.shared.getModeData(id: currentModeID)
-        let gameDatas = modes[currentModeID].modeData.getDatas()
+        let gameDatas = modes[currentModeID].modeData!.getDatas()
         levelData = level.setGameDataToUse(gameDatas: gameDatas)
         guard let possibleAnswers = modesDataConstructor.answers else {
             self.currentQuestion = nil
