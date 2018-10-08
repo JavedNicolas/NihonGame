@@ -9,13 +9,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NihonGame/MVC/VC/GameViewController.swift"
-            timestampString = "560614154.073953"
+            filePath = "NihonGame/MVC/Models/Menu/GameMode.swift"
+            timestampString = "560703340.2517509"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "userhasAnswered()"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "fill(modeData:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NihonGame/MVC/Models/GameData/GameData.swift"
+            timestampString = "560703340.252954"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "checkIfAnswerIsGood(question:answer:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NihonGame/MVC/VC/GameViewController.swift"
-            timestampString = "560614154.074623"
+            filePath = "NihonGame/MVC/Models/Menu/GameMode.swift"
+            timestampString = "560703340.2532589"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "isLevelOver()"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "getDatas()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

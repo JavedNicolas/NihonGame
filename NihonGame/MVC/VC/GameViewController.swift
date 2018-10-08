@@ -40,14 +40,11 @@ class GameViewController: UIViewController {
     }
 
     func initQuestion() {
-        guard let level = level, let currentModeID = tabBarController?.selectedIndex else {
+        guard let level = level else {
             return
         }
-        let gameModeConstructor = GameModes.shared.getModeData(id: currentModeID)
-        let gameData = gameModeConstructor.getDatas()
-        let dataNames = gameModeConstructor.getDataNameAsArray()
-        if let allAnswers = gameModeConstructor.getAnswerList() {
-            self.question = Question(levelData: level.setGameDataToUse(gameDatas: gameData), dataNames: dataNames, AllAnswers: allAnswers)
+        if let gameMode = GameModes.shared.getCurrentMode(), let gameData = gameMode.getDatas(), let allAnswers = gameMode.possibleAnswers {
+            self.question = Question(levelData: level.setGameDataToUse(gameDatas: gameData), AllAnswers: allAnswers)
         }
     }
 

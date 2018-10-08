@@ -25,7 +25,7 @@ class LevelMenuViewController : UIViewController {
 
     func setGroup(group: Group) {
         self.group = group
-        if let groupLevels = group.levels?.allObjects as? [Level] {
+        if let nsGroupLevels = group.levels, let groupLevels = nsGroupLevels.allObjects as? [Level] {
             self.levels = groupLevels.sorted(by: { $0.id < $1.id})
         }
     }

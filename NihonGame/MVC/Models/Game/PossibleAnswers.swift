@@ -11,13 +11,13 @@ import Foundation
 class PossibleAnswers {
     private var possibleAnswerList : [String: [Answer]] = [:]
 
-    init(modeDataCreator: ModeDataConstructor, dataComponentsName: [String]) {
-        let modeData = modeDataCreator.datas
+    init(modeData: [GameData], dataComponentsName: [[String]]){
+        let dataComponentsName = dataComponentsName.flatenArray()
         for data in modeData {
             for dataName in dataComponentsName {
                 if let dataForDataName = data.dataDictionary[dataName] {
                     for dataComponent in dataForDataName {
-                        let answer = Answer(gameDataID: data.id, answerString: String(dataComponent), category: dataName)
+                        let answer = Answer(gameDataID: data.id.int, answerString: String(dataComponent), category: dataName)
                         if possibleAnswerList[dataName] == nil {
                             possibleAnswerList[dataName] = [Answer]()
                         }

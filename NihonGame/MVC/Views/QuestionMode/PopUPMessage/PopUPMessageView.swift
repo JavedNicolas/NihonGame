@@ -20,6 +20,7 @@ class PopUpMessageView : PopUpView {
         label.frame = CGRect(x: 0, y: 0, width: popUpView.frame.width, height: popUpView.frame.height)
         label.text = text
         label.textAlignment = .center
+        label.numberOfLines = 0
         label.textColor = .white
         popUpView.addSubview(label)
     }

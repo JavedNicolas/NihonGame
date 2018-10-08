@@ -8,26 +8,31 @@
 
 import Foundation
 
-class Kanjis : ModeDataConstructor {
+class Kanjis : ModeDatas {
     var name: String = "Kanji_Mode_Name".localize()
     internal var datas : [GameData] = []
     internal var dataJSON = KanjiModeJSONs.kanjiJSON
     internal var groupJSON = KanjiModeJSONs.groupsJSON
-    internal var answers: PossibleAnswers?
+    internal var dataNamesString: [[String]] = KanjiDataConstant.dataNamesString
 
     struct KanjiModeJSONs {
         static let kanjiJSON = "KanjiList"
         static let groupsJSON = "KanjiGroupList"
     }
 
-    init() {
+    init() {}
+
+    func parseGameData() {
         let kanjiData = JSONParser(json: dataJSON, withExtension: "json").data
         let kanjisList = parseData(data: kanjiData)
 
         for kanji in kanjisList {
-            datas.append(Kanji(parsedKanji: kanji))
+            let dataAsString = "kanji:\(kanji.kanji);kunyomi:\(kanji.kunyomi);onyomi:\(kanji.onyomi);traduction:\(kanji.traduction)"
+            let gameDataParsed = GameDataParsed(jlptLevel: kanji.level, id: kanji.id, learningScore: 0, data: dataAsString)
+            let gameData = GameData(context: AppDelegate.viewContext)
+            gameData.fill(parsedData: gameDataParsed)
+            datas.append(gameData)
         }
-        createAnswer()
     }
 
     private func parseData(data: Data?) -> [KanjiParsing] {
@@ -41,18 +46,5 @@ class Kanjis : ModeDataConstructor {
         } catch {
             return []
         }
-    }
-
-    internal func createAnswer() {
-        let dataNamesString = getDataNameAsArray()
-        answers = PossibleAnswers(modeDataCreator: self, dataComponentsName: dataNamesString)
-    }
-
-    func getDataNameAsArray() -> [String] {
-        var dataNamesString : [String] = []
-        for names in KanjiDataNames.allCases {
-            dataNamesString.append(names.rawValue)
-        }
-        return dataNamesString
     }
 }

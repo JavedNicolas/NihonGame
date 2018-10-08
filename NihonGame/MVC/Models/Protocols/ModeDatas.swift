@@ -8,28 +8,23 @@
 
 import Foundation
 
-protocol ModeDataConstructor {
+protocol ModeDatas {
     var name : String { get }
     var datas : [GameData] { get }
     var groupJSON : String { get }
     var dataJSON : String { get }
-    var answers : PossibleAnswers? { get }
-    func createAnswer()
+    var dataNamesString : [[String]] { get }
+    func parseGameData()
     func getGroupJSON() -> String
     func getDatas() -> [GameData]
-    func getDataNameAsArray() -> [String]
 }
 
-extension ModeDataConstructor {
+extension ModeDatas {
     func getGroupJSON() -> String {
         return groupJSON
     }
 
     func getDatas() -> [GameData] {
         return datas
-    }
-
-    func getAnswerList() -> PossibleAnswers? {
-        return answers
     }
 }

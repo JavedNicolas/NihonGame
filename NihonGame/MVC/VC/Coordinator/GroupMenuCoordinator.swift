@@ -20,7 +20,9 @@ class GroupMenuCoordinator : Coordinator {
     }
 
     func start() {
-        groupLevelViewController.setGameMode(gameMode: gameMode)
-        currentViewController.present(groupLevelViewController, animated: true, completion: nil)
+        if let navigationController = currentViewController.navigationController {
+            groupLevelViewController.setGameMode(gameMode: gameMode)
+            navigationController.pushViewController(groupLevelViewController, animated: true)
+        }
     }
 }

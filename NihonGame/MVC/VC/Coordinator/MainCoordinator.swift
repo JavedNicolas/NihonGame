@@ -19,18 +19,17 @@ class MainCoordinator : Coordinator {
     func start() {
         appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
         setTabBarController()
+        setTabs()
         appDelegate.window!.rootViewController = tabBarController
         appDelegate.window!.makeKeyAndVisible()
-        showMainMenu()
     }
 
-    private func showMainMenu() {
+    private func setTabs() {
         var tabViewController : [UIViewController] = []
-        for gameMode in GameModes.shared.getGameModes() {
-            let VC = GroupMenuViewController()
-            VC.setGameMode(gameMode: gameMode)
-            tabViewController.append(VC)
-        }
+        tabViewController.append(MainMenuViewController())
+        tabViewController.append(LearnedDataViewController())
+        tabViewController.append(SettingsViewController())
+
         tabBarController.viewControllers = tabViewController.map{
             let navigationController = UINavigationController(rootViewController: $0)
             navigationController.navigationBar.barStyle = UIBarStyle.black
@@ -39,7 +38,6 @@ class MainCoordinator : Coordinator {
     }
 
     private func setTabBarController() {
-        tabBarController.tabBar.barStyle = UIBarStyle.black
-
+        tabBarController.tabBar.barStyle = .black
     }
 }

@@ -7,11 +7,16 @@
 */
 
 // Mark: - Menu Titles
-"Main_Menu_Title" = "Menu Principale";
 "Kanji_Mode_Menu" = "Mode de Jeu : Kanji";
+
+// Mark:- ViewController Names
+"Main_Menu_VC" = "Menu Principale";
+"Learned_Data_VC" = "Contenu Appris";
+"Settings_VC" = "Réglages";
 
 // Mark: - GameModes
 "Kanji_Mode_Name" = "Kanji";
 "Level_String" = "Niveau";
 "Level_Success" = "Bravo, vous avez fini ce niveau !";
-"Level_Failed" = "Dommage, vous n'avez pas assez de point pour finir ce niveau !/n Mais vous pouvez ressayer!";
+"Level_Failed" = "Dommage, vous n'avez pas assez de point pour finir ce niveau ! Mais vous pouvez ressayer!";
+

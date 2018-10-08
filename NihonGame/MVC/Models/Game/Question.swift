@@ -14,8 +14,9 @@ class Question {
     var badAnswers : [Answer] = []
     var dataChoosed : GameData
     private var allPossibleAnswer : PossibleAnswers
+    private var dataNames = [[String]]()
 
-    init(levelData : [GameData], dataNames: [String], AllAnswers: PossibleAnswers) {
+    init(levelData : [GameData], AllAnswers: PossibleAnswers) {
         self.allPossibleAnswer = AllAnswers
         var dataID = 0
         var goodAnswerString = ""
@@ -26,7 +27,7 @@ class Question {
             return
         }
 
-        dataID = dataChoosed.id
+        dataID = dataChoosed.id.int
         if let question = dataChoosed.getQuestionData() {
             questionString = question.questionString
             goodAnswerString = question.goodAnswerString
@@ -49,11 +50,11 @@ class Question {
                 let firstBadAnswerID = badAnswerPossibility.startIndex
                 var lastBadAnswerIDPossible = 10
                 if levelData.startIndex > 4 {
-                    lastBadAnswerIDPossible = lastGameData.id
+                    lastBadAnswerIDPossible = lastGameData.id.int
                 }
                 let randomNumber = Int.random(in: badAnswerPossibility[firstBadAnswerID].gameDataID..<lastBadAnswerIDPossible)
                 if let badAnswer = badAnswerPossibility.randomDataFor(id: randomNumber),
-                checkIfBadAnswersCanBeAdded(badAnswer: badAnswer, lastGameDataID: lastGameData.id, category: category){
+                checkIfBadAnswersCanBeAdded(badAnswer: badAnswer, lastGameDataID: lastGameData.id.int, category: category){
                     self.badAnswers.append(badAnswer)
                 }
             }while self.badAnswers.count == answersCount

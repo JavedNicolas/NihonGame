@@ -36,3 +36,27 @@ extension Array where Element == Answer {
 
     }
 }
+
+extension Array where Element == [String] {
+    func flatenArray() -> [String]{
+        var flattenedArray = [String]()
+        for array in self {
+            for element in array {
+                flattenedArray.append(element)
+            }
+        }
+        return flattenedArray
+    }
+
+    func getIndexFor(string: String) -> Int? {
+        for (index, array) in self.enumerated()  {
+            for element in array {
+                if element == string {
+                    return index
+                }
+            }
+        }
+        return nil
+    }
+}
+

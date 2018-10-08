@@ -20,3 +20,6 @@ struct GameDataConstant {
     static let scoreDecrementation = 10
 }
 
+struct KanjiDataConstant {
+    static let dataNamesString = [["kanji"],["kunyomi","onyomi","traduction"]]
+}
