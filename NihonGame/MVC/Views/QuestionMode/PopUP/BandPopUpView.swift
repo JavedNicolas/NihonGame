@@ -8,14 +8,13 @@
 
 import UIKit
 
-class PopUpView : UIView{
-    internal var popUpView = UIView()
+class BandPopUpView : UIView{
 
     init(parentframe frame: CGRect, size: CGSize) {
-        popUpView.frame = CGRect(origin: CGPoint(x: 0, y: (frame.height / 2) - (size.height / 2)), size: size)
-        popUpView.backgroundColor = .lightGray
         super.init(frame: frame)
-        addSubview(popUpView)
+        self.frame = CGRect(origin: CGPoint(x: 0, y: (frame.height / 2) - (size.height / 2)), size: size)
+        self.backgroundColor = .lightGray
+
     }
 
     required init?(coder aDecoder: NSCoder) {

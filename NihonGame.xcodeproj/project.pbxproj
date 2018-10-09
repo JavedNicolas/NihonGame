@@ -15,12 +15,14 @@
 		370DA7DA216B45EC00AA243C /* GameModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370DA7D9216B45EC00AA243C /* GameModeButton.swift */; };
 		370DA7DC216B464300AA243C /* LearnedDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370DA7DB216B464300AA243C /* LearnedDataViewController.swift */; };
 		370DA7DE216B49A300AA243C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370DA7DD216B49A300AA243C /* SettingsViewController.swift */; };
+		3725CED6216CB2C700C9301F /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3725CED5216CB2C700C9301F /* TutorialViewController.swift */; };
+		3725CED8216CB64E00C9301F /* SquarePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3725CED7216CB64E00C9301F /* SquarePopUpView.swift */; };
 		372E448121678A4B0079B5DF /* SQQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E448021678A4B0079B5DF /* SQQuestionView.swift */; };
 		372E44842167A5A10079B5DF /* SQAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E44832167A5A10079B5DF /* SQAnswerView.swift */; };
 		372E44862168D4C00079B5DF /* AnswerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E44852168D4C00079B5DF /* AnswerType.swift */; };
 		372E448A2168D7D30079B5DF /* PopUPMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E44892168D7D30079B5DF /* PopUPMessageView.swift */; };
 		372E448C2168DC8F0079B5DF /* PopUpImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E448B2168DC8F0079B5DF /* PopUpImageView.swift */; };
-		372E448E2168E47C0079B5DF /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E448D2168E47C0079B5DF /* PopUpView.swift */; };
+		372E448E2168E47C0079B5DF /* BandPopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E448D2168E47C0079B5DF /* BandPopUpView.swift */; };
 		373570F1215D14540033A5F7 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373570F0215D14540033A5F7 /* Group.swift */; };
 		373570F3215D146D0033A5F7 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373570F2215D146D0033A5F7 /* Level.swift */; };
 		373570F5215D14950033A5F7 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373570F4215D14950033A5F7 /* GameMode.swift */; };
@@ -100,12 +102,14 @@
 		370DA7D9216B45EC00AA243C /* GameModeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeButton.swift; sourceTree = "<group>"; };
 		370DA7DB216B464300AA243C /* LearnedDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnedDataViewController.swift; sourceTree = "<group>"; };
 		370DA7DD216B49A300AA243C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		3725CED5216CB2C700C9301F /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		3725CED7216CB64E00C9301F /* SquarePopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquarePopUpView.swift; sourceTree = "<group>"; };
 		372E448021678A4B0079B5DF /* SQQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQQuestionView.swift; sourceTree = "<group>"; };
 		372E44832167A5A10079B5DF /* SQAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQAnswerView.swift; sourceTree = "<group>"; };
 		372E44852168D4C00079B5DF /* AnswerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerType.swift; sourceTree = "<group>"; };
 		372E44892168D7D30079B5DF /* PopUPMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUPMessageView.swift; sourceTree = "<group>"; };
 		372E448B2168DC8F0079B5DF /* PopUpImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpImageView.swift; sourceTree = "<group>"; };
-		372E448D2168E47C0079B5DF /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
+		372E448D2168E47C0079B5DF /* BandPopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandPopUpView.swift; sourceTree = "<group>"; };
 		373570F0215D14540033A5F7 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		373570F2215D146D0033A5F7 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		373570F4215D14950033A5F7 /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
@@ -210,14 +214,15 @@
 			path = Protocoles;
 			sourceTree = "<group>";
 		};
-		372E44882168D7C30079B5DF /* PopUPMessage */ = {
+		372E44882168D7C30079B5DF /* PopUP */ = {
 			isa = PBXGroup;
 			children = (
-				372E448D2168E47C0079B5DF /* PopUpView.swift */,
+				3725CED7216CB64E00C9301F /* SquarePopUpView.swift */,
+				372E448D2168E47C0079B5DF /* BandPopUpView.swift */,
 				372E44892168D7D30079B5DF /* PopUPMessageView.swift */,
 				372E448B2168DC8F0079B5DF /* PopUpImageView.swift */,
 			);
-			path = PopUPMessage;
+			path = PopUP;
 			sourceTree = "<group>";
 		};
 		3743A39C215B5E4D0012B02A /* GameData */ = {
@@ -316,6 +321,7 @@
 				3776D5EB2150D2C100536A8D /* GroupMenuViewController.swift */,
 				37685A19215380DC00D8B585 /* LevelMenuViewController.swift */,
 				3761303E213E644700FBCA24 /* GameViewController.swift */,
+				3725CED5216CB2C700C9301F /* TutorialViewController.swift */,
 				370DA7DB216B464300AA243C /* LearnedDataViewController.swift */,
 				370DA7DD216B49A300AA243C /* SettingsViewController.swift */,
 			);
@@ -402,7 +408,7 @@
 		3765F64C2166300600A4D64D /* QuestionMode */ = {
 			isa = PBXGroup;
 			children = (
-				372E44882168D7C30079B5DF /* PopUPMessage */,
+				372E44882168D7C30079B5DF /* PopUP */,
 				372E44872168D4CB0079B5DF /* Protocoles */,
 				372E44822167A5750079B5DF /* SimpleQuestionMode */,
 			);
@@ -641,7 +647,7 @@
 				37613037213E644700FBCA24 /* AppDelegate.swift in Sources */,
 				375480A3215A6CF800CE2335 /* JSONParser.swift in Sources */,
 				370DA7DC216B464300AA243C /* LearnedDataViewController.swift in Sources */,
-				372E448E2168E47C0079B5DF /* PopUpView.swift in Sources */,
+				372E448E2168E47C0079B5DF /* BandPopUpView.swift in Sources */,
 				37E0B02B2158BE4A0064019F /* MenuButton.swift in Sources */,
 				373570F5215D14950033A5F7 /* GameMode.swift in Sources */,
 				370DA7D6216B444B00AA243C /* MainMenuVCDelegate.swift in Sources */,
@@ -649,11 +655,13 @@
 				373570F9215D18ED0033A5F7 /* Kanjis.swift in Sources */,
 				3765F644216238C300A4D64D /* QuestionData.swift in Sources */,
 				37548098215A4F7500CE2335 /* groups.swift in Sources */,
+				3725CED8216CB64E00C9301F /* SquarePopUpView.swift in Sources */,
 				37685A2621539E6500D8B585 /* LevelMenuCollectionViewCell.swift in Sources */,
 				3754809F215A505100CE2335 /* GameData.swift in Sources */,
 				3743A3A1215B73290012B02A /* IntExtension.swift in Sources */,
 				370DA7D0216B42E600AA243C /* GroupMenuCoordinator.swift in Sources */,
 				3761306A213FB4D200FBCA24 /* Constant.swift in Sources */,
+				3725CED6216CB2C700C9301F /* TutorialViewController.swift in Sources */,
 				372E44842167A5A10079B5DF /* SQAnswerView.swift in Sources */,
 				372E448A2168D7D30079B5DF /* PopUPMessageView.swift in Sources */,
 				37685A2021538FDC00D8B585 /* LevelMenuVCDataSource.swift in Sources */,

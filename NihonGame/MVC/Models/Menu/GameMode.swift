@@ -42,25 +42,17 @@ class GameMode : NSManagedObject {
                 addToDatas(data)
             }
         }
-        self.possibleAnswers = createAnswer()
-    }
-
-
-
-    func unlockNextGroup(groupBefore: Group) {
-        guard let groups = getGroups() else {
-            return
-        }
-
-        for (index, group) in groups.enumerated() {
-            if group == groupBefore {
-                if let levels = group.getLevels(), let levelToUnlock = levels.first {
-                    groups[index + 1].unlockNextLevel(currentLevel: levelToUnlock)
+        if let groups = getGroups() {
+            for group in groups {
+                if let groupLevel = group.getLevels() {
+                    group.setData(levels: groupLevel)
                 }
             }
         }
+        self.possibleAnswers = createAnswer()
     }
 
+    /** return formated gameData of the mode */
     func getDatas() -> [GameData]?{
         if let nsDatas = datas, var datas = nsDatas.allObjects as? [GameData] {
             datas.sort(by: {$0.id < $1.id})
@@ -69,6 +61,7 @@ class GameMode : NSManagedObject {
         return nil
     }
 
+    /** return formated groups */
     func getGroups() -> [Group]? {
         if let nsGroups = groups, let groups = nsGroups.allObjects as? [Group] {
             return groups.sorted(by: { $0.id < $1.id})
@@ -76,6 +69,7 @@ class GameMode : NSManagedObject {
         return nil
     }
 
+    /** Create the array with all the possible Answer */
     func createAnswer() -> PossibleAnswers? {
         guard let data = getDatas() else{
             return nil

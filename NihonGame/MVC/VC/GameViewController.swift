@@ -37,14 +37,20 @@ class GameViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         initQuestion()
+        if let level = level {
+            if let newGameData = level.newGameData, level.score == 0 {
+                showTutorial(gameData: newGameData)
+            }
+        }
     }
 
     func initQuestion() {
         guard let level = level else {
             return
         }
-        if let gameMode = GameModes.shared.getCurrentMode(), let gameData = gameMode.getDatas(), let allAnswers = gameMode.possibleAnswers {
-            self.question = Question(levelData: level.setGameDataToUse(gameDatas: gameData), AllAnswers: allAnswers)
+        if let gameMode = GameModes.shared.getCurrentMode(), let allAnswers = gameMode.possibleAnswers,
+            let levelDatas = level.levelDatas {
+            self.question = Question(levelData: levelDatas, AllAnswers: allAnswers)
         }
     }
 
@@ -56,6 +62,16 @@ class GameViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(userhasAnswered), name: notificationName, object: nil)
         view.addSubview(questionMode)
         self.questionMode = questionMode
+
+    }
+
+    func showTutorial(gameData: GameData) {
+        let tutorialView = TutorialViewController()
+        tutorialView.gameData = gameData
+        tutorialView.modalTransitionStyle = .crossDissolve
+        tutorialView.modalPresentationStyle = .overCurrentContext
+        self.present(tutorialView, animated: true, completion: nil)
+
     }
 
     @objc func userhasAnswered() {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PopUpMessageView : PopUpView {
+class PopUpMessageView : BandPopUpView {
     private var label = UILabel()
     var message : String = "" {
         didSet {
@@ -17,12 +17,12 @@ class PopUpMessageView : PopUpView {
     }
 
     private func setMessage(text: String) {
-        label.frame = CGRect(x: 0, y: 0, width: popUpView.frame.width, height: popUpView.frame.height)
+        label.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
         label.text = text
         label.textAlignment = .center
         label.numberOfLines = 0
         label.textColor = .white
-        popUpView.addSubview(label)
+        self.addSubview(label)
     }
 
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PopUpImageView : PopUpView {
+class PopUpImageView : BandPopUpView {
     private var imageView = UIImageView()
     var image : UIImage = UIImage() {
         didSet {
@@ -17,10 +17,10 @@ class PopUpImageView : PopUpView {
     }
 
     private func setImage(image: UIImage) {
-        imageView.frame = CGRect(x: 0, y: 0, width: popUpView.frame.width, height: popUpView.frame.height)
+        imageView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
         imageView.image = image
         imageView.contentMode = .center
-        popUpView.addSubview(imageView)
+        self.addSubview(imageView)
 
     }
 }

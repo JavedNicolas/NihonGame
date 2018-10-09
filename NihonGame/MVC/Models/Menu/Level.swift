@@ -11,6 +11,9 @@ import CoreData
 
 class Level : NSManagedObject {
     var done = false
+    var newGameDataID : Int?
+    lazy var newGameData: GameData? = self.setNewGameData()
+    lazy var levelDatas : [GameData]? = self.setGameDataToUse()
     
     func fill(parsedLevel level: LevelsParsing){
         self.id = level.id.int16
@@ -34,21 +37,45 @@ class Level : NSManagedObject {
     }
 
     func setStars() {
-        if self.score == 500 {
+        if self.score >= 500 {
             let starsScore = score - 500
             self.stars = Int16(starsScore.int / GameConstant.scoreByStar)
         }
     }
 
     func levelfinished() {
-        if let group = parentGroup {
-            group.unlockNextLevel(currentLevel: self)
-            CoreDataManager.shared.saveContext()
+        unlockNextLevel()
+        CoreDataManager.shared.saveContext()
+
+    }
+
+    /** Unlock the next level when */
+    func unlockNextLevel() {
+        guard let group = parentGroup, let levels = group.getLevels() else {
+            return
+        }
+
+        for (index, level) in levels.enumerated() {
+            if level == self {
+                if level.score > 500 {
+                    level.done = true
+                    level.setStars()
+                    if index != levels.count - 1 {
+                        levels[index + 1].locked = false
+                    }else {
+                        group.unlockNextGroup(groupBefore: group)
+                    }
+                }
+                break
+            }
         }
     }
 
-    func setGameDataToUse(gameDatas: [GameData]) -> [GameData]{
-        var levelDatas : [GameData] = []
+    private func setGameDataToUse() -> [GameData]?{
+        var levelDatas = [GameData]()
+        guard let group = parentGroup, let mode = group.parentGameMode, let gameDatas = mode.getDatas() else {
+            return nil
+        }
 
         if firstElement == lastElement {
             if let elementToAdd = gameDatas.dataAt(id: firstElement.int) {
@@ -68,6 +95,15 @@ class Level : NSManagedObject {
             }
         }
         return levelDatas
+    }
+
+    private func setNewGameData() -> GameData? {
+        if let gameDataID = newGameDataID {
+            if let levelData = levelDatas {
+                return levelData.dataAt(id: gameDataID)
+            }
+        }
+        return nil
     }
 }
 

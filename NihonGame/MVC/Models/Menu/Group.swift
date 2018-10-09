@@ -11,19 +11,30 @@ import CoreData
 
 class Group: NSManagedObject {
     var done = false
+
+    /** fill the instance for the first int when CoreData is empty */
     func fill(groupsParsed group: GroupsParsing, levels: [Level]) {
         self.name = "\(group.startRange)-\(group.endRange)"
         self.id = group.id.int16
         self.firstElement = group.startRange.int16
         self.lastElement = group.endRange.int16
-        for level in levels {
-            level.parentGroup = self
-            self.addToLevels(level)
-        }
+        setData(levels: levels)
         self.locked = false
         setDoneAndLock(levels: levels)
     }
 
+    /** Set data that were not in CoreData */
+    func setData(levels : [Level]) {
+        for (index, level) in levels.enumerated() {
+            level.parentGroup = self
+            if index == 0 || level.lastElement != levels[index - 1].lastElement  {
+                level.newGameDataID = level.lastElement.int
+            }
+            self.addToLevels(level)
+        }
+    }
+
+    /** Unlock group based on locked levels */
     func setDoneAndLock(levels: [Level]) {
         var numberOfLockedLevels = 0
         var numberOfDoneLevel = 0
@@ -43,35 +54,27 @@ class Group: NSManagedObject {
         }
     }
 
+    /** Unlock the next Group */
+    func unlockNextGroup(groupBefore: Group) {
+        guard let mode = self.parentGameMode, let groups = mode.getGroups() else {
+            return
+        }
+
+        for (index, group) in groups.enumerated() {
+            if group == groupBefore {
+                if let levels = groups[index + 1].getLevels(), let levelToUnlock = levels.first {
+                    levelToUnlock.locked = false
+                }
+                break
+            }
+        }
+    }
+
+    /** get formated Levels */
     func getLevels() -> [Level]? {
         if let nsLevel = levels?.allObjects, let levels = nsLevel as? [Level] {
             return levels.sorted(by: { $0.id < $1.id})
         }
         return nil
-    }
-
-    func unlockNextLevel(currentLevel: Level) {
-        guard let levels = getLevels() else {
-            return
-        }
-
-        for (index, level) in levels.enumerated() {
-            if level == currentLevel {
-                if level.score > 500 {
-                    level.done = false
-                    level.setStars()
-                    if index != levels.count - 1 {
-                        levels[index + 1].locked = false
-                    }else {
-                        if let mode = self.parentGameMode {
-                            mode.unlockNextGroup(groupBefore: self)
-                        }
-                    }
-                }else if index == 0, level.locked{
-                    level.locked = false
-                }
-                break
-            }
-        }
     }
 }
