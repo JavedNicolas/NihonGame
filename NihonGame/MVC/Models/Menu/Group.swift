@@ -21,10 +21,10 @@ class Group: NSManagedObject {
             self.addToLevels(level)
         }
         self.locked = false
-        setDoneAndLockLevel(levels: levels)
+        setDoneAndLock(levels: levels)
     }
 
-    func setDoneAndLockLevel(levels: [Level]) {
+    func setDoneAndLock(levels: [Level]) {
         var numberOfLockedLevels = 0
         var numberOfDoneLevel = 0
         for level in levels {
@@ -40,6 +40,38 @@ class Group: NSManagedObject {
         }
         if numberOfDoneLevel == levels.count {
             self.done = true
+        }
+    }
+
+    func getLevels() -> [Level]? {
+        if let nsLevel = levels?.allObjects, let levels = nsLevel as? [Level] {
+            return levels.sorted(by: { $0.id < $1.id})
+        }
+        return nil
+    }
+
+    func unlockNextLevel(currentLevel: Level) {
+        guard let levels = getLevels() else {
+            return
+        }
+
+        for (index, level) in levels.enumerated() {
+            if level == currentLevel {
+                if level.score > 500 {
+                    level.done = false
+                    level.setStars()
+                    if index != levels.count - 1 {
+                        levels[index + 1].locked = false
+                    }else {
+                        if let mode = self.parentGameMode {
+                            mode.unlockNextGroup(groupBefore: self)
+                        }
+                    }
+                }else if index == 0, level.locked{
+                    level.locked = false
+                }
+                break
+            }
         }
     }
 }

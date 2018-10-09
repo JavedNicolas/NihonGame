@@ -45,10 +45,33 @@ class GameMode : NSManagedObject {
         self.possibleAnswers = createAnswer()
     }
 
+
+
+    func unlockNextGroup(groupBefore: Group) {
+        guard let groups = getGroups() else {
+            return
+        }
+
+        for (index, group) in groups.enumerated() {
+            if group == groupBefore {
+                if let levels = group.getLevels(), let levelToUnlock = levels.first {
+                    groups[index + 1].unlockNextLevel(currentLevel: levelToUnlock)
+                }
+            }
+        }
+    }
+
     func getDatas() -> [GameData]?{
         if let nsDatas = datas, var datas = nsDatas.allObjects as? [GameData] {
             datas.sort(by: {$0.id < $1.id})
             return datas
+        }
+        return nil
+    }
+
+    func getGroups() -> [Group]? {
+        if let nsGroups = groups, let groups = nsGroups.allObjects as? [Group] {
+            return groups.sorted(by: { $0.id < $1.id})
         }
         return nil
     }

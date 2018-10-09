@@ -11,8 +11,8 @@ import CoreData
 
 class CoreDataManager {
     private var context = AppDelegate.viewContext
-
-    init() {}
+    static let shared = CoreDataManager()
+    private init() {}
 
     /* Context for test */
     func contextForTest() {

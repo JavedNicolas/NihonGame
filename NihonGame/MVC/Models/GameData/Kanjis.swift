@@ -29,7 +29,7 @@ class Kanjis : ModeDatas {
         for kanji in kanjisList {
             let dataAsString = "kanji:\(kanji.kanji);kunyomi:\(kanji.kunyomi);onyomi:\(kanji.onyomi);traduction:\(kanji.traduction)"
             let gameDataParsed = GameDataParsed(jlptLevel: kanji.level, id: kanji.id, learningScore: 0, data: dataAsString)
-            let gameData = GameData(context: AppDelegate.viewContext)
+            let gameData = GameData(context: CoreDataManager.shared.getContext())
             gameData.fill(parsedData: gameDataParsed)
             datas.append(gameData)
         }

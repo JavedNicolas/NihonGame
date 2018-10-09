@@ -38,7 +38,7 @@ class Groups {
 
         for group in groupsList {
             let levels = Levels(parsedLevels: group.levels).getLevels()
-            let groupToSet = Group(context: AppDelegate.viewContext)
+            let groupToSet = Group(context: CoreDataManager.shared.getContext())
             groupToSet.fill(groupsParsed: group, levels: levels)
             groups.append(groupToSet)
         }

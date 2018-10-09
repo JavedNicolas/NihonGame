@@ -84,10 +84,11 @@ class GameViewController: UIViewController {
             let popUpMessage = PopUpMessageView(parentframe: self.view.frame, size: CGSize(width: self.view.frame.width, height: 100))
             if let level = level, level.score >= GameConstant.levelCompleteScore {
                 popUpMessage.message = "Level_Success".localize()
-                level.done = true
+                level.levelfinished()
             }else {
                 popUpMessage.message = "Level_Failed".localize()
             }
+            CoreDataManager.shared.saveContext()
             self.view.addSubview(popUpMessage)
             return true
         }

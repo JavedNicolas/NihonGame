@@ -23,10 +23,16 @@ class LevelMenuViewController : UIViewController {
         setCollectionView()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        if let levelCollectionView = levelCollectionView {
+            levelCollectionView.reloadData()
+        }
+    }
+
     func setGroup(group: Group) {
         self.group = group
-        if let nsGroupLevels = group.levels, let groupLevels = nsGroupLevels.allObjects as? [Level] {
-            self.levels = groupLevels.sorted(by: { $0.id < $1.id})
+        if let levels = group.getLevels() {
+            self.levels = levels
         }
     }
 

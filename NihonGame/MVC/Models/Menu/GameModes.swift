@@ -10,7 +10,6 @@ import Foundation
 
 class GameModes {
     private var gameModes : [GameMode] = []
-    private let coreDataManager = CoreDataManager()
     private let modesData : [ModeDatas] = [Kanjis()]
     var currentMode : GameMode?
     static let shared = GameModes()
@@ -31,16 +30,16 @@ class GameModes {
                 modeDatas.parseGameData()
                 let groupJSON = modeDatas.getGroupJSON()
                 let groups = Groups(json: groupJSON).getGroups()
-                let gameMode = GameMode(context: AppDelegate.viewContext)
+                let gameMode = GameMode(context: CoreDataManager.shared.getContext())
                 gameMode.fill(gameModeName: modeDatas.name, gameModeID: modeID, modeData: modeDatas, gameModeGroups: groups)
                 gameModes.append(gameMode)
-                coreDataManager.saveContext()
+                CoreDataManager.shared.saveContext()
             }
         }
     }
 
     private func getSavedProgression(forModeID: Int) -> GameMode? {
-        let coreDataGameMode = coreDataManager.fetchMenu(modeID: forModeID)
+        let coreDataGameMode = CoreDataManager.shared.fetchMenu(modeID: forModeID)
         return coreDataGameMode
     }
 
@@ -50,9 +49,5 @@ class GameModes {
 
     func getGameModes() -> [GameMode]{
         return gameModes
-    }
-
-    func coreDataForTest() {
-        coreDataManager.contextForTest()
     }
 }

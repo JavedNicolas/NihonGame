@@ -21,7 +21,7 @@ class Levels {
 
     private func setLevels(parsedLevels: [LevelsParsing]) {
         for parsedlevel in parsedLevels {
-            let level = Level(context: AppDelegate.viewContext)
+            let level = Level(context: CoreDataManager.shared.getContext())
             level.fill(parsedLevel: parsedlevel)
             levels.append(level)
         }

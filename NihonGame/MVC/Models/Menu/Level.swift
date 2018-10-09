@@ -33,6 +33,20 @@ class Level : NSManagedObject {
         }
     }
 
+    func setStars() {
+        if self.score == 500 {
+            let starsScore = score - 500
+            self.stars = Int16(starsScore.int / GameConstant.scoreByStar)
+        }
+    }
+
+    func levelfinished() {
+        if let group = parentGroup {
+            group.unlockNextLevel(currentLevel: self)
+            CoreDataManager.shared.saveContext()
+        }
+    }
+
     func setGameDataToUse(gameDatas: [GameData]) -> [GameData]{
         var levelDatas : [GameData] = []
 

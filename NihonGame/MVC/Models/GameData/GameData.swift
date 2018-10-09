@@ -55,7 +55,6 @@ class GameData : NSManagedObject {
                     randomIsOK = true
                 }
             }
-            print(answerRandomDict)
         }while randomIsOK == false
 
         return QuestionData(questionCategory: questionCategoryName, questionString: questionString, goodAnswerString: answerString,
