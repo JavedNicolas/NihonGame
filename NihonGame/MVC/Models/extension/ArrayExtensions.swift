@@ -60,3 +60,16 @@ extension Array where Element == [String] {
     }
 }
 
+extension Array where Element == Substring {
+    func flatenArray(separator: String) -> String{
+        var flattenedArray = ""
+        for (index, element) in self.enumerated() {
+            flattenedArray += String(element)
+            if index != self.count - 1 {
+                flattenedArray += "\(separator) "
+            }
+        }
+        return flattenedArray
+    }
+}
+

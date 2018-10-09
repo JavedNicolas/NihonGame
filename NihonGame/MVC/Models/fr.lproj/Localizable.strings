@@ -20,3 +20,9 @@
 "Level_Success" = "Bravo, vous avez fini ce niveau !";
 "Level_Failed" = "Dommage, vous n'avez pas assez de point pour finir ce niveau ! Mais vous pouvez ressayer!";
 
+// Mark:- Buttons text
+"Understood_Text" = "J'ai Compris !";
+
+//Mark:- Label text
+"New_Game_Data_Text" = "Nouvel Élement !";
+

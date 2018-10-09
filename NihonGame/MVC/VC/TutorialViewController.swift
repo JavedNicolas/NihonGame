@@ -23,5 +23,55 @@ class TutorialViewController : UIViewController {
         self.view.addSubview(popUpview)
         let stackView = UIStackView(frame: popUpview.frame)
         popUpview.addSubview(stackView)
+        setTitle(stackView: stackView)
+        if let gameData = gameData {
+            for content in gameData.dataDictionary{
+                setLabel(stackView: stackView, textToDisplay: content)
+            }
+        }
+        setUnderstoodButton(stackView: stackView, popUpView: popUpview)
+        setStackView(stackView: stackView, popUpView: popUpview)
+    }
+
+    func setTitle(stackView : UIStackView) {
+        let label = UILabel()
+        label.text = "New_Game_Data_Text".localize()
+        label.textAlignment = .center
+        label.textColor = .white
+        label.font = UIFont(name: "Arial", size: CGFloat(30))
+        stackView.addArrangedSubview(label)
+    }
+
+    func setLabel(stackView : UIStackView, textToDisplay: (key: String, value: [Substring])) {
+        let label = UILabel()
+        label.text = "\(textToDisplay.key) : \(textToDisplay.value.flatenArray(separator: ","))"
+        label.textAlignment = .center
+        label.textColor = .white
+        stackView.addArrangedSubview(label)
+    }
+
+    func setUnderstoodButton(stackView : UIStackView, popUpView : SquarePopUpView) {
+        let button = UIButton(type: .custom)
+        button.setTitle("Understood_Text".localize(), for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.setImage(UIImage(named: "Correct.png"), for: .normal)
+        button.backgroundColor = .white
+        button.layer.cornerRadius = popUpView.layer.cornerRadius
+        button.addTarget(self, action: #selector(closeTutorial), for: .touchUpInside)
+        button.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        stackView.addArrangedSubview(button)
+    }
+
+    func setStackView(stackView: UIStackView, popUpView: SquarePopUpView) {
+        stackView.distribution = .fillEqually
+        stackView.axis = .vertical
+        stackView.spacing = 5
+        stackView.alignment = .fill
+        stackView.setAnchors(top: popUpView.topAnchor, leading: popUpView.leadingAnchor, trailing: popUpView.trailingAnchor,
+                             bottom: popUpView.bottomAnchor, padding: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0))
+    }
+
+    @objc func closeTutorial() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
