@@ -9,57 +9,58 @@
 import UIKit
 
 class GameViewController: UIViewController {
-    private var notificationName = Notification.Name(rawValue: "UserAnswered")
+    private var userAnsweredNotificationName = Notification.Name(rawValue: "UserAnswered")
+    private var questionSetNotificationName = Notification.Name(rawValue: "QuestionLoaded")
     var level : Level?
+    private var game : Game?
     var questionMode : QuestionType?
     var numberOfQuestionAsked = 0
-    var question : Question? = nil {
-        didSet{
-            if let question = question {
-                setQuestionMode(question: question)
-            }
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.setGrandiantBackground(colors: [UIColor.orange.cgColor, UIColor.yellow.cgColor])
-        if let tabBarController = tabBarController {
-            tabBarController.tabBar.isHidden = true
+        setAndRemoveObservater(set: true)
+        initVC()
+        guard let level = level else { return }
+        self.game = Game(level: level)
+        initQuestion()
+        if let game = game, let newGameData = game.needToShowTutorial() {
+            showTutorial(gameData: newGameData)
         }
     }
 
+    private func initVC() {
+        self.view.setGrandiantBackground(colors: [UIColor.orange.cgColor, UIColor.yellow.cgColor])
+        if let tabBarController = tabBarController { tabBarController.tabBar.isHidden = true  }
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
+        setAndRemoveObservater(set: false)
         if let tabBarController = tabBarController {
             tabBarController.tabBar.isHidden = false
         }
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        initQuestion()
-        if let level = level {
-            if let newGameData = level.newGameData, level.score == 0 {
-                showTutorial(gameData: newGameData)
-            }
+    func setAndRemoveObservater(set: Bool ) {
+        if set {
+            NotificationCenter.default.addObserver(self, selector: #selector(setQuestionMode), name: questionSetNotificationName, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(userhasAnswered), name: userAnsweredNotificationName, object: nil)
+        }else {
+            NotificationCenter.default.removeObserver(self, name: questionSetNotificationName, object: nil)
+            NotificationCenter.default.removeObserver(self, name: userAnsweredNotificationName, object: nil)
         }
     }
 
     func initQuestion() {
-        guard let level = level else {
-            return
-        }
-        if let gameMode = GameModes.shared.getCurrentMode(), let allAnswers = gameMode.possibleAnswers,
-            let levelDatas = level.levelDatas {
-            self.question = Question(levelData: levelDatas, AllAnswers: allAnswers)
+        if let game = game {
+            game.setNewQuestion()
         }
     }
 
-    func setQuestionMode(question: Question) {
+    @objc func setQuestionMode() {
         let questionMode = SQModeView(frame: self.view.frame)
-        questionMode.question = question
-        // Handle duplicate of the observer
-        NotificationCenter.default.removeObserver(self, name: notificationName, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(userhasAnswered), name: notificationName, object: nil)
+        if let game = game {
+            questionMode.question = game.getCurrentQuestion()
+        }
         view.addSubview(questionMode)
         self.questionMode = questionMode
 
@@ -75,28 +76,27 @@ class GameViewController: UIViewController {
     }
 
     @objc func userhasAnswered() {
-        if let questionMode = questionMode{
-            if questionMode.answered.hasAnswered {
-                numberOfQuestionAsked += 1
-                let hasCorrectlyAnswered = questionMode.answered.hasCorrectlyAnswered
-                let popUpImageView = setAnswerStatutView(isCorrect: hasCorrectlyAnswered)
-                updateScores(AnswerIsCorrect: hasCorrectlyAnswered)
-                if let questionModeasView = questionMode as? UIView {
-                    questionModeasView.removeFromSuperview()
-                    self.view.addSubview(popUpImageView)
-                }
-                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
-                    popUpImageView.removeFromSuperview()
-                    if !self.isLevelOver() {
-                        self.initQuestion()
-                    }
+        guard let questionMode = questionMode, let game = game else { return }
+
+        if questionMode.answered.hasAnswered {
+            let hasCorrectlyAnswered = questionMode.answered.hasCorrectlyAnswered
+            let popUpImageView = setAnswerStatutView(isCorrect: hasCorrectlyAnswered)
+            game.userAnswered(isCorrect: hasCorrectlyAnswered)
+            if let questionModeasView = questionMode as? UIView {
+                questionModeasView.removeFromSuperview()
+                self.view.addSubview(popUpImageView)
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
+                popUpImageView.removeFromSuperview()
+                if !self.isLevelOver() {
+                    self.initQuestion()
                 }
             }
         }
     }
 
     func isLevelOver() -> Bool {
-        if numberOfQuestionAsked >= GameConstant.questionsByLevel {
+        if let game = game, game.isLevelOver() {
             let popUpMessage = PopUpMessageView(parentframe: self.view.frame, size: CGSize(width: self.view.frame.width, height: 100))
             if let level = level, level.score >= GameConstant.levelCompleteScore {
                 popUpMessage.message = "Level_Success".localize()
@@ -110,16 +110,6 @@ class GameViewController: UIViewController {
         }
         return false
 
-    }
-
-    private func updateScores(AnswerIsCorrect: Bool) {
-        guard let question = question else {
-            return
-        }
-        if let level = level{
-            question.dataChoosed.changeScore(increase: AnswerIsCorrect)
-            level.changeScore(increase: AnswerIsCorrect)
-        }
     }
 
     private func setAnswerStatutView(isCorrect: Bool) -> PopUpImageView{

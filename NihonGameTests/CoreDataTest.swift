@@ -10,7 +10,7 @@ import XCTest
 @testable import NihonGame
 
 class CoreDataTest: XCTestCase {
-    let coreDataManager = CoreDataManager()
+    let coreDataManager = CoreDataManager.shared
     let modeID = 0
 
     override func setUp() {
@@ -20,51 +20,7 @@ class CoreDataTest: XCTestCase {
 
     override func tearDown() {
         for gameMode in GameModes.shared.getGameModes() {
-            coreDataManager.deleteMode(modeID: gameMode.id)
+            coreDataManager.deleteMode(modeID: gameMode.id.int)
         }
     }
-
-    func createDataInCoreDataForLevel() {
-        let gameMode = GameModes.shared.getGameModes()
-        coreDataManager.contextForTest()
-        coreDataManager.saveProgression(gameMode: gameMode[0])
-    }
-
-
-    func testGivenWeNeedProgressionWhenWeFetchItFromCoreDataThenWeHaveProgression() {
-        // Given
-        createDataInCoreDataForLevel()
-
-        // When
-        let progression = coreDataManager.fetchMenu(modeID: modeID)
-
-        // Then
-        XCTAssertNotNil(progression)
-    }
-
-    func testGivenWeLaunchTheAppForTheFirstTimeWhenWeTryToAccessCoreDataDatasThenWeFindNothing() {
-        // Given
-            // in the setup
-        // When
-        let progression = coreDataManager.fetchMenu(modeID: modeID)
-
-        // Then
-        XCTAssertNil(progression)
-    }
-
-    func testGivenUserWantToResetAGameModeThenWeRemoveDataFromToMode() {
-        // Given
-        coreDataManager.contextForTest()
-        createDataInCoreDataForLevel()
-
-        // when
-        coreDataManager.deleteMode(modeID: modeID)
-
-        // Then
-        let progression = coreDataManager.fetchMenu(modeID: modeID)
-        XCTAssertNil(progression)
-
-        
-    }
-
 }

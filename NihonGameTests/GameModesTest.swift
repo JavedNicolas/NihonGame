@@ -14,7 +14,18 @@ class ModeCreatorTest: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        modes.coreDataForTest()
+        CoreDataManager.shared.contextForTest()
+        for mode in GameModes.shared.getGameModes() {
+            CoreDataManager.shared.deleteMode(modeID: mode.id.int)
+        }
+    }
+
+    func testGivenWeAskForGameModeInCoreDataWhenItEmptyThenWeDoNotGetGameMode() {
+        // Given
+
+        // Then
+        let gameModes = modes.getGameModes()
+        XCTAssertEqual(gameModes.count, 0)
     }
 
     func testGivenWeWantGameModeWhenAskThemThenWeGetAnArrayOfGameMode() {
@@ -25,25 +36,20 @@ class ModeCreatorTest: XCTestCase {
         XCTAssertNotEqual(gameModes.count, 0)
         for mode in gameModes {
             XCTAssertNotNil(mode.name)
-            XCTAssertNotEqual(mode.modeData.datas.count, 0)
-            XCTAssertNotEqual(mode.groups.count, 0)
         }
     }
 
     func testGivenWeWantGameModeWithProgressionWhenAskThemThenWeGetAnArrayOfGameModeWithDatasAndNameAndGroups() {
         // Given
-        let coreDataManager = CoreDataManager()
-        coreDataManager.contextForTest()
 
-        coreDataManager.saveProgression(gameMode: modes.getGameModes()[0])
+        CoreDataManager.shared.saveContext()
         
         // When and Then
         let gameModes = modes.getGameModes()
         XCTAssertNotEqual(gameModes.count, 0)
         for mode in gameModes {
             XCTAssertNotNil(mode.name)
-            XCTAssertNotEqual(mode.modeData.datas.count, 0)
-            XCTAssertNotEqual(mode.groups.count, 0)
+
         }
     }
 

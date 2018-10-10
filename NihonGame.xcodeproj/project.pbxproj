@@ -17,6 +17,7 @@
 		370DA7DE216B49A300AA243C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370DA7DD216B49A300AA243C /* SettingsViewController.swift */; };
 		3725CED6216CB2C700C9301F /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3725CED5216CB2C700C9301F /* TutorialViewController.swift */; };
 		3725CED8216CB64E00C9301F /* SquarePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3725CED7216CB64E00C9301F /* SquarePopUpView.swift */; };
+		3725CEDA216DDEA500C9301F /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3725CED9216DDEA500C9301F /* Game.swift */; };
 		372E448121678A4B0079B5DF /* SQQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E448021678A4B0079B5DF /* SQQuestionView.swift */; };
 		372E44842167A5A10079B5DF /* SQAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E44832167A5A10079B5DF /* SQAnswerView.swift */; };
 		372E44862168D4C00079B5DF /* AnswerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E44852168D4C00079B5DF /* AnswerType.swift */; };
@@ -104,6 +105,7 @@
 		370DA7DD216B49A300AA243C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3725CED5216CB2C700C9301F /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		3725CED7216CB64E00C9301F /* SquarePopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquarePopUpView.swift; sourceTree = "<group>"; };
+		3725CED9216DDEA500C9301F /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		372E448021678A4B0079B5DF /* SQQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQQuestionView.swift; sourceTree = "<group>"; };
 		372E44832167A5A10079B5DF /* SQAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQAnswerView.swift; sourceTree = "<group>"; };
 		372E44852168D4C00079B5DF /* AnswerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerType.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 		3765F6382162087500A4D64D /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				3725CED9216DDEA500C9301F /* Game.swift */,
 				3765F6392162088300A4D64D /* Answer.swift */,
 				3765F63B2162089400A4D64D /* PossibleAnswers.swift */,
 				3765F63F2162116F00A4D64D /* Question.swift */,
@@ -633,6 +636,7 @@
 				37E0B03C2158DAA60064019F /* CoreDataManager.swift in Sources */,
 				370DA7D4216B443A00AA243C /* MainMenuVCDataSource.swift in Sources */,
 				372E44862168D4C00079B5DF /* AnswerType.swift in Sources */,
+				3725CEDA216DDEA500C9301F /* Game.swift in Sources */,
 				3765F63A2162088300A4D64D /* Answer.swift in Sources */,
 				37613079213FC81E00FBCA24 /* UIViewExtension.swift in Sources */,
 				3754809A215A4F9800CE2335 /* Levels.swift in Sources */,

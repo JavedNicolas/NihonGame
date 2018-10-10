@@ -13,7 +13,7 @@ class GroupCreatorTest: XCTestCase {
     var groups : [Group] = []
 
     override func setUp() {
-        let groupJSON = GameModes.shared.getModeData(id: 0).groupJSON
+        let groupJSON = GameModes.shared.getGameModes()[0].modeData!.getGroupJSON()
         groups = Groups(json: groupJSON).getGroups()
     }
 
@@ -34,7 +34,6 @@ class GroupCreatorTest: XCTestCase {
         // Then
         for group in groups {
             XCTAssertNotNil(group.name)
-            XCTAssertNotNil(group.elementRange)
         }
     }
 
@@ -44,7 +43,7 @@ class GroupCreatorTest: XCTestCase {
         // When
         for group in groups {
             // Then
-            XCTAssertNotEqual(0, group.levels.count)
+            XCTAssertNotNil(group.levels)
         }
     }
 
