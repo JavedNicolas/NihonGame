@@ -41,22 +41,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NihonGame/MVC/VC/GameViewController.swift"
-            timestampString = "560857517.326138"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "setAndRemoveObservater(set:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "NihonGame/MVC/Models/Menu/Group.swift"
             timestampString = "560857333.2607729"
             startingColumnNumber = "9223372036854775807"
@@ -89,29 +73,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NihonGame/MVC/VC/GameViewController.swift"
-            timestampString = "560857517.326465"
+            filePath = "NihonGameTests/GameTests.swift"
+            timestampString = "560857517.326583"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "GameViewController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NihonGame/MVC/VC/GameViewController.swift"
-            timestampString = "560857517.3265181"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "setAndRemoveObservater(set:)"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "setUp()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -121,13 +89,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NihonGameTests/GameTests.swift"
-            timestampString = "560857517.326583"
+            filePath = "NihonGame/MVC/Views/QuestionMode/SimpleQuestionMode/SQModeView.swift"
+            timestampString = "560877761.722068"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "setUp()"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "animateAnswer(userAnswer:question:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

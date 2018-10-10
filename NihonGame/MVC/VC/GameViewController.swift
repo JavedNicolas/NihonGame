@@ -75,20 +75,26 @@ class GameViewController: UIViewController {
 
     }
 
+    func showEndLevelPopUp() {
+        let endLevelViewController = EndLevelViewController()
+        endLevelViewController.level = level
+        endLevelViewController.modalTransitionStyle = .crossDissolve
+        endLevelViewController.modalPresentationStyle = .overCurrentContext
+        self.present(endLevelViewController, animated: true, completion: nil)
+        endLevelViewController.navController = self.navigationController
+    }
+
     @objc func userhasAnswered() {
         guard let questionMode = questionMode, let game = game else { return }
 
         if questionMode.answered.hasAnswered {
             let hasCorrectlyAnswered = questionMode.answered.hasCorrectlyAnswered
-            let popUpImageView = setAnswerStatutView(isCorrect: hasCorrectlyAnswered)
             game.userAnswered(isCorrect: hasCorrectlyAnswered)
-            if let questionModeasView = questionMode as? UIView {
-                questionModeasView.removeFromSuperview()
-                self.view.addSubview(popUpImageView)
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
-                popUpImageView.removeFromSuperview()
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000)) {
                 if !self.isLevelOver() {
+                    if let questionModeasView = questionMode as? UIView {
+                        questionModeasView.removeFromSuperview()
+                    }
                     self.initQuestion()
                 }
             }
@@ -97,32 +103,13 @@ class GameViewController: UIViewController {
 
     func isLevelOver() -> Bool {
         if let game = game, game.isLevelOver() {
-            let popUpMessage = PopUpMessageView(parentframe: self.view.frame, size: CGSize(width: self.view.frame.width, height: 100))
             if game.isLevelDone() {
-                popUpMessage.message = "Level_Success".localize()
                 game.level.levelfinished()
-            }else {
-                popUpMessage.message = "Level_Failed".localize()
             }
             CoreDataManager.shared.saveContext()
-            self.view.addSubview(popUpMessage)
+            showEndLevelPopUp()
             return true
         }
         return false
-
-    }
-
-    private func setAnswerStatutView(isCorrect: Bool) -> PopUpImageView{
-        let popUpImageView = PopUpImageView(parentframe: self.view.frame, size: CGSize(width: self.view.frame.width, height: 100))
-        var image = UIImage(named: "NotCorrect")
-        if isCorrect {
-            image = UIImage(named: "Correct")
-        }
-
-        if let image = image {
-            popUpImageView.image = image
-        }
-
-        return popUpImageView
     }
 }

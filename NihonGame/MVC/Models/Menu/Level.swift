@@ -40,6 +40,9 @@ class Level : NSManagedObject {
         if self.score >= 500 {
             let starsScore = score - 500
             self.stars = Int16(starsScore.int / GameConstant.scoreByStar)
+            if self.stars > 3 {
+                self.stars = 3
+            }
         }
     }
 

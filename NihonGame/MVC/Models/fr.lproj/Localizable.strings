@@ -22,7 +22,11 @@
 
 // Mark:- Buttons text
 "Understood_Text" = "J'ai Compris !";
+"Go_Back_To_Menu_Text" = "Revenir au Menu Précédent";
 
 //Mark:- Label text
 "New_Game_Data_Text" = "Nouvel Élement !";
+"Congratulation_Text" = "Féliciation !";
+"Try_Again_Text" = "Essaie encore !";
+"Answer_Text" = "La bonne réponse était :";
 

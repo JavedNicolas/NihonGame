@@ -11,10 +11,8 @@ import UIKit
 class SQModeView: UIView, QuestionType {
     // Mark:- Attributs
     private lazy var rectanglePadding = self.frame.width / 10
-    private let answerViewColor = [[UIColor.orange.cgColor, UIColor.orange.cgColor],
-                                   [UIColor.blue.cgColor, UIColor.blue.cgColor],
-                                   [UIColor.green.cgColor, UIColor.green.cgColor],
-                                   [UIColor.brown.cgColor, UIColor.brown.cgColor]]
+    private let answerViewColor = [UIColor.orange, UIColor.blue,
+                                   UIColor.purple,UIColor.brown]
     private lazy var topAnchors  = [self.safeTopAnchor, self.topAnchor, self.centerYAnchor, self.centerYAnchor]
     private lazy var leadingAnchors = [self.leadingAnchor, self.centerXAnchor, self.leadingAnchor, self.centerXAnchor]
     private lazy var trailingAnchors = [self.centerXAnchor, self.trailingAnchor, self.centerXAnchor, self.trailingAnchor]
@@ -54,7 +52,7 @@ class SQModeView: UIView, QuestionType {
             answerView.setAnchors(top: topAnchors[index], leading: leadingAnchors[index], trailing: trailingAnchors[index], bottom: bottomAnchors[index],
                                   padding: UIEdgeInsets(top: 0, left: leftPadding[index], bottom: 0, right: rightPadding[index]))
             answerView.setFrameFromConstraint()
-            answerView.setGrandiantBackground(colors: answerViewColor[index])
+            answerView.backgroundColor = answerViewColor[index]
             answerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(userAnswered(_:))))
             answerViews.append(answerView)
         }
@@ -69,14 +67,35 @@ class SQModeView: UIView, QuestionType {
     @objc func userAnswered(_ sender: UITapGestureRecognizer) {
         if let answerView = sender.view as? SQAnswerView, let question = question {
             answered.hasAnswered = true
-            if answerView.getlabelText() == question.goodAnswer.answerString {
-                answered.hasCorrectlyAnswered  = true
-            }else {
-                answered.hasCorrectlyAnswered = false
-            }
+            animateAnswer(userAnswer: answerView, question: question)
             let notificationName = Notification.Name(self.notificationNameString)
             let notification = Notification(name: notificationName)
             NotificationCenter.default.post(notification)
+        }
+    }
+
+    func animateAnswer(userAnswer: SQAnswerView, question: Question) {
+        if userAnswer.getlabelText() == question.goodAnswer.answerString {
+            answered.hasCorrectlyAnswered  = true
+            makeAnswerBlink(answerView: userAnswer, color: .green)
+        }else {
+            answered.hasCorrectlyAnswered = false
+            for answer in answerViews {
+                answer.isUserInteractionEnabled = false
+                if answer.getlabelText() == question.goodAnswer.answerString {
+                    makeAnswerBlink(answerView: answer, color: .green)
+                }else {
+                    userAnswer.backgroundColor = .red
+                }
+            }
+        }
+    }
+
+    func makeAnswerBlink(answerView: SQAnswerView, color: UIColor ) {
+        for _ in 0...2 {
+            UIView.animate(withDuration: 0.25, delay: 0.1, options: [UIView.AnimationOptions.repeat, UIView.AnimationOptions.autoreverse], animations: {
+                answerView.backgroundColor = color
+            }, completion: nil)
         }
     }
 }

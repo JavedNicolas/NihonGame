@@ -10,17 +10,24 @@ import UIKit
 
 class PopUpImageView : BandPopUpView {
     private var imageView = UIImageView()
-    var image : UIImage = UIImage() {
-        didSet {
-            setImage(image: image)
-        }
-    }
+    private var label = UILabel()
 
-    private func setImage(image: UIImage) {
-        imageView.frame = CGRect(x: 0, y: 0, width: frame.width, height: frame.height)
+    func setContent(image: UIImage, text : String ) {
+        imageView.frame = CGRect(x: 0, y: 0, width: frame.width, height: self.barView.frame.height / 2)
         imageView.image = image
         imageView.contentMode = .center
-        self.addSubview(imageView)
+        label.frame = CGRect(x: 0, y: 25, width: frame.width, height: self.barView.frame.height / 2)
+        label.text = text
+        label.font = UIFont(name: "Arial", size: 25)
+        label.textAlignment = .center
+        label.textColor = .white
 
+        self.barView.addSubview(imageView)
+        self.barView.addSubview(label)
+
+        label.setAnchors(top: barView.topAnchor, leading: barView.leadingAnchor, trailing: barView.trailingAnchor,
+                         bottom: imageView.topAnchor)
+        imageView.setAnchors(top: label.topAnchor, leading: barView.leadingAnchor, trailing: barView.trailingAnchor,
+                             bottom: label.topAnchor)
     }
 }

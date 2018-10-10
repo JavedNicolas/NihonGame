@@ -18,6 +18,13 @@ extension UIView {
         }
     }
 
+    func setWhiteAlphaBackgroud() {
+        let backgroundView = UIView(frame: self.frame)
+        backgroundView.backgroundColor = .white
+        backgroundView.alpha = 0.8
+        self.addSubview(backgroundView)
+    }
+
     func setGrandiantBackground(colors: [CGColor], cornerRadius radius: CGFloat = CGFloat(0)) {
         let gradient = CAGradientLayer()
         gradient.frame = self.bounds

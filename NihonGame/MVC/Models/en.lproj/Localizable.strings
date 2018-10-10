@@ -25,3 +25,7 @@
 
 //Mark:- Label text
 "New_Game_Data_Text" = "New Element !";
+"Congratulation_Text" = "Congratulation !";
+"Try_Again_Text" = "Try again !";
+"Go_Back_To_Menu_Text" = "Go Back To Menu";
+"Answer_Text" = "The Good Answer Was :";
