@@ -9,48 +9,42 @@
 import XCTest
 @testable import NihonGame
 
-class ModeCreatorTest: XCTestCase {
+class GameModesTest: XCTestCase {
     let modes = GameModes.shared
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         CoreDataManager.shared.contextForTest()
-        for mode in GameModes.shared.getGameModes() {
+    }
+
+    func testGivenWeWantGameModeBeProgressionWhenAskThemThenWeGetAnArrayOfGameMode() {
+        // Given
+        for mode in modes.getGameModes() {
             CoreDataManager.shared.deleteMode(modeID: mode.id.int)
         }
-    }
-
-    func testGivenWeAskForGameModeInCoreDataWhenItEmptyThenWeDoNotGetGameMode() {
-        // Given
-
-        // Then
-        let gameModes = modes.getGameModes()
-        XCTAssertEqual(gameModes.count, 0)
-    }
-
-    func testGivenWeWantGameModeWhenAskThemThenWeGetAnArrayOfGameMode() {
-    // Given
-        
-    // When and Then
-        let gameModes = modes.getGameModes()
-        XCTAssertNotEqual(gameModes.count, 0)
-        for mode in gameModes {
-            XCTAssertNotNil(mode.name)
-        }
-    }
-
-    func testGivenWeWantGameModeWithProgressionWhenAskThemThenWeGetAnArrayOfGameModeWithDatasAndNameAndGroups() {
-        // Given
-
-        CoreDataManager.shared.saveContext()
+        modes.createModesList()
         
         // When and Then
         let gameModes = modes.getGameModes()
         XCTAssertNotEqual(gameModes.count, 0)
         for mode in gameModes {
             XCTAssertNotNil(mode.name)
-
+            XCTAssertNotNil(mode.getGroups())
+            XCTAssertNotNil(mode.getDatas())
         }
     }
 
+    func testGivenWeWantGameModeWithProgressionWhenAskThemThenWeGetAnArrayOfGameModeWithDatasAndNameAndGroups() {
+        // Given
+        
+        // When and Then
+        modes.createModesList()
+        let gameModes = modes.getGameModes()
+        XCTAssertNotEqual(gameModes.count, 0)
+        for mode in gameModes {
+            XCTAssertNotNil(mode.name)
+            XCTAssertNotNil(mode.getGroups())
+            XCTAssertNotNil(mode.getDatas())
+        }
+    }
 }

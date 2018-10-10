@@ -9,7 +9,7 @@
 import Foundation
 
 class Game {
-    private var level : Level
+    var level : Level
     private var levelData : [GameData] = []
     private var numberOfQuestionAsked = 0
     private var currentQuestion : Question? = nil {
@@ -47,7 +47,13 @@ class Game {
         }
         question.dataChoosed.changeScore(increase: isCorrect)
         level.changeScore(increase: isCorrect)
+    }
 
+    func isLevelDone() -> Bool {
+        if level.score >= GameConstant.levelCompleteScore {
+            return true
+        }
+        return false
     }
 
     func isLevelOver() -> Bool{

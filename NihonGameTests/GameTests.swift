@@ -11,14 +11,18 @@ import XCTest
 
 class NihonGameTests: XCTestCase {
     var level : Level?
+    var group : Group?
     let currentModeID = 0
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        CoreDataManager.shared.contextForTest()
+        GameModes.shared.createModesList()
         let modes = GameModes.shared.getGameModes()
         let mode = modes[currentModeID]
-        let group = mode.groups[0]
-        level = group.levels[5]
+        GameModes.shared.currentMode = mode
+        group = mode.getGroups()![0]
+        level = group!.getLevels()![4]
     }
     
     func testGivenUserSelectedALevelThenWeGenerateAGameAndAQuestion() {
@@ -26,30 +30,88 @@ class NihonGameTests: XCTestCase {
             //in the setup
 
         // Then
-        let game = Game(currentModeID: currentModeID, level: level!)
+        let game = Game(level: level!)
 
         XCTAssertNotNil(game)
         XCTAssertNotNil(game.getCurrentQuestion())
     }
 
-    func testGivenUserAnsweredToTheQuestionIfTheResponseIsCorrectThenWeReturnTrue() {
+    func testGivenUserAnsweredToTheQuestionCorrectlyIThenWeUpgradeScores() {
         // Given
-        let game = Game(currentModeID: currentModeID, level: level!)
-        let answer = game.getCurrentQuestion()!.goodAnswer
+        let game = Game(level: level!)
 
         // Then
-        let isCorrectAnswer = game.isCorrectAnswer(answer: answer)
-        XCTAssert(isCorrectAnswer)
+        game.userAnswered(isCorrect: true)
+        XCTAssertNotEqual(0, game.level.score)
     }
 
-    func testGivenUserAnsweredToTheQuestionIfTheResponseIsNotCorrectThenWeReturnTrue() {
+    func testGivenUserDidNotAnsweredToTheQuestionCorrectlyIThenWeUpgradeScores() {
         // Given
-        let game = Game(currentModeID: currentModeID, level: level!)
-        let answer = game.getCurrentQuestion()!.badAnswers[0]
+        let game = Game(level: level!)
 
         // Then
-        let isCorrectAnswer = game.isCorrectAnswer(answer: answer)
-        XCTAssertFalse(isCorrectAnswer)
+        game.userAnswered(isCorrect: false)
+        XCTAssertEqual(0, game.level.score)
+    }
+
+    func testGiveTheUserHasAnsweredAndTheGameIsOverWhenWeCheckIfTheUserSuccessedThenItReturnTrueAdnUnlockNextLevel() {
+        // Given
+        let game = Game(level: level!)
+        for _ in 0..<GameConstant.questionsByLevel {
+            game.userAnswered(isCorrect: true)
+            game.setNewQuestion()
+        }
+        game.level.unlockNextLevel()
+        XCTAssertTrue(game.isLevelOver())
+        XCTAssertTrue(game.isLevelDone())
+    }
+
+    func testGiveTheUserHasAnsweredAndTheGameIsOverAndTheGameIsTheLastofTheGroupWhenWeCheckIfTheUserSuccessedThenItReturnTrueAdnUnlockNextGroup() {
+        // Given
+        level = group!.getLevels()!.last
+        let game = Game(level: level!)
+
+        for _ in 0..<GameConstant.questionsByLevel {
+            game.userAnswered(isCorrect: true)
+            game.setNewQuestion()
+        }
+
+        game.level.unlockNextLevel()
+        XCTAssertTrue(game.isLevelOver())
+        XCTAssertTrue(game.isLevelDone())
+    }
+
+    func testGiveTheUserHasAnsweredAndTheGameIsOverWhenWeCheckIfTheUserSuccessedThenItReturnFalse() {
+        // Given
+        let game = Game(level: level!)
+        for _ in 0..<GameConstant.questionsByLevel {
+            game.userAnswered(isCorrect: false)
+            game.setNewQuestion()
+        }
+        XCTAssertTrue(game.isLevelOver())
+        XCTAssertFalse(game.isLevelDone())
+    }
+
+    func testGivenTheLevelJustStartedWhenItLaunchThenTheLevelNeedATutorial() {
+        // Given
+        level?.score = 0
+
+        // then
+        let game = Game(level: level!)
+
+        // When
+        XCTAssertNotNil(game.needToShowTutorial())
+    }
+
+    func testGivenTheLevelJustStartedButUserHasAlreadyplayedItWhenItLaunchThenTheLevelDontNeedATutorial() {
+        // Given
+        level?.score = 10
+
+        // then
+        let game = Game(level: level!)
+
+        // When
+        XCTAssertNil(game.needToShowTutorial())
     }
     
 }

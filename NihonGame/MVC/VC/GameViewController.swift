@@ -98,9 +98,9 @@ class GameViewController: UIViewController {
     func isLevelOver() -> Bool {
         if let game = game, game.isLevelOver() {
             let popUpMessage = PopUpMessageView(parentframe: self.view.frame, size: CGSize(width: self.view.frame.width, height: 100))
-            if let level = level, level.score >= GameConstant.levelCompleteScore {
+            if game.isLevelDone() {
                 popUpMessage.message = "Level_Success".localize()
-                level.levelfinished()
+                game.level.levelfinished()
             }else {
                 popUpMessage.message = "Level_Failed".localize()
             }

@@ -17,10 +17,6 @@ class Groups {
         setGroups()
     }
 
-    init(coreDataGroups: [Group]) {
-        groups = coreDataGroups
-    }
-
     private func parseData(data: Data?) -> [GroupsParsing] {
         guard let data = data else { return [] }
 

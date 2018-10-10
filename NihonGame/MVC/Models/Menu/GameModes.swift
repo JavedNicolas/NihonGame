@@ -19,7 +19,8 @@ class GameModes {
         createModesList()
     }
 
-    private func createModesList() {
+    func createModesList() {
+        gameModes = []
         for modeID in 0..<modesData.count {
             let modeDatas = modesData[modeID]
             if let gameModeInCoreData = getSavedProgression(forModeID: modeID), let _ = gameModeInCoreData.name{

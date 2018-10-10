@@ -14,11 +14,7 @@ class Levels {
     init(parsedLevels: [LevelsParsing]){
         setLevels(parsedLevels: parsedLevels)
     }
-
-    init(levels: [Level]) {
-        self.levels = levels
-    }
-
+    
     private func setLevels(parsedLevels: [LevelsParsing]) {
         for parsedlevel in parsedLevels {
             let level = Level(context: CoreDataManager.shared.getContext())

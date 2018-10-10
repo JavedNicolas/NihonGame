@@ -9,7 +9,7 @@
 import XCTest
 @testable import NihonGame
 
-class GroupCreatorTest: XCTestCase {
+class GroupsTest: XCTestCase {
     var groups : [Group] = []
 
     override func setUp() {
