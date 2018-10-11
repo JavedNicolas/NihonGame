@@ -13,7 +13,6 @@ class LearnedDataTableView: UITableView {
              identifier: String) {
         self.delegate = delegate
         self.dataSource = dataSource
-//        self.separatorStyle = .none
         self.rowHeight = 50
         self.register(cellType, forCellReuseIdentifier: identifier)
         self.backgroundColor = .white
