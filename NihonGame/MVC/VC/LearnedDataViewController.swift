@@ -18,6 +18,12 @@ class LearnedDataViewController : UIViewController {
         setTableView()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        if let tableView = tableView {
+            tableView.reloadData()
+        }
+    }
+
     func setTableView() {
         tableView = LearnedDataTableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: .plain)
         if let tableView = tableView {

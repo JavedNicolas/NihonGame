@@ -10,6 +10,7 @@ import Foundation
 
 protocol ModeDatas {
     var name : String { get }
+    var dataNameOrder : [String] { get }
     var datas : [GameData] { get }
     var groupJSON : String { get }
     var dataJSON : String { get }

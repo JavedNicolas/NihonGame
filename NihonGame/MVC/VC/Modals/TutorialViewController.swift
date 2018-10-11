@@ -26,8 +26,10 @@ class TutorialViewController : UIViewController {
         popUpview.addSubview(stackView)
         setTitle(stackView: stackView)
         if let gameData = gameData {
-            for content in gameData.dataDictionary{
-                setLabel(stackView: stackView, textToDisplay: content)
+            for content in gameData.data {
+                for data in content {
+                    setLabel(stackView: stackView, textToDisplay: "\(data.name) : \(data.value.flatenArray(separator: ","))")
+                }
             }
         }
         setUnderstoodButton(stackView: stackView, popUpView: popUpview)
@@ -43,9 +45,9 @@ class TutorialViewController : UIViewController {
         stackView.addArrangedSubview(label)
     }
 
-    private func setLabel(stackView : UIStackView, textToDisplay: (key: String, value: [Substring])) {
+    private func setLabel(stackView : UIStackView, textToDisplay: String) {
         let label = UILabel()
-        label.text = "\(textToDisplay.key) : \(textToDisplay.value.flatenArray(separator: ","))"
+        label.text = textToDisplay
         label.textAlignment = .center
         label.textColor = .white
         stackView.addArrangedSubview(label)

@@ -13,7 +13,7 @@ class LearnedDataTableView: UITableView {
              identifier: String) {
         self.delegate = delegate
         self.dataSource = dataSource
-        self.rowHeight = 50
+        self.rowHeight = 70
         self.register(cellType, forCellReuseIdentifier: identifier)
         self.backgroundColor = .white
     }

@@ -11,19 +11,18 @@ import Foundation
 class PossibleAnswers {
     private var possibleAnswerList : [String: [Answer]] = [:]
 
-    init(modeData: [GameData], dataComponentsName: [[String]]){
-        let dataComponentsName = dataComponentsName.flatenArray()
-        for data in modeData {
-            for dataName in dataComponentsName {
-                if let dataForDataName = data.dataDictionary[dataName] {
-                    for dataComponent in dataForDataName {
-                        let answer = Answer(gameDataID: data.id.int, answerString: String(dataComponent), category: dataName)
-                        if possibleAnswerList[dataName] == nil {
-                            possibleAnswerList[dataName] = [Answer]()
+    init(modeDatas: [GameData], dataComponentsName: [[String]]){
+        for modeData in modeDatas {
+            for dataArray in modeData.data {
+                for data in dataArray {
+                    for element in data.value {
+                        let answer = Answer(gameDataID: modeData.id.int, answerString: String(element), category: data.name)
+                        if possibleAnswerList[data.name] == nil {
+                            possibleAnswerList[data.name] = [Answer]()
                         }
-                        if let isNew = (possibleAnswerList[dataName]?.contains(where: {$0.answerString == answer.answerString})),
-                            !isNew {
-                            possibleAnswerList[dataName]?.append(answer)
+                        if let value = possibleAnswerList[data.name],
+                            !value.contains(where: {$0.answerString == answer.answerString}) {
+                            possibleAnswerList[data.name]?.append(answer)
                         }
                     }
                 }

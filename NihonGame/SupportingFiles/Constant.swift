@@ -19,6 +19,7 @@ struct GameConstant {
 struct GameDataConstant {
     static let scoreIncrementation = 10
     static let scoreDecrementation = 10
+    static let MaxScoreForLearningLevel = 1000
 }
 
 struct KanjiDataConstant {

@@ -20,6 +20,19 @@ extension Array where Element == GameData {
     }
 }
 
+extension Array where Element == [DataComponents] {
+    func dataAt(name: String) -> DataComponents? {
+        for element in self {
+            for data in element {
+                if data.name == name {
+                    return data
+                }
+            }
+        }
+        return nil
+    }
+}
+
 extension Array where Element == Answer {
     func randomDataFor(id: Int) -> Answer? {
         var answers = [Answer]()
@@ -72,4 +85,6 @@ extension Array where Element == Substring {
         return flattenedArray
     }
 }
+
+
 

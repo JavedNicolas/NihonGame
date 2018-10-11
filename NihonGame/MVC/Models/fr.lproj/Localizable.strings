@@ -6,25 +6,25 @@
   Copyright © 2018 Nicolas. All rights reserved.
 */
 
-// Mark: - Menu Titles
+// MARK: - Menu Titles
 "Kanji_Mode_Menu" = "Mode de Jeu : Kanji";
 
-// Mark:- ViewController Names
+// MARK:- ViewController Names
 "Main_Menu_VC" = "Menu Principale";
 "Learned_Data_VC" = "Contenu Appris";
 "Settings_VC" = "Réglages";
 
-// Mark: - GameModes
+// MARK: - GameModes
 "Kanji_Mode_Name" = "Kanji";
 "Level_String" = "Niveau";
 "Level_Success" = "Bravo, vous avez fini ce niveau !";
 "Level_Failed" = "Dommage, vous n'avez pas assez de point pour finir ce niveau ! Mais vous pouvez ressayer!";
 
-// Mark:- Buttons text
+// MARK:- Buttons text
 "Understood_Text" = "J'ai Compris !";
 "Go_Back_To_Menu_Text" = "Revenir au Menu Précédent";
 
-//Mark:- Label text
+//MARK:- Label text
 "New_Game_Data_Text" = "Nouvel Élement !";
 "Congratulation_Text" = "Féliciation !";
 "Try_Again_Text" = "Essaie encore !";
@@ -32,4 +32,10 @@
 "Best_Score_Text" = "Meilleur Score :";
 "Current_Score_Text" = "Score Actuel :";
 "Current_Question_Number" = "Question :";
+
+//MARK:- Learning Level
+"Learning_Level_1" = "Nouveau !";
+"Learning_Level_2" = "En apprentissage !";
+"Learning_Level_3" = "Connu !";
+"Learning_Level_4" = "Maîtrisé !";
 

@@ -9,6 +9,7 @@
 import Foundation
 
 class Kanjis : ModeDatas {
+    var dataNameOrder = ["kanji","onyomi","kunyomi","traduction"]
     var name: String = "Kanji_Mode_Name".localize()
     internal var datas : [GameData] = []
     internal var dataJSON = KanjiModeJSONs.kanjiJSON
@@ -27,7 +28,7 @@ class Kanjis : ModeDatas {
         let kanjisList = parseData(data: kanjiData)
 
         for kanji in kanjisList {
-            let dataAsString = "kanji:\(kanji.kanji);kunyomi:\(kanji.kunyomi);onyomi:\(kanji.onyomi);traduction:\(kanji.traduction)"
+            let dataAsString = "\(dataNameOrder[0]):\(kanji.kanji);\(dataNameOrder[1]):\(kanji.kunyomi);\(dataNameOrder[2]):\(kanji.onyomi);\(dataNameOrder[3]):\(kanji.traduction)"
             let gameDataParsed = GameDataParsed(jlptLevel: kanji.level, id: kanji.id, learningScore: 0, data: dataAsString)
             let gameData = GameData(context: CoreDataManager.shared.getContext())
             gameData.fill(parsedData: gameDataParsed)

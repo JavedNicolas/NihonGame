@@ -11,7 +11,7 @@ import CoreData
 
 class GameMode : NSManagedObject {
     var modeData : ModeDatas?
-    var dataNames : [[String]] = []
+    var dataNames = [[String]]()
     var possibleAnswers : PossibleAnswers?
 
     /** Fill GameMode for the first CoreData DataBase creation**/
@@ -21,6 +21,7 @@ class GameMode : NSManagedObject {
         self.dataNames = modeData.dataNamesString
         for data in modeData.getDatas() {
             data.mode = self
+            data.dataNameOrder = modeData.dataNameOrder
             self.addToDatas(data)
         }
         for group in gameModeGroups {
@@ -38,8 +39,9 @@ class GameMode : NSManagedObject {
         if let datas = getDatas() {
             for data in datas {
                 let data = data
-                data.createDataDictionary()
-                addToDatas(data)
+//                data.createDataDictionary()
+                data.dataNameOrder = modeData.dataNameOrder
+                self.addToDatas(data)
             }
         }
         if let groups = getGroups() {
@@ -74,7 +76,7 @@ class GameMode : NSManagedObject {
         guard let data = getDatas() else{
             return nil
         }
-        return PossibleAnswers(modeData: data, dataComponentsName: dataNames)
+        return PossibleAnswers(modeDatas: data, dataComponentsName: dataNames)
     }
 }
 

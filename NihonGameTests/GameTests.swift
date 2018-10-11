@@ -31,6 +31,7 @@ class NihonGameTests: XCTestCase {
 
         // Then
         let game = Game(level: level!)
+        game.setNewQuestion()
 
         XCTAssertNotNil(game)
         XCTAssertNotNil(game.getCurrentQuestion())
@@ -39,7 +40,7 @@ class NihonGameTests: XCTestCase {
     func testGivenUserAnsweredToTheQuestionCorrectlyIThenWeUpgradeScores() {
         // Given
         let game = Game(level: level!)
-
+        game.setNewQuestion()
         // Then
         game.userAnswered(isCorrect: true)
         XCTAssertNotEqual(0, game.level.score)
@@ -105,11 +106,10 @@ class NihonGameTests: XCTestCase {
 
     func testGivenTheLevelJustStartedButUserHasAlreadyplayedItWhenItLaunchThenTheLevelDontNeedATutorial() {
         // Given
-        level?.score = 10
 
         // then
         let game = Game(level: level!)
-
+        game.level.changeScore(increase: true)
         // When
         XCTAssertNil(game.needToShowTutorial())
     }

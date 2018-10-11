@@ -9,29 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NihonGame/MVC/Models/Menu/GameMode.swift"
-            timestampString = "560877932.67908"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "fill(modeData:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "NihonGame/MVC/Models/GameData/GameData.swift"
-            timestampString = "560850919.768622"
+            timestampString = "560964306.84226"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "checkIfAnswerIsGood(question:answer:)"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "getQuestionData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -86,32 +70,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NihonGameTests/GameTests.swift"
-            timestampString = "560950939.548501"
+            filePath = "NihonGame/MVC/VC/GameViewController.swift"
+            timestampString = "560964306.842399"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NihonGame/MVC/VC/DataSources/LearnedDataVCDataSource.swift"
-            timestampString = "560951166.657923"
+            filePath = "NihonGame/MVC/Models/Game/Game.swift"
+            timestampString = "560959262.8976721"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "needToShowTutorial()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

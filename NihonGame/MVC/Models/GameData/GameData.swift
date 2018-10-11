@@ -10,48 +10,60 @@ import Foundation
 import CoreData
 
 class GameData : NSManagedObject {
-    var dataDictionary : [String: [Substring]] = [:]
+    // MARK: - Attributs
+    var dataNameOrder = [String]()
+    lazy var data = self.setDataAsStruct()
+    var learningLevel : String {
+        get {
+            return setLearningLevelString()
+        }
+    }
 
     func fill(parsedData: GameDataParsed){
         self.id = parsedData.id.int16
         self.learningScore = parsedData.learningScore.int64
         self.dataString = parsedData.data
-        createDataDictionary()
     }
 
-    func createDataDictionary() {
+    func setDataAsStruct() -> [[DataComponents]] {
+        var finalData = [[DataComponents]]()
         if let dataString = self.dataString {
             let dataByCategories = dataString.split(separator: ";")
-            for data in dataByCategories {
-                let datasplit = data.split(separator: ":")
+            var tmpData = [DataComponents]()
+            for dataString in dataByCategories {
+                let datasplit = dataString.split(separator: ":")
                 let category = String(datasplit[0])
                 let dataForCategory = datasplit[1].split(separator: ",")
-                dataDictionary[category] = dataForCategory
+                let data = DataComponents(name: category, value: dataForCategory)
+                tmpData.append(data)
             }
+            finalData.append(tmpData)
         }
+        return finalData
     }
     
     func getQuestionData() -> QuestionData?{
         /** Random question */
-        guard let questionRandomDict = dataDictionary.randomElement(),let questionSubString = questionRandomDict.value.randomElement() else{
+        guard let randomDataArray = data.randomElement(), let randomData = randomDataArray.randomElement(),
+            let randomQuestionString = randomData.value.randomElement() else{
             return nil
         }
-        let questionCategoryName = questionRandomDict.key
-        let questionString = String(questionSubString)
+        let questionCategoryName = randomData.name
+        let questionString = String(randomQuestionString)
 
         /** Random Answer */
         var randomIsOK = false
         var answerCategoryName = ""
         var answerString = ""
         repeat {
-            guard let answerRandomDict = dataDictionary.randomElement() else{
+            guard let answerRandomArray = data.randomElement(), let randomData = answerRandomArray.randomElement() else {
                 return nil
             }
 
-            if checkIfAnswerIsGood(question: questionCategoryName, answer: answerRandomDict.key) {
-                if let answerSubString = answerRandomDict.value.randomElement() {
+            if checkIfAnswerIsGood(question: questionCategoryName, answer: randomData.name) {
+                if let answerSubString = randomData.value.randomElement() {
                     answerString = String(answerSubString)
-                    answerCategoryName = answerRandomDict.key
+                    answerCategoryName = randomData.name
                     randomIsOK = true
                 }
             }
@@ -63,9 +75,7 @@ class GameData : NSManagedObject {
     }
 
     func checkIfAnswerIsGood(question: String, answer: String) -> Bool{
-        guard  let mode = mode else {
-            return false
-        }
+        guard  let mode = mode else { return false }
 
         if let indexOfQuestion = mode.dataNames.getIndexFor(string: question),
             let indexOfAnswer = mode.dataNames.getIndexFor(string: answer) {
@@ -83,6 +93,16 @@ class GameData : NSManagedObject {
             if learningScore != 0 {
                 learningScore -= GameDataConstant.scoreDecrementation.int64
             }
+        }
+    }
+
+    func setLearningLevelString () -> String {
+        switch learningScore {
+        case 0...100 : return "Learning_Level_1".localize()
+        case 101...200 : return "Learning_Level_2".localize()
+        case 201...400 : return "Learning_Level_3".localize()
+        case let score where score > 400 : return "Learning_Level_4".localize()
+        default : return "Learning_Level_4".localize()
         }
     }
 
