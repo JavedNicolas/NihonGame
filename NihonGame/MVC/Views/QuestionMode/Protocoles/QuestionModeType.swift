@@ -11,7 +11,7 @@ import UIKit
 protocol QuestionType {
     var notificationNameString : String{ get set }
     var answered : (hasAnswered: Bool, hasCorrectlyAnswered: Bool) { get }
-    var question : Question? { get }
+    var game : Game? { get }
 
     func setQuestion(question: Question)
     func setAnswers(question: Question)

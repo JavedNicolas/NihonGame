@@ -29,3 +29,6 @@
 "Try_Again_Text" = "Try again !";
 "Go_Back_To_Menu_Text" = "Go Back To Menu";
 "Answer_Text" = "The Good Answer Was :";
+"Best_Score_Text" = "Best Score :";
+"Current_Score_Text" = "Current Score :";
+"Current_Question_Number" = "Question :";

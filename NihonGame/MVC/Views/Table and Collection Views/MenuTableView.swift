@@ -12,14 +12,6 @@ import UIKit
 class MenuTableView : UITableView {
     //MARK: - Set View Elements
 
-    override init(frame: CGRect, style: UITableView.Style) {
-        super.init(frame: frame, style: style)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     func set(delegate: UITableViewDelegate?, datasource: UITableViewDataSource?, cellType: MenuTableViewCell.Type, identifier: String) {
         self.dataSource = datasource
         self.delegate = delegate

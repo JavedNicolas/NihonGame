@@ -9,7 +9,7 @@
 import UIKit
 
 class SQModeView: UIView, QuestionType {
-    // Mark:- Attributs
+    // MARK:- Attributs
     private lazy var rectanglePadding = self.frame.width / 10
     private let answerViewColor = [UIColor.orange, UIColor.blue,
                                    UIColor.purple,UIColor.brown]
@@ -21,17 +21,20 @@ class SQModeView: UIView, QuestionType {
     private lazy var rightPadding : [CGFloat] = [CGFloat(rectanglePadding), 0, CGFloat(-rectanglePadding), 0 ]
     var notificationNameString: String = "UserAnswered"
     var answerViews = [SQAnswerView]()
-    var question : Question? = nil {
+    var levelProgressionBar : LevelScoreDisplayBar?
+    var game : Game? = nil {
         didSet {
-            if let question = question {
+            if let game = game, let question = game.getCurrentQuestion() {
                 setAnswers(question: question)
                 setQuestion(question: question)
+                setLevelProgressBar(game: game)
             }
         }
     }
+
     var answered = (hasAnswered: false, hasCorrectlyAnswered: false)
 
-    //Mark:- Functions
+    //MARK:- Setters functions
     func setQuestion(question: Question) {
         let circleSize = CGFloat(200)
         let questionCircleRect = CGRect(x: (frame.width / 2) - (circleSize / 2), y: (frame.height / 2) - (circleSize / 2),
@@ -58,14 +61,24 @@ class SQModeView: UIView, QuestionType {
         }
     }
 
+    func setLevelProgressBar(game: Game) {
+        let barHeight = CGFloat(70)
+        let frame = CGRect(x: 0, y: self.frame.height - barHeight, width: self.frame.width, height: barHeight)
+        levelProgressionBar = LevelScoreDisplayBar(frame: frame, game: game)
+        guard let levelProgressionBar = levelProgressionBar else { return }
+        addSubview(levelProgressionBar)
+    }
+
+    // MARK:- functions
     private func setAnswerView(answer: Answer) -> SQAnswerView {
         let answerRect = CGRect(x: 0, y: 0, width: 0, height: 0)
         let answerView = SQAnswerView(frame: answerRect, answer: answer)
         return answerView
     }
 
+    //MARK: - selector
     @objc func userAnswered(_ sender: UITapGestureRecognizer) {
-        if let answerView = sender.view as? SQAnswerView, let question = question {
+        if let answerView = sender.view as? SQAnswerView, let game = game , let question = game.getCurrentQuestion(){
             answered.hasAnswered = true
             animateAnswer(userAnswer: answerView, question: question)
             let notificationName = Notification.Name(self.notificationNameString)
@@ -74,6 +87,7 @@ class SQModeView: UIView, QuestionType {
         }
     }
 
+    // MARK:- Animate Functions
     func animateAnswer(userAnswer: SQAnswerView, question: Question) {
         if userAnswer.getlabelText() == question.goodAnswer.answerString {
             answered.hasCorrectlyAnswered  = true

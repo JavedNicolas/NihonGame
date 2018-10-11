@@ -29,4 +29,7 @@
 "Congratulation_Text" = "Féliciation !";
 "Try_Again_Text" = "Essaie encore !";
 "Answer_Text" = "La bonne réponse était :";
+"Best_Score_Text" = "Meilleur Score :";
+"Current_Score_Text" = "Score Actuel :";
+"Current_Question_Number" = "Question :";
 

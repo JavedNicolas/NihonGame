@@ -22,10 +22,12 @@ class GameViewController: UIViewController {
         initVC()
         guard let level = level else { return }
         self.game = Game(level: level)
-        initQuestion()
+        newQuestion()
         if let game = game, let newGameData = game.needToShowTutorial() {
             showTutorial(gameData: newGameData)
+            self.title = "Current_Question_Number".localize() + " \(game.getNumberOfQuestionAsked())/\(GameConstant.questionsByLevel)"
         }
+
     }
 
     private func initVC() {
@@ -50,16 +52,17 @@ class GameViewController: UIViewController {
         }
     }
 
-    func initQuestion() {
+    func newQuestion() {
         if let game = game {
             game.setNewQuestion()
+            self.title = "Current_Question_Number".localize() + " \(game.getNumberOfQuestionAsked())/\(GameConstant.questionsByLevel)"
         }
     }
 
     @objc func setQuestionMode() {
         let questionMode = SQModeView(frame: self.view.frame)
         if let game = game {
-            questionMode.question = game.getCurrentQuestion()
+            questionMode.game = game
         }
         view.addSubview(questionMode)
         self.questionMode = questionMode
@@ -95,7 +98,7 @@ class GameViewController: UIViewController {
                     if let questionModeasView = questionMode as? UIView {
                         questionModeasView.removeFromSuperview()
                     }
-                    self.initQuestion()
+                    self.newQuestion()
                 }
             }
         }
@@ -103,7 +106,7 @@ class GameViewController: UIViewController {
 
     func isLevelOver() -> Bool {
         if let game = game, game.isLevelOver() {
-            if game.isLevelDone() {
+            if game.isLevelSuccess() {
                 game.level.levelfinished()
             }
             CoreDataManager.shared.saveContext()

@@ -12,6 +12,7 @@ class Game {
     var level : Level
     private var levelData : [GameData] = []
     private var numberOfQuestionAsked = 0
+    var bestScore : Int
     private var currentQuestion : Question? = nil {
         didSet {
             let notificationName = Notification.Name("QuestionLoaded")
@@ -22,7 +23,8 @@ class Game {
 
     init(level: Level) {
         self.level = level
-        setNewQuestion()
+        self.bestScore = level.bestScore
+        self.level.startLevel()
     }
 
     /** Set a ne question */
@@ -49,7 +51,7 @@ class Game {
         level.changeScore(increase: isCorrect)
     }
 
-    func isLevelDone() -> Bool {
+    func isLevelSuccess() -> Bool {
         if level.score >= GameConstant.levelCompleteScore {
             return true
         }
@@ -65,5 +67,9 @@ class Game {
 
     func getCurrentQuestion() -> Question? {
         return currentQuestion
+    }
+
+    func getNumberOfQuestionAsked() -> Int {
+        return numberOfQuestionAsked
     }
 }

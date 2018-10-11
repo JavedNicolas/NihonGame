@@ -12,6 +12,8 @@ import CoreData
 class Level : NSManagedObject {
     var done = false
     var newGameDataID : Int?
+    lazy var bestScore = 0
+    var endLevelScore = 0.int64
     lazy var newGameData: GameData? = self.setNewGameData()
     lazy var levelDatas : [GameData]? = self.setGameDataToUse()
     
@@ -37,13 +39,20 @@ class Level : NSManagedObject {
     }
 
     func setStars() {
-        if self.score >= 500 {
+        if self.score > self.bestScore {
             let starsScore = score - 500
-            self.stars = Int16(starsScore.int / GameConstant.scoreByStar)
+            self.stars = Int16(starsScore.int / GameConstant.scoreByStar) + 1
             if self.stars > 3 {
                 self.stars = 3
             }
         }
+    }
+
+    func startLevel() {
+        if score >= bestScore {
+            bestScore = score.int
+        }
+        score = 0
     }
 
     func levelfinished() {
@@ -60,14 +69,21 @@ class Level : NSManagedObject {
 
         for (index, level) in levels.enumerated() {
             if level == self {
-                if level.score > 500 {
-                    level.done = true
-                    level.setStars()
-                    if index != levels.count - 1 {
-                        levels[index + 1].locked = false
-                    }else {
-                        group.unlockNextGroup(groupBefore: group)
+                level.endLevelScore = level.score
+                if level.score >= 500 {
+                    setStars()
+                    if level.bestScore < 500 {
+                        level.done = true
+                        if index != levels.count - 1 {
+                            levels[index + 1].locked = false
+                        }else {
+                            group.unlockNextGroup(groupBefore: group)
+                        }
+                    } else if level.bestScore > level.score {
+                        level.score = bestScore.int64
                     }
+                } else if bestScore > level.score {
+                    level.score = bestScore.int64
                 }
                 break
             }

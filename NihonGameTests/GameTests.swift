@@ -63,7 +63,7 @@ class NihonGameTests: XCTestCase {
         }
         game.level.unlockNextLevel()
         XCTAssertTrue(game.isLevelOver())
-        XCTAssertTrue(game.isLevelDone())
+        XCTAssertTrue(game.isLevelSuccess())
     }
 
     func testGiveTheUserHasAnsweredAndTheGameIsOverAndTheGameIsTheLastofTheGroupWhenWeCheckIfTheUserSuccessedThenItReturnTrueAdnUnlockNextGroup() {
@@ -78,7 +78,7 @@ class NihonGameTests: XCTestCase {
 
         game.level.unlockNextLevel()
         XCTAssertTrue(game.isLevelOver())
-        XCTAssertTrue(game.isLevelDone())
+        XCTAssertTrue(game.isLevelSuccess())
     }
 
     func testGiveTheUserHasAnsweredAndTheGameIsOverWhenWeCheckIfTheUserSuccessedThenItReturnFalse() {
@@ -89,7 +89,7 @@ class NihonGameTests: XCTestCase {
             game.setNewQuestion()
         }
         XCTAssertTrue(game.isLevelOver())
-        XCTAssertFalse(game.isLevelDone())
+        XCTAssertFalse(game.isLevelSuccess())
     }
 
     func testGivenTheLevelJustStartedWhenItLaunchThenTheLevelNeedATutorial() {

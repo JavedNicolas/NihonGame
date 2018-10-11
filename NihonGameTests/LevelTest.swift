@@ -15,6 +15,7 @@ class LevelTest: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        CoreDataManager.shared.contextForTest()
         let modes = GameModes.shared.getGameModes()
         let mode = modes[currentModeID]
         GameModes.shared.currentMode = mode
