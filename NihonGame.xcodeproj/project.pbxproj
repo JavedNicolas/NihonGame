@@ -29,7 +29,7 @@
 		3725CEE0216E1E9400C9301F /* EndLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3725CEDF216E1E9400C9301F /* EndLevelViewController.swift */; };
 		37282EE621707B2E001D22DC /* PopUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37282EE521707B2E001D22DC /* PopUpButton.swift */; };
 		37282EE82170B275001D22DC /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37282EE72170B275001D22DC /* SettingsTableView.swift */; };
-		37282EEA2170B693001D22DC /* SettingsVCDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37282EE92170B693001D22DC /* SettingsVCDataSource.swift */; };
+		37282EEA2170B693001D22DC /* SettingsVCDAtaSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37282EE92170B693001D22DC /* SettingsVCDAtaSource.swift */; };
 		37282EEC2170B6CE001D22DC /* SettingsVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37282EEB2170B6CE001D22DC /* SettingsVCDelegate.swift */; };
 		37282EEE2170B7F1001D22DC /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37282EED2170B7F1001D22DC /* SettingsTableViewCell.swift */; };
 		37282EF12170C665001D22DC /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37282EF02170C665001D22DC /* ViewControllerExtension.swift */; };
@@ -131,7 +131,7 @@
 		3725CEDF216E1E9400C9301F /* EndLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndLevelViewController.swift; sourceTree = "<group>"; };
 		37282EE521707B2E001D22DC /* PopUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpButton.swift; sourceTree = "<group>"; };
 		37282EE72170B275001D22DC /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
-		37282EE92170B693001D22DC /* SettingsVCDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVCDataSource.swift; sourceTree = "<group>"; };
+		37282EE92170B693001D22DC /* SettingsVCDAtaSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVCDAtaSource.swift; sourceTree = "<group>"; };
 		37282EEB2170B6CE001D22DC /* SettingsVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVCDelegate.swift; sourceTree = "<group>"; };
 		37282EED2170B7F1001D22DC /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		37282EF02170C665001D22DC /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
@@ -486,7 +486,7 @@
 				37EBC378215291F60049DB66 /* GroupLevelVCDataSource.swift */,
 				37685A1F21538FDC00D8B585 /* LevelMenuVCDataSource.swift */,
 				370B1E7E216F666A007B03FE /* LearnedDataVCDataSource.swift */,
-				37282EE92170B693001D22DC /* SettingsVCDataSource.swift */,
+				37282EE92170B693001D22DC /* SettingsVCDAtaSource.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -736,7 +736,7 @@
 				370DA7D0216B42E600AA243C /* GroupMenuCoordinator.swift in Sources */,
 				3761306A213FB4D200FBCA24 /* Constant.swift in Sources */,
 				3725CED6216CB2C700C9301F /* GameDataPresentationViewController.swift in Sources */,
-				37282EEA2170B693001D22DC /* SettingsVCDataSource.swift in Sources */,
+				37282EEA2170B693001D22DC /* SettingsVCDAtaSource.swift in Sources */,
 				372E44842167A5A10079B5DF /* SQAnswerView.swift in Sources */,
 				37685A2021538FDC00D8B585 /* LevelMenuVCDataSource.swift in Sources */,
 				370B1E7F216F666A007B03FE /* LearnedDataVCDataSource.swift in Sources */,
