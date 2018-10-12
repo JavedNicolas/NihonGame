@@ -35,19 +35,20 @@ class LearnedDataTableViewCell: UITableViewCell {
     }
 
     private func setCell(gameData: GameData) {
-        let label = setElementIdentifier(gameData: gameData)
-        self.addSubview(label)
+        let Elementlabel = setElementIdentifier(gameData: gameData)
+        self.addSubview(Elementlabel)
         let stackViewArray = setStackViewArray(gameData: gameData)
         let stackView = UIStackView(arrangedSubviews: stackViewArray)
         setStackView(stackView: stackView)
         self.addSubview(stackView)
-        stackView.setAnchors(top: self.topAnchor, leading: label.trailingAnchor, trailing: self.trailingAnchor,
+        stackView.setAnchors(top: self.topAnchor, leading: Elementlabel.trailingAnchor, trailing: self.trailingAnchor,
                                    bottom: self.bottomAnchor, padding: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
     }
 
     func setElementIdentifier(gameData: GameData) -> UILabel{
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width / 3, height: 50))
+        let label = UILabel(frame: CGRect(x: 0, y: 10, width: self.frame.width / 3, height: self.frame.height))
         label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 30)
         guard let dataString = gameData.data.dataAt(name: gameData.dataNameOrder[0]) else { return UILabel()}
         label.text = dataString.value.flatenArray(separator: ",")
         return label

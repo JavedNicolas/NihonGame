@@ -29,7 +29,7 @@ extension LearnedDataViewController : UITableViewDataSource {
         let cell = LearnedDataTableViewCell(style: .default, reuseIdentifier: "LearnedDataCell")
         let knownGameData = getKnownData(mode: indexPath.section)
         cell.gameData = knownGameData[indexPath.row]
-
+        
         return cell
     }
 
@@ -39,7 +39,7 @@ extension LearnedDataViewController : UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if let name = gameModes[section].name{
+        if let name = gameModes[section].name, getKnownData(mode: section).count != 0{
             return name
         }
         return ""

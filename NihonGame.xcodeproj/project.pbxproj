@@ -12,6 +12,7 @@
 		370B1E7D216F6272007B03FE /* LearnedDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370B1E7C216F6272007B03FE /* LearnedDataTableViewCell.swift */; };
 		370B1E7F216F666A007B03FE /* LearnedDataVCDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370B1E7E216F666A007B03FE /* LearnedDataVCDataSource.swift */; };
 		370B1E81216F7F01007B03FE /* DataComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370B1E80216F7F01007B03FE /* DataComponents.swift */; };
+		370B1E85216FA87B007B03FE /* LearnedDataVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370B1E84216FA87B007B03FE /* LearnedDataVCDelegate.swift */; };
 		370DA7D0216B42E600AA243C /* GroupMenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370DA7CF216B42E600AA243C /* GroupMenuCoordinator.swift */; };
 		370DA7D2216B435900AA243C /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370DA7D1216B435900AA243C /* MainMenuViewController.swift */; };
 		370DA7D4216B443A00AA243C /* MainMenuVCDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370DA7D3216B443A00AA243C /* MainMenuVCDataSource.swift */; };
@@ -20,12 +21,18 @@
 		370DA7DA216B45EC00AA243C /* GameModeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370DA7D9216B45EC00AA243C /* GameModeButton.swift */; };
 		370DA7DC216B464300AA243C /* LearnedDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370DA7DB216B464300AA243C /* LearnedDataViewController.swift */; };
 		370DA7DE216B49A300AA243C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370DA7DD216B49A300AA243C /* SettingsViewController.swift */; };
-		3725CED6216CB2C700C9301F /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3725CED5216CB2C700C9301F /* TutorialViewController.swift */; };
+		3725CED6216CB2C700C9301F /* GameDataPresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3725CED5216CB2C700C9301F /* GameDataPresentationViewController.swift */; };
 		3725CED8216CB64E00C9301F /* SquarePopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3725CED7216CB64E00C9301F /* SquarePopUpView.swift */; };
 		3725CEDA216DDEA500C9301F /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3725CED9216DDEA500C9301F /* Game.swift */; };
 		3725CEDC216DF79D00C9301F /* LevelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3725CEDB216DF79D00C9301F /* LevelTest.swift */; };
 		3725CEDE216E1C7100C9301F /* PopUpStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3725CEDD216E1C7100C9301F /* PopUpStackView.swift */; };
 		3725CEE0216E1E9400C9301F /* EndLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3725CEDF216E1E9400C9301F /* EndLevelViewController.swift */; };
+		37282EE621707B2E001D22DC /* PopUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37282EE521707B2E001D22DC /* PopUpButton.swift */; };
+		37282EE82170B275001D22DC /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37282EE72170B275001D22DC /* SettingsTableView.swift */; };
+		37282EEA2170B693001D22DC /* SettingsVCDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37282EE92170B693001D22DC /* SettingsVCDataSource.swift */; };
+		37282EEC2170B6CE001D22DC /* SettingsVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37282EEB2170B6CE001D22DC /* SettingsVCDelegate.swift */; };
+		37282EEE2170B7F1001D22DC /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37282EED2170B7F1001D22DC /* SettingsTableViewCell.swift */; };
+		37282EF12170C665001D22DC /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37282EF02170C665001D22DC /* ViewControllerExtension.swift */; };
 		372E448121678A4B0079B5DF /* SQQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E448021678A4B0079B5DF /* SQQuestionView.swift */; };
 		372E44842167A5A10079B5DF /* SQAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E44832167A5A10079B5DF /* SQAnswerView.swift */; };
 		372E44862168D4C00079B5DF /* AnswerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E44852168D4C00079B5DF /* AnswerType.swift */; };
@@ -107,6 +114,7 @@
 		370B1E7C216F6272007B03FE /* LearnedDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnedDataTableViewCell.swift; sourceTree = "<group>"; };
 		370B1E7E216F666A007B03FE /* LearnedDataVCDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnedDataVCDataSource.swift; sourceTree = "<group>"; };
 		370B1E80216F7F01007B03FE /* DataComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataComponents.swift; sourceTree = "<group>"; };
+		370B1E84216FA87B007B03FE /* LearnedDataVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnedDataVCDelegate.swift; sourceTree = "<group>"; };
 		370DA7CF216B42E600AA243C /* GroupMenuCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupMenuCoordinator.swift; sourceTree = "<group>"; };
 		370DA7D1216B435900AA243C /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		370DA7D3216B443A00AA243C /* MainMenuVCDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuVCDataSource.swift; sourceTree = "<group>"; };
@@ -115,12 +123,18 @@
 		370DA7D9216B45EC00AA243C /* GameModeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeButton.swift; sourceTree = "<group>"; };
 		370DA7DB216B464300AA243C /* LearnedDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnedDataViewController.swift; sourceTree = "<group>"; };
 		370DA7DD216B49A300AA243C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		3725CED5216CB2C700C9301F /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		3725CED5216CB2C700C9301F /* GameDataPresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDataPresentationViewController.swift; sourceTree = "<group>"; };
 		3725CED7216CB64E00C9301F /* SquarePopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquarePopUpView.swift; sourceTree = "<group>"; };
 		3725CED9216DDEA500C9301F /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		3725CEDB216DF79D00C9301F /* LevelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelTest.swift; sourceTree = "<group>"; };
 		3725CEDD216E1C7100C9301F /* PopUpStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpStackView.swift; sourceTree = "<group>"; };
 		3725CEDF216E1E9400C9301F /* EndLevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndLevelViewController.swift; sourceTree = "<group>"; };
+		37282EE521707B2E001D22DC /* PopUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpButton.swift; sourceTree = "<group>"; };
+		37282EE72170B275001D22DC /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
+		37282EE92170B693001D22DC /* SettingsVCDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVCDataSource.swift; sourceTree = "<group>"; };
+		37282EEB2170B6CE001D22DC /* SettingsVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVCDelegate.swift; sourceTree = "<group>"; };
+		37282EED2170B7F1001D22DC /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		37282EF02170C665001D22DC /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		372E448021678A4B0079B5DF /* SQQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQQuestionView.swift; sourceTree = "<group>"; };
 		372E44832167A5A10079B5DF /* SQAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQAnswerView.swift; sourceTree = "<group>"; };
 		372E44852168D4C00079B5DF /* AnswerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerType.swift; sourceTree = "<group>"; };
@@ -214,10 +228,18 @@
 		3725CEE1216E3E2B00C9301F /* Modals */ = {
 			isa = PBXGroup;
 			children = (
-				3725CED5216CB2C700C9301F /* TutorialViewController.swift */,
+				3725CED5216CB2C700C9301F /* GameDataPresentationViewController.swift */,
 				3725CEDF216E1E9400C9301F /* EndLevelViewController.swift */,
 			);
 			path = Modals;
+			sourceTree = "<group>";
+		};
+		37282EEF2170C5E4001D22DC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				37282EF02170C665001D22DC /* ViewControllerExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		372E44822167A5750079B5DF /* SimpleQuestionMode */ = {
@@ -340,6 +362,7 @@
 		3761305C213E647A00FBCA24 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				37282EEF2170C5E4001D22DC /* Extension */,
 				3776D5DE214B91A500536A8D /* DataSources */,
 				3776D5DD214B919500536A8D /* Delegate */,
 				3748473E214A377D006E35D1 /* Coordinator */,
@@ -450,6 +473,8 @@
 				370DA7D5216B444B00AA243C /* MainMenuVCDelegate.swift */,
 				37685A1B215388A700D8B585 /* GroupMenuVCDelegate.swift */,
 				37685A21215394B800D8B585 /* LevelMenuVCDelegate.swift */,
+				370B1E84216FA87B007B03FE /* LearnedDataVCDelegate.swift */,
+				37282EEB2170B6CE001D22DC /* SettingsVCDelegate.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -461,6 +486,7 @@
 				37EBC378215291F60049DB66 /* GroupLevelVCDataSource.swift */,
 				37685A1F21538FDC00D8B585 /* LevelMenuVCDataSource.swift */,
 				370B1E7E216F666A007B03FE /* LearnedDataVCDataSource.swift */,
+				37282EE92170B693001D22DC /* SettingsVCDataSource.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -501,6 +527,7 @@
 				370DA7D9216B45EC00AA243C /* GameModeButton.swift */,
 				37685A2321539DDD00D8B585 /* LevelButton.swift */,
 				37E0B0302158C0BD0064019F /* GameGroupButton.swift */,
+				37282EE521707B2E001D22DC /* PopUpButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -513,6 +540,7 @@
 				37E0B0322158C0EC0064019F /* GroupMenuTableViewCell.swift */,
 				37685A2521539E6500D8B585 /* LevelMenuCollectionViewCell.swift */,
 				370B1E7C216F6272007B03FE /* LearnedDataTableViewCell.swift */,
+				37282EED2170B7F1001D22DC /* SettingsTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -523,6 +551,7 @@
 				37613074213FC5DE00FBCA24 /* MenuTableView.swift */,
 				37685A1D21538C2F00D8B585 /* LevelColletionView.swift */,
 				370B1E7A216F6175007B03FE /* LearnedDataTableView.swift */,
+				37282EE72170B275001D22DC /* SettingsTableView.swift */,
 			);
 			path = "Table and Collection Views";
 			sourceTree = "<group>";
@@ -653,9 +682,11 @@
 				37685A1A215380DC00D8B585 /* LevelMenuViewController.swift in Sources */,
 				37A5665221490E1400F53B43 /* KanjiParsing.swift in Sources */,
 				3761303D213E644700FBCA24 /* GameScene.swift in Sources */,
+				37282EEC2170B6CE001D22DC /* SettingsVCDelegate.swift in Sources */,
 				375480A5215A768D00CE2335 /* GroupsParsing.swift in Sources */,
 				3765F631215E051900A4D64D /* ArrayExtensions.swift in Sources */,
 				370B1E81216F7F01007B03FE /* DataComponents.swift in Sources */,
+				370B1E85216FA87B007B03FE /* LearnedDataVCDelegate.swift in Sources */,
 				37685A1C215388A700D8B585 /* GroupMenuVCDelegate.swift in Sources */,
 				37C3F40C216642C500492638 /* SQModeView.swift in Sources */,
 				3776D5EC2150D2C100536A8D /* GroupMenuViewController.swift in Sources */,
@@ -683,8 +714,10 @@
 				370B1E7D216F6272007B03FE /* LearnedDataTableViewCell.swift in Sources */,
 				370DA7D2216B435900AA243C /* MainMenuViewController.swift in Sources */,
 				37613037213E644700FBCA24 /* AppDelegate.swift in Sources */,
+				37282EF12170C665001D22DC /* ViewControllerExtension.swift in Sources */,
 				375480A3215A6CF800CE2335 /* JSONParser.swift in Sources */,
 				370B1E79216F2B5D007B03FE /* LevelScoreDisplayBar.swift in Sources */,
+				37282EE621707B2E001D22DC /* PopUpButton.swift in Sources */,
 				370DA7DC216B464300AA243C /* LearnedDataViewController.swift in Sources */,
 				372E448E2168E47C0079B5DF /* BandPopUpView.swift in Sources */,
 				37E0B02B2158BE4A0064019F /* MenuButton.swift in Sources */,
@@ -693,14 +726,17 @@
 				37E0B0372158D4460064019F /* GameCoordinator.swift in Sources */,
 				373570F9215D18ED0033A5F7 /* Kanjis.swift in Sources */,
 				3765F644216238C300A4D64D /* QuestionData.swift in Sources */,
+				37282EEE2170B7F1001D22DC /* SettingsTableViewCell.swift in Sources */,
 				37548098215A4F7500CE2335 /* groups.swift in Sources */,
+				37282EE82170B275001D22DC /* SettingsTableView.swift in Sources */,
 				3725CED8216CB64E00C9301F /* SquarePopUpView.swift in Sources */,
 				37685A2621539E6500D8B585 /* LevelMenuCollectionViewCell.swift in Sources */,
 				3754809F215A505100CE2335 /* GameData.swift in Sources */,
 				3743A3A1215B73290012B02A /* IntExtension.swift in Sources */,
 				370DA7D0216B42E600AA243C /* GroupMenuCoordinator.swift in Sources */,
 				3761306A213FB4D200FBCA24 /* Constant.swift in Sources */,
-				3725CED6216CB2C700C9301F /* TutorialViewController.swift in Sources */,
+				3725CED6216CB2C700C9301F /* GameDataPresentationViewController.swift in Sources */,
+				37282EEA2170B693001D22DC /* SettingsVCDataSource.swift in Sources */,
 				372E44842167A5A10079B5DF /* SQAnswerView.swift in Sources */,
 				37685A2021538FDC00D8B585 /* LevelMenuVCDataSource.swift in Sources */,
 				370B1E7F216F666A007B03FE /* LearnedDataVCDataSource.swift in Sources */,

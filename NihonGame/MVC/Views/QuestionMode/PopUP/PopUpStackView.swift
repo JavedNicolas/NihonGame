@@ -22,7 +22,7 @@ class PopUpStackView : UIStackView {
     func set() {
         self.distribution = .fillEqually
         self.axis = .vertical
-        self.spacing = 5
+        self.spacing = 1
         self.alignment = .fill
     }
 }

@@ -15,7 +15,7 @@
 "Settings_VC" = "Réglages";
 
 // MARK: - GameModes
-"Kanji_Mode_Name" = "Kanji";
+"Kanji_Mode_Name" = "kanji";
 "Level_String" = "Niveau";
 "Level_Success" = "Bravo, vous avez fini ce niveau !";
 "Level_Failed" = "Dommage, vous n'avez pas assez de point pour finir ce niveau ! Mais vous pouvez ressayer!";
@@ -23,6 +23,9 @@
 // MARK:- Buttons text
 "Understood_Text" = "J'ai Compris !";
 "Go_Back_To_Menu_Text" = "Revenir au Menu Précédent";
+"Back_Text" = "retour";
+"Close_Text" = "Fermer";
+
 
 //MARK:- Label text
 "New_Game_Data_Text" = "Nouvel Élement !";
@@ -32,10 +35,26 @@
 "Best_Score_Text" = "Meilleur Score :";
 "Current_Score_Text" = "Score Actuel :";
 "Current_Question_Number" = "Question :";
+"Find_Text" = "Trouver : ";
 
 //MARK:- Learning Level
 "Learning_Level_1" = "Nouveau !";
-"Learning_Level_2" = "En apprentissage !";
-"Learning_Level_3" = "Connu !";
-"Learning_Level_4" = "Maîtrisé !";
+"Learning_Level_2" = "En apprentissage";
+"Learning_Level_3" = "Connu";
+"Learning_Level_4" = "Maîtrisé";
 
+//MARK:- Empty TableView Text
+"Empty_LearnedData_Text" = "Vous n'avez encore pas vu de contenu !\n Jouer pour en débloquer !";
+
+//MARK:- Section
+// MARK:- Settings Section Name
+"Progression_Settings_Text" = "Option de progression";
+
+// MARK:- Setting Element
+"Reset_Text" = "Remettre à zéro la progression ? \n Attention cette Action est irréversible !";
+
+//MARK:- Alert
+"Sure_Title" = "Confirmer ?";
+"Sure_Text" = "Êtes vous sûr ? \nCette action est irréversible.";
+"Ok_Alert_Text" = "Oui";
+"Cancel_Alert_Text" = "Annuler";

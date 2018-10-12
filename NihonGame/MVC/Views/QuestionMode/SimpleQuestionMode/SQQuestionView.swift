@@ -10,10 +10,10 @@ import UIKit
 
 class SQQuestionView : UIView {
 
-    init(frame: CGRect, question: String) {
+    init(frame: CGRect, question: Question) {
         super.init(frame: frame)
         draw(frame)
-        setLabel(text: question)
+        setLabels(question: question)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -38,13 +38,23 @@ class SQQuestionView : UIView {
         self.layer.insertSublayer(shapeLayer, at: 1)
     }
 
-    func setLabel(text: String) {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
+    func setLabels(question: Question) {
+        let stackView = PopUpStackView(frame: self.frame)
+        stackView.distribution = .fillProportionally
+        setLabel(stackView: stackView, text: question.question,fontSize: 40)
+        setLabel(stackView: stackView, text: "Find_Text".localize() + "\n\(question.goodAnswer.category)", fontSize: 15)
+        self.addSubview(stackView)
+        stackView.setAnchors(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, bottom: bottomAnchor,
+                             padding: UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10))
+    }
+
+    func setLabel(stackView: UIStackView, text : String, fontSize: CGFloat) {
+        let label = UILabel()
         label.text = text
+        label.numberOfLines = 0
         label.textAlignment = .center
         label.textColor = .white
-        label.font = UIFont(name: "Arial", size: 25)
-        addSubview(label)
-        label.setAnchors(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, bottom: bottomAnchor)
+        label.font = UIFont(name: "Arial", size: fontSize)
+        stackView.addArrangedSubview(label)
     }
 }

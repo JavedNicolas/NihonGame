@@ -17,4 +17,12 @@ class LearnedDataTableView: UITableView {
         self.register(cellType, forCellReuseIdentifier: identifier)
         self.backgroundColor = .white
     }
+
+    func hideSeparator(hide: Bool) {
+        if hide {
+            self.separatorStyle = .none
+        }else {
+            self.separatorStyle = .singleLine
+        }
+    }
 }

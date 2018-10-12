@@ -9,6 +9,7 @@
 import UIKit
 
 class GameViewController: UIViewController {
+    // MARK: Attributs
     private var userAnsweredNotificationName = Notification.Name(rawValue: "UserAnswered")
     private var questionSetNotificationName = Notification.Name(rawValue: "QuestionLoaded")
     var level : Level?
@@ -16,20 +17,22 @@ class GameViewController: UIViewController {
     var questionMode : QuestionType?
     var numberOfQuestionAsked = 0
 
+    // MARK/- VC Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         setAndRemoveObservater(set: true)
         initVC()
         guard let level = level else { return }
         self.game = Game(level: level)
-        newQuestion()
         if let game = game, let newGameData = game.needToShowTutorial() {
             showTutorial(gameData: newGameData)
             self.title = "Current_Question_Number".localize() + " \(game.getNumberOfQuestionAsked())/\(GameConstant.questionsByLevel)"
         }
+        newQuestion()
 
     }
 
+    // MARK:- functions
     private func initVC() {
         self.view.setGrandiantBackground(colors: [UIColor.orange.cgColor, UIColor.yellow.cgColor])
         if let tabBarController = tabBarController { tabBarController.tabBar.isHidden = true  }
@@ -70,7 +73,7 @@ class GameViewController: UIViewController {
     }
 
     func showTutorial(gameData: GameData) {
-        let tutorialView = TutorialViewController()
+        let tutorialView = GameDataPresentationViewController()
         tutorialView.gameData = gameData
         tutorialView.modalTransitionStyle = .crossDissolve
         tutorialView.modalPresentationStyle = .overCurrentContext

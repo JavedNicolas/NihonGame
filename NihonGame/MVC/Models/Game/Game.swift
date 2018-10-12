@@ -12,7 +12,6 @@ class Game {
     var level : Level
     private var levelData : [GameData] = []
     private var numberOfQuestionAsked = 0
-    var bestScore : Int
     private var currentQuestion : Question? = nil {
         didSet {
             let notificationName = Notification.Name("QuestionLoaded")
@@ -23,7 +22,6 @@ class Game {
 
     init(level: Level) {
         self.level = level
-        self.bestScore = level.bestScore
         self.level.startLevel()
     }
 
@@ -37,7 +35,7 @@ class Game {
     }
 
     func needToShowTutorial() -> GameData? {
-        if let newGameData = level.newGameData, level.score == 0 {
+        if let newGameData = level.newGameData, level.bestScore == 0{
             return newGameData
         }
         return nil

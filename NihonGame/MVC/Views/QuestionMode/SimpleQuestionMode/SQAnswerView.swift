@@ -31,6 +31,8 @@ class SQAnswerView : UIView {
         label.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
         label.text = answer.answerString
         label.textAlignment = .center
+        label.numberOfLines = 0
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.textColor = .white
         label.font = UIFont(name: "Arial", size: 35)
         addSubview(label)

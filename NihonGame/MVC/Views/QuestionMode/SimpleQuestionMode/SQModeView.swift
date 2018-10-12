@@ -39,7 +39,7 @@ class SQModeView: UIView, QuestionType {
         let circleSize = CGFloat(200)
         let questionCircleRect = CGRect(x: (frame.width / 2) - (circleSize / 2), y: (frame.height / 2) - (circleSize / 2),
                                         width: circleSize, height: circleSize)
-        let questionView = SQQuestionView(frame: questionCircleRect, question: question.question)
+        let questionView = SQQuestionView(frame: questionCircleRect, question: question)
         questionView.backgroundColor = .clear
         addSubview(questionView)
     }

@@ -10,7 +10,13 @@ import Foundation
 
 extension String {
     func localize() -> String{
-        let localizableString = Bundle.main.localizedString(forKey: self, value: nil, table: nil)
+        var localizableString = Bundle.main.localizedString(forKey: self, value: nil, table: nil)
+        guard let firstLetter = localizableString.first else { return "" }
+        let firstLetterAsString = String(firstLetter)
+        let firstLetterCapitalized = firstLetterAsString.capitalized
+        localizableString.remove(at: .init(encodedOffset: 0))
+        localizableString = firstLetterCapitalized + localizableString
+
         if localizableString == self {
             return "Failed to localize"
         }

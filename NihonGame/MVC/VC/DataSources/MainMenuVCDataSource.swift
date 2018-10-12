@@ -10,17 +10,11 @@ import UIKit
 
 extension MainMenuViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let menuItems = menuItems else {
-            return 0
-        }
 
         return menuItems.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let menuItems = menuItems else {
-            return UITableViewCell()
-        }
 
         let cell = ModeMenuTableViewCell(style: .default, reuseIdentifier: "ModeMenuCell")
         cell.gameMode = menuItems[indexPath.row]
