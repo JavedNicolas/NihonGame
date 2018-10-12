@@ -23,7 +23,12 @@ extension GroupMenuViewController : UITableViewDataSource {
         }
 
         let cell = GroupMenuTableViewCell(style: .default, reuseIdentifier: "GroupMenuCell")
-        cell.group = groupItems[indexPath.row]
+        if let _ = groupItems[indexPath.row].name {
+            cell.group = groupItems[indexPath.row]
+        } else {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+
 
         return cell
     }

@@ -60,6 +60,7 @@ class SettingsViewController : UIViewController {
                 CoreDataManager.shared.deleteMode(modeID: mode.id.int)
             }
             GameModes.shared.createModesList()
+
         })
         let alertAction = UIAlertAction(title: "Cancel_Alert_Text".localize(), style: .cancel, handler: nil)
         alert.addAction(alertAction)

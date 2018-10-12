@@ -23,7 +23,11 @@ extension LevelMenuViewController : UICollectionViewDataSource {
             return UICollectionViewCell()
         }
 
-        cell.level = levels[indexPath.row]
+        if let _ = levels[indexPath.row].name {
+            cell.level = levels[indexPath.row]
+        } else {
+            self.navigationController?.popToRootViewController(animated: true)
+        }
 
         return cell
     }

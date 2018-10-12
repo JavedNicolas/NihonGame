@@ -20,9 +20,8 @@ class MainMenuViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        if menuItems.count == 0 {
-            self.menuItems = GameModes.shared.getGameModes()
-        }
+        self.menuItems = GameModes.shared.getGameModes()
+
         guard let tableView = gameButtonTableView else { return }
         tableView.reloadData()
     }
