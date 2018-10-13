@@ -56,7 +56,10 @@ class SettingsViewController : UIViewController {
 
     @objc func resetProgressionAction(_ gesture: UITapGestureRecognizer) {
         let alert = createAlert(title: "Sure_Title".localize(), message: "Sure_Text".localize(), action: { _ in
-            guard let sender = gesture.view as? SettingsTableViewCell else { return }
+            guard let sender = gesture.view as? SettingsTableViewCell else {
+                self.errorHandling(error: ErrorList.unknowError)
+                return
+            }
             sender.isloading(isloading: true)
             DispatchQueue.main.async {
                 for mode in GameModes.shared.getGameModes() {
@@ -69,9 +72,5 @@ class SettingsViewController : UIViewController {
         let alertAction = UIAlertAction(title: "Cancel_Alert_Text".localize(), style: .cancel, handler: nil)
         alert.addAction(alertAction)
         self.present(alert, animated: true, completion: nil)
-    }
-
-    func resetProgression(sender: SettingsTableViewCell,completionHandler: (Bool) -> ()) {
-
     }
 }

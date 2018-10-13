@@ -37,7 +37,10 @@ class LearnedDataViewController : UIViewController {
     }
 
     func tableViewIsEmpty() -> Bool {
-        guard let tableView = tableView else { return false }
+        guard let tableView = tableView else {
+            self.errorHandling(error: ErrorList.unknowError)
+            return false
+        }
         if tableView.visibleCells.isEmpty {
             return true
         }

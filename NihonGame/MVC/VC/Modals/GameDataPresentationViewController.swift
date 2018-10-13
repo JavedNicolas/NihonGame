@@ -82,7 +82,10 @@ class GameDataPresentationViewController : UIViewController {
     }
 
     private func setButton() {
-        guard let popUpView = popUpView, let gameData = gameData else { return }
+        guard let popUpView = popUpView, let gameData = gameData else {
+            self.errorHandling(error: ErrorList.unknowError)
+            return
+        }
 
         if gameData.learningScore != 0 {
             buttonImage = nil
@@ -94,7 +97,10 @@ class GameDataPresentationViewController : UIViewController {
     }
 
     private func setStackView() {
-        guard let popUpView = popUpView else { return }
+        guard let popUpView = popUpView else {
+            self.errorHandling(error: ErrorList.unknowError)
+            return
+        }
         stackView.set()
         stackView.setAnchors(top: popUpView.topAnchor, leading: popUpView.leadingAnchor, trailing: popUpView.trailingAnchor,
                              bottom: button.topAnchor, padding: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
