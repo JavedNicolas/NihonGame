@@ -10,7 +10,7 @@ import UIKit
 
 class LearnedDataViewController : UIViewController {
     private var tableView : LearnedDataTableView?
-    internal let gameModes = GameModes.shared.getGameModes()
+    internal var gameModes = GameModes.shared.getGameModes()
 
     override func viewDidLoad() {
         self.title = "Learned_Data_VC".localize()
@@ -21,6 +21,7 @@ class LearnedDataViewController : UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if let tableView = tableView {
             tableView.reloadData()
+            gameModes = GameModes.shared.getGameModes()
             setEmptyLabel(display: tableViewIsEmpty())
         }
     }
@@ -36,7 +37,7 @@ class LearnedDataViewController : UIViewController {
     }
 
     func tableViewIsEmpty() -> Bool {
-        guard let tableView = tableView else {return false }
+        guard let tableView = tableView else { return false }
         if tableView.visibleCells.isEmpty {
             return true
         }
@@ -60,6 +61,4 @@ class LearnedDataViewController : UIViewController {
             tableView.backgroundView = UIView()
         }
     }
-
-    
 }

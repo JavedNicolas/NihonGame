@@ -20,7 +20,7 @@ class GameData : NSManagedObject {
     }
 
     func fill(parsedData: GameDataParsed){
-        self.id = parsedData.id.int16
+        self.id = parsedData.id.int64
         self.learningScore = parsedData.learningScore.int64
         self.dataString = parsedData.data
     }

@@ -9,6 +9,8 @@
 import UIKit
 
 class SettingsTableViewCell : UITableViewCell {
+    private let loadingView = UIActivityIndicatorView(style: .whiteLarge)
+    private let label = UILabel()
     var message : String = "" {
         didSet {
             setLabel(text: message)
@@ -23,7 +25,7 @@ class SettingsTableViewCell : UITableViewCell {
     }
 
     private func setLabel(text: String) {
-        let label = UILabel()
+        setloadingView()
         label.text = text
         label.textAlignment = .center
         label.numberOfLines = 0
@@ -31,5 +33,23 @@ class SettingsTableViewCell : UITableViewCell {
         label.font = UIFont.boldSystemFont(ofSize: 20)
         self.addSubview(label)
         label.setAnchors(top: self.topAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, bottom: self.bottomAnchor)
+    }
+
+    private func setloadingView() {
+        loadingView.frame = self.frame
+        loadingView.backgroundColor = .gray
+        loadingView.isHidden = true
+        self.addSubview(loadingView)
+        loadingView.setAnchors(top: self.topAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, bottom: self.bottomAnchor)
+    }
+
+    func isloading(isloading: Bool) {
+        loadingView.isHidden = !isloading
+        label.isHidden = isloading
+        if isloading {
+            loadingView.startAnimating()
+        }else {
+            loadingView.stopAnimating()
+        }
     }
 }

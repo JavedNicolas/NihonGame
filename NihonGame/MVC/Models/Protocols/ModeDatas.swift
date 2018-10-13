@@ -10,11 +10,15 @@ import Foundation
 
 protocol ModeDatas {
     var name : String { get }
+    /** Order of the datas Components */
     var dataNameOrder : [String] { get }
+    /** Allow The Game The correctly Random both components of que question
+     (The game cannot random two element in the same index of the second array)
+     */
+    var dataNames : [[String]] { get }
     var datas : [GameData] { get }
     var groupJSON : String { get }
     var dataJSON : String { get }
-    var dataNamesString : [[String]] { get }
     func parseGameData()
     func getGroupJSON() -> String
     func getDatas() -> [GameData]

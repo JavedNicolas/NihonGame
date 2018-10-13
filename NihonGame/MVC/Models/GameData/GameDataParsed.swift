@@ -10,7 +10,6 @@ import Foundation
 
 
 struct GameDataParsed {
-    var jlptLevel : String
     var id : Int
     var learningScore : Int
     var data : String

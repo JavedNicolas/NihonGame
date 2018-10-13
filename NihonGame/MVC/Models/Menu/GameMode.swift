@@ -18,7 +18,7 @@ class GameMode : NSManagedObject {
     func fill(gameModeName: String, gameModeID: Int, modeData: ModeDatas, gameModeGroups: [Group]) {
         self.name = gameModeName
         self.modeData = modeData
-        self.dataNames = modeData.dataNamesString
+        self.dataNames = modeData.dataNames
         for data in modeData.getDatas() {
             data.mode = self
             data.dataNameOrder = modeData.dataNameOrder
@@ -35,11 +35,10 @@ class GameMode : NSManagedObject {
     /** Fill GameMode with the non CoreData Datas */
     func fill(modeData: ModeDatas) {
         self.modeData = modeData
-        self.dataNames = modeData.dataNamesString
+        self.dataNames = modeData.dataNames
         if let datas = getDatas() {
             for data in datas {
                 let data = data
-//                data.createDataDictionary()
                 data.dataNameOrder = modeData.dataNameOrder
                 self.addToDatas(data)
             }

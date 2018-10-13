@@ -13,11 +13,11 @@ class Group: NSManagedObject {
     var done = false
 
     /** fill the instance for the first int when CoreData is empty */
-    func fill(groupsParsed group: GroupsParsing, levels: [Level]) {
+    func fill(groupsParsed group: GroupParsing, levels: [Level]) {
         self.name = "\(group.startRange)-\(group.endRange)"
-        self.id = group.id.int16
-        self.firstElement = group.startRange.int16
-        self.lastElement = group.endRange.int16
+        self.id = group.id.int64
+        self.firstElement = group.startRange.int64
+        self.lastElement = group.endRange.int64
         setData(levels: levels)
         self.locked = false
         setDoneAndLock(levels: levels)

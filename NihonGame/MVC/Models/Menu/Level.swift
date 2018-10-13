@@ -17,13 +17,13 @@ class Level : NSManagedObject {
     lazy var newGameData: GameData? = self.setNewGameData()
     lazy var levelDatas : [GameData]? = self.setGameDataToUse()
     
-    func fill(parsedLevel level: LevelsParsing){
-        self.id = level.id.int16
+    func fill(parsedLevel level: LevelParsing, firstLevel: Bool){
+        self.id = level.id.int64
         self.name = "Level_String".localize() + ": \(level.startRange)-\(level.endRange)"
-        self.firstElement = level.startRange.int16
-        self.lastElement = level.endRange.int16
+        self.firstElement = level.startRange.int64
+        self.lastElement = level.endRange.int64
         self.done = false
-        self.locked = (id == 1 && level.startRange == 1 ? false : true)
+        self.locked = !firstLevel
         self.score = 0.int64
         self.stars = 0.int16
     }

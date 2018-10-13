@@ -48,24 +48,30 @@ class SettingsViewController : UIViewController {
     private func setResetCell() {
         let resetProgressionCell = SettingsTableViewCell(style: .default, reuseIdentifier: "SettingsCell")
         resetProgressionCell.message = "Reset_Text".localize()
-        resetProgressionCell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(resetProgression)))
+        resetProgressionCell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(resetProgressionAction(_:))))
 
         let resetSettingsElement = SettingsElement(sectionId: 0, sectionName: "Progression_Settings_Text".localize(), cell: resetProgressionCell)
         settingsList.append(resetSettingsElement)
     }
 
-    @objc func resetProgression() {
+    @objc func resetProgressionAction(_ gesture: UITapGestureRecognizer) {
         let alert = createAlert(title: "Sure_Title".localize(), message: "Sure_Text".localize(), action: { _ in
-            for mode in GameModes.shared.getGameModes() {
-                CoreDataManager.shared.deleteMode(modeID: mode.id.int)
+            guard let sender = gesture.view as? SettingsTableViewCell else { return }
+            sender.isloading(isloading: true)
+            DispatchQueue.main.async {
+                for mode in GameModes.shared.getGameModes() {
+                    CoreDataManager.shared.deleteMode(modeID: mode.id.int)
+                }
+                GameModes.shared.recreatModes()
+                sender.isloading(isloading: false)
             }
-            GameModes.shared.createModesList()
-
         })
         let alertAction = UIAlertAction(title: "Cancel_Alert_Text".localize(), style: .cancel, handler: nil)
         alert.addAction(alertAction)
         self.present(alert, animated: true, completion: nil)
+    }
 
-        //TO DO Loading
+    func resetProgression(sender: SettingsTableViewCell,completionHandler: (Bool) -> ()) {
+
     }
 }

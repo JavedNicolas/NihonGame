@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct GroupsParsing : Decodable {
+struct GroupParsing : Decodable {
     let id : Int
     let startRange : Int
     let endRange : Int
-    let levels : [LevelsParsing]
+    let levels : [LevelParsing]
 }
 
-struct LevelsParsing : Decodable {
+struct LevelParsing : Decodable {
     let id : Int
     let startRange: Int
     let endRange : Int

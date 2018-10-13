@@ -10,17 +10,21 @@ import Foundation
 
 class GameModes {
     private var gameModes : [GameMode] = []
-    private let modesData : [ModeDatas] = [Kanjis()]
+    private var modesData : [ModeDatas] = [Hiragana(), Kanjis()]
     var currentMode : GameMode?
     static let shared = GameModes()
-
 
     private init() {
         createModesList()
     }
 
-    func createModesList() {
+    func recreatModes() {
         gameModes = []
+        modesData = [Hiragana(), Kanjis()]
+        createModesList()
+    }
+
+    private func createModesList() {
         for modeID in 0..<modesData.count {
             let modeDatas = modesData[modeID]
             if let gameModeInCoreData = getSavedProgression(forModeID: modeID), let _ = gameModeInCoreData.name{

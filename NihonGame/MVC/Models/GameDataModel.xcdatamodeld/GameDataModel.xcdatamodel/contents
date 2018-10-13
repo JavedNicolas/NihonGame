@@ -2,7 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="18A391" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="GameData" representedClassName=".GameData" syncable="YES" codeGenerationType="category">
         <attribute name="dataString" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" attributeType="Integer 16" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="learningScore" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="mode" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameMode" inverseName="datas" inverseEntity="GameMode" syncable="YES"/>
         <uniquenessConstraints>
@@ -14,7 +14,7 @@
     <entity name="GameMode" representedClassName=".GameMode" syncable="YES" codeGenerationType="category">
         <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="datas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GameData" inverseName="mode" inverseEntity="GameData" syncable="YES"/>
+        <relationship name="datas" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="GameData" inverseName="mode" inverseEntity="GameData" syncable="YES"/>
         <relationship name="groups" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Group" inverseName="parentGameMode" inverseEntity="Group" syncable="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -23,9 +23,9 @@
         </uniquenessConstraints>
     </entity>
     <entity name="Group" representedClassName=".Group" syncable="YES" codeGenerationType="category">
-        <attribute name="firstElement" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="lastElement" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="firstElement" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lastElement" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="locked" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" defaultValueString="&quot;&quot;" syncable="YES"/>
         <relationship name="levels" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Level" inverseName="parentGroup" inverseEntity="Level" syncable="YES"/>
@@ -37,9 +37,9 @@
         </uniquenessConstraints>
     </entity>
     <entity name="Level" representedClassName=".Level" syncable="YES" codeGenerationType="category">
-        <attribute name="firstElement" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="lastElement" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="firstElement" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lastElement" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="locked" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="score" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -54,7 +54,7 @@
     <elements>
         <element name="GameData" positionX="-20.5" positionY="222.47265625" width="128" height="105"/>
         <element name="GameMode" positionX="-25.71875" positionY="424.05859375" width="128" height="105"/>
-        <element name="Group" positionX="-377.70703125" positionY="236.64453125" width="128" height="148"/>
+        <element name="Group" positionX="-377.70703125" positionY="236.64453125" width="128" height="150"/>
         <element name="Level" positionX="-369.84375" positionY="-0.328125" width="128" height="165"/>
     </elements>
 </model>

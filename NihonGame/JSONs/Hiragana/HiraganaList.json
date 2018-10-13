@@ -1,0 +1,356 @@
+[
+    {
+        "kana": "あ",
+        "prononciation": "a",
+        "id" : 10000
+    },
+    {
+        "kana": "か",
+        "prononciation": "ka",
+        "id" : 10001
+    },
+    {
+        "kana": "さ",
+        "prononciation": "sa",
+        "id" : 10002
+    },
+    {
+        "kana": "た",
+        "prononciation": "ta",
+        "id" : 10003
+    },
+    {
+        "kana": "な",
+        "prononciation": "na",
+        "id" : 10004
+    },
+    {
+        "kana": "は",
+        "prononciation": "ha",
+        "id" : 10005
+    },
+    {
+        "kana": "ま",
+        "prononciation": "ma",
+        "id" : 10006
+    },
+    {
+        "kana": "や",
+        "prononciation": "ya",
+        "id" : 10007
+    },
+    {
+        "kana": "ら",
+        "prononciation": "ra",
+        "id" : 10008
+    },
+    {
+        "kana": "わ",
+        "prononciation": "wa",
+        "id" : 10009
+    },
+    {
+        "kana": "わ",
+        "prononciation": "wa",
+        "id" : 10010
+    },
+    {
+        "kana": "が",
+        "prononciation": "ga",
+        "id" : 100011
+    },
+    {
+        "kana": "ざ",
+        "prononciation": "za",
+        "id" : 10012
+    },
+    {
+        "kana": "だ",
+        "prononciation": "da",
+        "id" : 10013
+    },
+    {
+        "kana": "ば",
+        "prononciation": "ba",
+        "id" : 10014
+    },{
+        "kana": "ぱ",
+        "prononciation": "pa",
+        "id" : 10015
+    },
+    {
+        "kana": "い",
+        "prononciation": "i",
+        "id" : 10016
+    },
+    {
+        "kana": "き",
+        "prononciation": "ki",
+        "id" : 10017
+    },
+    {
+        "kana": "し",
+        "prononciation": "shi",
+        "id" : 10018
+    },
+    {
+        "kana": "ち",
+        "prononciation": "tchi",
+        "id" : 10019
+    },
+    {
+        "kana": "に",
+        "prononciation": "ni",
+        "id" : 10020
+    },
+    {
+        "kana": "ひ",
+        "prononciation": "hi",
+        "id" : 10021
+    },
+    {
+        "kana": "み",
+        "prononciation": "mi",
+        "id" : 10022
+    },
+    {
+        "kana": "り",
+        "prononciation": "ri",
+        "id" : 10023
+    },
+    {
+        "kana": "ぎ",
+        "prononciation": "gi",
+        "id" : 10024
+    },
+    {
+        "kana": "じ",
+        "prononciation": "dji",
+        "id" : 10025
+    },
+    {
+        "kana": "ぢ",
+        "prononciation": "dji",
+        "id" : 10026
+    },
+    {
+        "kana": "び",
+        "prononciation": "bi",
+        "id" : 10027
+    },
+    {
+        "kana": "ぴ",
+        "prononciation": "pi",
+        "id" : 10028
+    },
+    {
+        "kana": "う",
+        "prononciation": "ou",
+        "id" : 10029
+    },
+    {
+        "kana": "く",
+        "prononciation": "kou",
+        "id" : 10030
+    },
+    {
+        "kana": "す",
+        "prononciation": "sou",
+        "id" : 10031
+    },
+    {
+        "kana": "つ",
+        "prononciation": "tsou",
+        "id" : 10032
+    },
+    {
+        "kana": "ぬ",
+        "prononciation": "nou",
+        "id" : 10033
+    },
+    {
+        "kana": "ふ",
+        "prononciation": "hou",
+        "id" : 10034
+    },
+    {
+        "kana": "む",
+        "prononciation": "mou",
+        "id" : 10035
+    },
+    {
+        "kana": "ゆ",
+        "prononciation": "you",
+        "id" : 10036
+    },
+    {
+        "kana": "る",
+        "prononciation": "rou",
+        "id" : 10037
+    },
+    {
+        "kana": "ぐ",
+        "prononciation": "gou",
+        "id" : 10038
+    },
+    {
+        "kana": "ず",
+        "prononciation": "zou",
+        "id" : 10039
+    },
+    {
+        "kana": "づ",
+        "prononciation": "dzou",
+        "id" : 10040
+    },
+    {
+        "kana": "ぶ",
+        "prononciation": "bou",
+        "id" : 10041
+    },
+    {
+        "kana": "ぷ",
+        "prononciation": "pou",
+        "id" : 10042
+    },
+    {
+        "kana": "え",
+        "prononciation": "é",
+        "id" : 10043
+    },
+    {
+        "kana": "け",
+        "prononciation": "ké",
+        "id" : 10044
+    },
+    {
+        "kana": "せ",
+        "prononciation": "sé",
+        "id" : 10045
+    },
+    {
+        "kana": "て",
+        "prononciation": "té",
+        "id" : 10046
+    },
+    {
+        "kana": "ね",
+        "prononciation": "né",
+        "id" : 10047
+    },
+    {
+        "kana": "へ",
+        "prononciation": "hé",
+        "id" : 10048
+    },
+    {
+        "kana": "め",
+        "prononciation": "mé",
+        "id" : 10049
+    },
+    {
+        "kana": "れ",
+        "prononciation": "ré",
+        "id" : 10050
+    },
+    {
+        "kana": "げ",
+        "prononciation": "gé",
+        "id" : 10051
+    },
+    {
+        "kana": "ぜ",
+        "prononciation": "zé",
+        "id" : 10052
+    },
+    {
+        "kana": "で",
+        "prononciation": "dé",
+        "id" : 10053
+    },
+    {
+        "kana": "べ",
+        "prononciation": "dé",
+        "id" : 10054
+    },
+    {
+        "kana": "ぺ",
+        "prononciation": "pé",
+        "id" : 10055
+    },
+    {
+        "kana": "お",
+        "prononciation": "o",
+        "id" : 10056
+    },
+    {
+        "kana": "こ",
+        "prononciation": "ko",
+        "id" : 10057
+    },
+    {
+        "kana": "そ",
+        "prononciation": "so",
+        "id" : 10058
+    },
+    {
+        "kana": "と",
+        "prononciation": "to",
+        "id" : 10059
+    },
+    {
+        "kana": "の",
+        "prononciation": "no",
+        "id" : 10060
+    },
+    {
+        "kana": "ほ",
+        "prononciation": "ho",
+        "id" : 10061
+    },
+    {
+        "kana": "も",
+        "prononciation": "mo",
+        "id" : 10062
+    },
+    {
+        "kana": "よ",
+        "prononciation": "yo",
+        "id" : 10063
+    },
+    {
+        "kana": "ろ",
+        "prononciation": "ro",
+        "id" : 10064
+    },
+    {
+        "kana": "ご",
+        "prononciation": "go",
+        "id" : 10065
+    },
+    {
+        "kana": "ぞ",
+        "prononciation": "zo",
+        "id" : 10066
+    },
+    {
+        "kana": "ど",
+        "prononciation": "do",
+        "id" : 10067
+    },
+    {
+        "kana": "ぼ",
+        "prononciation": "bo",
+        "id" : 10068
+    },
+    {
+        "kana": "ぽ",
+        "prononciation": "po",
+        "id" : 10069
+    },
+    {
+        "kana": "ん",
+        "prononciation": "n",
+        "id" : 10070
+    }
+]

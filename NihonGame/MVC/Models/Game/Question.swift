@@ -12,7 +12,7 @@ class Question {
     var question : String = ""
     var goodAnswer : Answer = Answer()
     var badAnswers : [Answer] = []
-    var dataChoosed : GameData
+    var dataChoosed : GameData?
     private var allPossibleAnswer : PossibleAnswers
     private var dataNames = [[String]]()
 
@@ -23,7 +23,6 @@ class Question {
         var goodAnswerCategory = ""
         var questionString = ""
         guard let dataChoosed = levelData.randomElement() else {
-            self.dataChoosed = levelData[levelData.count - 1]
             return
         }
 
@@ -41,15 +40,16 @@ class Question {
     }
 
     func generateBadAnswer(levelData: [GameData], category: String, numberOfBadAnswer: Int) {
-        guard let badAnswerPossibility = allPossibleAnswer.getPossibleAnswersList()[category] else {
+        guard let badAnswerPossibility = allPossibleAnswer.getPossibleAnswersList()[category], let mode = GameModes.shared.getCurrentMode(),
+        let datas = mode.getDatas(), let firstData = datas.first else {
             return
         }
         let lastGameData = levelData[levelData.endIndex - 1]
         for answersCount in 0...numberOfBadAnswer - 1 {
             repeat {
                 let firstBadAnswerID = badAnswerPossibility.startIndex
-                var lastBadAnswerIDPossible = 10
-                if levelData.startIndex > 4 {
+                var lastBadAnswerIDPossible =  firstData.id.int + 10
+                if levelData.startIndex > firstData.id.int + 4 {
                     lastBadAnswerIDPossible = lastGameData.id.int
                 }
                 let randomNumber = Int.random(in: badAnswerPossibility[firstBadAnswerID].gameDataID..<lastBadAnswerIDPossible)

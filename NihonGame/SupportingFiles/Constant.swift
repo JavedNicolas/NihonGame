@@ -21,7 +21,3 @@ struct GameDataConstant {
     static let scoreDecrementation = 10
     static let MaxScoreForLearningLevel = 1000
 }
-
-struct KanjiDataConstant {
-    static let dataNamesString = [["kanji"],["kunyomi","onyomi","traduction"]]
-}

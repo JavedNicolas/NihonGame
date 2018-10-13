@@ -17,5 +17,10 @@ struct KanjiParsing : Decodable {
     let id : Int
 }
 
+struct HiraganaParsing : Decodable {
+    let kana : String
+    let prononciation : String
+    let id : Int
+}
 
 

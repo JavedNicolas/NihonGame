@@ -35,17 +35,17 @@ class Game {
     }
 
     func needToShowTutorial() -> GameData? {
-        if let newGameData = level.newGameData, level.bestScore == 0{
+        if let newGameData = level.newGameData, newGameData.learningScore == 0 {
             return newGameData
         }
         return nil
     }
 
     func userAnswered(isCorrect: Bool) {
-        guard let question = currentQuestion else {
+        guard let question = currentQuestion, let dataChoosed = question.dataChoosed else {
             return
         }
-        question.dataChoosed.changeScore(increase: isCorrect)
+        dataChoosed.changeScore(increase: isCorrect)
         level.changeScore(increase: isCorrect)
     }
 

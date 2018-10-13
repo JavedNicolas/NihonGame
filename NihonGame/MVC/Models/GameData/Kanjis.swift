@@ -11,10 +11,10 @@ import Foundation
 class Kanjis : ModeDatas {
     var dataNameOrder = ["kanji","onyomi","kunyomi","traduction"]
     var name: String = "Kanji_Mode_Name".localize()
+    lazy var dataNames = [[self.dataNameOrder[0]],[self.dataNameOrder[1],self.dataNameOrder[2],self.dataNameOrder[3]]]
     internal var datas : [GameData] = []
     internal var dataJSON = KanjiModeJSONs.kanjiJSON
     internal var groupJSON = KanjiModeJSONs.groupsJSON
-    internal var dataNamesString: [[String]] = KanjiDataConstant.dataNamesString
 
     struct KanjiModeJSONs {
         static let kanjiJSON = "KanjiList"
@@ -29,7 +29,7 @@ class Kanjis : ModeDatas {
 
         for kanji in kanjisList {
             let dataAsString = "\(dataNameOrder[0]):\(kanji.kanji);\(dataNameOrder[1]):\(kanji.kunyomi);\(dataNameOrder[2]):\(kanji.onyomi);\(dataNameOrder[3]):\(kanji.traduction)"
-            let gameDataParsed = GameDataParsed(jlptLevel: kanji.level, id: kanji.id, learningScore: 0, data: dataAsString)
+            let gameDataParsed = GameDataParsed(id: kanji.id, learningScore: 0, data: dataAsString)
             let gameData = GameData(context: CoreDataManager.shared.getContext())
             gameData.fill(parsedData: gameDataParsed)
             datas.append(gameData)

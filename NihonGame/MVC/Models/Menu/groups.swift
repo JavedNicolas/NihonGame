@@ -17,11 +17,11 @@ class Groups {
         setGroups()
     }
 
-    private func parseData(data: Data?) -> [GroupsParsing] {
+    private func parseData(data: Data?) -> [GroupParsing] {
         guard let data = data else { return [] }
 
         do {
-            return try JSONDecoder().decode([GroupsParsing].self, from: data)
+            return try JSONDecoder().decode([GroupParsing].self, from: data)
         } catch let error {
             print(error)
             return []
@@ -30,14 +30,24 @@ class Groups {
 
     private func setGroups() {
         let groupsData = JSONParser(json: groupsJSON, withExtension: "json").data
-        let groupsList = parseData(data: groupsData)
+        let parsedGroups = parseData(data: groupsData)
 
-        for group in groupsList {
-            let levels = Levels(parsedLevels: group.levels).getLevels()
+        for parsedGroup in parsedGroups {
+            let firstGroup = isFirstGroup(group: parsedGroup, groupList: parsedGroups)
+            let levels = Levels(parsedLevels: parsedGroup.levels, isfirstGroup: firstGroup).getLevels()
             let groupToSet = Group(context: CoreDataManager.shared.getContext())
-            groupToSet.fill(groupsParsed: group, levels: levels)
+            groupToSet.fill(groupsParsed: parsedGroup, levels: levels)
             groups.append(groupToSet)
         }
+    }
+
+    func isFirstGroup(group: GroupParsing, groupList: [GroupParsing]) -> Bool {
+        if let firstGroup = groupList.first {
+            if group.id == firstGroup.id {
+                return true
+            }
+        }
+        return false
     }
 
     func getGroups() -> [Group] {
