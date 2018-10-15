@@ -12,9 +12,9 @@ class SquarePopUpView : UIView {
 
     init(parentframe frame: CGRect, size: CGSize) {
         super.init(frame: frame)
-        self.frame = CGRect(origin: CGPoint(x: (frame.width / 2)  - (size.width / 2),
-                                                 y: (frame.height / 2) - (size.height / 2)), size: size)
-        self.backgroundColor = .lightGray
+        self.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
+        self.setSize(size: size)
+        self.setImageBackground(imageName: "background_popup.png")
         self.layer.cornerRadius = 25
     }
 

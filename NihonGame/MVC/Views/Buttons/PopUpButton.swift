@@ -11,11 +11,14 @@ import UIKit
 class PopUpButton : UIButton {
     func setButton(text: String, image: UIImage? = nil, container: UIView) {
         self.setTitle(text, for: .normal)
-        self.setTitleColor(.black, for: .normal)
+        self.setTitleColor(.white, for: .normal)
         self.setImage(image, for: .normal)
-        self.backgroundColor = .white
-        self.alpha = 0.8
+        self.backgroundColor = DesignConstant.blue1Alpha
         self.layer.cornerRadius = container.layer.cornerRadius
         self.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+    }
+
+    func setButtonSize(size: CGSize) {
+        self.setSize(size: size)
     }
 }

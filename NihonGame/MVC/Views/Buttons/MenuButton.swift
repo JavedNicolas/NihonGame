@@ -11,17 +11,13 @@ import UIKit
 class MenuButton : UIView {
     internal var locked : Bool = false {
         didSet {
-            if locked {
-                self.backgroundColor = .gray
-            } else {
-                self.backgroundColor = .white
-            }
+            style(locked: locked)
         }
     }
 
     init(rect : CGRect) {
         super.init(frame: rect)
-        style()
+        style(locked: false)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -32,17 +28,25 @@ class MenuButton : UIView {
         return locked
     }
 
-    internal func style() {
+    internal func style(locked: Bool) {
         self.layer.cornerRadius = 10
         self.contentMode = .left
-        self.backgroundColor = .white
+        if locked {
+            self.backgroundColor = DesignConstant.gray5Alpha
+        }else {
+            self.backgroundColor = DesignConstant.black5Alpha
+        }
     }
 
     internal func setContent(title: String) {
-        let labelTitle = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: self.frame.height))
-        labelTitle.contentMode = .center
+        let labelTitle = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width / 3, height: self.frame.height))
+        labelTitle.textAlignment = .center
         labelTitle.text = title
+        labelTitle.lineBreakMode = .byWordWrapping
+        labelTitle.numberOfLines = 0
+        labelTitle.textColor = .white
         self.addSubview(labelTitle)
-        labelTitle.setAnchors(top: self.topAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, bottom: self.bottomAnchor)
+        labelTitle.setAnchors(top: self.topAnchor, leading: self.leadingAnchor, trailing: nil, bottom: self.bottomAnchor,
+                              padding: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
     }
 }

@@ -9,11 +9,12 @@
 import UIKit
 
 extension UIView {
-    func setNihonGameBackground() {
+    func setImageBackground(imageName : String = "NihonGameBackground.png") {
         let backgroundImageView = UIImageView(frame: self.frame)
+        backgroundImageView.contentMode = .scaleAspectFit
         self.addSubview(backgroundImageView)
 
-        if let image = UIImage(named: "NihonGameBackground.png") {
+        if let image = UIImage(named: imageName) {
             backgroundImageView.image = image
         }
     }
@@ -41,6 +42,12 @@ extension UIView {
         if let leading = leading { leadingAnchor.constraint(equalTo: leading, constant: padding.left).isActive = true }
         if let trailing = trailing { trailingAnchor.constraint(equalTo: trailing, constant: -padding.right).isActive = true }
         if let bottom = bottom { bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom).isActive = true }
+    }
+
+    func centerView(x: NSLayoutXAxisAnchor?, y: NSLayoutYAxisAnchor?, multiplierX: CGFloat = 0, multiplierY : CGFloat = 0) {
+        translatesAutoresizingMaskIntoConstraints = false
+        if let x = x { centerXAnchor.constraint(equalToSystemSpacingAfter: x, multiplier: multiplierX).isActive = true }
+        if let y = y { centerYAnchor.constraint(equalToSystemSpacingBelow: y, multiplier: multiplierY).isActive = true }
     }
 
     func setSize(size: CGSize) {

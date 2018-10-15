@@ -15,7 +15,7 @@ class MainMenuViewController: UIViewController {
 
     override func viewDidLoad() {
         self.title = "Main_Menu_VC".localize()
-        self.view.setNihonGameBackground()
+        self.view.setImageBackground()
         createTableView()
     }
 

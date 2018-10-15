@@ -15,6 +15,7 @@ class SQAnswerView : UIView {
     init(frame: CGRect, answer: Answer) {
         self.answer = answer
         super.init(frame: frame)
+        self.backgroundColor = .clear
         setLabel()
     }
 
@@ -23,8 +24,8 @@ class SQAnswerView : UIView {
     }
 
     func setFrameFromConstraint() {
-        self.setNeedsLayout()
-        self.layoutIfNeeded()
+        self.layer.borderWidth = 3
+        self.layer.borderColor = DesignConstant.black5Alpha.cgColor
     }
 
     private func setLabel() {
@@ -32,9 +33,12 @@ class SQAnswerView : UIView {
         label.text = answer.answerString
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.lineBreakMode = .byWordWrapping
         label.textColor = .white
-        label.font = UIFont(name: "Arial", size: 35)
+        label.font = UIFont(name: "Arial", size: 40)
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.2
+        label.translatesAutoresizingMaskIntoConstraints = false
         addSubview(label)
         label.setAnchors(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, bottom: bottomAnchor)
     }

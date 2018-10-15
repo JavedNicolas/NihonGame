@@ -75,6 +75,7 @@ class GameViewController: UIViewController {
     func showTutorial(gameData: GameData) {
         let tutorialView = GameDataPresentationViewController()
         tutorialView.gameData = gameData
+        tutorialView.navController = self.navigationController
         tutorialView.modalTransitionStyle = .crossDissolve
         tutorialView.modalPresentationStyle = .overCurrentContext
         self.present(tutorialView, animated: true, completion: nil)

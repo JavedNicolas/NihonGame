@@ -23,33 +23,29 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qin-Mx-FVb">
                                 <rect key="frame" x="0.0" y="308.5" width="375" height="50"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chargement..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rbp-nU-4xQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                                 <color key="backgroundColor" red="0.035294117647058823" green="0.10980392156862745" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Rbp-nU-4xQ" secondAttribute="bottom" id="21H-ao-7dx"/>
-                                    <constraint firstItem="Rbp-nU-4xQ" firstAttribute="leading" secondItem="qin-Mx-FVb" secondAttribute="leading" id="KYJ-pD-w5a"/>
                                     <constraint firstAttribute="height" constant="50" id="Niu-nH-VID"/>
-                                    <constraint firstItem="Rbp-nU-4xQ" firstAttribute="top" secondItem="qin-Mx-FVb" secondAttribute="top" id="lQm-ET-m4V"/>
-                                    <constraint firstAttribute="trailing" secondItem="Rbp-nU-4xQ" secondAttribute="trailing" id="oQY-dz-eep"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chargement..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rbp-nU-4xQ">
+                                <rect key="frame" x="0.0" y="319" width="375" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qin-Mx-FVb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="5ba-rX-2rD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eml-30-tyv" secondAttribute="bottom" id="ArI-bi-iAH"/>
+                            <constraint firstItem="Rbp-nU-4xQ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="FJc-re-1Wg"/>
                             <constraint firstItem="eml-30-tyv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="GNa-zv-NUY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qin-Mx-FVb" secondAttribute="trailing" id="HSo-34-Y70"/>
+                            <constraint firstItem="Rbp-nU-4xQ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Kxb-eN-XYa"/>
                             <constraint firstItem="eml-30-tyv" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="f5q-IT-Dql"/>
+                            <constraint firstItem="Rbp-nU-4xQ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="hbi-WI-UC6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eml-30-tyv" secondAttribute="trailing" id="jk1-hH-nXQ"/>
-                            <constraint firstItem="qin-Mx-FVb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kf7-Fh-Gl3"/>
                             <constraint firstItem="qin-Mx-FVb" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="waS-st-uf6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -61,6 +57,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NihonGameBackground" width="1242" height="2208"/>
+        <image name="NihonGameBackground" width="750" height="1334"/>
     </resources>
 </document>

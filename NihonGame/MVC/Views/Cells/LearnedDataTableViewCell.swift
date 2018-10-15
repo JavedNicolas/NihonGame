@@ -41,6 +41,7 @@ class LearnedDataTableViewCell: UITableViewCell {
         let stackView = UIStackView(arrangedSubviews: stackViewArray)
         setStackView(stackView: stackView)
         self.addSubview(stackView)
+        self.backgroundColor = .clear
         stackView.setAnchors(top: self.topAnchor, leading: Elementlabel.trailingAnchor, trailing: self.trailingAnchor,
                                    bottom: self.bottomAnchor, padding: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
     }
@@ -48,6 +49,7 @@ class LearnedDataTableViewCell: UITableViewCell {
     func setElementIdentifier(gameData: GameData) -> UILabel{
         let label = UILabel(frame: CGRect(x: 0, y: 10, width: self.frame.width / 3, height: self.frame.height))
         label.textAlignment = .center
+        label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 30)
         guard let dataString = gameData.data.dataAt(name: gameData.dataNameOrder[0]) else { return UILabel()}
         label.text = dataString.value.flatenArray(separator: ",")
@@ -58,14 +60,12 @@ class LearnedDataTableViewCell: UITableViewCell {
         let learningLevelLabel = UILabel()
         learningLevelLabel.text = gameData.learningLevel
         learningLevelLabel.textAlignment = .center
+        learningLevelLabel.textColor = .white
         learningLevelLabel.frame.size.height = self.frame.height / 2
 
-        let progressionView = UIProgressView(progressViewStyle: .bar)
-        let maxScoreForLearningLevel = GameDataConstant.MaxScoreForLearningLevel
-        let progression : Float = Float(gameData.learningScore.int) / Float(maxScoreForLearningLevel)
-        progressionView.layer.masksToBounds = true
-        progressionView.layer.cornerRadius = 10
-        progressionView.setProgress(Float(progression), animated: true)
+        let progressionView = GameDataProgressionView(progressViewStyle: .bar)
+        progressionView.set(learningScore: gameData.learningScore.int, learningLevel: gameData.learningLevel)
+        
         return [learningLevelLabel, progressionView]
     }
 

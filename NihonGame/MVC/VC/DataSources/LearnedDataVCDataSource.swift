@@ -45,5 +45,13 @@ extension LearnedDataViewController : UITableViewDataSource {
         return ""
     }
 
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = (view as? UITableViewHeaderFooterView), let background = header.backgroundView,
+            let textlabel = header.textLabel else {
+                return
+        }
+        background.backgroundColor = DesignConstant.black5Alpha
+        textlabel.textColor = .white
+    }
 
 }

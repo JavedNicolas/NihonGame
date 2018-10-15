@@ -8,11 +8,8 @@
 
 import UIKit
 
-class GameDataPresentationViewController : UIViewController {
+class GameDataPresentationViewController : PopUpViewController {
     //MARK:- Attributs
-    private var popUpView : SquarePopUpView?
-    private var stackView = PopUpStackView()
-    private let button = PopUpButton(type: .custom)
     private var buttonImage = UIImage(named: "Correct.png")
     private var buttonText = "Understood_Text".localize()
 
@@ -24,17 +21,6 @@ class GameDataPresentationViewController : UIViewController {
         self.view.setWhiteAlphaBackgroud()
         setView()
         setContent()
-    }
-
-    private func setView() {
-        let popUpEdgeSize = self.view.frame.width * (90 / 100)
-        let popUpSize = CGSize(width: popUpEdgeSize , height: popUpEdgeSize)
-        popUpView = SquarePopUpView(parentframe: self.view.frame, size: popUpSize)
-        if let popUpView = popUpView {
-            self.view.addSubview(popUpView)
-            stackView = PopUpStackView(frame: popUpView.frame)
-            popUpView.addSubview(stackView)
-        }
     }
 
     // MARK:- Content Settings
@@ -57,19 +43,14 @@ class GameDataPresentationViewController : UIViewController {
 
     private func setTitle(gameData: GameData) {
         if gameData.learningScore == 0 {
-            let label = UILabel()
-            label.text = "New_Game_Data_Text".localize()
-            label.textAlignment = .center
-            label.textColor = .white
-            label.font = UIFont(name: "Arial", size: CGFloat(30))
-            stackView.addArrangedSubview(label)
+            super.setTitle(display: true, text: "New_Game_Data_Text".localize())
         }
     }
 
     private func setLabel(textTitle: String, text: String) {
         let labelTitle = UILabel()
         labelTitle.text = textTitle
-        labelTitle.font = UIFont(name: "Arial", size: 20)
+        labelTitle.font = UIFont.boldSystemFont(ofSize: 20)
         labelTitle.textAlignment = .center
         labelTitle.textColor = .white
         stackView.addArrangedSubview(labelTitle)
@@ -92,20 +73,8 @@ class GameDataPresentationViewController : UIViewController {
             buttonText = "Close_Text".localize()
         }
         button.setButton(text: buttonText, image: buttonImage, container: popUpView)
-        button.addTarget(self, action: #selector(closeTutorial), for: .touchUpInside)
         popUpView.addSubview(button)
-    }
-
-    private func setStackView() {
-        guard let popUpView = popUpView else {
-            self.errorHandling(error: ErrorList.unknowError)
-            return
-        }
-        stackView.set()
-        stackView.setAnchors(top: popUpView.topAnchor, leading: popUpView.leadingAnchor, trailing: popUpView.trailingAnchor,
-                             bottom: button.topAnchor, padding: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
-        button.setAnchors(top: stackView.bottomAnchor, leading: popUpView.leadingAnchor, trailing: popUpView.trailingAnchor,
-                          bottom: popUpView.bottomAnchor)
+        button.addTarget(self, action: #selector(closeTutorial), for: .touchUpInside)
     }
 
     @objc func closeTutorial() {

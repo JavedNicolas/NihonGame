@@ -18,6 +18,7 @@ class SettingsTableViewCell : UITableViewCell {
     }
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.backgroundColor = .clear
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -28,6 +29,7 @@ class SettingsTableViewCell : UITableViewCell {
         setloadingView()
         label.text = text
         label.textAlignment = .center
+        label.textColor = .white
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.font = UIFont.boldSystemFont(ofSize: 20)
@@ -37,7 +39,7 @@ class SettingsTableViewCell : UITableViewCell {
 
     private func setloadingView() {
         loadingView.frame = self.frame
-        loadingView.backgroundColor = .gray
+        loadingView.backgroundColor = DesignConstant.gray5Alpha
         loadingView.isHidden = true
         self.addSubview(loadingView)
         loadingView.setAnchors(top: self.topAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, bottom: self.bottomAnchor)

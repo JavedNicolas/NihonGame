@@ -15,7 +15,7 @@ class LearnedDataTableView: UITableView {
         self.dataSource = dataSource
         self.rowHeight = 70
         self.register(cellType, forCellReuseIdentifier: identifier)
-        self.backgroundColor = .white
+        self.backgroundColor = .clear
     }
 
     func hideSeparator(hide: Bool) {

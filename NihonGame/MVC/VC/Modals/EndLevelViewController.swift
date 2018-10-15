@@ -8,48 +8,32 @@
 
 import UIKit
 
-class EndLevelViewController : UIViewController {
+class EndLevelViewController : PopUpViewController {
     var level : Level?
-    var navController : UINavigationController?
 
     override func viewDidLoad() {
         self.view.backgroundColor = .clear
         self.view.setWhiteAlphaBackgroud()
+        setView()
         setContent()
     }
 
     func setContent() {
-        let popUpEdgeSize = self.view.frame.width * (80 / 100)
-        let popUpSize = CGSize(width: popUpEdgeSize , height: popUpEdgeSize)
-        let popUpview = SquarePopUpView(parentframe: self.view.frame, size: popUpSize)
-        self.view.addSubview(popUpview)
-        let stackView = PopUpStackView(frame: popUpview.frame)
-        popUpview.addSubview(stackView)
-
         if let level = level {
             if level.score >= 500 {
-                setTitle(stackView: stackView, text: "Congratulation_Text".localize())
-                setLabel(stackView: stackView, textToDisplay: "Score : \(level.score)")
-                setLabel(stackView: stackView, textToDisplay: "Stars : \(level.stars)")
+                setTitle(display: true, text: "Congratulation_Text".localize())
+                setLabel(textToDisplay: "Score : \(level.score)")
+                setLabel(textToDisplay: "Stars : \(level.stars)")
             }else {
-                setTitle(stackView: stackView, text: "Try_Again_Text".localize())
-                setLabel(stackView: stackView, textToDisplay: "Score : \(level.score)")
+                setTitle(display: true, text: "Try_Again_Text".localize())
+                setLabel(textToDisplay: "Score : \(level.score)")
             }
-            setBackButton(stackView: stackView, popUpView: popUpview)
+            setBackButton(stackView: stackView)
+            setStackView()
         }
-        setStackView(stackView: stackView, popUpView: popUpview)
     }
 
-    func setTitle(stackView : UIStackView, text: String) {
-        let label = UILabel()
-        label.text = text
-        label.textAlignment = .center
-        label.textColor = .white
-        label.font = UIFont(name: "Arial", size: CGFloat(30))
-        stackView.addArrangedSubview(label)
-    }
-
-    func setLabel(stackView : UIStackView, textToDisplay: String) {
+    func setLabel(textToDisplay: String) {
         let label = UILabel()
         label.text = textToDisplay
         label.textAlignment = .center
@@ -57,21 +41,12 @@ class EndLevelViewController : UIViewController {
         stackView.addArrangedSubview(label)
     }
 
-    func setBackButton(stackView : UIStackView, popUpView : SquarePopUpView) {
-        let button = UIButton(type: .custom)
-        button.setTitle("Go_Back_To_Menu_Text".localize(), for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .white
-        button.layer.cornerRadius = popUpView.layer.cornerRadius
+    func setBackButton(stackView : UIStackView) {
+        guard let popUpView = popUpView else { return }
+        button.setButton(text: "Go_Back_To_Menu_Text".localize(), container: popUpView)
         button.addTarget(self, action: #selector(closeTutorial), for: .touchUpInside)
-        button.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        stackView.addArrangedSubview(button)
-    }
+        self.view.addSubview(button)
 
-    func setStackView(stackView: PopUpStackView, popUpView: SquarePopUpView) {
-        stackView.set()
-        stackView.setAnchors(top: popUpView.topAnchor, leading: popUpView.leadingAnchor, trailing: popUpView.trailingAnchor,
-                             bottom: popUpView.bottomAnchor, padding: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0))
     }
 
     @objc func closeTutorial() {

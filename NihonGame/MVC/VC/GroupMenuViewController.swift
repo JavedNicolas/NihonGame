@@ -15,7 +15,7 @@ class GroupMenuViewController : UIViewController {
     internal var groupTableView : MenuTableView?
     
     override func viewDidLoad() {
-        self.view.setNihonGameBackground()
+        self.view.setImageBackground()
         if let gameMode = gameMode, let groups = gameMode.getGroups() {
             groupItems = groups
             title = gameMode.name

@@ -46,6 +46,15 @@ extension SettingsViewController : UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return getSectionsHeaders().count
     }
+
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = (view as? UITableViewHeaderFooterView), let background = header.backgroundView,
+            let textlabel = header.textLabel else {
+            return
+        }
+        background.backgroundColor = DesignConstant.black5Alpha
+        textlabel.textColor = .white
+    }
     
 }
 

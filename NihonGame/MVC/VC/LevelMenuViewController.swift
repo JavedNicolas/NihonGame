@@ -16,7 +16,7 @@ class LevelMenuViewController : UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.setNihonGameBackground()
+        self.view.setImageBackground()
         if let group = group {
             self.title = group.name
         }

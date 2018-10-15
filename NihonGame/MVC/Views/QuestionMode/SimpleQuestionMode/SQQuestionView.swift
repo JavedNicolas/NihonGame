@@ -12,7 +12,7 @@ class SQQuestionView : UIView {
 
     init(frame: CGRect, question: Question) {
         super.init(frame: frame)
-        draw(frame)
+        setCircleView()
         setLabels(question: question)
     }
 
@@ -20,28 +20,16 @@ class SQQuestionView : UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func draw(_ rect: CGRect) {
-        self.backgroundColor = .clear
-        let circlePath = UIBezierPath(arcCenter: CGPoint(x: frame.width / 2,y: frame.height / 2), radius: CGFloat(rect.width / 2),
-                                      startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)
-
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = circlePath.cgPath
-
-        //change the fill color
-        shapeLayer.fillColor = UIColor.gray.cgColor
-        //you can change the stroke color
-        shapeLayer.strokeColor = UIColor.red.cgColor
-        //you can change the line width
-        shapeLayer.lineWidth = 0
-
-        self.layer.insertSublayer(shapeLayer, at: 1)
+    func setCircleView() {
+        self.setSize(size: CGSize(width: 200, height: 200))
+        self.layer.cornerRadius = self.frame.width / 2
+        self.backgroundColor = DesignConstant.black1Alpha
     }
 
     func setLabels(question: Question) {
         let stackView = PopUpStackView(frame: self.frame)
         stackView.distribution = .fillProportionally
-        setLabel(stackView: stackView, text: question.question,fontSize: 40)
+        setLabel(stackView: stackView, text: question.question,fontSize: 60)
         setLabel(stackView: stackView, text: "Find_Text".localize() + "\n\(question.goodAnswer.category)", fontSize: 15)
         self.addSubview(stackView)
         stackView.setAnchors(top: topAnchor, leading: leadingAnchor, trailing: trailingAnchor, bottom: bottomAnchor,
@@ -52,9 +40,12 @@ class SQQuestionView : UIView {
         let label = UILabel()
         label.text = text
         label.numberOfLines = 0
-        label.textAlignment = .center
         label.textColor = .white
+        label.textAlignment = .center
         label.font = UIFont(name: "Arial", size: fontSize)
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.2
+        label.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(label)
     }
 }

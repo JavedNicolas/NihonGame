@@ -19,7 +19,7 @@ class LevelScoreDisplayBar : UIView {
     init(frame: CGRect, game: Game) {
         self.game = game
         super.init(frame: frame)
-        self.backgroundColor = .black
+        self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
         setBarContent()
     }
 

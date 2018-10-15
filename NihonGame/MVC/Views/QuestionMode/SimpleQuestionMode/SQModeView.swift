@@ -11,9 +11,7 @@ import UIKit
 class SQModeView: UIView, QuestionType {
     // MARK:- Attributs
     private lazy var rectanglePadding = self.frame.width / 10
-    private let answerViewColor = [UIColor.orange, UIColor.blue,
-                                   UIColor.purple,UIColor.brown]
-    private lazy var topAnchors  = [self.safeTopAnchor, self.topAnchor, self.centerYAnchor, self.centerYAnchor]
+    private lazy var topAnchors  = [self.topAnchor, self.topAnchor, self.centerYAnchor, self.centerYAnchor]
     private lazy var leadingAnchors = [self.leadingAnchor, self.centerXAnchor, self.leadingAnchor, self.centerXAnchor]
     private lazy var trailingAnchors = [self.centerXAnchor, self.trailingAnchor, self.centerXAnchor, self.trailingAnchor]
     private lazy var bottomAnchors = [self.centerYAnchor, self.centerYAnchor, self.bottomAnchor, self.bottomAnchor]
@@ -25,6 +23,7 @@ class SQModeView: UIView, QuestionType {
     var game : Game? = nil {
         didSet {
             if let game = game, let question = game.getCurrentQuestion() {
+                self.setImageBackground(imageName: "background_SQ.png")
                 setAnswers(question: question)
                 setQuestion(question: question)
                 setLevelProgressBar(game: game)
@@ -36,12 +35,11 @@ class SQModeView: UIView, QuestionType {
 
     //MARK:- Setters functions
     func setQuestion(question: Question) {
-        let circleSize = CGFloat(200)
-        let questionCircleRect = CGRect(x: (frame.width / 2) - (circleSize / 2), y: (frame.height / 2) - (circleSize / 2),
-                                        width: circleSize, height: circleSize)
+        let circleSize = 200
+        let questionCircleRect = CGRect(x: 0, y: 0, width: circleSize, height: circleSize)
         let questionView = SQQuestionView(frame: questionCircleRect, question: question)
-        questionView.backgroundColor = .clear
         addSubview(questionView)
+        questionView.centerView(x: self.centerXAnchor, y: self.centerYAnchor)
     }
 
     func setAnswers(question: Question) {
@@ -55,7 +53,6 @@ class SQModeView: UIView, QuestionType {
             answerView.setAnchors(top: topAnchors[index], leading: leadingAnchors[index], trailing: trailingAnchors[index], bottom: bottomAnchors[index],
                                   padding: UIEdgeInsets(top: 0, left: leftPadding[index], bottom: 0, right: rightPadding[index]))
             answerView.setFrameFromConstraint()
-            answerView.backgroundColor = answerViewColor[index]
             answerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(userAnswered(_:))))
             answerViews.append(answerView)
         }

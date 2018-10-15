@@ -14,7 +14,7 @@ class LearnedDataViewController : UIViewController {
 
     override func viewDidLoad() {
         self.title = "Learned_Data_VC".localize()
-        self.view.setNihonGameBackground()
+        self.view.setImageBackground()
         setTableView()
     }
 
@@ -57,6 +57,7 @@ class LearnedDataViewController : UIViewController {
             tableView.hideSeparator(hide: true)
             emptyListLabel.text = "Empty_LearnedData_Text".localize()
             emptyListLabel.numberOfLines = 0
+            emptyListLabel.textColor = .white
             emptyListLabel.textAlignment = .center
             tableView.backgroundView = emptyListLabel
         }else {

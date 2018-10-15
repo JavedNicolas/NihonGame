@@ -14,6 +14,6 @@ class SettingsTableView : UITableView {
         self.dataSource = dataSource
         self.register(cellType, forCellReuseIdentifier: identifier)
         self.rowHeight = 100
-        self.backgroundColor = .white
+        self.backgroundColor = .clear
     }
 }
