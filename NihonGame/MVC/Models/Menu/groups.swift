@@ -32,11 +32,12 @@ class Groups {
         let groupsData = JSONParser(json: groupsJSON, withExtension: "json").data
         let parsedGroups = parseData(data: groupsData)
 
-        for parsedGroup in parsedGroups {
+        for (index, parsedGroup) in parsedGroups.enumerated() {
             let firstGroup = isFirstGroup(group: parsedGroup, groupList: parsedGroups)
             let levels = Levels(parsedLevels: parsedGroup.levels, isfirstGroup: firstGroup).getLevels()
             let groupToSet = Group(context: CoreDataManager.shared.getContext())
-            groupToSet.fill(groupsParsed: parsedGroup, levels: levels)
+            let groupName = "Group_String".localize() + String(index)
+            groupToSet.fill(groupsParsed: parsedGroup, levels: levels, groupName: groupName)
             groups.append(groupToSet)
         }
     }

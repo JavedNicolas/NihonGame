@@ -25,6 +25,6 @@ class MenuTableView : UITableView {
         let tableViewleftPadding = UIScreen.main.bounds.width * (1/3)
         self.setAnchors(top: topElementAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor,
                         bottom: bottomElementAnchor,
-                        padding: UIEdgeInsets(top: 50, left: tableViewleftPadding, bottom: 0, right: 0))
+                        padding: UIEdgeInsets(top: 0, left: tableViewleftPadding, bottom: 0, right: 0))
     }
 }

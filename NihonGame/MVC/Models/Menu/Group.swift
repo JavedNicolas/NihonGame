@@ -13,8 +13,8 @@ class Group: NSManagedObject {
     var done = false
 
     /** fill the instance for the first int when CoreData is empty */
-    func fill(groupsParsed group: GroupParsing, levels: [Level]) {
-        self.name = "\(group.startRange)-\(group.endRange)"
+    func fill(groupsParsed group: GroupParsing, levels: [Level], groupName: String) {
+        self.name = groupName
         self.id = group.id.int64
         self.firstElement = group.startRange.int64
         self.lastElement = group.endRange.int64

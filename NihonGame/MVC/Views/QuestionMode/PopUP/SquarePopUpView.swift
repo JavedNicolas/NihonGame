@@ -15,7 +15,7 @@ class SquarePopUpView : UIView {
         self.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: size)
         self.setSize(size: size)
         self.setImageBackground(imageName: "background_popup.png")
-        self.layer.cornerRadius = 25
+        self.layer.cornerRadius = 20
     }
 
     required init?(coder aDecoder: NSCoder) {

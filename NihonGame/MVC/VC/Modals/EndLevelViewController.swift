@@ -23,7 +23,7 @@ class EndLevelViewController : PopUpViewController {
             if level.score >= 500 {
                 setTitle(display: true, text: "Congratulation_Text".localize())
                 setLabel(textToDisplay: "Score : \(level.score)")
-                setLabel(textToDisplay: "Stars : \(level.stars)")
+                setStars(stars: level.stars.int)
             }else {
                 setTitle(display: true, text: "Try_Again_Text".localize())
                 setLabel(textToDisplay: "Score : \(level.score)")
@@ -39,6 +39,14 @@ class EndLevelViewController : PopUpViewController {
         label.textAlignment = .center
         label.textColor = .white
         stackView.addArrangedSubview(label)
+    }
+
+    func setStars(stars: Int) {
+        let starsView = BigStarsView(stars: 1)
+        starsView.stars = stars
+        starsView.contentMode = .scaleAspectFit
+        stackView.addArrangedSubview(starsView)
+        starsView.setSize(size: CGSize(width: stackView.frame.width / 3, height: stackView.frame.height / 4 ))
     }
 
     func setBackButton(stackView : UIStackView) {

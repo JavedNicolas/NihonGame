@@ -12,9 +12,8 @@ class GameGroupButton : MenuButton {
     var group : Group? = nil {
         didSet {
             if let group = group {
-                if let name = group.name {
-                    setContent(title: name)
-                }
+                if let name = group.name { setContent(title: name) }
+                if !group.locked { setArrow() }
                 locked = group.locked
             }
         }

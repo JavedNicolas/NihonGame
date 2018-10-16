@@ -9,6 +9,8 @@
 import UIKit
 
 class MenuButton : UIView {
+    // MARK:- Attributs
+    private let arrowImage = UIImage(named: "arrow.png")
     internal var locked : Bool = false {
         didSet {
             style(locked: locked)
@@ -48,5 +50,14 @@ class MenuButton : UIView {
         self.addSubview(labelTitle)
         labelTitle.setAnchors(top: self.topAnchor, leading: self.leadingAnchor, trailing: nil, bottom: self.bottomAnchor,
                               padding: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
+    }
+
+    internal func setArrow() {
+        let imageView = UIImageView(image: arrowImage)
+        imageView.contentMode = .scaleAspectFit
+        self.addSubview(imageView)
+        imageView.setAnchors(top: self.topAnchor, leading: nil, trailing: self.trailingAnchor, bottom: self.bottomAnchor,
+                              padding: UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 25))
+        imageView.setWidth(width: self.frame.width / 4)
     }
 }

@@ -18,7 +18,7 @@ class PopUpButton : UIButton {
         self.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
 
-    func setButtonSize(size: CGSize) {
-        self.setSize(size: size)
+    func setButtonHeight(height: CGFloat) {
+        self.setHeight(height: height)
     }
 }

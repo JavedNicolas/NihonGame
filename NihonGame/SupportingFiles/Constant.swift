@@ -20,7 +20,10 @@ struct GameConstant {
 struct GameDataConstant {
     static let scoreIncrementation = 10
     static let scoreDecrementation = 10
-    static let MaxScoreForLearningLevel = 1000
+    static let firstLearningStep = 300
+    static let secondLearningStep = 600
+    static let thirdLearningStep = 900
+    static let MaxScoreForLearningLevel = 1200
 }
 
 struct DesignConstant {

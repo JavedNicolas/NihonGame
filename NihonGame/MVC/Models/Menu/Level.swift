@@ -17,9 +17,9 @@ class Level : NSManagedObject {
     lazy var newGameData: GameData? = self.setNewGameData()
     lazy var levelDatas : [GameData]? = self.setGameDataToUse()
     
-    func fill(parsedLevel level: LevelParsing, firstLevel: Bool){
+    func fill(parsedLevel level: LevelParsing, firstLevel: Bool, levelName: String){
         self.id = level.id.int64
-        self.name = "Level_String".localize() + ": \(level.startRange)-\(level.endRange)"
+        self.name = levelName
         self.firstElement = level.startRange.int64
         self.lastElement = level.endRange.int64
         self.done = false

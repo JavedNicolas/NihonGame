@@ -16,10 +16,11 @@ class Levels {
     }
     
     private func setLevels(parsedLevels: [LevelParsing], isfirstGroup: Bool)  {
-        for parsedlevel in parsedLevels {
+        for (index, parsedlevel) in parsedLevels.enumerated() {
             let firstLevel = isFirstLevel(level: parsedlevel, levelList: parsedLevels) && isfirstGroup
             let level = Level(context: CoreDataManager.shared.getContext())
-            level.fill(parsedLevel: parsedlevel, firstLevel: firstLevel)
+            let levelName = "Level_String".localize()  + String(index)
+            level.fill(parsedLevel: parsedlevel, firstLevel: firstLevel, levelName: levelName )
             levels.append(level)
         }
     }

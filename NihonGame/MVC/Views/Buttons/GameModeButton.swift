@@ -13,6 +13,7 @@ class GameModeButton : MenuButton {
             if let mode = mode {
                 if let name = mode.name {
                     setContent(title: name)
+                    setArrow()
                 }
             }
         }

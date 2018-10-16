@@ -11,7 +11,6 @@ import UIKit
 extension UIView {
     func setImageBackground(imageName : String = "NihonGameBackground.png") {
         let backgroundImageView = UIImageView(frame: self.frame)
-        backgroundImageView.contentMode = .scaleAspectFit
         self.addSubview(backgroundImageView)
 
         if let image = UIImage(named: imageName) {
@@ -54,6 +53,16 @@ extension UIView {
         translatesAutoresizingMaskIntoConstraints = false
         widthAnchor.constraint(equalToConstant: size.width).isActive = true
         heightAnchor.constraint(equalToConstant: size.height).isActive = true
+    }
+
+    func setWidth(width: CGFloat) {
+        translatesAutoresizingMaskIntoConstraints = false
+        widthAnchor.constraint(equalToConstant: width).isActive = true
+    }
+
+    func setHeight(height: CGFloat) {
+        translatesAutoresizingMaskIntoConstraints = false
+        heightAnchor.constraint(equalToConstant: height).isActive = true
     }
 
     func squareSize() {

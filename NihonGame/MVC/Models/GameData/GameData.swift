@@ -90,18 +90,22 @@ class GameData : NSManagedObject {
         if increase {
             learningScore += GameDataConstant.scoreIncrementation.int64
         }else {
-            if learningScore != 0 {
+            if learningScore != 0{
                 learningScore -= GameDataConstant.scoreDecrementation.int64
             }
         }
     }
 
     func setLearningLevelString () -> String {
+        let firstStep = GameDataConstant.firstLearningStep.int64
+        let secondStep = GameDataConstant.secondLearningStep.int64
+        let thirdStep = GameDataConstant.thirdLearningStep.int64
+
         switch learningScore {
-        case 0...100 : return "Learning_Level_1".localize()
-        case 101...200 : return "Learning_Level_2".localize()
-        case 201...400 : return "Learning_Level_3".localize()
-        case let score where score > 400 : return "Learning_Level_4".localize()
+        case 0...firstStep : return "Learning_Level_1".localize()
+        case (firstStep + 1)...secondStep : return "Learning_Level_2".localize()
+        case (secondStep + 1)...thirdStep : return "Learning_Level_3".localize()
+        case let score where score > thirdStep : return "Learning_Level_4".localize()
         default : return "Learning_Level_4".localize()
         }
     }

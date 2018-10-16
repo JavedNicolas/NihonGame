@@ -52,8 +52,8 @@ class PopUpViewController : UIViewController {
         stackView.setAnchors(top: popUpView.topAnchor, leading: popUpView.leadingAnchor, trailing: popUpView.trailingAnchor,
                              bottom: button.topAnchor, padding: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
         button.setAnchors(top: stackView.bottomAnchor, leading: popUpView.leadingAnchor, trailing: popUpView.trailingAnchor,
-                          bottom: popUpView.bottomAnchor)
-        button.setButtonSize(size: CGSize(width: self.view.frame.width, height: 50))
+                          bottom: popUpView.bottomAnchor, padding: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0))
+        button.setHeight(height: 50)
 
     }
 }
