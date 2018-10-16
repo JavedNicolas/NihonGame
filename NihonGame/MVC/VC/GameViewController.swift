@@ -12,8 +12,9 @@ class GameViewController: UIViewController {
     // MARK: Attributs
     private var userAnsweredNotificationName = Notification.Name(rawValue: "UserAnswered")
     private var questionSetNotificationName = Notification.Name(rawValue: "QuestionLoaded")
-    var level : Level?
+    private lazy var questionTypes : [QuestionType] = [SQModeView(frame: self.view.frame)]
     private var game : Game?
+    var level : Level?
     var questionMode : QuestionType?
     var numberOfQuestionAsked = 0
 
@@ -26,7 +27,6 @@ class GameViewController: UIViewController {
         self.game = Game(level: level)
         if let game = game, let newGameData = game.needToShowTutorial() {
             showTutorial(gameData: newGameData)
-            self.title = "Current_Question_Number".localize() + " \(game.getNumberOfQuestionAsked())/\(GameConstant.questionsByLevel)"
         }
         newQuestion()
 
@@ -63,11 +63,13 @@ class GameViewController: UIViewController {
     }
 
     @objc func setQuestionMode() {
-        let questionMode = SQModeView(frame: self.view.frame)
-        if let game = game {
-            questionMode.game = game
+        guard var questionMode = questionTypes.randomElement(), let game = game else {
+            self.errorHandling(error: ErrorList.unknowError)
+            return
         }
-        view.addSubview(questionMode)
+
+        questionMode.game = game
+        view.addSubview(questionMode.view)
         self.questionMode = questionMode
 
     }

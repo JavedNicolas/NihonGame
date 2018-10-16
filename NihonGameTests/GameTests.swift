@@ -17,7 +17,7 @@ class NihonGameTests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         CoreDataManager.shared.contextForTest()
-        GameModes.shared.createModesList()
+        GameModes.shared.recreatModes()
         let modes = GameModes.shared.getGameModes()
         let mode = modes[currentModeID]
         GameModes.shared.currentMode = mode
@@ -95,7 +95,7 @@ class NihonGameTests: XCTestCase {
 
     func testGivenTheLevelJustStartedWhenItLaunchThenTheLevelNeedATutorial() {
         // Given
-        level?.score = 0
+        level?.newGameData?.learningScore = 0
 
         // then
         let game = Game(level: level!)
@@ -110,6 +110,7 @@ class NihonGameTests: XCTestCase {
         // then
         let game = Game(level: level!)
         game.level.changeScore(increase: true)
+        game.level.newGameData?.learningScore = 10
         // When
         XCTAssertNil(game.needToShowTutorial())
     }

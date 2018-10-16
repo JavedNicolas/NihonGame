@@ -22,7 +22,7 @@ class GameModesTest: XCTestCase {
         for mode in modes.getGameModes() {
             CoreDataManager.shared.deleteMode(modeID: mode.id.int)
         }
-        modes.createModesList()
+        modes.recreatModes()
         
         // When and Then
         let gameModes = modes.getGameModes()
@@ -38,7 +38,7 @@ class GameModesTest: XCTestCase {
         // Given
         
         // When and Then
-        modes.createModesList()
+        modes.recreatModes()
         let gameModes = modes.getGameModes()
         XCTAssertNotEqual(gameModes.count, 0)
         for mode in gameModes {
