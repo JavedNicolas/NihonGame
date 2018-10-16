@@ -37,7 +37,9 @@ class LevelMenuViewController : UIViewController {
     }
 
     func setCollectionView() {
-        levelCollectionView = LevelCollectionView(view: self.view)
+        if levelCollectionView == nil {
+            levelCollectionView = LevelCollectionView(view: self.view)
+        }
         if let levelCollectionView = levelCollectionView {
             self.view.addSubview(levelCollectionView)
             levelCollectionView.set(delegate: self, dataSource: self)
