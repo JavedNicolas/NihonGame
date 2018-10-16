@@ -34,7 +34,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NihonGame/MVC/VC/Modals/PopUpViewController.swift"
-            timestampString = "561371775.528265"
+            timestampString = "561374877.200492"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
@@ -104,22 +104,6 @@
             startingLineNumber = "23"
             endingLineNumber = "23"
             landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NihonGame/MVC/Views/InterfaceBuilding/UIViewExtension.swift"
-            timestampString = "561371775.528396"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "centerView(x:y:multiplierX:multiplierY:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

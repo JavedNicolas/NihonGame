@@ -29,8 +29,6 @@ extension LearnedDataViewController : UITableViewDataSource {
         let cell = LearnedDataTableViewCell(style: .default, reuseIdentifier: "LearnedDataCell")
         let knownGameData = getKnownData(mode: indexPath.section)
         cell.gameData = knownGameData[indexPath.row]
-        cell.selectionStyle = .none
-        
         return cell
     }
 

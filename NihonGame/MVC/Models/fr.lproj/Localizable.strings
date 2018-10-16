@@ -16,8 +16,8 @@
 
 // MARK: - GameModes
 "Kanji_Mode_Name" = "kanji";
-"Level_String" = "Niveau";
-"Group_String" = "Groupe";
+"Level_String" = "Niveau ";
+"Group_String" = "Groupe ";
 "Level_Success" = "Bravo, vous avez fini ce niveau !";
 "Level_Failed" = "Dommage, vous n'avez pas assez de point pour finir ce niveau ! Mais vous pouvez ressayer!";
 

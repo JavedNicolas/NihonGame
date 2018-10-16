@@ -46,7 +46,6 @@ class EndLevelViewController : PopUpViewController {
         starsView.stars = stars
         starsView.contentMode = .scaleAspectFit
         stackView.addArrangedSubview(starsView)
-        starsView.setSize(size: CGSize(width: stackView.frame.width / 3, height: stackView.frame.height / 4 ))
     }
 
     func setBackButton(stackView : UIStackView) {

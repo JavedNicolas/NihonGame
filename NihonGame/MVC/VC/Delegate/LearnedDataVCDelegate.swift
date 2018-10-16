@@ -14,7 +14,7 @@ extension LearnedDataViewController : UITableViewDelegate {
         guard let cell = tableView.cellForRow(at: indexPath) as? LearnedDataTableViewCell, let gameData = cell.gameData else {
                 return
         }
-
+        cell.isSelected = false
         let tutorialView = GameDataPresentationViewController()
         tutorialView.gameData = gameData
         tutorialView.modalTransitionStyle = .crossDissolve
