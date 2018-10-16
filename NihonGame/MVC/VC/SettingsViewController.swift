@@ -22,7 +22,6 @@ class SettingsViewController : UIViewController {
 
     //MARK:- VC function
     override func viewDidLoad() {
-        self.title = "Settings_VC".localize()
         self.view.setImageBackground()
         setCells()
         setTableView()

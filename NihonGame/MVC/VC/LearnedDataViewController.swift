@@ -13,7 +13,6 @@ class LearnedDataViewController : UIViewController {
     internal var gameModes = GameModes.shared.getGameModes()
 
     override func viewDidLoad() {
-        self.title = "Learned_Data_VC".localize()
         self.view.setImageBackground()
         setTableView()
     }

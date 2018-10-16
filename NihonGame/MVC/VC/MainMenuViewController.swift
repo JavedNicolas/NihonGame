@@ -14,7 +14,6 @@ class MainMenuViewController: UIViewController {
     internal var menuItems : [GameMode] = []
 
     override func viewDidLoad() {
-        self.title = "Main_Menu_VC".localize()
         self.view.setImageBackground()
         createTableView()
     }

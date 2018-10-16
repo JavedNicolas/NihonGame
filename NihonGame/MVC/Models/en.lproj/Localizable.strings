@@ -10,7 +10,7 @@
 "Kanji_Mode_Menu" = "Game Mode : Kanji";
 
 // MARK:- ViewController Names
-"Main_Menu_VC" = "Main Menu";
+"Main_Menu_VC" = "Game";
 "Learned_Data_VC" = "Learned Content";
 "Settings_VC" = "Settings";
 
