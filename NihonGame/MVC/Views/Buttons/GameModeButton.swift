@@ -12,8 +12,12 @@ class GameModeButton : MenuButton {
         didSet {
             if let mode = mode {
                 if let name = mode.name {
-                    setContent(title: name)
+                    setContent(text: name)
                     setArrow()
+                }
+                if let modes = mode.getGroups() {
+                    let doneModes = modes.filter({$0.done})
+                    setProgression(text: "\(doneModes.count)/\(modes.count)")
                 }
             }
         }

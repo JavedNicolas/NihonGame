@@ -16,7 +16,6 @@ class NihonGameTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        CoreDataManager.shared.contextForTest()
         GameModes.shared.recreatModes()
         let modes = GameModes.shared.getGameModes()
         let mode = modes[currentModeID]

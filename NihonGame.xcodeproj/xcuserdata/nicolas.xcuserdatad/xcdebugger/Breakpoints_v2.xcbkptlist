@@ -81,13 +81,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NihonGame/MVC/Views/Cells/LevelMenuCollectionViewCell.swift"
-            timestampString = "561387652.962211"
+            filePath = "NihonGame/MVC/Views/Buttons/GameGroupButton.swift"
+            timestampString = "561450902.093477"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "prepareForReuse()"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "group"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NihonGame/MVC/Models/Menu/Level.swift"
+            timestampString = "561450902.093542"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "unlockNextLevel()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

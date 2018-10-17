@@ -37,6 +37,7 @@
 "Current_Score_Text" = "Score Actuel :";
 "Current_Question_Number" = "Question :";
 "Find_Text" = "Trouver : ";
+"Progression_Text" = "Completion :";
 
 //MARK:- Learning Level
 "Learning_Level_1" = "Nouveau !";

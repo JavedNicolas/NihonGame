@@ -9,7 +9,7 @@
 import UIKit
 
 class ModeMenuTableViewCell: MenuTableViewCell {
-    private var gameButton : GameModeButton?
+    private var button : GameModeButton?
     var gameMode : GameMode? = nil {
         didSet {
             if let gameMode = gameMode {
@@ -18,10 +18,18 @@ class ModeMenuTableViewCell: MenuTableViewCell {
         }
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        if let button = button {
+            button.removeFromSuperview()
+        }
+    }
+
     private func setGameButton(gameMode: GameMode){
         let buttonsize = CGRect(x: 0, y: 0, width: self.bounds.width / 2, height: 400)
-        gameButton = GameModeButton(rect: buttonsize)
-        if let gameButton = gameButton {
+        button = GameModeButton(rect: buttonsize)
+        if let gameButton = button {
             gameButton.mode = gameMode
             self.addSubview(gameButton)
             gameButton.setAnchors(top: self.topAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, bottom: self.bottomAnchor,

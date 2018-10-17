@@ -9,7 +9,7 @@
 import UIKit
 
 class GroupMenuTableViewCell: MenuTableViewCell {
-    private var gameButton : GameGroupButton?
+    private var button : GameGroupButton?
     var group : Group? = nil {
         didSet {
             if let group = group {
@@ -18,10 +18,18 @@ class GroupMenuTableViewCell: MenuTableViewCell {
         }
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        if let button = button {
+            button.removeFromSuperview()
+        }
+    }
+
     private func setGameButton(group: Group){
         let buttonsize = CGRect(x: 0, y: 0, width: self.bounds.width / 2, height: 400)
-        gameButton = GameGroupButton(rect: buttonsize)
-        if let gameButton = gameButton {
+        button = GameGroupButton(rect: buttonsize)
+        if let gameButton = button {
             gameButton.group = group
             self.addSubview(gameButton)
             gameButton.setAnchors(top: self.topAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, bottom: self.bottomAnchor,
@@ -30,7 +38,7 @@ class GroupMenuTableViewCell: MenuTableViewCell {
     }
 
     func islocked() -> Bool? {
-        guard let gameButton = gameButton else {
+        guard let gameButton = button else {
             return nil
         }
 

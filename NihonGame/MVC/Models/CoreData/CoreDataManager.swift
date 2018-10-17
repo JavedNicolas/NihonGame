@@ -16,7 +16,7 @@ class CoreDataManager {
 
     /* Context for test */
     func contextForTest() {
-        context = AppDelegate.viewContextForTest
+        context = AppDelegate.persistentConainer.newBackgroundContext()
     }
 
     func fetchMenu(modeID: Int) -> GameMode? {

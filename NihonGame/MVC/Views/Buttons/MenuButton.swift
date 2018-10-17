@@ -40,16 +40,27 @@ class MenuButton : UIView {
         }
     }
 
-    internal func setContent(title: String) {
-        let labelTitle = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width / 3, height: self.frame.height))
-        labelTitle.textAlignment = .center
-        labelTitle.text = title
-        labelTitle.lineBreakMode = .byWordWrapping
-        labelTitle.numberOfLines = 0
-        labelTitle.textColor = .white
+    internal func setContent(text: String) {
+        let labelTitle = setLabel(text: text)
         self.addSubview(labelTitle)
         labelTitle.setAnchors(top: self.topAnchor, leading: self.leadingAnchor, trailing: nil, bottom: self.bottomAnchor,
                               padding: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
+    }
+
+    internal func setProgression(text: String) {
+        let labelProgression = setLabel(text: text)
+        self.addSubview(labelProgression)
+        labelProgression.centerView(x: self.centerXAnchor, y: self.centerYAnchor)
+    }
+
+    private func setLabel(text: String) -> UILabel {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width / 3, height: self.frame.height))
+        label.textAlignment = .center
+        label.text = text
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
+        label.textColor = .white
+        return label
     }
 
     internal func setArrow() {

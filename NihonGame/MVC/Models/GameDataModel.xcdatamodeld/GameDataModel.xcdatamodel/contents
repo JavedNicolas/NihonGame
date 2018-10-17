@@ -23,6 +23,7 @@
         </uniquenessConstraints>
     </entity>
     <entity name="Group" representedClassName=".Group" syncable="YES" codeGenerationType="category">
+        <attribute name="done" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="firstElement" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastElement" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -37,6 +38,7 @@
         </uniquenessConstraints>
     </entity>
     <entity name="Level" representedClassName=".Level" syncable="YES" codeGenerationType="category">
+        <attribute name="done" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="firstElement" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastElement" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -54,7 +56,7 @@
     <elements>
         <element name="GameData" positionX="-20.5" positionY="222.47265625" width="128" height="105"/>
         <element name="GameMode" positionX="-25.71875" positionY="424.05859375" width="128" height="105"/>
-        <element name="Group" positionX="-377.70703125" positionY="236.64453125" width="128" height="150"/>
-        <element name="Level" positionX="-369.84375" positionY="-0.328125" width="128" height="165"/>
+        <element name="Group" positionX="-377.70703125" positionY="236.64453125" width="128" height="165"/>
+        <element name="Level" positionX="-369.84375" positionY="-0.328125" width="128" height="180"/>
     </elements>
 </model>

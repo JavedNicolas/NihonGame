@@ -13,7 +13,7 @@ class LevelButton : MenuButton {
         didSet {
             if let level = level {
                 if let name = level.name {
-                    setContent(title: name)
+                    setContent(text: name)
                 }
                 if !level.locked {
                     setStars(stars: level.stars.int)

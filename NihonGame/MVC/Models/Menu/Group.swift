@@ -10,8 +10,6 @@ import Foundation
 import CoreData
 
 class Group: NSManagedObject {
-    var done = false
-
     /** fill the instance for the first int when CoreData is empty */
     func fill(groupsParsed group: GroupParsing, levels: [Level], groupName: String) {
         self.name = groupName

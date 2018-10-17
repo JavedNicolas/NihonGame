@@ -115,7 +115,6 @@ class GameViewController: UIViewController {
             if game.isLevelSuccess() {
                 game.level.levelfinished()
             }
-            CoreDataManager.shared.saveContext()
             showEndLevelPopUp()
             return true
         }

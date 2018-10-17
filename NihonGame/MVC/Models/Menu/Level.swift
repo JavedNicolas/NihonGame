@@ -10,7 +10,6 @@ import Foundation
 import CoreData
 
 class Level : NSManagedObject {
-    var done = false
     var newGameDataID : Int?
     lazy var bestScore = 0
     var endLevelScore = 0.int64
@@ -58,7 +57,6 @@ class Level : NSManagedObject {
     func levelfinished() {
         unlockNextLevel()
         CoreDataManager.shared.saveContext()
-
     }
 
     /** Unlock the next level when */
@@ -72,8 +70,8 @@ class Level : NSManagedObject {
                 level.endLevelScore = level.score
                 if level.score >= 500 {
                     setStars()
+                    level.done = true
                     if level.bestScore < 500 {
-                        level.done = true
                         if index != levels.count - 1 {
                             levels[index + 1].locked = false
                         }else {

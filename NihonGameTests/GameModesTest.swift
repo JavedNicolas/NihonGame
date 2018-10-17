@@ -11,14 +11,19 @@ import XCTest
 
 class GameModesTest: XCTestCase {
     let modes = GameModes.shared
+    let beforeTestState = GameModes.shared.getGameModes()
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        CoreDataManager.shared.contextForTest()
+    }
+
+    override func tearDown() {
+        // 
     }
 
     func testGivenWeWantGameModeBeProgressionWhenAskThemThenWeGetAnArrayOfGameMode() {
         // Given
+        CoreDataManager.shared.contextForTest()
         for mode in modes.getGameModes() {
             CoreDataManager.shared.deleteMode(modeID: mode.id.int)
         }
