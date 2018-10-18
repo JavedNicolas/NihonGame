@@ -98,12 +98,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NihonGame/MVC/Models/Menu/Level.swift"
-            timestampString = "561450902.093542"
+            timestampString = "561546885.8686661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "70"
             endingLineNumber = "70"
             landmarkName = "unlockNextLevel()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NihonGame/MVC/Models/GameData/GameData.swift"
+            timestampString = "561560689.436404"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "getQuestionData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

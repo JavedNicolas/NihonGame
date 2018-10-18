@@ -13,8 +13,9 @@ class GroupsTest: XCTestCase {
     var groups : [Group] = []
 
     override func setUp() {
-        let groupJSON = GameModes.shared.getGameModes()[0].modeData!.getGroupJSON()
-        groups = Groups(json: groupJSON).getGroups()
+        super.setUp()
+        let mode = GameModes.shared.getGameModes()[0]
+        groups = mode.getGroups()!
     }
 
     func testGivenWeHaveGameDatapWhenWeWantToSplitThemToMakeGroupsThenWeGetGroups() {

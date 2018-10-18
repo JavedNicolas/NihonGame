@@ -13,7 +13,7 @@ class GameData : NSManagedObject {
     // MARK: - Attributs
     var dataNameOrder = [String]()
     lazy var data = self.setDataAsStruct()
-    var learningLevel : String {
+    var  learningLevel : String {
         get {
             return setLearningLevelString()
         }

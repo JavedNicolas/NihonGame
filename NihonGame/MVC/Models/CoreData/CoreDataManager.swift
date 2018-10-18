@@ -11,13 +11,8 @@ import CoreData
 
 class CoreDataManager {
     private var context = AppDelegate.viewContext
-    static let shared = CoreDataManager()
-    private init() {}
-
-    /* Context for test */
-    func contextForTest() {
-        context = AppDelegate.persistentConainer.newBackgroundContext()
-    }
+    static var shared = CoreDataManager()
+    internal init() {}
 
     func fetchMenu(modeID: Int) -> GameMode? {
         let requestGameMode : NSFetchRequest<GameMode> = GameMode.fetchRequest()
