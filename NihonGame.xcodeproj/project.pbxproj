@@ -84,6 +84,9 @@
 		37685A2621539E6500D8B585 /* LevelMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37685A2521539E6500D8B585 /* LevelMenuCollectionViewCell.swift */; };
 		37698F73217B02310053F185 /* SwipeQuestionModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37698F72217B02310053F185 /* SwipeQuestionModeView.swift */; };
 		37698F75217B081B0053F185 /* SwipeQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37698F74217B081B0053F185 /* SwipeQuestionView.swift */; };
+		37698F77217B68730053F185 /* Katakana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37698F76217B68730053F185 /* Katakana.swift */; };
+		37698F7D217B71C90053F185 /* KatakanaList.json in Resources */ = {isa = PBXBuildFile; fileRef = 37698F7C217B71C90053F185 /* KatakanaList.json */; };
+		37698F7F217B71FA0053F185 /* KatakanaGroupList.json in Resources */ = {isa = PBXBuildFile; fileRef = 37698F7E217B71FA0053F185 /* KatakanaGroupList.json */; };
 		3776D5E3214BA65600536A8D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3776D5E5214BA65600536A8D /* Localizable.strings */; };
 		3776D5E8214BA78E00536A8D /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3776D5E7214BA78E00536A8D /* StringExtension.swift */; };
 		3776D5EC2150D2C100536A8D /* GroupMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3776D5EB2150D2C100536A8D /* GroupMenuViewController.swift */; };
@@ -197,6 +200,9 @@
 		37685A2521539E6500D8B585 /* LevelMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelMenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		37698F72217B02310053F185 /* SwipeQuestionModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeQuestionModeView.swift; sourceTree = "<group>"; };
 		37698F74217B081B0053F185 /* SwipeQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeQuestionView.swift; sourceTree = "<group>"; };
+		37698F76217B68730053F185 /* Katakana.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Katakana.swift; sourceTree = "<group>"; };
+		37698F7C217B71C90053F185 /* KatakanaList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = KatakanaList.json; sourceTree = "<group>"; };
+		37698F7E217B71FA0053F185 /* KatakanaGroupList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = KatakanaGroupList.json; sourceTree = "<group>"; };
 		3776D5E4214BA65600536A8D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3776D5E6214BA65D00536A8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3776D5E7214BA78E00536A8D /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -257,6 +263,7 @@
 		37282EF42170E173001D22DC /* JSONs */ = {
 			isa = PBXGroup;
 			children = (
+				37698F7B217B71B50053F185 /* Katakana */,
 				37282EFC2171DC03001D22DC /* Hiragana */,
 				37282EFB2171DBF5001D22DC /* Kanji */,
 			);
@@ -316,6 +323,7 @@
 				3754809E215A505100CE2335 /* GameData.swift */,
 				373570F8215D18ED0033A5F7 /* Kanjis.swift */,
 				37282EF72170F236001D22DC /* Hiragana.swift */,
+				37698F76217B68730053F185 /* Katakana.swift */,
 			);
 			path = GameData;
 			sourceTree = "<group>";
@@ -501,6 +509,15 @@
 				37698F74217B081B0053F185 /* SwipeQuestionView.swift */,
 			);
 			path = SwipeQuestionMode;
+			sourceTree = "<group>";
+		};
+		37698F7B217B71B50053F185 /* Katakana */ = {
+			isa = PBXGroup;
+			children = (
+				37698F7C217B71C90053F185 /* KatakanaList.json */,
+				37698F7E217B71FA0053F185 /* KatakanaGroupList.json */,
+			);
+			path = Katakana;
 			sourceTree = "<group>";
 		};
 		3776D5DD214B919500536A8D /* Delegate */ = {
@@ -695,6 +712,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				37282EF32170E167001D22DC /* HiraganaList.json in Resources */,
+				37698F7F217B71FA0053F185 /* KatakanaGroupList.json in Resources */,
+				37698F7D217B71C90053F185 /* KatakanaList.json in Resources */,
 				3776D5E3214BA65600536A8D /* Localizable.strings in Resources */,
 				375480A1215A650F00CE2335 /* KanjiGroupList.json in Resources */,
 				37A5664B2148EDCE00F53B43 /* KanjiList.json in Resources */,
@@ -765,6 +784,7 @@
 				3765F63C2162089400A4D64D /* PossibleAnswers.swift in Sources */,
 				3776D5E8214BA78E00536A8D /* StringExtension.swift in Sources */,
 				37EBC379215291F60049DB66 /* GroupLevelVCDataSource.swift in Sources */,
+				37698F77217B68730053F185 /* Katakana.swift in Sources */,
 				373570F3215D146D0033A5F7 /* Level.swift in Sources */,
 				370DA7D8216B459100AA243C /* ModeMenuTableViewCell.swift in Sources */,
 				37E0B0332158C0EC0064019F /* GroupMenuTableViewCell.swift in Sources */,

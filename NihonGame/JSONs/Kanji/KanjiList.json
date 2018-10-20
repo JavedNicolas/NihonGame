@@ -3,7 +3,7 @@
         "level": "N5",
         "kanji": "一",
         "onyomi": "イチ,イツ",
-        "kunyomi": "ひと,ひと",
+        "kunyomi": "ひと",
         "traduction": "un",
         "id": 1
     },
@@ -35,7 +35,7 @@
         "level": "N5",
         "kanji": "五",
         "onyomi": "ゴ",
-        "kunyomi": "いつ,いつ",
+        "kunyomi": "いつ",
         "traduction": "cinq",
         "id": 5
     },
@@ -259,7 +259,7 @@
         "level": "N5",
         "kanji": "休",
         "onyomi": "キュウ",
-        "kunyomi": "やす,やす",
+        "kunyomi": "やす",
         "traduction": "se reposer,repos",
         "id": 33
     },
@@ -307,7 +307,7 @@
         "level": "N5",
         "kanji": "分",
         "onyomi": "ブン,フン",
-        "kunyomi": "わ,わ",
+        "kunyomi": "わ",
         "traduction": "comprendre,minute,degré,taux",
         "id": 39
     },
@@ -723,7 +723,7 @@
         "level": "N5",
         "kanji": "語",
         "onyomi": "ゴ",
-        "kunyomi": "かた,かた",
+        "kunyomi": "かた",
         "traduction": "langage,mot,raconter",
         "id": 91
     },
@@ -851,7 +851,7 @@
         "level": "N4",
         "kanji": "低",
         "onyomi": "テイ",
-        "kunyomi": "ひく,ひく",
+        "kunyomi": "ひく",
         "traduction": "bas,abaisser",
         "id": 107
     },
@@ -1003,7 +1003,7 @@
         "level": "N4",
         "kanji": "味",
         "onyomi": "ミ",
-        "kunyomi": "あじ,あじ",
+        "kunyomi": "あじ",
         "traduction": "saveur,goût,apprécier la saveur de",
         "id": 126
     },
@@ -1115,7 +1115,7 @@
         "level": "N4",
         "kanji": "太",
         "onyomi": "タイ",
-        "kunyomi": "ふと,ふと",
+        "kunyomi": "ふと",
         "traduction": "gros,grossir",
         "id": 140
     },
@@ -1243,7 +1243,7 @@
         "level": "N4",
         "kanji": "引",
         "onyomi": "イン",
-        "kunyomi": "ひ,ひ",
+        "kunyomi": "ひ",
         "traduction": "cesser,diminuer,jouer (musique),prendre froid",
         "id": 156
     },
@@ -1507,7 +1507,7 @@
         "level": "N4",
         "kanji": "楽",
         "onyomi": "ガク,ラク,ゴウ",
-        "kunyomi": "たの,たの",
+        "kunyomi": "たの",
         "traduction": "musique,agréable,confortable",
         "id": 189
     },
@@ -1515,7 +1515,7 @@
         "level": "N4",
         "kanji": "歌",
         "onyomi": "カ",
-        "kunyomi": "うた,うた",
+        "kunyomi": "うた",
         "traduction": "chant,chanter",
         "id": 190
     },
@@ -1763,7 +1763,7 @@
         "level": "N4",
         "kanji": "知",
         "onyomi": "チ",
-        "kunyomi": "し,し",
+        "kunyomi": "し",
         "traduction": "savoir,connaître",
         "id": 221
     },
@@ -1811,7 +1811,7 @@
         "level": "N4",
         "kanji": "答",
         "onyomi": "トウ",
-        "kunyomi": "こた,こた",
+        "kunyomi": "こた",
         "traduction": "solution,réponse,répondre",
         "id": 227
     },
@@ -1827,7 +1827,7 @@
         "level": "N4",
         "kanji": "終",
         "onyomi": "シュウ",
-        "kunyomi": "お,お",
+        "kunyomi": "お",
         "traduction": "finir,fin",
         "id": 229
     },
@@ -1923,7 +1923,7 @@
         "level": "N4",
         "kanji": "計",
         "onyomi": "ケイ",
-        "kunyomi": "はか,はか",
+        "kunyomi": "はか",
         "traduction": "mesurer,peser,penser à,traiter,gérer",
         "id": 241
     },
@@ -1979,7 +1979,7 @@
         "level": "N4",
         "kanji": "起",
         "onyomi": "キ",
-        "kunyomi": "お,お",
+        "kunyomi": "お",
         "traduction": "se lever,se réveiller,réveiller",
         "id": 248
     },
@@ -2107,7 +2107,7 @@
         "level": "N4",
         "kanji": "集",
         "onyomi": "シュウ",
-        "kunyomi": "あつ,あつ",
+        "kunyomi": "あつ",
         "traduction": "rassembler,réunir",
         "id": 264
     },
@@ -2251,7 +2251,7 @@
         "level": "N4",
         "kanji": "産",
         "onyomi": "サン",
-        "kunyomi": "う,う",
+        "kunyomi": "う",
         "traduction": "production,naissance,donner naissance",
         "id": 282
     },
@@ -2315,7 +2315,7 @@
         "level": "N3",
         "kanji": "任",
         "onyomi": "ニン",
-        "kunyomi": "まか,まか",
+        "kunyomi": "まか",
         "traduction": "responsabilité,confier à",
         "id": 290
     },
@@ -2323,7 +2323,7 @@
         "level": "N3",
         "kanji": "伝",
         "onyomi": "デン,テン",
-        "kunyomi": "つた,つた",
+        "kunyomi": "つた",
         "traduction": "transmettre,communiquer,légende,tradition",
         "id": 291
     },
@@ -2347,7 +2347,7 @@
         "level": "N3",
         "kanji": "余",
         "onyomi": "ヨ",
-        "kunyomi": "あま,あま",
+        "kunyomi": "あま",
         "traduction": "dépasser,surplus",
         "id": 294
     },
@@ -2363,7 +2363,7 @@
         "level": "N3",
         "kanji": "倒",
         "onyomi": "トウ",
-        "kunyomi": "たお,たお",
+        "kunyomi": "たお",
         "traduction": "se renverser,s'écrouler,s'effondrer",
         "id": 296
     },
@@ -2459,7 +2459,7 @@
         "level": "N3",
         "kanji": "初",
         "onyomi": "ショ",
-        "kunyomi": "はじ,はじ",
+        "kunyomi": "はじ",
         "traduction": "première fois,commencement,début",
         "id": 308
     },
@@ -2491,7 +2491,7 @@
         "level": "N3",
         "kanji": "割",
         "onyomi": "カツ",
-        "kunyomi": "わ,わ",
+        "kunyomi": "わ",
         "traduction": "diviser,séparer,se fendre,pourcentage,proportion",
         "id": 312
     },
@@ -2595,7 +2595,7 @@
         "level": "N3",
         "kanji": "反",
         "onyomi": "ハン",
-        "kunyomi": "そ,そ",
+        "kunyomi": "そ",
         "traduction": "anti,opposé,courber,se courber",
         "id": 325
     },
@@ -2635,7 +2635,7 @@
         "level": "N3",
         "kanji": "向",
         "onyomi": "コウ",
-        "kunyomi": "む,む",
+        "kunyomi": "む",
         "traduction": "se diriger vers,de l'autre côté",
         "id": 330
     },
@@ -2779,7 +2779,7 @@
         "level": "N3",
         "kanji": "夢",
         "onyomi": "ム,ボウ",
-        "kunyomi": "ゆめ,ゆめ",
+        "kunyomi": "ゆめ",
         "traduction": "rêve,illusion",
         "id": 348
     },
@@ -2851,7 +2851,7 @@
         "level": "N3",
         "kanji": "守",
         "onyomi": "シュ,ス",
-        "kunyomi": "まも,まも",
+        "kunyomi": "まも",
         "traduction": "protéger,défendre,gardien",
         "id": 357
     },
@@ -2915,7 +2915,7 @@
         "level": "N3",
         "kanji": "宿",
         "onyomi": "シュク",
-        "kunyomi": "やど,やど",
+        "kunyomi": "やど",
         "traduction": "logement,auberge,se loger",
         "id": 365
     },
@@ -2979,7 +2979,7 @@
         "level": "N3",
         "kanji": "差",
         "onyomi": "サ",
-        "kunyomi": "さ,さ",
+        "kunyomi": "さ",
         "traduction": "différence,reste,désigner",
         "id": 373
     },
@@ -3195,7 +3195,7 @@
         "level": "N3",
         "kanji": "悲",
         "onyomi": "ヒ",
-        "kunyomi": "かな,かな",
+        "kunyomi": "かな",
         "traduction": "mélancolie,peine,se lamenter",
         "id": 400
     },
@@ -3355,7 +3355,7 @@
         "level": "N3",
         "kanji": "掛",
         "onyomi": "カイ,ケイ",
-        "kunyomi": "か,か",
+        "kunyomi": "か",
         "traduction": "accrocher,suspendre,dépendre,arriver à,taxe",
         "id": 420
     },
@@ -3379,7 +3379,7 @@
         "level": "N3",
         "kanji": "放",
         "onyomi": "ホウ",
-        "kunyomi": "はな,はな",
+        "kunyomi": "はな",
         "traduction": "libérer,relâcher,émettre",
         "id": 423
     },
@@ -3403,7 +3403,7 @@
         "level": "N3",
         "kanji": "散",
         "onyomi": "サン",
-        "kunyomi": "ち,ち",
+        "kunyomi": "ち",
         "traduction": "éparpiller,mettre en désordre,s'éparpiller",
         "id": 426
     },
@@ -3763,7 +3763,7 @@
         "level": "N3",
         "kanji": "済",
         "onyomi": "サイ,セイ",
-        "kunyomi": "す,す",
+        "kunyomi": "す",
         "traduction": "finir,achever",
         "id": 471
     },
@@ -3939,7 +3939,7 @@
         "level": "N3",
         "kanji": "痛",
         "onyomi": "ツウ",
-        "kunyomi": "いた,いた",
+        "kunyomi": "いた",
         "traduction": "douloureux,douleur,avoir mal",
         "id": 493
     },
@@ -4003,7 +4003,7 @@
         "level": "N3",
         "kanji": "破",
         "onyomi": "ハ",
-        "kunyomi": "やぶ,やぶ",
+        "kunyomi": "やぶ",
         "traduction": "être déchiré,défaire",
         "id": 501
     },
@@ -4011,7 +4011,7 @@
         "level": "N3",
         "kanji": "確",
         "onyomi": "カク,コウ",
-        "kunyomi": "たし,たし",
+        "kunyomi": "たし",
         "traduction": "certitude,évident,s'assurer de,vérifier",
         "id": 502
     },
@@ -4083,7 +4083,7 @@
         "level": "N3",
         "kanji": "積",
         "onyomi": "セキ",
-        "kunyomi": "つ,つ",
+        "kunyomi": "つ",
         "traduction": "intention,accumuler,entasser",
         "id": 511
     },
@@ -4147,7 +4147,7 @@
         "level": "N3",
         "kanji": "約",
         "onyomi": "ヤク",
-        "kunyomi": "つづ,つづ",
+        "kunyomi": "つづ",
         "traduction": "promesse,approximation,environ",
         "id": 519
     },
@@ -4195,7 +4195,7 @@
         "level": "N3",
         "kanji": "続",
         "onyomi": "ゾク,ショク",
-        "kunyomi": "つづ,つづ",
+        "kunyomi": "つづ",
         "traduction": "continuer",
         "id": 525
     },
@@ -4251,7 +4251,7 @@
         "level": "N3",
         "kanji": "育",
         "onyomi": "イク",
-        "kunyomi": "そだ,そだ",
+        "kunyomi": "そだ",
         "traduction": "élever,grandir",
         "id": 532
     },
@@ -4307,7 +4307,7 @@
         "level": "N3",
         "kanji": "若",
         "onyomi": "ジャク,ニャク,ニャ",
-        "kunyomi": "わか,も,も",
+        "kunyomi": "わか,も",
         "traduction": "jeune,immature,si,ou bien",
         "id": 539
     },
@@ -4315,7 +4315,7 @@
         "level": "N3",
         "kanji": "苦",
         "onyomi": "ク",
-        "kunyomi": "くる,くる",
+        "kunyomi": "くる",
         "traduction": "peine,affliction,souffrir",
         "id": 540
     },
@@ -4331,7 +4331,7 @@
         "level": "N3",
         "kanji": "落",
         "onyomi": "ラク",
-        "kunyomi": "お,お",
+        "kunyomi": "お",
         "traduction": "tomber,chuter,faire tomber,perdre (un objet)",
         "id": 542
     },
@@ -4515,7 +4515,7 @@
         "level": "N3",
         "kanji": "費",
         "onyomi": "ヒ",
-        "kunyomi": "つい,つい",
+        "kunyomi": "つい",
         "traduction": "dépenser,être dépensé,coût",
         "id": 565
     },
@@ -4539,7 +4539,7 @@
         "level": "N3",
         "kanji": "越",
         "onyomi": "エツ,オツ",
-        "kunyomi": "こ,こ",
+        "kunyomi": "こ",
         "traduction": "surpasser,dépasser,traverser",
         "id": 568
     },
@@ -4579,7 +4579,7 @@
         "level": "N3",
         "kanji": "返",
         "onyomi": "ヘン",
-        "kunyomi": "かえ,かえ",
+        "kunyomi": "かえ",
         "traduction": "rendre,retourner",
         "id": 573
     },
@@ -4675,7 +4675,7 @@
         "level": "N3",
         "kanji": "違",
         "onyomi": "イ",
-        "kunyomi": "ちが,ちが",
+        "kunyomi": "ちが",
         "traduction": "différer,différence,être différent",
         "id": 585
     },
@@ -4787,7 +4787,7 @@
         "level": "N3",
         "kanji": "雑",
         "onyomi": "ザツ,ゾウ",
-        "kunyomi": "まじ,まじ",
+        "kunyomi": "まじ",
         "traduction": "divers,varié",
         "id": 599
     },
@@ -4923,7 +4923,7 @@
         "level": "N3",
         "kanji": "活",
         "onyomi": "カツ",
-        "kunyomi": "い,い",
+        "kunyomi": "い",
         "traduction": "vie,vitalité,vigueur,activité",
         "id": 616
     },
@@ -4931,7 +4931,7 @@
         "level": "N3",
         "kanji": "浮",
         "onyomi": "フ",
-        "kunyomi": "う,う",
+        "kunyomi": "う",
         "traduction": "flotter,faire surface,se réjouir,s'amuser",
         "id": 617
     },
@@ -4971,7 +4971,7 @@
         "level": "N3",
         "kanji": "然",
         "onyomi": "ゼン,ネン",
-        "kunyomi": "しか,しか",
+        "kunyomi": "しか",
         "traduction": "état naturel,suffixe adverbial",
         "id": 622
     },
@@ -5059,7 +5059,7 @@
         "level": "N2",
         "kanji": "停",
         "onyomi": "テイ",
-        "kunyomi": "と,と",
+        "kunyomi": "と",
         "traduction": "arrêt,s'arrêter",
         "id": 633
     },
@@ -5099,7 +5099,7 @@
         "level": "N2",
         "kanji": "兆",
         "onyomi": "チョウ",
-        "kunyomi": "きざ,きざ",
+        "kunyomi": "きざ",
         "traduction": "signe,présage,donner signe,10^12",
         "id": 638
     },
@@ -5203,7 +5203,7 @@
         "level": "N2",
         "kanji": "卒",
         "onyomi": "ソツ",
-        "kunyomi": "お,お",
+        "kunyomi": "お",
         "traduction": "fin des études,soldat,serviteur",
         "id": 651
     },
@@ -5275,7 +5275,7 @@
         "level": "N2",
         "kanji": "可",
         "onyomi": "カ,コク",
-        "kunyomi": "べ,べ",
+        "kunyomi": "べ",
         "traduction": "possible,réalisable,acceptable",
         "id": 660
     },
@@ -5379,7 +5379,7 @@
         "level": "N2",
         "kanji": "固",
         "onyomi": "コ",
-        "kunyomi": "かた,かた",
+        "kunyomi": "かた",
         "traduction": "dur,ferme,solide,durcir",
         "id": 673
     },
@@ -5795,7 +5795,7 @@
         "level": "N2",
         "kanji": "延",
         "onyomi": "エン",
-        "kunyomi": "の,の",
+        "kunyomi": "の",
         "traduction": "allonger,prolonger,être prolongé",
         "id": 725
     },
@@ -6115,7 +6115,7 @@
         "level": "N2",
         "kanji": "暖",
         "onyomi": "ダン,ノン",
-        "kunyomi": "あたた,あたた",
+        "kunyomi": "あたた",
         "traduction": "chaleur,chauffer",
         "id": 765
     },
@@ -6123,7 +6123,7 @@
         "level": "N2",
         "kanji": "暴",
         "onyomi": "ボウ,バク",
-        "kunyomi": "あば,あば",
+        "kunyomi": "あば",
         "traduction": "agir violemment,cruauté,violence,dévoiler",
         "id": 766
     },
@@ -6235,7 +6235,7 @@
         "level": "N2",
         "kanji": "栄",
         "onyomi": "エイ",
-        "kunyomi": "は,は",
+        "kunyomi": "は",
         "traduction": "florissant,prospère,prospérer",
         "id": 780
     },
@@ -6523,7 +6523,7 @@
         "level": "N2",
         "kanji": "清",
         "onyomi": "セイ,ショウ",
-        "kunyomi": "きよ,きよ",
+        "kunyomi": "きよ",
         "traduction": "clair,limpide,purifier",
         "id": 816
     },
@@ -6651,7 +6651,7 @@
         "level": "N2",
         "kanji": "焼",
         "onyomi": "ショウ",
-        "kunyomi": "や,や",
+        "kunyomi": "や",
         "traduction": "griller,rôtir,brûler",
         "id": 832
     },
@@ -6835,7 +6835,7 @@
         "level": "N2",
         "kanji": "異",
         "onyomi": "イ",
-        "kunyomi": "こと,こと",
+        "kunyomi": "こと",
         "traduction": "inhabituel,surprenant,bizzarerie",
         "id": 855
     },
@@ -8043,7 +8043,7 @@
         "level": "N2",
         "kanji": "香",
         "onyomi": "コウ,キョウ",
-        "kunyomi": "かお,かお",
+        "kunyomi": "かお",
         "traduction": "parfum,senteur,parfumer",
         "id": 1006
     },
@@ -8883,7 +8883,7 @@
         "level": "N1",
         "kanji": "唄",
         "onyomi": "バイ",
-        "kunyomi": "うた,うた",
+        "kunyomi": "うた",
         "traduction": "chanson avec un shamisen (instrument à cordes)",
         "id": 1111
     },
@@ -9683,7 +9683,7 @@
         "level": "N1",
         "kanji": "就",
         "onyomi": "シュウ,ジュ",
-        "kunyomi": "つ,つ",
+        "kunyomi": "つ",
         "traduction": "prendre place,s'installer,prendre un poste,concernant",
         "id": 1211
     },
@@ -9843,7 +9843,7 @@
         "level": "N1",
         "kanji": "巡",
         "onyomi": "ジュン",
-        "kunyomi": "めぐ,めぐ",
+        "kunyomi": "めぐ",
         "traduction": "tourner autour,faire le tour,patrouiller",
         "id": 1231
     },
@@ -10219,7 +10219,7 @@
         "level": "N1",
         "kanji": "怪",
         "onyomi": "カイ,ケ",
-        "kunyomi": "あや,あや",
+        "kunyomi": "あや",
         "traduction": "méfiant,se méfier de,mystère,apparition",
         "id": 1278
     },
@@ -10235,7 +10235,7 @@
         "level": "N1",
         "kanji": "恨",
         "onyomi": "コン",
-        "kunyomi": "うら,うら",
+        "kunyomi": "うら",
         "traduction": "regret,ressentiment,rancœur,haine",
         "id": 1280
     },
@@ -10259,7 +10259,7 @@
         "level": "N1",
         "kanji": "悔",
         "onyomi": "カイ",
-        "kunyomi": "く,く",
+        "kunyomi": "く",
         "traduction": "regret,repentir",
         "id": 1283
     },
@@ -10307,7 +10307,7 @@
         "level": "N1",
         "kanji": "惜",
         "onyomi": "セキ",
-        "kunyomi": "お,お",
+        "kunyomi": "お",
         "traduction": "déplorable,regrettable,économiser,épargner",
         "id": 1289
     },
@@ -10747,7 +10747,7 @@
         "level": "N1",
         "kanji": "挙",
         "onyomi": "キョ",
-        "kunyomi": "あ,あ",
+        "kunyomi": "あ",
         "traduction": "actions,citer,être cité,être arrêté",
         "id": 1344
     },
@@ -10771,7 +10771,7 @@
         "level": "N1",
         "kanji": "据",
         "onyomi": "キョ",
-        "kunyomi": "す,す",
+        "kunyomi": "す",
         "traduction": "poser,installer,établir,s'asseoir",
         "id": 1347
     },
@@ -11027,7 +11027,7 @@
         "level": "N1",
         "kanji": "敷",
         "onyomi": "フ",
-        "kunyomi": "し,し",
+        "kunyomi": "し",
         "traduction": "s'étendre,s'étaler,s'asseoir",
         "id": 1379
     },
@@ -11547,7 +11547,7 @@
         "level": "N1",
         "kanji": "殖",
         "onyomi": "ショク",
-        "kunyomi": "ふ,ふ",
+        "kunyomi": "ふ",
         "traduction": "augmenter,croître,multiplier",
         "id": 1444
     },
@@ -12139,7 +12139,7 @@
         "level": "N1",
         "kanji": "狂",
         "onyomi": "キョウ",
-        "kunyomi": "くる,くる",
+        "kunyomi": "くる",
         "traduction": "folie,fou,insensé",
         "id": 1518
     },
@@ -12395,7 +12395,7 @@
         "level": "N1",
         "kanji": "盛",
         "onyomi": "セイ,ジョウ",
-        "kunyomi": "も,さか,さか",
+        "kunyomi": "も,さか",
         "traduction": "actif,prospère,florissant",
         "id": 1550
     },
@@ -15051,7 +15051,7 @@
         "level": "N1",
         "kanji": "陰",
         "onyomi": "イン",
-        "kunyomi": "かげ,かげ",
+        "kunyomi": "かげ",
         "traduction": "ombre,yin,secret",
         "id": 1882
     },
@@ -15675,7 +15675,7 @@
         "level": "N1",
         "kanji": "渋",
         "onyomi": "ジュウ,シュウ",
-        "kunyomi": "しぶ,しぶ",
+        "kunyomi": "しぶ",
         "traduction": "astringent,resserré,peu enthousiaste,hésiter",
         "id": 1960
     },
@@ -15872,3 +15872,4 @@
         "id": 1984
     }
 ]
+

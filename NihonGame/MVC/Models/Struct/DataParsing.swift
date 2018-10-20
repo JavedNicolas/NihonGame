@@ -23,4 +23,10 @@ struct HiraganaParsing : Decodable {
     let id : Int
 }
 
+struct KatakanaParsing : Decodable {
+    let kana : String
+    let prononciation : String
+    let id : Int
+}
+
 

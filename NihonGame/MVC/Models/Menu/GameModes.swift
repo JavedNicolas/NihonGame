@@ -10,17 +10,17 @@ import Foundation
 
 class GameModes {
     private var gameModes : [GameMode] = []
-    private var modesData : [ModeDatas] = [Hiragana(), Kanjis()]
+    private var modesData : [ModeDatas] = []
     var currentMode : GameMode?
     static let shared = GameModes()
 
     private init() {
-        createModesList()
+        recreatModes()
     }
 
     func recreatModes() {
         gameModes = []
-        modesData = [Hiragana(), Kanjis()]
+        modesData = [Hiragana(), Katakana(), Kanjis()]
         createModesList()
     }
 
