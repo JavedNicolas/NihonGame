@@ -17,9 +17,8 @@ class SQModeView: UIView, QuestionType {
     private lazy var bottomAnchors = [self.centerYAnchor, self.centerYAnchor, self.bottomAnchor, self.bottomAnchor]
     private lazy var leftPadding : [CGFloat] = [0, CGFloat(-rectanglePadding), 0, CGFloat(rectanglePadding) ]
     private lazy var rightPadding : [CGFloat] = [CGFloat(rectanglePadding), 0, CGFloat(-rectanglePadding), 0 ]
-    var notificationNameString: String = "UserAnswered"
     var answerViews = [SQAnswerView]()
-    var levelProgressionBar : LevelScoreDisplayBar?
+    var answered = (hasAnswered: false, hasCorrectlyAnswered: false)
     var game : Game? = nil {
         didSet {
             if let game = game, let question = game.getCurrentQuestion() {
@@ -31,8 +30,6 @@ class SQModeView: UIView, QuestionType {
         }
     }
 
-    var answered = (hasAnswered: false, hasCorrectlyAnswered: false)
-
     //MARK:- Setters functions
     func setQuestion(question: Question) {
         let circleSize = 200
@@ -43,11 +40,7 @@ class SQModeView: UIView, QuestionType {
     }
 
     func setAnswers(question: Question) {
-        var answers = question.badAnswers
-        answers.append(question.goodAnswer)
-        answers.shuffle()
-
-        for (index, answer) in answers.enumerated() {
+        for (index, answer) in question.answers.enumerated() {
             let answerView = setAnswerView(answer: answer)
             self.addSubview(answerView)
             answerView.setAnchors(top: topAnchors[index], leading: leadingAnchors[index], trailing: trailingAnchors[index], bottom: bottomAnchors[index],
@@ -57,16 +50,7 @@ class SQModeView: UIView, QuestionType {
             answerViews.append(answerView)
         }
     }
-
-    func setLevelProgressBar(game: Game) {
-        let barHeight = CGFloat(70)
-        let frame = CGRect(x: 0, y: self.frame.height - barHeight, width: self.frame.width, height: barHeight)
-        levelProgressionBar = LevelScoreDisplayBar(frame: frame, game: game)
-        guard let levelProgressionBar = levelProgressionBar else { return }
-        addSubview(levelProgressionBar)
-    }
-
-    // MARK:- functions
+    
     private func setAnswerView(answer: Answer) -> SQAnswerView {
         let answerRect = CGRect(x: 0, y: 0, width: 0, height: 0)
         let answerView = SQAnswerView(frame: answerRect, answer: answer)
@@ -78,9 +62,7 @@ class SQModeView: UIView, QuestionType {
         if let answerView = sender.view as? SQAnswerView, let game = game , let question = game.getCurrentQuestion(){
             answered.hasAnswered = true
             animateAnswer(userAnswer: answerView, question: question)
-            let notificationName = Notification.Name(self.notificationNameString)
-            let notification = Notification(name: notificationName)
-            NotificationCenter.default.post(notification)
+            sendNotification()
         }
     }
 

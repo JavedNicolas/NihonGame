@@ -34,6 +34,8 @@ struct DesignConstant {
     static let black1Alpha = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
     static let blue1Alpha = UIColor(red: BlueColorComponents.redColor, green: BlueColorComponents.greenColor,
                                     blue: BlueColorComponents.blueColor, alpha: 1)
+    static let green7Alpha = UIColor.green.withAlphaComponent(0.7)
+    static let red7Alpha = UIColor.red.withAlphaComponent(0.7)
 }
 
 struct GrayColorComponents {

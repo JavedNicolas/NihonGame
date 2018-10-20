@@ -38,6 +38,7 @@
 "Current_Question_Number" = "Question :";
 "Find_Text" = "Find : ";
 "Progression_Text" = "Completion :";
+"Swipe_Question_Text" = "Swipe the question to answer !";
 
 //MARK:- Learning Level
 "Learning_Level_1" = "New !";

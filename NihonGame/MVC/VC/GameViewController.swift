@@ -12,7 +12,7 @@ class GameViewController: UIViewController {
     // MARK: Attributs
     private var userAnsweredNotificationName = Notification.Name(rawValue: "UserAnswered")
     private var questionSetNotificationName = Notification.Name(rawValue: "QuestionLoaded")
-    private lazy var questionTypes : [QuestionType] = [SQModeView(frame: self.view.frame)]
+    private lazy var questionTypes : [QuestionType] = []
     private var game : Game?
     var level : Level?
     var questionMode : QuestionType?
@@ -34,7 +34,7 @@ class GameViewController: UIViewController {
 
     // MARK:- functions
     private func initVC() {
-        self.view.setGrandiantBackground(colors: [UIColor.orange.cgColor, UIColor.yellow.cgColor])
+        self.view.setImageBackground()
         if let tabBarController = tabBarController { tabBarController.tabBar.isHidden = true  }
     }
 
@@ -63,6 +63,7 @@ class GameViewController: UIViewController {
     }
 
     @objc func setQuestionMode() {
+        questionTypes = [SwipeQuestionModeView(frame: self.view.frame), SQModeView(frame: self.view.frame)]
         guard var questionMode = questionTypes.randomElement(), let game = game else {
             self.errorHandling(error: ErrorList.unknowError)
             return
@@ -71,7 +72,6 @@ class GameViewController: UIViewController {
         questionMode.game = game
         view.addSubview(questionMode.view)
         self.questionMode = questionMode
-
     }
 
     func showTutorial(gameData: GameData) {
@@ -103,8 +103,8 @@ class GameViewController: UIViewController {
                 if !self.isLevelOver() {
                     if let questionModeasView = questionMode as? UIView {
                         questionModeasView.removeFromSuperview()
+                        self.newQuestion()
                     }
-                    self.newQuestion()
                 }
             }
         }

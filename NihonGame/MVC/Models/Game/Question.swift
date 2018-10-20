@@ -13,6 +13,7 @@ class Question {
     var goodAnswer : Answer = Answer()
     var badAnswers : [Answer] = []
     var dataChoosed : GameData?
+    var answers : [Answer] = []
     private var allPossibleAnswer : PossibleAnswers
     private var dataNames = [[String]]()
 
@@ -37,6 +38,9 @@ class Question {
         self.question = questionString
         self.goodAnswer = Answer(gameDataID: dataID, answerString: goodAnswerString, category: goodAnswerCategory)
         generateBadAnswer(levelData: levelData, category: goodAnswerCategory, numberOfBadAnswer: 3)
+        answers = badAnswers
+        answers.append(goodAnswer)
+        answers.shuffle()
     }
 
     func generateBadAnswer(levelData: [GameData], category: String, numberOfBadAnswer: Int) {

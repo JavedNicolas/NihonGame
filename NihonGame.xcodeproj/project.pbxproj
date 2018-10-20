@@ -82,6 +82,8 @@
 		37685A22215394B800D8B585 /* LevelMenuVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37685A21215394B800D8B585 /* LevelMenuVCDelegate.swift */; };
 		37685A2421539DDD00D8B585 /* LevelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37685A2321539DDD00D8B585 /* LevelButton.swift */; };
 		37685A2621539E6500D8B585 /* LevelMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37685A2521539E6500D8B585 /* LevelMenuCollectionViewCell.swift */; };
+		37698F73217B02310053F185 /* SwipeQuestionModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37698F72217B02310053F185 /* SwipeQuestionModeView.swift */; };
+		37698F75217B081B0053F185 /* SwipeQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37698F74217B081B0053F185 /* SwipeQuestionView.swift */; };
 		3776D5E3214BA65600536A8D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3776D5E5214BA65600536A8D /* Localizable.strings */; };
 		3776D5E8214BA78E00536A8D /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3776D5E7214BA78E00536A8D /* StringExtension.swift */; };
 		3776D5EC2150D2C100536A8D /* GroupMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3776D5EB2150D2C100536A8D /* GroupMenuViewController.swift */; };
@@ -193,6 +195,8 @@
 		37685A21215394B800D8B585 /* LevelMenuVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelMenuVCDelegate.swift; sourceTree = "<group>"; };
 		37685A2321539DDD00D8B585 /* LevelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelButton.swift; sourceTree = "<group>"; };
 		37685A2521539E6500D8B585 /* LevelMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelMenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		37698F72217B02310053F185 /* SwipeQuestionModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeQuestionModeView.swift; sourceTree = "<group>"; };
+		37698F74217B081B0053F185 /* SwipeQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeQuestionView.swift; sourceTree = "<group>"; };
 		3776D5E4214BA65600536A8D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3776D5E6214BA65D00536A8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3776D5E7214BA78E00536A8D /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
@@ -484,9 +488,19 @@
 			children = (
 				372E44882168D7C30079B5DF /* PopUP */,
 				372E44872168D4CB0079B5DF /* Protocoles */,
+				37698F71217AFF240053F185 /* SwipeQuestionMode */,
 				372E44822167A5750079B5DF /* SimpleQuestionMode */,
 			);
 			path = QuestionMode;
+			sourceTree = "<group>";
+		};
+		37698F71217AFF240053F185 /* SwipeQuestionMode */ = {
+			isa = PBXGroup;
+			children = (
+				37698F72217B02310053F185 /* SwipeQuestionModeView.swift */,
+				37698F74217B081B0053F185 /* SwipeQuestionView.swift */,
+			);
+			path = SwipeQuestionMode;
 			sourceTree = "<group>";
 		};
 		3776D5DD214B919500536A8D /* Delegate */ = {
@@ -710,6 +724,7 @@
 				373570F1215D14540033A5F7 /* Group.swift in Sources */,
 				37484740214A3824006E35D1 /* MainCoordinator.swift in Sources */,
 				37E0B0352158C3C80064019F /* MenuTableViewCell.swift in Sources */,
+				37698F73217B02310053F185 /* SwipeQuestionModeView.swift in Sources */,
 				370B1E7B216F6175007B03FE /* LearnedDataTableView.swift in Sources */,
 				370DA7DA216B45EC00AA243C /* GameModeButton.swift in Sources */,
 				372E448121678A4B0079B5DF /* SQQuestionView.swift in Sources */,
@@ -741,6 +756,7 @@
 				37685A22215394B800D8B585 /* LevelMenuVCDelegate.swift in Sources */,
 				37685A1E21538C2F00D8B585 /* LevelColletionView.swift in Sources */,
 				37E0B03C2158DAA60064019F /* CoreDataManager.swift in Sources */,
+				37698F75217B081B0053F185 /* SwipeQuestionView.swift in Sources */,
 				370DA7D4216B443A00AA243C /* MainMenuVCDataSource.swift in Sources */,
 				3725CEDA216DDEA500C9301F /* Game.swift in Sources */,
 				3765F63A2162088300A4D64D /* Answer.swift in Sources */,

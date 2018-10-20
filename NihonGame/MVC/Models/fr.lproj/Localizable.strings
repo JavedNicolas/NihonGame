@@ -27,7 +27,6 @@
 "Back_Text" = "retour";
 "Close_Text" = "Fermer";
 
-
 //MARK:- Label text
 "New_Game_Data_Text" = "Nouvel Élement !";
 "Congratulation_Text" = "Féliciation !";
@@ -38,6 +37,7 @@
 "Current_Question_Number" = "Question :";
 "Find_Text" = "Trouver : ";
 "Progression_Text" = "Completion :";
+"Swipe_Question_Text" = "Swipe la question pour répondre !";
 
 //MARK:- Learning Level
 "Learning_Level_1" = "Nouveau !";
