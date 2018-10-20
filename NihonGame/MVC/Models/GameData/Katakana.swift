@@ -25,6 +25,7 @@ class Katakana : ModeDatas {
 
     init() {}
 
+    
     func parseGameData() {
         let katakanaData = JSONParser(json: dataJSON, withExtension: "json").data
         let katakanasList = parseData(data: katakanaData)
