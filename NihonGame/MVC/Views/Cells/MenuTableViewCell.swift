@@ -18,6 +18,7 @@ class MenuTableViewCell : UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    /** set style */
     func set(){
         self.backgroundColor = .clear
         self.selectionStyle = .none

@@ -9,6 +9,7 @@
 import UIKit
 
 class SmallStarsView : UIImageView {
+    // MARK:- attributs
     var stars : Int = 0 {
         didSet {
             if 0...3 ~= stars {
@@ -17,6 +18,7 @@ class SmallStarsView : UIImageView {
         }
     }
 
+    // MARK:- init
     init(stars: Int) {
         let image = UIImage(named: "0SmallStar.png")
         super.init(image: image)

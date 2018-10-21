@@ -10,12 +10,23 @@ import Foundation
 import CoreData
 
 class Level : NSManagedObject {
+    // MARK:- Attributs
     var newGameDataID : Int?
     lazy var bestScore = 0
     var endLevelScore = 0.int64
+    /** The game Data that is introduced in this level */
     lazy var newGameData: GameData? = self.setNewGameData()
+    /** The datas which will be used to constitue the level questions */
     lazy var levelDatas : [GameData]? = self.setGameDataToUse()
-    
+
+    // MARK:- functions
+    /**
+     Fill the level
+     - Parameters:
+         - level : the level parsed in the JSON
+         - firstLevel: true if the level is the first one
+         - levelName: The name of the level
+     */
     func fill(parsedLevel level: LevelParsing, firstLevel: Bool, levelName: String){
         self.id = level.id.int64
         self.name = levelName
@@ -27,6 +38,11 @@ class Level : NSManagedObject {
         self.stars = 0.int16
     }
 
+    /**
+     Change the score.
+     - Parameters:
+        - increase: if true increase the score, else decrease it
+     */
     func changeScore(increase: Bool) {
         if increase {
             score += GameConstant.scoreIncrementation.int64
@@ -37,6 +53,7 @@ class Level : NSManagedObject {
         }
     }
 
+    /** set level's stars base on the end level score */
     func setStars() {
         if self.score > self.bestScore {
             let starsScore = score - 500
@@ -47,6 +64,7 @@ class Level : NSManagedObject {
         }
     }
 
+    /** init current score and best score at the start of the level */
     func startLevel() {
         if score >= bestScore {
             bestScore = score.int
@@ -54,12 +72,13 @@ class Level : NSManagedObject {
         score = 0
     }
 
+    /** is called when the level if finished */
     func levelfinished() {
         unlockNextLevel()
         CoreDataManager.shared.saveContext()
     }
 
-    /** Unlock the next level when */
+    /** Unlock the next level when the user made a score greater or equal to the score to complete the level */
     func unlockNextLevel() {
         guard let group = parentGroup, let levels = group.getLevels() else {
             return
@@ -68,10 +87,10 @@ class Level : NSManagedObject {
         for (index, level) in levels.enumerated() {
             if level == self {
                 level.endLevelScore = level.score
-                if level.score >= 500 {
+                if level.score >= GameConstant.levelCompleteScore {
                     setStars()
                     level.done = true
-                    if level.bestScore < 500 {
+                    if level.bestScore < GameConstant.levelCompleteScore {
                         if index != levels.count - 1 {
                             levels[index + 1].locked = false
                         }else {
@@ -88,6 +107,11 @@ class Level : NSManagedObject {
         }
     }
 
+    /**
+     Get the game Data that will be used in the level based on the id of the first and last element
+
+     - returns: An array of the game data
+     */
     private func setGameDataToUse() -> [GameData]?{
         var levelDatas = [GameData]()
         guard let group = parentGroup, let mode = group.parentGameMode, let gameDatas = mode.getDatas() else {
@@ -114,6 +138,9 @@ class Level : NSManagedObject {
         return levelDatas
     }
 
+    /**
+     Return the game Data for the last element 
+     */
     private func setNewGameData() -> GameData? {
         if let gameDataID = newGameDataID {
             if let levelData = levelDatas {

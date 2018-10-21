@@ -8,6 +8,7 @@
 
 import UIKit
 class LevelButton : MenuButton {
+    // MARK:- Attributs
     private let starsView = SmallStarsView(stars: 0)
     var level : Level? = nil {
         didSet {
@@ -23,6 +24,8 @@ class LevelButton : MenuButton {
         }
     }
 
+    //MARK:- setters
+    /** display level stars */
     func setStars(stars: Int) {
         starsView.stars = stars
         starsView.contentMode = .scaleAspectFit

@@ -13,6 +13,5 @@ extension MainMenuViewController : UITableViewDelegate {
         let coordinator = GroupMenuCoordinator(currentViewController: self, gameMode: menuItems[indexPath.row])
         GameModes.shared.currentMode = menuItems[indexPath.row]
         coordinator.start()
-
     }
 }

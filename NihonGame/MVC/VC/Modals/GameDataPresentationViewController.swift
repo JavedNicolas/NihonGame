@@ -26,7 +26,6 @@ class GameDataPresentationViewController : PopUpViewController {
     // MARK:- Content Settings
     private func setContent() {
         guard let gameData = gameData else { return }
-
         setTitle(gameData: gameData)
 
         for content in gameData.data {
@@ -41,12 +40,14 @@ class GameDataPresentationViewController : PopUpViewController {
         setStackView()
     }
 
+    /** set the title if the game data is a new one */
     private func setTitle(gameData: GameData) {
         if gameData.learningScore == 0 {
             super.setTitle(display: true, text: "New_Game_Data_Text".localize())
         }
     }
 
+    /** set game data title and text*/
     private func setLabel(textTitle: String, text: String) {
         let labelTitle = UILabel()
         labelTitle.text = textTitle
@@ -62,6 +63,7 @@ class GameDataPresentationViewController : PopUpViewController {
         stackView.addArrangedSubview(label)
     }
 
+    /** set the dismiss button */
     private func setButton() {
         guard let popUpView = popUpView, let gameData = gameData else {
             self.errorHandling(error: ErrorList.unknowError)

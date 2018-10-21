@@ -19,12 +19,22 @@ class GameData : NSManagedObject {
         }
     }
 
+    // MARK:- functions
+    /**
+     Fill with data parsed from a JSON file
+     - Parameters:
+        - parsedData: dataParsed
+     */
     func fill(parsedData: GameDataParsed){
         self.id = parsedData.id.int64
         self.learningScore = parsedData.learningScore.int64
         self.dataString = parsedData.data
     }
 
+    /**
+     Set Datas content Array from the dataString
+     - returns: An Aray of Array of Data Components
+     */
     func setDataAsStruct() -> [[DataComponents]] {
         var finalData = [[DataComponents]]()
         if let dataString = self.dataString {
@@ -41,7 +51,11 @@ class GameData : NSManagedObject {
         }
         return finalData
     }
-    
+
+    /**
+     Create question Data
+     - returns: question data for self
+     */
     func getQuestionData() -> QuestionData?{
         /** Random question */
         guard let randomDataArray = data.randomElement(), let randomData = randomDataArray.randomElement(),
@@ -74,6 +88,11 @@ class GameData : NSManagedObject {
 
     }
 
+    /**
+        Check if an Answer is correct. That means it check if the answer which was random is not from the same array.
+        To Understand that it's important to get that each array (first layer of array) containt data that can be paired
+        as question and answer, but the content of the same array cannot containt the question and the answer.
+     */
     func checkIfAnswerIsGood(question: String, answer: String) -> Bool{
         guard  let mode = mode else { return false }
 
@@ -86,6 +105,11 @@ class GameData : NSManagedObject {
         return false
     }
 
+    /**
+     Change the learningScore
+     - Parameters:
+        - increase: if true increase the score, else decrease it.
+     */
     func changeScore(increase: Bool) {
         if increase {
             learningScore += GameDataConstant.scoreIncrementation.int64
@@ -96,6 +120,7 @@ class GameData : NSManagedObject {
         }
     }
 
+    /** Set the learning level of self */
     func setLearningLevelString () -> String {
         let firstStep = GameDataConstant.firstLearningStep.int64
         let secondStep = GameDataConstant.secondLearningStep.int64

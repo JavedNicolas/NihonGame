@@ -9,6 +9,7 @@
 import UIKit
 
 class LevelCollectionView : UICollectionView {
+    // MARK:- init
     init(view: UIView) {
         let frame = CGRect(x: 0, y: 0, width: 0, height: 0)
 
@@ -26,6 +27,7 @@ class LevelCollectionView : UICollectionView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK:- setter
     func set(delegate : UICollectionViewDelegate?, dataSource: UICollectionViewDataSource?) {
         self.register(LevelMenuCollectionviewCell.self, forCellWithReuseIdentifier: "LevelCell")
         self.delegate = delegate

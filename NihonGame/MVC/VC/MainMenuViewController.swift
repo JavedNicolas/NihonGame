@@ -9,10 +9,12 @@
 import UIKit
 
 class MainMenuViewController: UIViewController {
+    // MARK- attributs
     internal var menuName : UILabel?
     internal var gameButtonTableView : MenuTableView?
     internal var menuItems : [GameMode] = []
 
+    // MARK:- functions
     override func viewDidLoad() {
         self.view.setImageBackground()
         createTableView()
@@ -24,10 +26,10 @@ class MainMenuViewController: UIViewController {
             self.errorHandling(error: ErrorList.unknowError)
             return
         }
-
         tableView.reloadData()
     }
 
+    /** init the tableView containing the menu */
     func createTableView() {
         gameButtonTableView = MenuTableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: .plain)
         if let gameButtonTableView = gameButtonTableView {

@@ -9,6 +9,7 @@
 import UIKit
 
 class SettingsTableViewCell : UITableViewCell {
+    // MARK:- Attributs
     private let loadingView = UIActivityIndicatorView(style: .whiteLarge)
     private let label = UILabel()
     var message : String = "" {
@@ -16,6 +17,8 @@ class SettingsTableViewCell : UITableViewCell {
             setLabel(text: message)
         }
     }
+
+    // MARK:- init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.backgroundColor = .clear
@@ -25,6 +28,8 @@ class SettingsTableViewCell : UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK:- setters
+    /** Set setting label */
     private func setLabel(text: String) {
         setloadingView()
         label.text = text
@@ -37,6 +42,7 @@ class SettingsTableViewCell : UITableViewCell {
         label.setAnchors(top: self.topAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, bottom: self.bottomAnchor)
     }
 
+    /** set loading view for settings which need loading */
     private func setloadingView() {
         loadingView.frame = self.frame
         loadingView.backgroundColor = DesignConstant.gray5Alpha
@@ -45,6 +51,7 @@ class SettingsTableViewCell : UITableViewCell {
         loadingView.setAnchors(top: self.topAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, bottom: self.bottomAnchor)
     }
 
+    /** display the loading */
     func isloading(isloading: Bool) {
         loadingView.isHidden = !isloading
         label.isHidden = isloading

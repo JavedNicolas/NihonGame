@@ -10,7 +10,14 @@ import Foundation
 import CoreData
 
 class Group: NSManagedObject {
-    /** fill the instance for the first int when CoreData is empty */
+    // MARK:- Functions
+    /**
+     Fill the instance for the first int when CoreData is empty.
+     - Parameters:
+         - group: the parsed data
+         - levels : an array of the group's levels
+         - groupName: the group name
+     */
     func fill(groupsParsed group: GroupParsing, levels: [Level], groupName: String) {
         self.name = groupName
         self.id = group.id.int64
@@ -21,10 +28,13 @@ class Group: NSManagedObject {
         setDoneAndLock(levels: levels)
     }
 
-    /** Set data that were not in CoreData */
+    /**
+     Set the level
+     */
     func setData(levels : [Level]) {
         for (index, level) in levels.enumerated() {
             level.parentGroup = self
+            // Set the newGameDataID if the last element is a new one
             if index == 0 || level.lastElement != levels[index - 1].lastElement  {
                 level.newGameDataID = level.lastElement.int
             }

@@ -16,6 +16,7 @@ class LevelScoreDisplayBar : UIView {
     var currentQuestionNumber = UILabel()
     var currentScoreLabel = UILabel()
 
+    // MARK:- init
     init(frame: CGRect, game: Game) {
         self.game = game
         super.init(frame: frame)
@@ -28,6 +29,7 @@ class LevelScoreDisplayBar : UIView {
     }
 
     // MARK: - Setters
+    /** set the bar content */
     func setBarContent() {
         setLabelStackView(title: "Best_Score_Text".localize(), value: String(game.level.bestScore), label: topScoreLabel)
         setLabelStackView(title: "Current_Score_Text".localize(), value: String(game.level.score), label: currentScoreLabel)
@@ -39,6 +41,7 @@ class LevelScoreDisplayBar : UIView {
                              padding: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
     }
 
+    /** set the stackView which containt a title and a label */
     func setLabelStackView(title: String, value: String, label: UILabel) {
         let titleLabel = UILabel()
         titleLabel.text = title

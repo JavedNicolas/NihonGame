@@ -64,6 +64,7 @@ class SwipeQuestionView : UIView {
         addSubview(label)
     }
 
+    /** change background color based on user answer */
     private func changeBackgroundColor(style: Style) {
         switch style {
         case .standard: self.backgroundColor = DesignConstant.black7Alpha

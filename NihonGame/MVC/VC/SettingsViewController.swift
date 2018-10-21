@@ -44,6 +44,7 @@ class SettingsViewController : UIViewController {
         setResetCell()
     }
 
+    
     private func setResetCell() {
         let resetProgressionCell = SettingsTableViewCell(style: .default, reuseIdentifier: "SettingsCell")
         resetProgressionCell.message = "Reset_Text".localize()
@@ -64,7 +65,7 @@ class SettingsViewController : UIViewController {
                 for mode in GameModes.shared.getGameModes() {
                     CoreDataManager.shared.deleteMode(modeID: mode.id.int)
                 }
-                GameModes.shared.recreatModes()
+                GameModes.shared.creatModes()
                 sender.isloading(isloading: false)
             }
         })

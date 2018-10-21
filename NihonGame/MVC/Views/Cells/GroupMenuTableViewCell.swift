@@ -9,6 +9,7 @@
 import UIKit
 
 class GroupMenuTableViewCell: MenuTableViewCell {
+    //MARK:- Attributs
     private var button : GameGroupButton?
     var group : Group? = nil {
         didSet {
@@ -18,6 +19,8 @@ class GroupMenuTableViewCell: MenuTableViewCell {
         }
     }
 
+    // MARK:- functions
+    /** Remove the button when reuse to avoid duplicate */
     override func prepareForReuse() {
         super.prepareForReuse()
 
@@ -26,6 +29,7 @@ class GroupMenuTableViewCell: MenuTableViewCell {
         }
     }
 
+    // MARK:- setter
     private func setGameButton(group: Group){
         let buttonsize = CGRect(x: 0, y: 0, width: self.bounds.width / 2, height: 400)
         button = GameGroupButton(rect: buttonsize)

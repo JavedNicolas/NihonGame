@@ -8,10 +8,14 @@
 
 import Foundation
 
+/** This if a class which generate a mode */
 class Hiragana : ModeDatas {
-    // MARK:- attributs
-    var name: String = "Hiragana"
+    // MARK:- Attributs
+    /** The Order in which the data component need to be used*/
     var dataNameOrder: [String] = ["kana", "prononciation"]
+     /** Name of the mode */
+    var name: String = "Hiragana"
+    /** Data names ordered in arrays which determine with which data they can be paired as question / answer */
     lazy var dataNames = [[self.dataNameOrder[0]],[self.dataNameOrder[1]]]
     var datas: [GameData] = []
     var groupJSON: String = HiraganaModeJSONs.groupJSON
@@ -23,8 +27,13 @@ class Hiragana : ModeDatas {
         static let dataJSON = "HiraganaList"
     }
 
+    // MARK:- init
     init() {}
 
+    // MARK:- functions
+    /**
+     Parse Hiragana data and create GameDatas
+     */
     func parseGameData() {
         let hiraganaData = JSONParser(json: dataJSON, withExtension: "json").data
         let hiraganasList = parseData(data: hiraganaData)
@@ -38,6 +47,14 @@ class Hiragana : ModeDatas {
         }
     }
 
+    /**
+     Parse Hiragana data
+
+     - Parameters:
+     - data : the data parsed by the JSON Parser
+
+     - returns: return an array of HiraganaParsing struct
+     */
     private func parseData(data: Data? ) -> [HiraganaParsing] {
         guard let data = data else { return [] }
 

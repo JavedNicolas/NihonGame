@@ -13,7 +13,6 @@ extension LevelMenuViewController : UICollectionViewDataSource {
         guard let levels = levels else {
             return 0
         }
-
         return levels.count
     }
 
@@ -23,6 +22,7 @@ extension LevelMenuViewController : UICollectionViewDataSource {
             return UICollectionViewCell()
         }
 
+        // Handle if the user was on this menu, then reset the progression
         if let _ = levels[indexPath.row].name {
             cell.level = levels[indexPath.row]
         } else {

@@ -19,6 +19,7 @@ class PopUpStackView : UIStackView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    /** Set the stackView */
     func set() {
         self.distribution = .fillEqually
         self.axis = .vertical

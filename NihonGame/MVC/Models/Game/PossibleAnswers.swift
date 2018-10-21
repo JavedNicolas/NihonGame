@@ -9,8 +9,17 @@
 import Foundation
 
 class PossibleAnswers {
+    // MARK:- attributs
     private var possibleAnswerList : [String: [Answer]] = [:]
 
+    // MARK:- init
+    /**
+     Create a list of all the possible answer
+
+     - Parameters:
+         - modeDatas: The data for the current mode
+         - dataComponentsName: The array which containt component of the data
+     */
     init(modeDatas: [GameData], dataComponentsName: [[String]]){
         for modeData in modeDatas {
             for dataArray in modeData.data {
@@ -30,6 +39,7 @@ class PossibleAnswers {
         }
     }
 
+    // MARK:- functions
     func getPossibleAnswersList() -> [String: [Answer]] {
         return possibleAnswerList
     }

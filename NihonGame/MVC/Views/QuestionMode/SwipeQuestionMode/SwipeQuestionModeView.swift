@@ -10,6 +10,7 @@ import UIKit
 
 class SwipeQuestionModeView : UIView, QuestionType {
     // MARK:- Attribut
+    /** The view Containing the question */
     private var questionView : SwipeQuestionView?
     private var isCorrect = false
     private let imageLeft = UIImageView(image: UIImage(named: "inCorrect.png"))
@@ -26,6 +27,7 @@ class SwipeQuestionModeView : UIView, QuestionType {
         }
     }
 
+    /** set the game Instructions */
     private func setInstruction() {
         let label = UILabel()
         label.text = "Swipe_Question_Text".localize()
@@ -40,6 +42,7 @@ class SwipeQuestionModeView : UIView, QuestionType {
         setSideImageView()
     }
 
+    /** Set the image which indicate which side is for correct answer and bad answer */
     private func setSideImageView() {
         addSubview(imageLeft)
         imageLeft.backgroundColor = DesignConstant.black7Alpha
@@ -81,11 +84,8 @@ class SwipeQuestionModeView : UIView, QuestionType {
         }
     }
 
-    @objc func userAnswering(_ sender : UISwipeGestureRecognizer) {
-        transformQuestionView(gesture: sender)
-        answerQuestion()
-    }
-
+    // MARK:- Answering functions
+    /** Set a style to question view based on the sens of the swipe, then move the view */
     private func transformQuestionView(gesture : UISwipeGestureRecognizer) {
         guard let questionView = questionView else { return }
         let translation = gesture.direction
@@ -101,19 +101,21 @@ class SwipeQuestionModeView : UIView, QuestionType {
         }
     }
 
+    /** Check if the anser is the good one */
     private func answerQuestion() {
         guard let questionView = questionView else { return }
         switch questionView.style {
         case .correct:
-            checkUserAnswer(hasCorrectlyAnswered: isCorrect)
+            displayUserAnswer(hasCorrectlyAnswered: isCorrect)
             sendNotification()
         case .inCorrect:
-            checkUserAnswer(hasCorrectlyAnswered: !isCorrect)
+            displayUserAnswer(hasCorrectlyAnswered: !isCorrect)
             sendNotification()
         default : break
         }
     }
 
+    /** Move the view according tto the sens of the swipe */
     private func pushQuestionViewAway(questionView: SwipeQuestionView, answer : Bool) {
         UIView.animate(withDuration: 0.2) {
             let sens : CGFloat = (answer ? 1 : -1)
@@ -122,7 +124,8 @@ class SwipeQuestionModeView : UIView, QuestionType {
         }
     }
 
-    private func checkUserAnswer(hasCorrectlyAnswered: Bool) {
+    /** display if the user correctly answered the question */
+    private func displayUserAnswer(hasCorrectlyAnswered: Bool) {
         answered = (hasAnswered: true, hasCorrectlyAnswered: hasCorrectlyAnswered)
         let imageName = (hasCorrectlyAnswered ? "Correct.png" : "inCorrect.png")
         let reponseImageView = UIImageView(image: UIImage(named: imageName))
@@ -140,4 +143,12 @@ class SwipeQuestionModeView : UIView, QuestionType {
             reponseImageView.removeFromSuperview()
         })
     }
+
+    // MARK:- selector
+    @objc func userAnswering(_ sender : UISwipeGestureRecognizer) {
+        transformQuestionView(gesture: sender)
+        answerQuestion()
+    }
+
+
 }

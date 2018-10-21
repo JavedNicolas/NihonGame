@@ -15,6 +15,8 @@ class PopUpViewController : UIViewController {
     internal let button = PopUpButton(type: .custom)
     var navController : UINavigationController?
 
+    // MARK:- functions
+    /** set the pop View */
     internal func setView() {
         let popUpEdgeSize = self.view.frame.width * (90 / 100)
         let popUpSize = CGSize(width: popUpEdgeSize , height: popUpEdgeSize)
@@ -27,6 +29,8 @@ class PopUpViewController : UIViewController {
         }
     }
 
+    /** Set the title of the view
+     */
     internal func setTitle(display: Bool, text: String) {
         if display {
             let label = UILabel()
@@ -38,6 +42,7 @@ class PopUpViewController : UIViewController {
         }
     }
 
+    /** set the view title which will containt the pop text*/
     internal func setStackView() {
         guard let popUpView = popUpView else {
             self.errorHandling(error: ErrorList.unknowError)

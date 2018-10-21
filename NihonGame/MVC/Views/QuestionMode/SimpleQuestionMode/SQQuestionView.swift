@@ -9,7 +9,7 @@
 import UIKit
 
 class SQQuestionView : UIView {
-
+    // MARK:- init
     init(frame: CGRect, question: Question) {
         super.init(frame: frame)
         setCircleView()
@@ -20,6 +20,7 @@ class SQQuestionView : UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK:- setters
     func setCircleView() {
         self.setSize(size: CGSize(width: 200, height: 200))
         self.layer.cornerRadius = self.frame.width / 2

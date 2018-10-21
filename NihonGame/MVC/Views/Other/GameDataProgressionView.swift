@@ -9,6 +9,7 @@
 import UIKit
 
 class GameDataProgressionView : UIProgressView {
+    // MARK:- setters
     func set(learningScore: Int, learningLevel: String) {
         let maxScoreForLearningLevel = GameDataConstant.MaxScoreForLearningLevel
         let progression : Float = Float(learningScore) / Float(maxScoreForLearningLevel)

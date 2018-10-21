@@ -9,14 +9,25 @@
 import Foundation
 
 class Groups {
+    // MARK:- Attributs
     private var groups : [Group] = []
     private var groupsJSON = ""
 
+    // MARK:- init
     init(json: String) {
         self.groupsJSON = json
         setGroups()
     }
 
+    // MARK:- Function
+    /**
+     Parse group data
+
+     - Parameters:
+        - data : the data parsed by the JSON Parser
+
+     - returns: return an array of GroupParsing
+     */
     private func parseData(data: Data?) -> [GroupParsing] {
         guard let data = data else { return [] }
 
@@ -28,6 +39,9 @@ class Groups {
         }
     }
 
+    /**
+     Set the groups by parsing the JSON group file and the data returned par JSONParser
+     */
     private func setGroups() {
         let groupsData = JSONParser(json: groupsJSON, withExtension: "json").data
         let parsedGroups = parseData(data: groupsData)
@@ -42,6 +56,15 @@ class Groups {
         }
     }
 
+    /**
+        Return true if the group is the first
+
+        - Parameters:
+            - group: the group we are checking
+            - groupList : the group list to compare
+
+        - returns: true if it's the first group, false if not
+     */
     func isFirstGroup(group: GroupParsing, groupList: [GroupParsing]) -> Bool {
         if let firstGroup = groupList.first {
             if group.id == firstGroup.id {

@@ -9,6 +9,7 @@
 import UIKit
 
 class LearnedDataTableView: UITableView {
+    // MARK:- setters
     func set(delegate: UITableViewDelegate?, dataSource : UITableViewDataSource?, cellType: LearnedDataTableViewCell.Type,
              identifier: String) {
         self.delegate = delegate

@@ -9,11 +9,13 @@
 import UIKit
 
 class GroupMenuViewController : UIViewController {
+    // MARK:- atributs
     internal var groupItems : [Group]?
     private var gameMode: GameMode?
     internal var menuName : UILabel?
     internal var groupTableView : MenuTableView?
-    
+
+    // MARK:- functions
     override func viewDidLoad() {
         self.view.setImageBackground()
         if let gameMode = gameMode, let groups = gameMode.getGroups() {
@@ -22,6 +24,7 @@ class GroupMenuViewController : UIViewController {
             createTableView()
         }
     }
+
     override func viewWillAppear(_ animated: Bool) {
         if let groupTableView = groupTableView {
             groupTableView.reloadData()
@@ -32,6 +35,7 @@ class GroupMenuViewController : UIViewController {
         self.gameMode = gameMode
     }
 
+    /** create the menu table View */ 
     func createTableView() {
         groupTableView = MenuTableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: .plain)
         if let gameButtonTableView = groupTableView{

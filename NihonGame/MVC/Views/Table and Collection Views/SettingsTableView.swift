@@ -9,6 +9,7 @@
 import UIKit
 
 class SettingsTableView : UITableView {
+    // MARK:- setters
     func set(delegate: UITableViewDelegate?, dataSource: UITableViewDataSource?, cellType: SettingsTableViewCell.Type, identifier: String) {
         self.delegate = delegate
         self.dataSource = dataSource

@@ -9,6 +9,7 @@
 import UIKit
 
 class LearnedDataViewController : UIViewController {
+    // MARK:- attributs
     private var tableView : LearnedDataTableView?
     internal var gameModes = GameModes.shared.getGameModes()
 
@@ -17,6 +18,7 @@ class LearnedDataViewController : UIViewController {
         setTableView()
     }
 
+    // MARK:- functions
     override func viewDidAppear(_ animated: Bool) {
         if let tableView = tableView {
             tableView.reloadData()
@@ -25,6 +27,7 @@ class LearnedDataViewController : UIViewController {
         }
     }
 
+    /** set learned data tableView */
     func setTableView() {
         tableView = LearnedDataTableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: .plain)
         if let tableView = tableView {
@@ -35,6 +38,7 @@ class LearnedDataViewController : UIViewController {
         }
     }
 
+    /** Return a Boolean describing if the tableView is empty*/
     func tableViewIsEmpty() -> Bool {
         guard let tableView = tableView else {
             self.errorHandling(error: ErrorList.unknowError)
@@ -46,6 +50,9 @@ class LearnedDataViewController : UIViewController {
         return false
     }
 
+    /**
+     Set a label into a tableView
+     */
     func setEmptyLabel(display: Bool) {
         guard let tableView = tableView else { return }
         if display {

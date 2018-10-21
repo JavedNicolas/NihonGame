@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct GameDataParsed {
     var id : Int
     var learningScore : Int

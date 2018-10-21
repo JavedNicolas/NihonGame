@@ -9,16 +9,19 @@
 import UIKit
 
 class SQModeView: UIView, QuestionType {
-    // MARK:- Attributs
-    private lazy var rectanglePadding = self.frame.width / 10
+    // MARK:- Answers Anchors arrays
     private lazy var topAnchors  = [self.topAnchor, self.topAnchor, self.centerYAnchor, self.centerYAnchor]
     private lazy var leadingAnchors = [self.leadingAnchor, self.centerXAnchor, self.leadingAnchor, self.centerXAnchor]
     private lazy var trailingAnchors = [self.centerXAnchor, self.trailingAnchor, self.centerXAnchor, self.trailingAnchor]
     private lazy var bottomAnchors = [self.centerYAnchor, self.centerYAnchor, self.bottomAnchor, self.bottomAnchor]
     private lazy var leftPadding : [CGFloat] = [0, CGFloat(-rectanglePadding), 0, CGFloat(rectanglePadding) ]
     private lazy var rightPadding : [CGFloat] = [CGFloat(rectanglePadding), 0, CGFloat(-rectanglePadding), 0 ]
+    // MARK:- Attributs
+    /** Handle answers rectangle little padding */
+    private lazy var rectanglePadding = self.frame.width / 10
     var answerViews = [SQAnswerView]()
     var answered = (hasAnswered: false, hasCorrectlyAnswered: false)
+    /** Current game */
     var game : Game? = nil {
         didSet {
             if let game = game, let question = game.getCurrentQuestion() {
@@ -67,6 +70,7 @@ class SQModeView: UIView, QuestionType {
     }
 
     // MARK:- Animate Functions
+    /** Make the choosed answer blink green if good, or red if bad */
     func animateAnswer(userAnswer: SQAnswerView, question: Question) {
         if userAnswer.getlabelText() == question.goodAnswer.answerString {
             answered.hasCorrectlyAnswered  = true
@@ -84,6 +88,7 @@ class SQModeView: UIView, QuestionType {
         }
     }
 
+    /** make a view blink */
     func makeAnswerBlink(answerView: SQAnswerView, color: UIColor ) {
         for _ in 0...2 {
             UIView.animate(withDuration: 0.25, delay: 0.1, options: [UIView.AnimationOptions.repeat, UIView.AnimationOptions.autoreverse], animations: {

@@ -17,6 +17,7 @@ class MenuButton : UIView {
         }
     }
 
+    // MARK:- init
     init(rect : CGRect) {
         super.init(frame: rect)
         style(locked: false)
@@ -26,10 +27,12 @@ class MenuButton : UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    /** return true if the level / group is locked*/
     func islocked() -> Bool {
         return locked
     }
 
+    /** handle style based on the locked value */
     internal func style(locked: Bool) {
         self.layer.cornerRadius = 10
         self.contentMode = .left
@@ -40,6 +43,8 @@ class MenuButton : UIView {
         }
     }
 
+    // MARK:- setters
+    /** set menu title */
     internal func setContent(text: String) {
         let labelTitle = setLabel(text: text)
         self.addSubview(labelTitle)
@@ -47,12 +52,14 @@ class MenuButton : UIView {
                               padding: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
     }
 
+    /** set menu progression */
     internal func setProgression(text: String) {
         let labelProgression = setLabel(text: text)
         self.addSubview(labelProgression)
         labelProgression.centerView(x: self.centerXAnchor, y: self.centerYAnchor)
     }
 
+    /** set a label and return it */
     private func setLabel(text: String) -> UILabel {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width / 3, height: self.frame.height))
         label.textAlignment = .center

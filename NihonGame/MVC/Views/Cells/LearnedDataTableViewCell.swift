@@ -9,6 +9,7 @@
 import UIKit
 
 class LearnedDataTableViewCell: UITableViewCell {
+    // MARK:- Attributs
     var gameData : GameData? = nil {
         didSet {
             if let gameData = gameData {
@@ -17,6 +18,7 @@ class LearnedDataTableViewCell: UITableViewCell {
         }
     }
 
+    // MARK:- init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
@@ -25,15 +27,8 @@ class LearnedDataTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
+    // MARK:- setter
+    /** set cell with data and progression */
     private func setCell(gameData: GameData) {
         let Elementlabel = setElementIdentifier(gameData: gameData)
         self.addSubview(Elementlabel)
@@ -46,6 +41,7 @@ class LearnedDataTableViewCell: UITableViewCell {
                                    bottom: self.bottomAnchor, padding: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
     }
 
+    /** Get the important part to display of the element */
     func setElementIdentifier(gameData: GameData) -> UILabel{
         let label = UILabel(frame: CGRect(x: 0, y: 10, width: self.frame.width / 3, height: self.frame.height))
         label.textAlignment = .center
@@ -56,6 +52,7 @@ class LearnedDataTableViewCell: UITableViewCell {
         return label
     }
 
+    /** set progression stackView Array*/
     func setStackViewArray(gameData: GameData) -> [UIView] {
         let learningLevelLabel = UILabel()
         learningLevelLabel.text = gameData.learningLevel

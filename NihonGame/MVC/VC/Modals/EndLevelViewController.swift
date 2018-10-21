@@ -9,8 +9,10 @@
 import UIKit
 
 class EndLevelViewController : PopUpViewController {
+    // MARK:- Attributs
     var level : Level?
 
+    // MARK:- functions
     override func viewDidLoad() {
         self.view.backgroundColor = .clear
         self.view.setWhiteAlphaBackgroud()
@@ -18,6 +20,7 @@ class EndLevelViewController : PopUpViewController {
         setContent()
     }
 
+    /** set content based on level score */
     func setContent() {
         if let level = level {
             if level.score >= 500 {
@@ -33,6 +36,7 @@ class EndLevelViewController : PopUpViewController {
         }
     }
 
+    /** set a label and add it to the stackView */
     func setLabel(textToDisplay: String) {
         let label = UILabel()
         label.text = textToDisplay
@@ -41,6 +45,7 @@ class EndLevelViewController : PopUpViewController {
         stackView.addArrangedSubview(label)
     }
 
+    /** display the stars based on the level score */
     func setStars(stars: Int) {
         let starsView = BigStarsView(stars: 1)
         starsView.stars = stars
@@ -48,6 +53,7 @@ class EndLevelViewController : PopUpViewController {
         stackView.addArrangedSubview(starsView)
     }
 
+    /** set the dismiss button */
     func setBackButton(stackView : UIStackView) {
         guard let popUpView = popUpView else { return }
         button.setButton(text: "Go_Back_To_Menu_Text".localize(), container: popUpView)

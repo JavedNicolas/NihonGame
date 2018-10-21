@@ -9,6 +9,12 @@
 import UIKit
 
 extension LearnedDataViewController : UITableViewDataSource {
+    /**
+     return an array of the data with progression for a certain mode
+
+     - Parameters:
+        - mode : the id of the mode
+     */
     func getKnownData(mode: Int) -> [GameData]{
         var knownData = [GameData]()
         guard let datas = gameModes[mode].getDatas() else { return knownData }

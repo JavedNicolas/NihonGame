@@ -10,10 +10,12 @@ import Foundation
 import CoreData
 
 class GameMode : NSManagedObject {
+    // MARK:- Attributs
     var modeData : ModeDatas?
     var dataNames = [[String]]()
     var possibleAnswers : PossibleAnswers?
 
+    // MARK:- functions
     /** Fill GameMode for the first CoreData DataBase creation**/
     func fill(gameModeName: String, gameModeID: Int, modeData: ModeDatas, gameModeGroups: [Group]) {
         self.name = gameModeName
@@ -32,7 +34,8 @@ class GameMode : NSManagedObject {
         self.possibleAnswers = createAnswer()
     }
 
-    /** Fill GameMode with the non CoreData Datas */
+    /** Fill GameMode with every that must be calculated because it's not in the core data
+     bdd. */
     func fill(modeData: ModeDatas) {
         self.modeData = modeData
         self.dataNames = modeData.dataNames

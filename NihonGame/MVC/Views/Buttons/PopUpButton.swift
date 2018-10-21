@@ -9,6 +9,7 @@
 import UIKit
 
 class PopUpButton : UIButton {
+    // MARK:- setters
     func setButton(text: String, image: UIImage? = nil, container: UIView) {
         self.setTitle(text, for: .normal)
         self.setTitleColor(.white, for: .normal)

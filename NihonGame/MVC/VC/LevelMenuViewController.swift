@@ -9,11 +9,13 @@
 import UIKit
 
 class LevelMenuViewController : UIViewController {
+    // MARK:- Attributs
     internal var levels : [Level]?
     private var group : Group?
     private var menuName : UILabel?
     private var levelCollectionView : LevelCollectionView?
 
+    // MARK:- functions
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.setImageBackground()
@@ -36,6 +38,7 @@ class LevelMenuViewController : UIViewController {
         }
     }
 
+    /** set the table view containing the menu */
     func setCollectionView() {
         if levelCollectionView == nil {
             levelCollectionView = LevelCollectionView(view: self.view)

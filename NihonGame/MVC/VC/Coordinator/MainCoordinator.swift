@@ -9,15 +9,19 @@
 import UIKit
 
 class MainCoordinator : Coordinator {
+    // MARK:- Attributs
     private var appDelegate : AppDelegate
     private var tabBarController = UITabBarController()
     private var tabIconsName = ["Game_Icon","Learned_Icon","Settings_Icon"]
     private var tabName = ["Main_Menu_VC".localize(),"Learned_Data_VC".localize(), "Settings_VC".localize()]
 
+    // MARK:- init
     init(appDelegate: AppDelegate){
         self.appDelegate = appDelegate
     }
 
+    // MARK:- functions
+    /** launch the viewController */
     func start() {
         appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
         setTabBarController()
@@ -26,6 +30,7 @@ class MainCoordinator : Coordinator {
         appDelegate.window!.makeKeyAndVisible()
     }
 
+    /** set app tabs*/
     private func setTabs() {
         var tabViewController : [UIViewController] = []
         tabViewController.append(MainMenuViewController())

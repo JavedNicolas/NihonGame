@@ -9,6 +9,7 @@
 import UIKit
 
 class SQAnswerView : UIView {
+    // MARK:- Attributs
     private var answer : Answer
     private var label = UILabel()
     
@@ -23,6 +24,7 @@ class SQAnswerView : UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK:- setters
     func setFrameFromConstraint() {
         self.layer.borderWidth = 3
         self.layer.borderColor = DesignConstant.black5Alpha.cgColor

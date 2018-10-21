@@ -9,6 +9,7 @@
 import Foundation
 
 extension String {
+    /** return a localized version of self. Self must be a key in the localizable File */
     func localize() -> String{
         var localizableString = Bundle.main.localizedString(forKey: self, value: nil, table: nil)
         guard let firstLetter = localizableString.first else { return "" }

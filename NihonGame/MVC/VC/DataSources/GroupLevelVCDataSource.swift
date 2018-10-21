@@ -23,6 +23,7 @@ extension GroupMenuViewController : UITableViewDataSource {
         }
 
         let cell = GroupMenuTableViewCell(style: .default, reuseIdentifier: "GroupMenuCell")
+        // Handle if the user was on this menu, then reset the progression
         if let _ = groupItems[indexPath.row].name {
             cell.group = groupItems[indexPath.row]
         } else {

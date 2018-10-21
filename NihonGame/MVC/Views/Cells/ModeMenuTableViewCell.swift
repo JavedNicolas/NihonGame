@@ -9,6 +9,7 @@
 import UIKit
 
 class ModeMenuTableViewCell: MenuTableViewCell {
+    // MARK:- Attributs
     private var button : GameModeButton?
     var gameMode : GameMode? = nil {
         didSet {
@@ -18,6 +19,8 @@ class ModeMenuTableViewCell: MenuTableViewCell {
         }
     }
 
+    // MARK:- functions
+    /** Remove the button when reuse to avoid duplicate */
     override func prepareForReuse() {
         super.prepareForReuse()
 
@@ -26,6 +29,7 @@ class ModeMenuTableViewCell: MenuTableViewCell {
         }
     }
 
+    /** set the game button */
     private func setGameButton(gameMode: GameMode){
         let buttonsize = CGRect(x: 0, y: 0, width: self.bounds.width / 2, height: 400)
         button = GameModeButton(rect: buttonsize)

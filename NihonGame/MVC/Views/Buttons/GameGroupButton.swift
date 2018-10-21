@@ -9,6 +9,7 @@
 import UIKit
 
 class GameGroupButton : MenuButton {
+    //MARK:- Attributs
     var group : Group? = nil {
         didSet {
             if let group = group {

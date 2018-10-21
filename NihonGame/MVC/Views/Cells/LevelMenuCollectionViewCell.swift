@@ -9,6 +9,7 @@
 import UIKit
 
 class LevelMenuCollectionviewCell : UICollectionViewCell {
+    // MARK:- Attribut
     private var button : LevelButton?
     var level : Level? = nil {
         didSet {
@@ -18,10 +19,17 @@ class LevelMenuCollectionviewCell : UICollectionViewCell {
         }
     }
 
+    // MARK:- init
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
 
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK:- functions
+    /** Remove the button when reuse to avoid duplicate */
     override func prepareForReuse() {
         super.prepareForReuse()
 
@@ -30,10 +38,7 @@ class LevelMenuCollectionviewCell : UICollectionViewCell {
         }
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
+    // MARK:- setters
     private func set(level: Level) {
         self.backgroundColor = .clear
         setLevelButton(level: level)

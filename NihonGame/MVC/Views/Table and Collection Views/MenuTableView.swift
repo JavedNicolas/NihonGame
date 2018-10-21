@@ -11,7 +11,6 @@ import UIKit
 
 class MenuTableView : UITableView {
     //MARK: - Set View Elements
-
     func set(delegate: UITableViewDelegate?, datasource: UITableViewDataSource?, cellType: MenuTableViewCell.Type, identifier: String) {
         self.dataSource = datasource
         self.delegate = delegate

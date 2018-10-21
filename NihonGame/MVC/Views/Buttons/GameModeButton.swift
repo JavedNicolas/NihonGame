@@ -8,6 +8,7 @@
 
 import UIKit
 class GameModeButton : MenuButton {
+    // MARK:- attributs
     var mode : GameMode? = nil {
         didSet {
             if let mode = mode {

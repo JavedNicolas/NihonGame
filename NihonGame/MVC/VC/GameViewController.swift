@@ -18,21 +18,20 @@ class GameViewController: UIViewController {
     var questionMode : QuestionType?
     var numberOfQuestionAsked = 0
 
-    // MARK/- VC Functions
+    // MARK:- Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         setAndRemoveObservater(set: true)
         initVC()
+
         guard let level = level else { return }
         self.game = Game(level: level)
         if let game = game, let newGameData = game.needToShowTutorial() {
-            showTutorial(gameData: newGameData)
+            showNewGameDataInfos(gameData: newGameData)
         }
         newQuestion()
-
     }
 
-    // MARK:- functions
     private func initVC() {
         self.view.setImageBackground()
         if let tabBarController = tabBarController { tabBarController.tabBar.isHidden = true  }
@@ -45,6 +44,7 @@ class GameViewController: UIViewController {
         }
     }
 
+    /** set a remove the observer the controller use */
     func setAndRemoveObservater(set: Bool ) {
         if set {
             NotificationCenter.default.addObserver(self, selector: #selector(setQuestionMode), name: questionSetNotificationName, object: nil)
@@ -55,6 +55,7 @@ class GameViewController: UIViewController {
         }
     }
 
+    /** generate un new question */
     func newQuestion() {
         if let game = game {
             game.setNewQuestion()
@@ -62,6 +63,7 @@ class GameViewController: UIViewController {
         }
     }
 
+    /** random a question Mode */
     @objc func setQuestionMode() {
         questionTypes = [SwipeQuestionModeView(frame: self.view.frame), SQModeView(frame: self.view.frame)]
         guard var questionMode = questionTypes.randomElement(), let game = game else {
@@ -74,16 +76,18 @@ class GameViewController: UIViewController {
         self.questionMode = questionMode
     }
 
-    func showTutorial(gameData: GameData) {
-        let tutorialView = GameDataPresentationViewController()
-        tutorialView.gameData = gameData
-        tutorialView.navController = self.navigationController
-        tutorialView.modalTransitionStyle = .crossDissolve
-        tutorialView.modalPresentationStyle = .overCurrentContext
-        self.present(tutorialView, animated: true, completion: nil)
+    /** Display a modal with the information about the new game Data*/
+    func showNewGameDataInfos(gameData: GameData) {
+        let newGameDataView = GameDataPresentationViewController()
+        newGameDataView.gameData = gameData
+        newGameDataView.navController = self.navigationController
+        newGameDataView.modalTransitionStyle = .crossDissolve
+        newGameDataView.modalPresentationStyle = .overCurrentContext
+        self.present(newGameDataView, animated: true, completion: nil)
 
     }
 
+    /** Display a modal with the end level information */
     func showEndLevelPopUp() {
         let endLevelViewController = EndLevelViewController()
         endLevelViewController.level = level
@@ -93,6 +97,23 @@ class GameViewController: UIViewController {
         endLevelViewController.navController = self.navigationController
     }
 
+    /**
+     Return a bool descripting the state of the game.
+     true if the game is over, false if not.
+     */
+    func isLevelOver() -> Bool {
+        if let game = game, game.isLevelOver() {
+            if game.isLevelSuccess() {
+                game.level.levelfinished()
+            }
+            showEndLevelPopUp()
+            return true
+        }
+        return false
+    }
+
+    // MARK:- selector
+    /** handle the user answers */
     @objc func userhasAnswered() {
         guard let questionMode = questionMode, let game = game else { return }
 
@@ -110,14 +131,5 @@ class GameViewController: UIViewController {
         }
     }
 
-    func isLevelOver() -> Bool {
-        if let game = game, game.isLevelOver() {
-            if game.isLevelSuccess() {
-                game.level.levelfinished()
-            }
-            showEndLevelPopUp()
-            return true
-        }
-        return false
-    }
+
 }

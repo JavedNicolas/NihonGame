@@ -10,6 +10,12 @@ import Foundation
 
 
 extension Array where Element == GameData {
+    /**
+     Return the element with the argument id
+     - Parameters:
+        - id: the ID to look for
+     - returns: return the found element or nil
+     */
     func dataAt(id: Int) -> GameData? {
         for element in self {
             if element.id == id {
@@ -21,6 +27,12 @@ extension Array where Element == GameData {
 }
 
 extension Array where Element == [DataComponents] {
+    /**
+     Return the element with the argument id
+     - Parameters:
+     - id: the ID to look for
+     - returns: return the found element or nil
+     */
     func dataAt(name: String) -> DataComponents? {
         for element in self {
             for data in element {
@@ -34,6 +46,12 @@ extension Array where Element == [DataComponents] {
 }
 
 extension Array where Element == Answer {
+    /**
+     Return the random element
+     - Parameters:
+        - id: the ID to look for
+     - returns: return the found element or nil
+     */
     func randomDataFor(id: Int) -> Answer? {
         var answers = [Answer]()
         for element in self {
@@ -51,6 +69,10 @@ extension Array where Element == Answer {
 }
 
 extension Array where Element == [String] {
+    /**
+     Change an Array of Array of string, into an Array of string
+     - returns: return Array
+     */
     func flatenArray() -> [String]{
         var flattenedArray = [String]()
         for array in self {
@@ -61,6 +83,12 @@ extension Array where Element == [String] {
         return flattenedArray
     }
 
+    /**
+     Return the index
+     - Parameters:
+     - string: name of the element
+     - returns: return the found index or nil
+     */
     func getIndexFor(string: String) -> Int? {
         for (index, array) in self.enumerated()  {
             for element in array {
@@ -74,6 +102,10 @@ extension Array where Element == [String] {
 }
 
 extension Array where Element == Substring {
+    /**
+     Change an substring into a string
+     - returns: return String
+     */
     func flatenArray(separator: String) -> String{
         var flattenedArray = ""
         for (index, element) in self.enumerated() {
