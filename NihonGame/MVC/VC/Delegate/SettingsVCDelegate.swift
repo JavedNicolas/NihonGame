@@ -9,5 +9,10 @@
 import UIKit
 
 extension SettingsViewController : UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let settingElement = self.settingsList[indexPath.row]
+        let cell = settingElement.cell
+        cell.isSelected = false
+        settingElement.function(cell)
+    }
 }

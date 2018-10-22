@@ -75,7 +75,6 @@ class GameViewController: UIViewController {
 
         questionMode.game = game
         view.addSubview(questionMode.view)
-        //self.questionMode = questionMode
     }
 
     /** Display a modal with the information about the new game Data*/
