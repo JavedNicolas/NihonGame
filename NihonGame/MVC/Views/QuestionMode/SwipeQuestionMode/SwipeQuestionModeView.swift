@@ -13,6 +13,7 @@ class SwipeQuestionModeView : UIView, QuestionType {
     /** The view Containing the question */
     private var questionView : SwipeQuestionView?
     internal var numberOfBadAnswer = 2
+    private var instructionLabel : UILabel?
     private var isCorrect = false
     private let imageLeft = UIImageView(image: UIImage(named: "inCorrect.png"))
     private let imageRight = UIImageView(image: UIImage(named: "Correct.png"))
@@ -30,16 +31,19 @@ class SwipeQuestionModeView : UIView, QuestionType {
 
     /** set the game Instructions */
     private func setInstruction() {
-        let label = UILabel()
-        label.text = "Swipe_Question_Text".localize()
-        label.textColor = .white
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.font = UIFont.boldSystemFont(ofSize: 30)
-        self.addSubview(label)
-        label.setAnchors(top: self.safeTopAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, bottom: nil,
-                         padding: UIEdgeInsets(top: 15, left: 10, bottom: 0, right: 10))
+        instructionLabel = UILabel()
+        guard let instructionLabel = instructionLabel else { return }
+        instructionLabel.text = "Swipe_Question_Text".localize()
+        instructionLabel.textColor = .white
+        instructionLabel.textAlignment = .center
+        instructionLabel.numberOfLines = 0
+        instructionLabel.lineBreakMode = .byWordWrapping
+        instructionLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        instructionLabel.adjustsFontSizeToFitWidth = true
+        self.addSubview(instructionLabel)
+
+        instructionLabel.setAnchors(top: self.safeTopAnchor, leading: self.leadingAnchor, trailing: self.trailingAnchor, bottom: questionView?.topAnchor,
+                         padding: UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10))
         setSideImageView()
     }
 
@@ -88,11 +92,12 @@ class SwipeQuestionModeView : UIView, QuestionType {
     // MARK:- Answering functions
     /** Set a style to question view based on the sens of the swipe, then move the view */
     private func transformQuestionView(gesture : UISwipeGestureRecognizer) {
-        guard let questionView = questionView else { return }
+        guard let questionView = questionView, let instructionLabel = self.instructionLabel else { return }
         let translation = gesture.direction
 
         self.imageLeft.removeFromSuperview()
         self.imageRight.removeFromSuperview()
+        instructionLabel.removeFromSuperview()
         if translation == .right {
             questionView.style = .correct
             pushQuestionViewAway(questionView: questionView, answer: true)
@@ -118,11 +123,14 @@ class SwipeQuestionModeView : UIView, QuestionType {
 
     /** Move the view according tto the sens of the swipe */
     private func pushQuestionViewAway(questionView: SwipeQuestionView, answer : Bool) {
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: 0.2, animations: {
             let sens : CGFloat = (answer ? 1 : -1)
             let xTransform =  sens * self.frame.width + sens * questionView.frame.width
             questionView.transform = CGAffineTransform(translationX: xTransform, y: 0)
-        }
+        }, completion: { _ in
+            questionView.removeFromSuperview()
+
+        })
     }
 
     /** display if the user correctly answered the question */
