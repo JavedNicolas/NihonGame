@@ -12,9 +12,11 @@ class LearnedDataViewController : UIViewController {
     // MARK:- attributs
     private var tableView : LearnedDataTableView?
     internal var gameModes = GameModes.shared.getGameModes()
+    internal var learnedDataSegmentedControl : SegmentedControl?
 
     override func viewDidLoad() {
         self.view.setImageBackground()
+        setSegementedControl()
         setTableView()
     }
 
@@ -22,19 +24,42 @@ class LearnedDataViewController : UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if let tableView = tableView {
             tableView.reloadData()
+            tableView.tableFooterView = UIView()
             gameModes = GameModes.shared.getGameModes()
-            setEmptyLabel(display: tableViewIsEmpty())
         }
     }
 
     /** set learned data tableView */
     func setTableView() {
-        tableView = LearnedDataTableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: .plain)
-        if let tableView = tableView {
+        setSegementedControl()
+        tableView = LearnedDataTableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0))
+        if let tableView = tableView, let learnedDataSegmentedControl = learnedDataSegmentedControl {
+            self.view.addSubview(learnedDataSegmentedControl)
             self.view.addSubview(tableView)
+            learnedDataSegmentedControl.setAnchors(top:self.view.safeTopAnchor, leading: self.view.leadingAnchor,
+                                                   trailing: self.view.trailingAnchor, bottom: nil,
+                                                   padding: UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10))
             tableView.set(delegate: self, dataSource: self, cellType: LearnedDataTableViewCell.self, identifier: "LearnedDataCell")
-            tableView.setAnchors(top: self.view.topAnchor, leading: self.view.leadingAnchor, trailing: self.view.trailingAnchor,
+            tableView.setAnchors(top: learnedDataSegmentedControl.bottomAnchor, leading: self.view.leadingAnchor, trailing: self.view.trailingAnchor,
                                  bottom: self.view.bottomAnchor)
+        }
+    }
+
+    /** Set the segmented Controll which handle learned Data array switch*/
+    func setSegementedControl() {
+        var segmentedItems = [String]()
+        for gameMode in GameModes.shared.getGameModes() {
+            if let name = gameMode.name {
+                segmentedItems.append(name)
+            }
+        }
+
+        learnedDataSegmentedControl = SegmentedControl(items: segmentedItems)
+        if let learnedDataSegmentedControl = learnedDataSegmentedControl {
+            let segementedControlFrame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
+            learnedDataSegmentedControl.set(frame: segementedControlFrame)
+            learnedDataSegmentedControl.selectedSegmentIndex = 0
+            learnedDataSegmentedControl.addTarget(self, action: #selector(ModeChanged(_:)), for: .valueChanged)
         }
     }
 
@@ -69,6 +94,14 @@ class LearnedDataViewController : UIViewController {
         }else {
             tableView.hideSeparator(hide: false)
             tableView.backgroundView = UIView()
+        }
+    }
+
+    // MARK:- Segemented Controller Handling
+    @objc func ModeChanged(_ sender: UISegmentedControl) {
+        if let tableview = tableView {
+            tableview.reloadData()
+            setEmptyLabel(display: tableViewIsEmpty())
         }
     }
 }
