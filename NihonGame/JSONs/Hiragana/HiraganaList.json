@@ -68,7 +68,8 @@
         "kana": "ば",
         "prononciation": "ba",
         "id" : 10013
-    },{
+    },
+    {
         "kana": "ぱ",
         "prononciation": "pa",
         "id" : 10014
@@ -347,7 +348,7 @@
         "kana": "ん",
         "prononciation": "n",
         "id" : 10069
-    }
+    },
     {
         "kana": "を",
         "prononciation": "o",

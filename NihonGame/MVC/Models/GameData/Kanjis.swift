@@ -61,9 +61,10 @@ class Kanjis : ModeDatas {
         }
 
         do {
-            let parsedGroups = try JSONDecoder().decode([KanjiParsing].self, from: data)
-            return parsedGroups
-        } catch {
+            let parsedData = try JSONDecoder().decode([KanjiParsing].self, from: data)
+            return parsedData
+        } catch let error {
+            print(error)
             return []
         }
     }

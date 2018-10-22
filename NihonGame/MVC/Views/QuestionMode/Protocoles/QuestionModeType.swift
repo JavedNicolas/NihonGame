@@ -9,6 +9,8 @@
 import UIKit
 
 protocol QuestionType {
+    /** number of bad answer to generate */
+    var numberOfBadAnswer : Int { get }
     var notificationNameString : String { get }
     /** The user answer result */
     var answered : (hasAnswered: Bool, hasCorrectlyAnswered: Bool) { get }
@@ -32,6 +34,10 @@ extension QuestionType {
 
     var barHeight : CGFloat {
         return 70
+    }
+
+    func getNumberOfBadAnswer() -> Int {
+        return numberOfBadAnswer
     }
 }
 

@@ -29,11 +29,15 @@ class Game {
 
     // MARK:- functions
     /** random a ne question */
-    func setNewQuestion() {
+    func setNewQuestion(numberOfBadAnswer: Int) {
         numberOfQuestionAsked += 1
         if let gameMode = GameModes.shared.getCurrentMode(), let allAnswers = gameMode.possibleAnswers,
             let levelDatas = level.levelDatas {
-            self.currentQuestion = Question(levelData: levelDatas, AllAnswers: allAnswers)
+            if levelDatas.count > 0 {
+                self.currentQuestion = Question(levelData: levelDatas, AllAnswers: allAnswers, numberOfBadAnswer: numberOfBadAnswer)
+            }else {
+                self.currentQuestion = nil
+            }
         }
     }
 
@@ -56,15 +60,7 @@ class Game {
         dataChoosed.changeScore(increase: isCorrect)
         level.changeScore(increase: isCorrect)
     }
-
-    /** if the level score is greater of equal to the score to complete the level return true */
-    func isLevelSuccess() -> Bool {
-        if level.score >= GameConstant.levelCompleteScore {
-            return true
-        }
-        return false
-    }
-
+    
     /** return true if the number of question for this level have been asked */
     func isLevelOver() -> Bool{
         if numberOfQuestionAsked >= GameConstant.questionsByLevel {

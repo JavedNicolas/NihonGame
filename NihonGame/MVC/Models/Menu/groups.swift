@@ -50,8 +50,7 @@ class Groups {
             let firstGroup = isFirstGroup(group: parsedGroup, groupList: parsedGroups)
             let levels = Levels(parsedLevels: parsedGroup.levels, isfirstGroup: firstGroup).getLevels()
             let groupToSet = Group(context: CoreDataManager.shared.getContext())
-            let groupName = "Group_String".localize() + String(index + 1)
-            groupToSet.fill(groupsParsed: parsedGroup, levels: levels, groupName: groupName)
+            groupToSet.fill(groupsParsed: parsedGroup, levels: levels, groupNumber: index + 1)
             groups.append(groupToSet)
         }
     }

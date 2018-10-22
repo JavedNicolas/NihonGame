@@ -12,8 +12,6 @@ import CoreData
 class Level : NSManagedObject {
     // MARK:- Attributs
     var newGameDataID : Int?
-    lazy var bestScore = 0
-    var endLevelScore = 0.int64
     /** The game Data that is introduced in this level */
     lazy var newGameData: GameData? = self.setNewGameData()
     /** The datas which will be used to constitue the level questions */
@@ -27,12 +25,14 @@ class Level : NSManagedObject {
          - firstLevel: true if the level is the first one
          - levelName: The name of the level
      */
-    func fill(parsedLevel level: LevelParsing, firstLevel: Bool, levelName: String){
+    func fill(parsedLevel level: LevelParsing, firstLevel: Bool, levelNumber: Int){
         self.id = level.id.int64
-        self.name = levelName
+        self.name = "Level_String".localize()  + String(levelNumber)
+        self.levelNumber = levelNumber.int64
         self.firstElement = level.startRange.int64
         self.lastElement = level.endRange.int64
         self.done = false
+        self.bestScore = 0
         self.locked = !firstLevel
         self.score = 0.int64
         self.stars = 0.int16
@@ -66,9 +66,6 @@ class Level : NSManagedObject {
 
     /** init current score and best score at the start of the level */
     func startLevel() {
-        if score >= bestScore {
-            bestScore = score.int
-        }
         score = 0
     }
 
@@ -76,6 +73,7 @@ class Level : NSManagedObject {
     func levelfinished() {
         unlockNextLevel()
         CoreDataManager.shared.saveContext()
+
     }
 
     /** Unlock the next level when the user made a score greater or equal to the score to complete the level */
@@ -86,7 +84,6 @@ class Level : NSManagedObject {
 
         for (index, level) in levels.enumerated() {
             if level == self {
-                level.endLevelScore = level.score
                 if level.score >= GameConstant.levelCompleteScore {
                     setStars()
                     level.done = true
@@ -96,11 +93,10 @@ class Level : NSManagedObject {
                         }else {
                             group.unlockNextGroup(groupBefore: group)
                         }
-                    } else if level.bestScore > level.score {
-                        level.score = bestScore.int64
                     }
-                } else if bestScore > level.score {
-                    level.score = bestScore.int64
+                }
+                if score > bestScore {
+                    self.bestScore = score
                 }
                 break
             }
@@ -150,4 +146,3 @@ class Level : NSManagedObject {
         return nil
     }
 }
-
