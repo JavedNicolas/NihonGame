@@ -9,9 +9,10 @@
 import UIKit
 
 class SegmentedControl : UISegmentedControl {
-    func set(frame: CGRect) {
-        self.frame = frame
-        self.layer.cornerRadius = 10
-        self.tintColor = DesignConstant.black1Alpha
+    func set() {
+        self.layer.cornerRadius = 25
+        self.tintColor = DesignConstant.black5Alpha
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        UISegmentedControl.appearance().setTitleTextAttributes(titleTextAttributes, for: .selected)
     }
 }

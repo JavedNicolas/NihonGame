@@ -36,6 +36,8 @@ class LearnedDataViewController : UIViewController {
         if let tableView = tableView, let learnedDataSegmentedControl = learnedDataSegmentedControl {
             self.view.addSubview(learnedDataSegmentedControl)
             self.view.addSubview(tableView)
+            learnedDataSegmentedControl.setWidth(width: self.view.frame.width)
+            learnedDataSegmentedControl.setHeight(height: 40)
             learnedDataSegmentedControl.setAnchors(top:self.view.safeTopAnchor, leading: self.view.leadingAnchor,
                                                    trailing: self.view.trailingAnchor, bottom: nil,
                                                    padding: UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10))
@@ -56,8 +58,7 @@ class LearnedDataViewController : UIViewController {
 
         learnedDataSegmentedControl = SegmentedControl(items: segmentedItems)
         if let learnedDataSegmentedControl = learnedDataSegmentedControl {
-            let segementedControlFrame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 100)
-            learnedDataSegmentedControl.set(frame: segementedControlFrame)
+            learnedDataSegmentedControl.set()
             learnedDataSegmentedControl.selectedSegmentIndex = 0
             learnedDataSegmentedControl.addTarget(self, action: #selector(ModeChanged(_:)), for: .valueChanged)
         }
