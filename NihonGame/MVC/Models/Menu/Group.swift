@@ -18,8 +18,10 @@ class Group: NSManagedObject {
          - levels : an array of the group's levels
          - groupName: the group name
      */
-    func fill(groupsParsed group: GroupParsing, levels: [Level], groupName: String) {
-        self.name = groupName
+    func fill(groupsParsed group: GroupParsing, levels: [Level], groupNumber: Int) {
+        self.name = "Group_String".localize() + String(groupNumber)
+        self.groupNumber = groupNumber.int64
+        self.isFirstLevel = (groupNumber == 1 ? true : false )
         self.id = group.id.int64
         self.firstElement = group.startRange.int64
         self.lastElement = group.endRange.int64
@@ -54,12 +56,8 @@ class Group: NSManagedObject {
                 numberOfDoneLevel += 1
             }
         }
-        if numberOfLockedLevels == levels.count {
-            self.locked = true
-        }
-        if numberOfDoneLevel == levels.count {
-            self.done = true
-        }
+        self.locked = ( numberOfLockedLevels == levels.count ? true : false )
+        self.done = (numberOfDoneLevel == levels.count ? true : false)
     }
 
     /** Unlock the next Group */

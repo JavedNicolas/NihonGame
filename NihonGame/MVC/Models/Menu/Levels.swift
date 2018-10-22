@@ -28,8 +28,7 @@ class Levels {
         for (index, parsedlevel) in parsedLevels.enumerated() {
             let firstLevel = isFirstLevel(level: parsedlevel, levelList: parsedLevels) && isfirstGroup
             let level = Level(context: CoreDataManager.shared.getContext())
-            let levelName = "Level_String".localize()  + String(index + 1)
-            level.fill(parsedLevel: parsedlevel, firstLevel: firstLevel, levelName: levelName )
+            level.fill(parsedLevel: parsedlevel, firstLevel: firstLevel, levelNumber: index + 1 )
             levels.append(level)
         }
     }

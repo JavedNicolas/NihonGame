@@ -57,23 +57,24 @@ class GameViewController: UIViewController {
 
     /** generate un new question */
     func newQuestion() {
-        if let game = game {
-            game.setNewQuestion()
+        questionTypes = [SwipeQuestionModeView(frame: self.view.frame), SQModeView(frame: self.view.frame)]
+        if let game = game, let questionMode = questionTypes.randomElement() {
+            self.questionMode = questionMode
+            let numberOfBadAnswer = questionMode.getNumberOfBadAnswer()
+            game.setNewQuestion(numberOfBadAnswer: numberOfBadAnswer)
             self.title = "Current_Question_Number".localize() + " \(game.getNumberOfQuestionAsked())/\(GameConstant.questionsByLevel)"
         }
     }
 
     /** random a question Mode */
     @objc func setQuestionMode() {
-        questionTypes = [SwipeQuestionModeView(frame: self.view.frame), SQModeView(frame: self.view.frame)]
-        guard var questionMode = questionTypes.randomElement(), let game = game else {
+        guard var questionMode = self.questionMode, let game = game, let _ = game.getCurrentQuestion() else {
             self.errorHandling(error: ErrorList.unknowError)
             return
         }
 
         questionMode.game = game
         view.addSubview(questionMode.view)
-        self.questionMode = questionMode
     }
 
     /** Display a modal with the information about the new game Data*/
@@ -103,9 +104,7 @@ class GameViewController: UIViewController {
      */
     func isLevelOver() -> Bool {
         if let game = game, game.isLevelOver() {
-            if game.isLevelSuccess() {
-                game.level.levelfinished()
-            }
+            game.level.levelfinished()
             showEndLevelPopUp()
             return true
         }

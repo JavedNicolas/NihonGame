@@ -19,6 +19,7 @@ class SQModeView: UIView, QuestionType {
     // MARK:- Attributs
     /** Handle answers rectangle little padding */
     private lazy var rectanglePadding = self.frame.width / 10
+    internal var numberOfBadAnswer = 3
     var answerViews = [SQAnswerView]()
     var answered = (hasAnswered: false, hasCorrectlyAnswered: false)
     /** Current game */

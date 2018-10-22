@@ -20,7 +20,7 @@ class Question {
     private var dataNames = [[String]]()
 
     // MARK:- init
-    init(levelData : [GameData], AllAnswers: PossibleAnswers) {
+    init(levelData : [GameData], AllAnswers: PossibleAnswers, numberOfBadAnswer: Int) {
         self.allPossibleAnswer = AllAnswers
         var dataID = 0
         var goodAnswerString = ""
@@ -40,7 +40,7 @@ class Question {
 
         self.question = questionString
         self.goodAnswer = Answer(gameDataID: dataID, answerString: goodAnswerString, category: goodAnswerCategory)
-        generateBadAnswer(levelData: levelData, category: goodAnswerCategory, numberOfBadAnswer: 3)
+        generateBadAnswer(levelData: levelData, category: goodAnswerCategory, numberOfBadAnswer: numberOfBadAnswer)
         answers = badAnswers
         answers.append(goodAnswer)
         answers.shuffle()

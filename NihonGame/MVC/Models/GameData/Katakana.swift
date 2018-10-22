@@ -59,9 +59,10 @@ class Katakana : ModeDatas {
         guard let data = data else { return [] }
 
         do {
-            let parsedGroups = try JSONDecoder().decode([KatakanaParsing].self, from: data)
-            return parsedGroups
-        } catch {
+            let parsedData = try JSONDecoder().decode([KatakanaParsing].self, from: data)
+            return parsedData
+        } catch let error {
+            print(error)
             return []
         }
     }

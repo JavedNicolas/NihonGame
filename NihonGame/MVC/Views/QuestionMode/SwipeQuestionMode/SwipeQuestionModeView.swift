@@ -12,6 +12,7 @@ class SwipeQuestionModeView : UIView, QuestionType {
     // MARK:- Attribut
     /** The view Containing the question */
     private var questionView : SwipeQuestionView?
+    internal var numberOfBadAnswer = 2
     private var isCorrect = false
     private let imageLeft = UIImageView(image: UIImage(named: "inCorrect.png"))
     private let imageRight = UIImageView(image: UIImage(named: "Correct.png"))
@@ -149,6 +150,4 @@ class SwipeQuestionModeView : UIView, QuestionType {
         transformQuestionView(gesture: sender)
         answerQuestion()
     }
-
-
 }
