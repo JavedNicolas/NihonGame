@@ -37,7 +37,7 @@
 "Current_Question_Number" = "Question :";
 "Find_Text" = "Trouver : ";
 "Progression_Text" = "Completion :";
-"Swipe_Question_Text" = "Swipe la question pour répondre !";
+"Swipe_Question_Text" = "Est-ce correct ?\n Swipe la question pour répondre !";
 
 //MARK:- Learning Level
 "Learning_Level_1" = "Nouveau !";

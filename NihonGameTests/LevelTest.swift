@@ -32,7 +32,7 @@ class LevelTest: XCTestCase {
 
         // Then
         XCTAssertNotEqual(0, level?.score)
-        XCTAssertNotEqual(0, level?.stars)
+        XCTAssertNotEqual(0, level?.bestScore)
     }
 
 }

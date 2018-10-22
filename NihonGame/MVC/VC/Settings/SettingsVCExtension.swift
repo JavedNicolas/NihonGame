@@ -12,7 +12,7 @@ import UIKit
 extension SettingsViewController {
     // MARK:- ResetCell
     /** reset Data cell */
-    private func setResetCell() {
+    internal func setResetCell() {
         let resetProgressionCell = SettingsTableViewCell(style: .default, reuseIdentifier: "SettingsCell")
         resetProgressionCell.message = "Reset_Text".localize()
         let resetSettingsElement = SettingsElement(sectionId: 0, sectionName: "Progression_Settings_Text".localize(),

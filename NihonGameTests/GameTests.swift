@@ -30,7 +30,7 @@ class NihonGameTests: XCTestCase {
 
         // Then
         let game = Game(level: level!)
-        game.setNewQuestion()
+        game.setNewQuestion(numberOfBadAnswer: 2)
 
         XCTAssertNotNil(game)
         XCTAssertNotNil(game.getCurrentQuestion())
@@ -39,7 +39,7 @@ class NihonGameTests: XCTestCase {
     func testGivenUserAnsweredToTheQuestionCorrectlyIThenWeUpgradeScores() {
         // Given
         let game = Game(level: level!)
-        game.setNewQuestion()
+        game.setNewQuestion(numberOfBadAnswer: 2)
         // Then
         game.userAnswered(isCorrect: true)
         XCTAssertNotEqual(0, game.level.score)
@@ -54,31 +54,31 @@ class NihonGameTests: XCTestCase {
         XCTAssertEqual(0, game.level.score)
     }
 
-    func testGiveTheUserHasAnsweredAndTheGameIsOverWhenWeCheckIfTheUserSuccessedThenItReturnTrueAdnUnlockNextLevel() {
+    func testGiveTheUserHasAnsweredAndTheGameIsOverWhenWeCheckIfTheUserSuccessedThenItReturnTrueAndUnlockNextLevel() {
         // Given
         let game = Game(level: level!)
         for _ in 0..<GameConstant.questionsByLevel {
             game.userAnswered(isCorrect: true)
-            game.setNewQuestion()
+            game.setNewQuestion(numberOfBadAnswer: 2)
         }
         game.level.unlockNextLevel()
         XCTAssertTrue(game.isLevelOver())
-        XCTAssertTrue(game.isLevelSuccess())
+        XCTAssertTrue(game.level.done)
     }
 
-    func testGiveTheUserHasAnsweredAndTheGameIsOverAndTheGameIsTheLastofTheGroupWhenWeCheckIfTheUserSuccessedThenItReturnTrueAdnUnlockNextGroup() {
+    func testGiveTheUserHasAnsweredAndTheGameIsOverAndTheGameIsTheLastofTheGroupWhenWeCheckIfTheUserSuccessedThenItReturnTrueAndUnlockNextGroup() {
         // Given
         level = group!.getLevels()!.last
         let game = Game(level: level!)
 
         for _ in 0..<GameConstant.questionsByLevel {
             game.userAnswered(isCorrect: true)
-            game.setNewQuestion()
+            game.setNewQuestion(numberOfBadAnswer: 2)
         }
 
         game.level.unlockNextLevel()
         XCTAssertTrue(game.isLevelOver())
-        XCTAssertTrue(game.isLevelSuccess())
+        XCTAssertTrue(game.level.done)
     }
 
     func testGiveTheUserHasAnsweredAndTheGameIsOverWhenWeCheckIfTheUserSuccessedThenItReturnFalse() {
@@ -86,10 +86,10 @@ class NihonGameTests: XCTestCase {
         let game = Game(level: level!)
         for _ in 0..<GameConstant.questionsByLevel {
             game.userAnswered(isCorrect: false)
-            game.setNewQuestion()
+            game.setNewQuestion(numberOfBadAnswer: 2)
         }
         XCTAssertTrue(game.isLevelOver())
-        XCTAssertFalse(game.isLevelSuccess())
+        XCTAssertFalse(game.level.done)
     }
 
     func testGivenTheLevelJustStartedWhenItLaunchThenTheLevelNeedATutorial() {
