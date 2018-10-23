@@ -26,6 +26,7 @@ class LearnedDataViewController : UIViewController {
             tableView.reloadData()
             tableView.tableFooterView = UIView()
             gameModes = GameModes.shared.getGameModes()
+            setEmptyLabel(display: tableViewIsEmpty())
         }
     }
 
