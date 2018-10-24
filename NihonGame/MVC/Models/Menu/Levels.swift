@@ -10,7 +10,7 @@ import Foundation
 
 class Levels {
     // MARK:- Attributs
-    private var levels : [Level] = []
+    private var levels : [GameLevel] = []
 
     // MARK:- init
     init(parsedLevels: [LevelParsing], isfirstGroup: Bool){
@@ -27,7 +27,7 @@ class Levels {
     private func setLevels(parsedLevels: [LevelParsing], isfirstGroup: Bool)  {
         for (index, parsedlevel) in parsedLevels.enumerated() {
             let firstLevel = isFirstLevel(level: parsedlevel, levelList: parsedLevels) && isfirstGroup
-            let level = Level(context: CoreDataManager.shared.getContext())
+            let level = GameLevel(context: CoreDataManager.shared.getContext())
             level.fill(parsedLevel: parsedlevel, firstLevel: firstLevel, levelNumber: index + 1 )
             levels.append(level)
         }
@@ -51,7 +51,7 @@ class Levels {
         return false
     }
 
-    func getLevels() -> [Level] {
+    func getLevels() -> [GameLevel] {
         return levels
     }
 }

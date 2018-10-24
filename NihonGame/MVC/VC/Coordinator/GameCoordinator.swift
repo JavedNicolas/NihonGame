@@ -14,7 +14,7 @@ class GameCoordinator : Coordinator {
     private var gameViewController : GameViewController
 
     // MARK:- init
-    init(currentViewController: UIViewController, level : Level) {
+    init(currentViewController: UIViewController, level : GameLevel) {
         self.currentViewController = currentViewController
         self.gameViewController = GameViewController()
         gameViewController.level = level

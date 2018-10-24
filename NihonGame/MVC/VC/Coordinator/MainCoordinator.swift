@@ -12,8 +12,8 @@ class MainCoordinator : Coordinator {
     // MARK:- Attributs
     private var appDelegate : AppDelegate
     private var tabBarController = UITabBarController()
-    private var tabIconsName = ["Game_Icon","Learned_Icon","Settings_Icon"]
-    private var tabName = ["Main_Menu_VC".localize(),"Learned_Data_VC".localize(), "Settings_VC".localize()]
+    private var tabIconsName = ["Game_Icon","","Learned_Icon","Settings_Icon"]
+    private var tabName = ["Main_Menu_VC".localize(),"Training_VC".localize(),"Learned_Data_VC".localize(), "Settings_VC".localize()]
 
     // MARK:- init
     init(appDelegate: AppDelegate){
@@ -34,6 +34,7 @@ class MainCoordinator : Coordinator {
     private func setTabs() {
         var tabViewController : [UIViewController] = []
         tabViewController.append(MainMenuViewController())
+        tabViewController.append(TrainingViewController())
         tabViewController.append(LearnedDataViewController())
         tabViewController.append(SettingsViewController())
 

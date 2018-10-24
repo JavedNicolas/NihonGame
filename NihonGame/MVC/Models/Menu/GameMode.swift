@@ -39,12 +39,10 @@ class GameMode : NSManagedObject {
     func fill(modeData: ModeDatas) {
         self.modeData = modeData
         self.dataNames = modeData.dataNames
-        if let datas = getDatas() {
-            for data in datas {
-                let data = data
-                data.dataNameOrder = modeData.dataNameOrder
-                self.addToDatas(data)
-            }
+        for data in getDatas() {
+            let data = data
+            data.dataNameOrder = modeData.dataNameOrder
+            self.addToDatas(data)
         }
         if let groups = getGroups() {
             for group in groups {
@@ -57,12 +55,12 @@ class GameMode : NSManagedObject {
     }
 
     /** return formated gameData of the mode */
-    func getDatas() -> [GameData]?{
+    func getDatas() -> [GameData]{
         if let nsDatas = datas, var datas = nsDatas.allObjects as? [GameData] {
             datas.sort(by: {$0.id < $1.id})
             return datas
         }
-        return nil
+        return []
     }
 
     /** return formated groups */
@@ -74,10 +72,8 @@ class GameMode : NSManagedObject {
     }
 
     /** Create the array with all the possible Answer */
-    func createAnswer() -> PossibleAnswers? {
-        guard let data = getDatas() else{
-            return nil
-        }
+    func createAnswer() -> PossibleAnswers {
+        let data = getDatas()
         return PossibleAnswers(modeDatas: data, dataComponentsName: dataNames)
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class LevelMenuViewController : UIViewController {
     // MARK:- Attributs
-    internal var levels : [Level]?
+    internal var levels : [GameLevel]?
     private var group : Group?
     private var menuName : UILabel?
     private var levelCollectionView : LevelCollectionView?

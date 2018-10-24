@@ -17,8 +17,8 @@ extension LearnedDataViewController : UITableViewDataSource {
      */
     func getKnownData() -> [GameData]{
         var knownData = [GameData]()
-        guard  let learnedSegmentedControll = learnedDataSegmentedControl,
-            let datas = gameModes[learnedSegmentedControll.selectedSegmentIndex].getDatas() else { return knownData }
+        guard  let learnedSegmentedControll = learnedDataSegmentedControl else { return knownData }
+        let datas = gameModes[learnedSegmentedControll.selectedSegmentIndex].getDatas()
         for data in datas {
             if data.learningScore != 0 {
                 knownData.append(data)

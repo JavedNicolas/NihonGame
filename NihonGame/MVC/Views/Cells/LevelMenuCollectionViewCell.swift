@@ -11,7 +11,7 @@ import UIKit
 class LevelMenuCollectionviewCell : UICollectionViewCell {
     // MARK:- Attribut
     private var button : LevelButton?
-    var level : Level? = nil {
+    var level : GameLevel? = nil {
         didSet {
             if let level = level {
                 set(level: level)
@@ -39,12 +39,12 @@ class LevelMenuCollectionviewCell : UICollectionViewCell {
     }
 
     // MARK:- setters
-    private func set(level: Level) {
+    private func set(level: GameLevel) {
         self.backgroundColor = .clear
         setLevelButton(level: level)
     }
 
-    private func setLevelButton(level: Level){
+    private func setLevelButton(level: GameLevel){
         button = LevelButton(rect: self.frame)
 
         if let button = button {

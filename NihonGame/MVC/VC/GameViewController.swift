@@ -14,7 +14,7 @@ class GameViewController: UIViewController {
     private var questionSetNotificationName = Notification.Name(rawValue: "QuestionLoaded")
     private lazy var questionTypes : [QuestionType] = []
     private var game : Game?
-    var level : Level?
+    var level : GameLevel?
     var questionMode : QuestionType?
     var numberOfQuestionAsked = 0
 

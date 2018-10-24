@@ -11,6 +11,7 @@
 
 // MARK:- ViewController Names
 "Main_Menu_VC" = "Jeux";
+"Training_VC" = "Entrainement";
 "Learned_Data_VC" = "Contenu Appris";
 "Settings_VC" = "Réglages";
 
@@ -26,6 +27,7 @@
 "Go_Back_To_Menu_Text" = "Revenir au Menu Précédent";
 "Back_Text" = "retour";
 "Close_Text" = "Fermer";
+"Training_Button" = "S'entrainer !";
 
 //MARK:- Label text
 "New_Game_Data_Text" = "Nouvel Élement !";

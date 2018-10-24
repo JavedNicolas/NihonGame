@@ -10,7 +10,7 @@ import UIKit
 class LevelButton : MenuButton {
     // MARK:- Attributs
     private let starsView = SmallStarsView(stars: 0)
-    var level : Level? = nil {
+    var level : GameLevel? = nil {
         didSet {
             if let level = level {
                 if let name = level.name {

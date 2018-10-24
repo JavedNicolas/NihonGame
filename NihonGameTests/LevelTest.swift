@@ -10,7 +10,7 @@ import XCTest
 @testable import NihonGame
 
 class LevelTest: XCTestCase {
-    var level : Level?
+    var level : GameLevel?
     let currentModeID = 0
     override func setUp() {
         super.setUp()

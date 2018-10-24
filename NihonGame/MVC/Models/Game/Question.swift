@@ -56,7 +56,7 @@ class Question {
      */
     private func generateBadAnswer(levelData: [GameData], category: String, numberOfBadAnswer: Int) {
         guard let badAnswerPossibility = allPossibleAnswer.getPossibleAnswersList()[category], let mode = GameModes.shared.getCurrentMode(),
-        let datas = mode.getDatas(), let firstData = datas.first else {
+        let firstData = mode.getDatas().first else {
             return
         }
         let lastGameData = levelData[levelData.endIndex - 1]

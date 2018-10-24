@@ -10,7 +10,7 @@ import Foundation
 
 class Game {
     // MARK:- Attributs
-    var level : Level
+    var level : GameLevel
     private var levelData : [GameData] = []
     private var numberOfQuestionAsked = 0
     private var currentQuestion : Question? = nil {
@@ -22,7 +22,7 @@ class Game {
     }
 
     // MARK:- init
-    init(level: Level) {
+    init(level: GameLevel) {
         self.level = level
         self.level.startLevel()
     }

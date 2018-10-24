@@ -18,7 +18,7 @@ class Group: NSManagedObject {
          - levels : an array of the group's levels
          - groupName: the group name
      */
-    func fill(groupsParsed group: GroupParsing, levels: [Level], groupNumber: Int) {
+    func fill(groupsParsed group: GroupParsing, levels: [GameLevel], groupNumber: Int) {
         self.name = "Group_String".localize() + String(groupNumber)
         self.groupNumber = groupNumber.int64
         self.isFirstLevel = (groupNumber == 1 ? true : false )
@@ -33,7 +33,7 @@ class Group: NSManagedObject {
     /**
      Set the level
      */
-    func setData(levels : [Level]) {
+    func setData(levels : [GameLevel]) {
         for (index, level) in levels.enumerated() {
             level.parentGroup = self
             // Set the newGameDataID if the last element is a new one
@@ -45,7 +45,7 @@ class Group: NSManagedObject {
     }
 
     /** Unlock group based on locked levels */
-    func setDoneAndLock(levels: [Level]) {
+    func setDoneAndLock(levels: [GameLevel]) {
         var numberOfLockedLevels = 0
         var numberOfDoneLevel = 0
         for level in levels {
@@ -77,8 +77,8 @@ class Group: NSManagedObject {
     }
 
     /** get formated Levels */
-    func getLevels() -> [Level]? {
-        if let nsLevel = levels?.allObjects, let levels = nsLevel as? [Level] {
+    func getLevels() -> [GameLevel]? {
+        if let nsLevel = levels?.allObjects, let levels = nsLevel as? [GameLevel] {
             return levels.sorted(by: { $0.id < $1.id})
         }
         return nil

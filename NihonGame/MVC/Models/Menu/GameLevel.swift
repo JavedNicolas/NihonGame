@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class Level : NSManagedObject {
+class GameLevel : NSManagedObject {
     // MARK:- Attributs
     var newGameDataID : Int?
     /** The game Data that is introduced in this level */
@@ -110,10 +110,10 @@ class Level : NSManagedObject {
      */
     private func setGameDataToUse() -> [GameData]?{
         var levelDatas = [GameData]()
-        guard let group = parentGroup, let mode = group.parentGameMode, let gameDatas = mode.getDatas() else {
+        guard let group = parentGroup, let mode = group.parentGameMode else {
             return nil
         }
-
+        let gameDatas = mode.getDatas()
         if firstElement == lastElement {
             if let elementToAdd = gameDatas.dataAt(id: firstElement.int) {
                 levelDatas.append(elementToAdd)
