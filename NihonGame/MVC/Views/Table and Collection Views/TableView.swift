@@ -8,22 +8,14 @@
 
 import UIKit
 
-class LearnedDataTableView: UITableView {
+class TableView: UITableView {
     // MARK:- setters
-    func set(delegate: UITableViewDelegate?, dataSource : UITableViewDataSource?, cellType: LearnedDataTableViewCell.Type,
+    func set(delegate: UITableViewDelegate?, dataSource : UITableViewDataSource?, cellType: UITableViewCell.Type,
              identifier: String) {
         self.delegate = delegate
         self.dataSource = dataSource
         self.rowHeight = 70
         self.register(cellType, forCellReuseIdentifier: identifier)
         self.backgroundColor = .clear
-    }
-
-    func hideSeparator(hide: Bool) {
-        if hide {
-            self.separatorStyle = .none
-        }else {
-            self.separatorStyle = .singleLine
-        }
     }
 }

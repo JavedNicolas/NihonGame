@@ -10,7 +10,7 @@ import UIKit
 
 class LearnedDataViewController : UIViewController {
     // MARK:- attributs
-    private var tableView : LearnedDataTableView?
+    private var tableView : TableView?
     internal var gameModes = GameModes.shared.getGameModes()
     internal var learnedDataSegmentedControl : SegmentedControl?
 
@@ -33,7 +33,7 @@ class LearnedDataViewController : UIViewController {
     /** set learned data tableView */
     func setTableView() {
         setSegementedControl()
-        tableView = LearnedDataTableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0))
+        tableView = TableView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0))
         if let tableView = tableView, let learnedDataSegmentedControl = learnedDataSegmentedControl {
             self.view.addSubview(learnedDataSegmentedControl)
             self.view.addSubview(tableView)
@@ -87,14 +87,12 @@ class LearnedDataViewController : UIViewController {
             let tableViewHeight = tableView.bounds.size.height
             let rect = CGRect(origin: CGPoint(x: 0, y: 0),size: CGSize(width: tableViewWidth,height: tableViewHeight))
             let emptyListLabel = UILabel(frame: rect)
-            tableView.hideSeparator(hide: true)
             emptyListLabel.text = "Empty_LearnedData_Text".localize()
             emptyListLabel.numberOfLines = 0
             emptyListLabel.textColor = .white
             emptyListLabel.textAlignment = .center
             tableView.backgroundView = emptyListLabel
         }else {
-            tableView.hideSeparator(hide: false)
             tableView.backgroundView = UIView()
         }
     }

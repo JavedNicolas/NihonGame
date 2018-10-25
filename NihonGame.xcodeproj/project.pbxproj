@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		370B1E79216F2B5D007B03FE /* LevelScoreDisplayBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370B1E78216F2B5D007B03FE /* LevelScoreDisplayBar.swift */; };
-		370B1E7B216F6175007B03FE /* LearnedDataTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370B1E7A216F6175007B03FE /* LearnedDataTableView.swift */; };
+		370B1E7B216F6175007B03FE /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370B1E7A216F6175007B03FE /* TableView.swift */; };
 		370B1E7D216F6272007B03FE /* LearnedDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370B1E7C216F6272007B03FE /* LearnedDataTableViewCell.swift */; };
 		370B1E7F216F666A007B03FE /* LearnedDataVCDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370B1E7E216F666A007B03FE /* LearnedDataVCDataSource.swift */; };
 		370B1E81216F7F01007B03FE /* DataComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370B1E80216F7F01007B03FE /* DataComponents.swift */; };
@@ -124,7 +124,7 @@
 
 /* Begin PBXFileReference section */
 		370B1E78216F2B5D007B03FE /* LevelScoreDisplayBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelScoreDisplayBar.swift; sourceTree = "<group>"; };
-		370B1E7A216F6175007B03FE /* LearnedDataTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnedDataTableView.swift; sourceTree = "<group>"; };
+		370B1E7A216F6175007B03FE /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		370B1E7C216F6272007B03FE /* LearnedDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnedDataTableViewCell.swift; sourceTree = "<group>"; };
 		370B1E7E216F666A007B03FE /* LearnedDataVCDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnedDataVCDataSource.swift; sourceTree = "<group>"; };
 		370B1E80216F7F01007B03FE /* DataComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataComponents.swift; sourceTree = "<group>"; };
@@ -656,7 +656,7 @@
 			children = (
 				37613074213FC5DE00FBCA24 /* MenuTableView.swift */,
 				37685A1D21538C2F00D8B585 /* LevelColletionView.swift */,
-				370B1E7A216F6175007B03FE /* LearnedDataTableView.swift */,
+				370B1E7A216F6175007B03FE /* TableView.swift */,
 				37282EE72170B275001D22DC /* SettingsTableView.swift */,
 			);
 			path = "Table and Collection Views";
@@ -778,7 +778,7 @@
 				37484740214A3824006E35D1 /* MainCoordinator.swift in Sources */,
 				37E0B0352158C3C80064019F /* MenuTableViewCell.swift in Sources */,
 				37698F73217B02310053F185 /* SwipeQuestionModeView.swift in Sources */,
-				370B1E7B216F6175007B03FE /* LearnedDataTableView.swift in Sources */,
+				370B1E7B216F6175007B03FE /* TableView.swift in Sources */,
 				370DA7DA216B45EC00AA243C /* GameModeButton.swift in Sources */,
 				372E448121678A4B0079B5DF /* SQQuestionView.swift in Sources */,
 				3765F6372161F6B700A4D64D /* ModeDatas.swift in Sources */,
