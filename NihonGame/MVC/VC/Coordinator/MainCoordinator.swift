@@ -12,7 +12,7 @@ class MainCoordinator : Coordinator {
     // MARK:- Attributs
     private var appDelegate : AppDelegate
     private var tabBarController = UITabBarController()
-    private var tabIconsName = ["Game_Icon","","Learned_Icon","Settings_Icon"]
+    private var tabIconsName = ["Game_Icon","Training_Icon","Learned_Icon","Settings_Icon"]
     private var tabName = ["Main_Menu_VC".localize(),"Training_VC".localize(),"Learned_Data_VC".localize(), "Settings_VC".localize()]
 
     // MARK:- init

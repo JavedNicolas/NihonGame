@@ -24,9 +24,8 @@ class LearnedDataViewController : UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if let tableView = tableView {
             tableView.reloadData()
-            tableView.tableFooterView = UIView()
             gameModes = GameModes.shared.getGameModes()
-            setEmptyLabel(display: tableViewIsEmpty())
+            tableView.setEmptyLabel(display: tableViewIsEmpty(), text: "Empty_LearnedData_Text".localize())
         }
     }
 
@@ -77,31 +76,11 @@ class LearnedDataViewController : UIViewController {
         return false
     }
 
-    /**
-     Set a label into a tableView
-     */
-    func setEmptyLabel(display: Bool) {
-        guard let tableView = tableView else { return }
-        if display {
-            let tableViewWidth = tableView.bounds.size.width
-            let tableViewHeight = tableView.bounds.size.height
-            let rect = CGRect(origin: CGPoint(x: 0, y: 0),size: CGSize(width: tableViewWidth,height: tableViewHeight))
-            let emptyListLabel = UILabel(frame: rect)
-            emptyListLabel.text = "Empty_LearnedData_Text".localize()
-            emptyListLabel.numberOfLines = 0
-            emptyListLabel.textColor = .white
-            emptyListLabel.textAlignment = .center
-            tableView.backgroundView = emptyListLabel
-        }else {
-            tableView.backgroundView = UIView()
-        }
-    }
-
     // MARK:- Segemented Controller Handling
     @objc func modeChanged(_ sender: UISegmentedControl) {
         if let tableview = tableView {
             tableview.reloadData()
-            setEmptyLabel(display: tableViewIsEmpty())
+            tableview.setEmptyLabel(display: tableViewIsEmpty(), text: "Empty_LearnedData_Text".localize())
         }
     }
 }

@@ -14,17 +14,21 @@ struct GameConstant {
     static let scoreIncrementation = 50
     static let scoreDecrementation = 50
     static let questionsByLevel = 20
-    static let questionsByTraining = 30
     static let scoreByStar = 200
 }
 
 struct GameDataConstant {
     static let scoreIncrementation = 10
     static let scoreDecrementation = 10
-    static let firstLearningStep = 300
-    static let secondLearningStep = 600
-    static let thirdLearningStep = 900
+    static let learningLevelSteps = [0.int64 ,300.int64, 600.int64, 900.int64]
+    static let learningLevelNames = ["Learning_Level_0".localize(), "Learning_Level_1".localize(),
+                                     "Learning_Level_2".localize(), "Learning_Level_3".localize()]
     static let MaxScoreForLearningLevel = 1200
+}
+
+struct TrainingConstant {
+    static let questionsByTraining = 30
+    static let numberOfDataByTraining = 4
 }
 
 struct DesignConstant {
@@ -37,6 +41,7 @@ struct DesignConstant {
                                     blue: BlueColorComponents.blueColor, alpha: 1)
     static let green7Alpha = UIColor.green.withAlphaComponent(0.7)
     static let red7Alpha = UIColor.red.withAlphaComponent(0.7)
+    static let learningLevelColors = [UIColor.red, UIColor.orange, UIColor.yellow, UIColor.green]
 }
 
 struct GrayColorComponents {

@@ -10,20 +10,14 @@ import UIKit
 
 class TrainingViewController : UIViewController {
     // MARK:- attributs
-    private var dataToReviewLabel = UILabel()
+    private var dataToReviewTableView = TableView()
     private var reviewButton = UIButton()
-    private var trainingSegmentedControl: SegmentedControl?
-    private var knowDataToReview : [DataToReview] {
+    internal var trainingSegmentedControl: SegmentedControl?
+    internal var currentModeDataByLearningLevel = [DataToReviewWithLevel]()
+    internal var knowDataToReview : [DataToReview] {
         get {
             return getDataToReview()
         }
-    }
-
-    // MARK:- struct
-    struct DataToReview {
-        var modeID : Int
-        var modeName: String
-        var datas : [GameData]
     }
 
     // MARK:- function
@@ -40,18 +34,17 @@ class TrainingViewController : UIViewController {
     private func setVC() {
         self.view.setImageBackground()
         setSegmentedControl()
-        setLabel()
         setButton()
+        setTableView()
     }
 
-    private func setLabel() {
-        // Set data To Review Label
-        dataToReviewLabel.textColor = .white
-        dataToReviewLabel.textAlignment = .center
-        self.view.addSubview(dataToReviewLabel)
+    private func setTableView() {
+        // Set data To Review tableView
+        dataToReviewTableView.set(delegate: nil, dataSource: self, cellType: TrainingCell.self, identifier: "LearningLevelCell")
+        self.view.addSubview(dataToReviewTableView)
         guard let trainingSegmentedControl = trainingSegmentedControl else { return }
-        dataToReviewLabel.setAnchors(top: trainingSegmentedControl.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor,
-                                     bottom: nil, padding: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0))
+        dataToReviewTableView.setAnchors(top: trainingSegmentedControl.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor,
+                                     bottom: reviewButton.topAnchor, padding: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0))
     }
 
     /** Set the training button*/
@@ -63,7 +56,7 @@ class TrainingViewController : UIViewController {
         self.view.addSubview(reviewButton)
         reviewButton.setAnchors(top: nil, leading: view.leadingAnchor, trailing: view.trailingAnchor, bottom: view.bottomAnchor,
                                 padding: UIEdgeInsets(top: 0, left: 10, bottom: self.view.frame.height / 10, right: 10))
-        reviewButton.setHeight(height: 100)
+        reviewButton.setHeight(height: 70)
     }
 
     /** Set the segmented control */
@@ -85,24 +78,31 @@ class TrainingViewController : UIViewController {
         }
     }
 
-    /** Get Data to review from all the modes */
-    private func getDataToReview() -> [DataToReview] {
-        var knowData = [DataToReview]()
-        for gameMode in GameModes.shared.getGameModes() {
-            guard let name = gameMode.name else { return [] }
-            var dataToReview = DataToReview(modeID: gameMode.id.int, modeName: name, datas: [])
-            for data in gameMode.getDatas() {
-                if 1...GameDataConstant.thirdLearningStep ~= data.learningScore.int {
-                    dataToReview.datas.append(data)
+    /**
+     Random value for training if there is too much data to train
+     - Parameters:
+        - trainingLevelData: Data for to train
+
+     - returns: New Data for this training
+     */
+    func setDataForTraining(trainingLevelData: [GameData]) -> [GameData] {
+        var dataForThisTraining = [GameData]()
+        if trainingLevelData.count > TrainingConstant.numberOfDataByTraining {
+            repeat {
+                if let randomData = trainingLevelData.randomElement(), !dataForThisTraining.contains(randomData) {
+                    dataForThisTraining.append(randomData)
                 }
-            }
-            knowData.append(dataToReview)
+            } while( dataForThisTraining.count < TrainingConstant.numberOfDataByTraining)
+        } else {
+            dataForThisTraining = trainingLevelData
         }
-        return knowData
+        return dataForThisTraining
     }
 
+    // MARK:- objc func
     @objc func modeChanged(_ sender: UISegmentedControl) {
-        dataToReviewLabel.text = String(knowDataToReview[sender.selectedSegmentIndex].datas.count)
+        currentModeDataByLearningLevel = getDataByLearningLevel(dataToReview: knowDataToReview[sender.selectedSegmentIndex])
+        dataToReviewTableView.reloadData()
     }
 
     @objc func launchTraining() {
@@ -111,10 +111,11 @@ class TrainingViewController : UIViewController {
             let knowDataModeChoosed = knowDataToReview[trainingSegmentedControl.selectedSegmentIndex]
             let gameMode = GameModes.shared.getGameModes()[knowDataModeChoosed.modeID]
             // Get the data for the level
-            let levelData = knowDataModeChoosed.datas
-            if levelData.count != 0 {
+            let trainingLevelData = knowDataModeChoosed.datas
+            if trainingLevelData.count != 0 {
                 // Create the level
-                let level = TrainingLevel(levelDatas: levelData)
+                let dataForLevelTraining = setDataForTraining(trainingLevelData: trainingLevelData)
+                let level = TrainingLevel(levelDatas: dataForLevelTraining)
                 let currentPath = CurrentMenuPath(gameMode: gameMode, level: level)
                 let coordinator = GameCoordinator.init(currentViewController: self, currentPath: currentPath)
                 coordinator.start()

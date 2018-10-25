@@ -42,10 +42,10 @@
 "Swipe_Question_Text" = "Est-ce correct ?\n Swipe la question pour répondre !";
 
 //MARK:- Learning Level
-"Learning_Level_1" = "Nouveau !";
-"Learning_Level_2" = "En apprentissage";
-"Learning_Level_3" = "Connu";
-"Learning_Level_4" = "Maîtrisé";
+"Learning_Level_0" = "Nouveau";
+"Learning_Level_1" = "En apprentissage";
+"Learning_Level_2" = "Connu";
+"Learning_Level_3" = "Maîtrisé";
 
 //MARK:- Empty TableView Text
 "Empty_LearnedData_Text" = "Vous n'avez encore pas vu de contenu !\n Jouer pour en débloquer !";

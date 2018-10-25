@@ -43,7 +43,7 @@
 "Swipe_Question_Text" = "Is this correct ?\n Swipe the question to answer !";
 
 //MARK:- Learning Level
-"Learning_Level_1" = "New !";
+"Learning_Level_1" = "New";
 "Learning_Level_2" = "Learning";
 "Learning_Level_3" = "Known";
 "Learning_Level_4" = "Mastered";

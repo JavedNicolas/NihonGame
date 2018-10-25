@@ -122,17 +122,21 @@ class GameData : NSManagedObject {
 
     /** Set the learning level of self */
     func setLearningLevelString () -> String {
-        let firstStep = GameDataConstant.firstLearningStep.int64
-        let secondStep = GameDataConstant.secondLearningStep.int64
-        let thirdStep = GameDataConstant.thirdLearningStep.int64
+        let learningLevelSteps = GameDataConstant.learningLevelSteps
 
-        switch learningScore {
-        case 0...firstStep : return "Learning_Level_1".localize()
-        case (firstStep + 1)...secondStep : return "Learning_Level_2".localize()
-        case (secondStep + 1)...thirdStep : return "Learning_Level_3".localize()
-        case let score where score > thirdStep : return "Learning_Level_4".localize()
-        default : return "Learning_Level_4".localize()
+        if learningScore > learningLevelSteps[learningLevelSteps.count - 1] {
+            let learningLevel = GameDataConstant.learningLevelNames[learningLevelSteps.count - 1]
+            return learningLevel
         }
-    }
 
+        for learningStepIndex in 0..<learningLevelSteps.count - 1 {
+            let startStepScore = learningLevelSteps[learningStepIndex] + 1
+            let endStepScore = learningLevelSteps[learningStepIndex + 1]
+            if startStepScore...endStepScore ~= learningScore {
+                let learningLevel = GameDataConstant.learningLevelNames[learningStepIndex]
+                return learningLevel
+            }
+        }
+        return ""
+    }
 }

@@ -16,12 +16,12 @@ class GameDataProgressionView : UIProgressView {
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 10
         self.setProgress(Float(progression), animated: true)
-        switch learningLevel {
-        case "Learning_Level_1".localize(): progressTintColor = .red
-        case "Learning_Level_2".localize(): progressTintColor = .orange
-        case "Learning_Level_3".localize(): progressTintColor = .yellow
-        case "Learning_Level_4".localize(): progressTintColor = .green
-        default : progressTintColor = .red
+
+        let learningLevelNames = GameDataConstant.learningLevelNames
+        for (index, name) in learningLevelNames.enumerated() {
+            if name == learningLevel {
+                progressTintColor = DesignConstant.learningLevelColors[index]
+            }
         }
     }
 }

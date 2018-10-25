@@ -14,7 +14,7 @@ class TrainingLevel: Level {
     var score: Int64 = 0
     var stars: Int16 = 0
     var newGameData: GameData?
-    let questionToAsk: Int = GameConstant.questionsByTraining
+    let questionToAsk: Int = TrainingConstant.questionsByTraining
 
     init(levelDatas: [GameData]) {
         self.levelDatas = levelDatas
