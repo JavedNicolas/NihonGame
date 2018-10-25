@@ -24,23 +24,20 @@ class Question {
     init(levelData : [GameData], gameMode: GameMode, numberOfBadAnswer: Int) {
         self.gameMode = gameMode
         self.allPossibleAnswer = gameMode.possibleAnswers
+        createTheQuestion(levelData: levelData, numberOfBadAnswer: numberOfBadAnswer)
+    }
 
-        guard let dataChoosed = levelData.randomElement() else { return }
-        var dataID = 0
-        var goodAnswerString = ""
-        var goodAnswerCategory = ""
-        var questionString = ""
+    /** create the question, and fill the answers Array */
+    func createTheQuestion(levelData: [GameData], numberOfBadAnswer: Int) {
+        guard let dataChoosed = levelData.randomElement(), let question = dataChoosed.getQuestionData() else { return }
 
-        dataID = dataChoosed.id.int
-        if let question = dataChoosed.getQuestionData() {
-            questionString = question.questionString
-            goodAnswerString = question.goodAnswerString
-            goodAnswerCategory = question.answerCategoryName
-        }
+        let questionString = question.questionString
+        let goodAnswerString = question.goodAnswerString
+        let goodAnswerCategory = question.answerCategoryName
+
         self.dataChoosed = dataChoosed
-
         self.question = questionString
-        self.goodAnswer = Answer(gameDataID: dataID, answerString: goodAnswerString, category: goodAnswerCategory)
+        self.goodAnswer = Answer(gameDataID: dataChoosed.id.int, answerString: goodAnswerString, category: goodAnswerCategory)
         generateBadAnswer(levelData: levelData, category: goodAnswerCategory, numberOfBadAnswer: numberOfBadAnswer)
         answers = badAnswers
         answers.append(goodAnswer)
