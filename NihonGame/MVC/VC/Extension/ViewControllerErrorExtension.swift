@@ -8,9 +8,10 @@
 
 import UIKit
 
-/** Error enum **/
+/** Error enum, raw value must be a localized String key **/
 enum ErrorList : String, Error {
-    case unknowError = "An unknown error as occured. \nPlease try again later."
+    case unknowError = "UnknowError_Text"
+    case nothingToTrain = "NothingToTrain_Text"
 }
 
 /** Error protocole to handle error**/
@@ -26,7 +27,7 @@ extension ErrorProtocole {
             return UIAlertController()
         }
 
-        let alert = UIAlertController(title: "An Error as Occured", message: error.rawValue, preferredStyle: .alert)
+        let alert = UIAlertController(title: "An Error as Occured", message: error.rawValue.localize(), preferredStyle: .alert)
         return alert
     }
 }

@@ -62,3 +62,7 @@
 "Sure_Text" = "Êtes vous sûr ? \nCette action est irréversible.";
 "Ok_Alert_Text" = "Oui";
 "Cancel_Alert_Text" = "Annuler";
+
+// MARK:- Alert Text
+"UnknowError_Text" = "Un erreur inconnu est survenue. \nMerci de bien vouloir ressayer.";
+"NothingToTrain_Text" = "Tu ne peux pas t'entrainer si il n'y as pas de contenu !";

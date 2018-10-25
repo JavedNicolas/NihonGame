@@ -62,18 +62,14 @@ class Group: NSManagedObject {
 
     /** Unlock the next Group */
     func unlockNextGroup(groupBefore: Group) {
-        guard let mode = self.parentGameMode, let groups = mode.getGroups() else {
+        guard let mode = self.parentGameMode, let groups = mode.getGroups(), let groupIndex = groups.firstIndex(of: groupBefore) else {
             return
         }
 
-        for (index, group) in groups.enumerated() {
-            if group == groupBefore {
-                if let levels = groups[index + 1].getLevels(), let levelToUnlock = levels.first {
-                    levelToUnlock.locked = false
-                }
-                break
-            }
+        if let levels = groups[groupIndex + 1].getLevels(), let levelToUnlock = levels.first {
+            levelToUnlock.locked = false
         }
+
     }
 
     /** get formated Levels */

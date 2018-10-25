@@ -48,7 +48,7 @@ class Groups {
 
         for (index, parsedGroup) in parsedGroups.enumerated() {
             let firstGroup = isFirstGroup(group: parsedGroup, groupList: parsedGroups)
-            let levels = Levels(parsedLevels: parsedGroup.levels, isfirstGroup: firstGroup).getLevels()
+            let levels = GameLevels(parsedLevels: parsedGroup.levels, isfirstGroup: firstGroup).getLevels()
             let groupToSet = Group(context: CoreDataManager.shared.getContext())
             groupToSet.fill(groupsParsed: parsedGroup, levels: levels, groupNumber: index + 1)
             groups.append(groupToSet)

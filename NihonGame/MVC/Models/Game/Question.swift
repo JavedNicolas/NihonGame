@@ -17,18 +17,19 @@ class Question {
     /** a combinaison of the bad and good answer. The app use it to display the answers*/
     var answers : [Answer] = []
     private var allPossibleAnswer : PossibleAnswers
+    private var gameMode : GameMode
     private var dataNames = [[String]]()
 
     // MARK:- init
-    init(levelData : [GameData], AllAnswers: PossibleAnswers, numberOfBadAnswer: Int) {
-        self.allPossibleAnswer = AllAnswers
+    init(levelData : [GameData], gameMode: GameMode, numberOfBadAnswer: Int) {
+        self.gameMode = gameMode
+        self.allPossibleAnswer = gameMode.possibleAnswers
+
+        guard let dataChoosed = levelData.randomElement() else { return }
         var dataID = 0
         var goodAnswerString = ""
         var goodAnswerCategory = ""
         var questionString = ""
-        guard let dataChoosed = levelData.randomElement() else {
-            return
-        }
 
         dataID = dataChoosed.id.int
         if let question = dataChoosed.getQuestionData() {
@@ -55,8 +56,8 @@ class Question {
          - numberOfBadAnswer: the number of bad answer to generate
      */
     private func generateBadAnswer(levelData: [GameData], category: String, numberOfBadAnswer: Int) {
-        guard let badAnswerPossibility = allPossibleAnswer.getPossibleAnswersList()[category], let mode = GameModes.shared.getCurrentMode(),
-        let firstData = mode.getDatas().first else {
+        guard let badAnswerPossibility = allPossibleAnswer.getPossibleAnswersList()[category],
+        let firstData = gameMode.getDatas().first else {
             return
         }
         let lastGameData = levelData[levelData.endIndex - 1]

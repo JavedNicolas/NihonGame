@@ -61,7 +61,7 @@ class LearnedDataViewController : UIViewController {
         if let learnedDataSegmentedControl = learnedDataSegmentedControl {
             learnedDataSegmentedControl.set()
             learnedDataSegmentedControl.selectedSegmentIndex = 0
-            learnedDataSegmentedControl.addTarget(self, action: #selector(ModeChanged(_:)), for: .valueChanged)
+            learnedDataSegmentedControl.addTarget(self, action: #selector(modeChanged(_:)), for: .valueChanged)
         }
     }
 
@@ -100,7 +100,7 @@ class LearnedDataViewController : UIViewController {
     }
 
     // MARK:- Segemented Controller Handling
-    @objc func ModeChanged(_ sender: UISegmentedControl) {
+    @objc func modeChanged(_ sender: UISegmentedControl) {
         if let tableview = tableView {
             tableview.reloadData()
             setEmptyLabel(display: tableViewIsEmpty())

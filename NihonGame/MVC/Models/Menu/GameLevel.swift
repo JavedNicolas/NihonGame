@@ -9,13 +9,14 @@
 import Foundation
 import CoreData
 
-class GameLevel : NSManagedObject {
+class GameLevel : NSManagedObject, Level {
     // MARK:- Attributs
     var newGameDataID : Int?
     /** The game Data that is introduced in this level */
     lazy var newGameData: GameData? = self.setNewGameData()
     /** The datas which will be used to constitue the level questions */
-    lazy var levelDatas : [GameData]? = self.setGameDataToUse()
+    lazy var levelDatas : [GameData] = self.setGameDataToUse()
+    let questionToAsk: Int = GameConstant.questionsByLevel
 
     // MARK:- functions
     /**
@@ -38,21 +39,6 @@ class GameLevel : NSManagedObject {
         self.stars = 0.int16
     }
 
-    /**
-     Change the score.
-     - Parameters:
-        - increase: if true increase the score, else decrease it
-     */
-    func changeScore(increase: Bool) {
-        if increase {
-            score += GameConstant.scoreIncrementation.int64
-        }else {
-            if score != 0 {
-                score -= GameConstant.scoreDecrementation.int64
-            }
-        }
-    }
-
     /** set level's stars base on the end level score */
     func setStars() {
         if self.score > self.bestScore {
@@ -64,43 +50,33 @@ class GameLevel : NSManagedObject {
         }
     }
 
-    /** init current score and best score at the start of the level */
-    func startLevel() {
-        score = 0
-    }
-
     /** is called when the level if finished */
-    func levelfinished() {
+    func levelFinished() {
         unlockNextLevel()
         CoreDataManager.shared.saveContext()
-
     }
 
     /** Unlock the next level when the user made a score greater or equal to the score to complete the level */
     func unlockNextLevel() {
-        guard let group = parentGroup, let levels = group.getLevels() else {
+        guard let group = parentGroup, let levels = group.getLevels(), let levelIndex = levels.firstIndex(of: self) else {
             return
         }
 
-        for (index, level) in levels.enumerated() {
-            if level == self {
-                if level.score >= GameConstant.levelCompleteScore {
-                    setStars()
-                    level.done = true
-                    if level.bestScore < GameConstant.levelCompleteScore {
-                        if index != levels.count - 1 {
-                            levels[index + 1].locked = false
-                        }else {
-                            group.unlockNextGroup(groupBefore: group)
-                        }
-                    }
+        if score >= GameConstant.levelCompleteScore {
+            setStars()
+            done = true
+            if bestScore < GameConstant.levelCompleteScore {
+                if levelIndex != levels.count - 1 {
+                    levels[levelIndex + 1].locked = false
+                }else {
+                    group.unlockNextGroup(groupBefore: group)
                 }
-                if score > bestScore {
-                    self.bestScore = score
-                }
-                break
             }
         }
+        if score > bestScore {
+            self.bestScore = score
+        }
+
     }
 
     /**
@@ -108,10 +84,10 @@ class GameLevel : NSManagedObject {
 
      - returns: An array of the game data
      */
-    private func setGameDataToUse() -> [GameData]?{
+    private func setGameDataToUse() -> [GameData]{
         var levelDatas = [GameData]()
         guard let group = parentGroup, let mode = group.parentGameMode else {
-            return nil
+            return []
         }
         let gameDatas = mode.getDatas()
         if firstElement == lastElement {
@@ -139,9 +115,7 @@ class GameLevel : NSManagedObject {
      */
     private func setNewGameData() -> GameData? {
         if let gameDataID = newGameDataID {
-            if let levelData = levelDatas {
-                return levelData.dataAt(id: gameDataID)
-            }
+            return levelDatas.dataAt(id: gameDataID)
         }
         return nil
     }

@@ -14,10 +14,10 @@ class GameCoordinator : Coordinator {
     private var gameViewController : GameViewController
 
     // MARK:- init
-    init(currentViewController: UIViewController, level : GameLevel) {
+    init(currentViewController: UIViewController, currentPath : CurrentMenuPath) {
         self.currentViewController = currentViewController
         self.gameViewController = GameViewController()
-        gameViewController.level = level
+        gameViewController.currentPath = currentPath
     }
 
     // MARK:- functions

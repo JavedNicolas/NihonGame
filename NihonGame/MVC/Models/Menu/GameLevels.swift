@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Levels {
+class GameLevels {
     // MARK:- Attributs
     private var levels : [GameLevel] = []
 

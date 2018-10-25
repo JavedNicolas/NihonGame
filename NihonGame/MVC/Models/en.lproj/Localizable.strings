@@ -63,3 +63,7 @@
 "Sure_Text" = "Are you sure ?\n This Action cannot be undone";
 "Ok_Alert_Text" = "Yes";
 "Cancel_Alert_Text" = "No";
+
+// MARK:- Alert Text
+"UnknowError_Text" = "An unknown error as occured. \nPlease try again later.";
+"NothingToTrain_Text" = "You can train if you don't have any data to train !";

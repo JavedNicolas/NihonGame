@@ -14,7 +14,7 @@ class GameViewController: UIViewController {
     private var questionSetNotificationName = Notification.Name(rawValue: "QuestionLoaded")
     private lazy var questionTypes : [QuestionType] = []
     private var game : Game?
-    var level : GameLevel?
+    var currentPath : CurrentMenuPath?
     var questionMode : QuestionType?
     var numberOfQuestionAsked = 0
 
@@ -24,8 +24,8 @@ class GameViewController: UIViewController {
         setAndRemoveObservater(set: true)
         initVC()
 
-        guard let level = level else { return }
-        self.game = Game(level: level)
+        guard let currentPath = currentPath else { return }
+        self.game = Game(currentPath: currentPath)
         if let game = game, let newGameData = game.needToShowTutorial() {
             showNewGameDataInfos(gameData: newGameData)
         }
@@ -62,7 +62,7 @@ class GameViewController: UIViewController {
             self.questionMode = questionMode
             let numberOfBadAnswer = questionMode.getNumberOfBadAnswer()
             game.setNewQuestion(numberOfBadAnswer: numberOfBadAnswer)
-            self.title = "Current_Question_Number".localize() + " \(game.getNumberOfQuestionAsked())/\(GameConstant.questionsByLevel)"
+            self.title = "Current_Question_Number".localize() + " \(game.getNumberOfQuestionAsked())/\(game.level.questionToAsk)"
         }
     }
 
@@ -90,8 +90,9 @@ class GameViewController: UIViewController {
 
     /** Display a modal with the end level information */
     func showEndLevelPopUp() {
+        guard let game = game else { return }
         let endLevelViewController = EndLevelViewController()
-        endLevelViewController.level = level
+        endLevelViewController.level = game.level
         endLevelViewController.modalTransitionStyle = .crossDissolve
         endLevelViewController.modalPresentationStyle = .overCurrentContext
         self.present(endLevelViewController, animated: true, completion: nil)
@@ -104,7 +105,7 @@ class GameViewController: UIViewController {
      */
     func isLevelOver() -> Bool {
         if let game = game, game.isLevelOver() {
-            game.level.levelfinished()
+            game.level.levelFinished()
             showEndLevelPopUp()
             return true
         }

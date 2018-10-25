@@ -13,7 +13,7 @@ class GameMode : NSManagedObject {
     // MARK:- Attributs
     var modeData : ModeDatas?
     var dataNames = [[String]]()
-    var possibleAnswers : PossibleAnswers?
+    lazy var possibleAnswers = self.createAnswer()
 
     // MARK:- functions
     /** Fill GameMode for the first CoreData DataBase creation**/

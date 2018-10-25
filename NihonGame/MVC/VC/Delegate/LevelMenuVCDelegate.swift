@@ -17,8 +17,11 @@ extension LevelMenuViewController : UICollectionViewDelegate {
 
         if let levels = levels {
             let level = levels[indexPath.row]
-            let gameCoordinator = GameCoordinator(currentViewController: self, level: level)
-            gameCoordinator.start()
+            if let parentGroup = level.parentGroup, let parentMode = parentGroup.parentGameMode {
+                let currentPath = CurrentMenuPath(gameMode: parentMode, level: level)
+                let gameCoordinator = GameCoordinator(currentViewController: self, currentPath: currentPath)
+                gameCoordinator.start()
+            }
         }
 
     }

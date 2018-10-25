@@ -12,7 +12,6 @@ class GameModes {
     // MARK:- Attributs
     private var gameModes : [GameMode] = []
     private var modesData : [ModeDatas] = []
-    var currentMode : GameMode?
     static let shared = GameModes()
 
     // MARK:- inits
@@ -60,10 +59,6 @@ class GameModes {
     private func getSavedProgression(forModeID: Int) -> GameMode? {
         let coreDataGameMode = CoreDataManager.shared.fetchMenu(modeID: forModeID)
         return coreDataGameMode
-    }
-
-    func getCurrentMode() -> GameMode? {
-        return currentMode
     }
 
     func getGameModes() -> [GameMode]{

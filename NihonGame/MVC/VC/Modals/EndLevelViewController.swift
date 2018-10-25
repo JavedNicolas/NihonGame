@@ -10,7 +10,7 @@ import UIKit
 
 class EndLevelViewController : PopUpViewController {
     // MARK:- Attributs
-    var level : GameLevel?
+    var level : Level?
 
     // MARK:- functions
     override func viewDidLoad() {

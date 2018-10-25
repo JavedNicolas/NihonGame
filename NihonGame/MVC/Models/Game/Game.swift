@@ -10,7 +10,8 @@ import Foundation
 
 class Game {
     // MARK:- Attributs
-    var level : GameLevel
+    var currentPath : CurrentMenuPath
+    var level : Level
     private var levelData : [GameData] = []
     private var numberOfQuestionAsked = 0
     private var currentQuestion : Question? = nil {
@@ -22,8 +23,9 @@ class Game {
     }
 
     // MARK:- init
-    init(level: GameLevel) {
-        self.level = level
+    init(currentPath: CurrentMenuPath) {
+        self.currentPath = currentPath
+        self.level = currentPath.level
         self.level.startLevel()
     }
 
@@ -31,13 +33,10 @@ class Game {
     /** random a ne question */
     func setNewQuestion(numberOfBadAnswer: Int) {
         numberOfQuestionAsked += 1
-        if let gameMode = GameModes.shared.getCurrentMode(), let allAnswers = gameMode.possibleAnswers,
-            let levelDatas = level.levelDatas {
-            if levelDatas.count > 0 {
-                self.currentQuestion = Question(levelData: levelDatas, AllAnswers: allAnswers, numberOfBadAnswer: numberOfBadAnswer)
-            }else {
-                self.currentQuestion = nil
-            }
+        if level.levelDatas.count > 0 {
+            self.currentQuestion = Question(levelData: level.levelDatas, gameMode: currentPath.gameMode, numberOfBadAnswer: numberOfBadAnswer)
+        }else {
+            self.currentQuestion = nil
         }
     }
 
@@ -63,7 +62,7 @@ class Game {
     
     /** return true if the number of question for this level have been asked */
     func isLevelOver() -> Bool{
-        if numberOfQuestionAsked >= GameConstant.questionsByLevel {
+        if numberOfQuestionAsked >= level.questionToAsk {
             return true
         }
         return false
