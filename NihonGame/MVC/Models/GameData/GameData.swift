@@ -12,6 +12,7 @@ import CoreData
 class GameData : NSManagedObject {
     // MARK: - Attributs
     var dataNameOrder = [String]()
+    var dataString : String = ""
     lazy var data = self.setDataAsStruct()
     var  learningLevel : String {
         get {
