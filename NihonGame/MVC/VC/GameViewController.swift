@@ -32,6 +32,12 @@ class GameViewController: UIViewController {
         newQuestion()
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        if let game = game {
+            game.gameQuitted()
+        }
+    }
+
     private func initVC() {
         self.view.setImageBackground()
         if let tabBarController = tabBarController { tabBarController.tabBar.isHidden = true  }

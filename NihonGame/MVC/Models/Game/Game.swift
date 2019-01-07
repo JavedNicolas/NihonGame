@@ -68,6 +68,11 @@ class Game {
         return false
     }
 
+    /** save data progression when level is exited **/
+    func gameQuitted() {
+        CoreDataManager.shared.saveContext()
+    }
+
     func getCurrentQuestion() -> Question? {
         return currentQuestion
     }
