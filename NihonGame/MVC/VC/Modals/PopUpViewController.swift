@@ -37,7 +37,8 @@ class PopUpViewController : UIViewController {
             label.text = text
             label.textAlignment = .center
             label.textColor = DesignConstant.blue1Alpha
-            label.font = UIFont(name: "Arial", size: CGFloat(30))
+            label.font = UIFont.boldSystemFont(ofSize: 30)
+            label.attributedText = NSAttributedString(string: label.text!, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
             stackView.addArrangedSubview(label)
         }
     }
