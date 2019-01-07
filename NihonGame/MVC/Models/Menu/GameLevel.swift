@@ -76,7 +76,6 @@ class GameLevel : NSManagedObject, Level {
         if score > bestScore {
             self.bestScore = score
         }
-
     }
 
     /**

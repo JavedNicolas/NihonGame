@@ -19,13 +19,4 @@ class GameDataTest : XCTestCase {
         modeDatas.parseGameData()
         datas = modeDatas.getDatas()
     }
-
-    func testGivenWeWantTheLearningLevelOfTheDataThenWeGetIt() {
-        // Given
-
-        // Then
-        for data in datas! {
-            XCTAssertNotEqual(data.learningLevel, "")
-        }
-    }
 }

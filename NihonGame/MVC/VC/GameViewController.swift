@@ -106,6 +106,9 @@ class GameViewController: UIViewController {
     func isLevelOver() -> Bool {
         if let game = game, game.isLevelOver() {
             game.level.levelFinished()
+            if game.level is TrainingLevel {
+                navigationController?.popViewController(animated: true)
+            }
             showEndLevelPopUp()
             return true
         }

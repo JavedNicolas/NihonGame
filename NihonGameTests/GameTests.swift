@@ -13,15 +13,16 @@ class NihonGameTests: XCTestCase {
     var level : GameLevel?
     var group : Group?
     let currentModeID = 0
+    var currentPath: CurrentMenuPath? = nil
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         GameModes.shared.creatModes()
         let modes = GameModes.shared.getGameModes()
         let mode = modes[currentModeID]
-        GameModes.shared.currentMode = mode
         group = mode.getGroups()![0]
         level = group!.getLevels()![4]
+        currentPath = CurrentMenuPath(gameMode: mode, level: level!)
     }
     
     func testGivenUserSelectedALevelThenWeGenerateAGameAndAQuestion() {
@@ -29,7 +30,7 @@ class NihonGameTests: XCTestCase {
             //in the setup
 
         // Then
-        let game = Game(level: level!)
+        let game = Game(currentPath: currentPath!)
         game.setNewQuestion(numberOfBadAnswer: 2)
 
         XCTAssertNotNil(game)
@@ -38,7 +39,7 @@ class NihonGameTests: XCTestCase {
 
     func testGivenUserAnsweredToTheQuestionCorrectlyIThenWeUpgradeScores() {
         // Given
-        let game = Game(level: level!)
+        let game = Game(currentPath: currentPath!)
         game.setNewQuestion(numberOfBadAnswer: 2)
         // Then
         game.userAnswered(isCorrect: true)
@@ -47,7 +48,7 @@ class NihonGameTests: XCTestCase {
 
     func testGivenUserDidNotAnsweredToTheQuestionCorrectlyIThenWeUpgradeScores() {
         // Given
-        let game = Game(level: level!)
+        let game = Game(currentPath: currentPath!)
 
         // Then
         game.userAnswered(isCorrect: false)
@@ -56,12 +57,12 @@ class NihonGameTests: XCTestCase {
 
     func testGiveTheUserHasAnsweredAndTheGameIsOverWhenWeCheckIfTheUserSuccessedThenItReturnTrueAndUnlockNextLevel() {
         // Given
-        let game = Game(level: level!)
+        let game = Game(currentPath: currentPath!)
         for _ in 0..<GameConstant.questionsByLevel {
             game.userAnswered(isCorrect: true)
             game.setNewQuestion(numberOfBadAnswer: 2)
         }
-        game.level.unlockNextLevel()
+        game.level.levelFinished()
         XCTAssertTrue(game.isLevelOver())
         XCTAssertTrue(game.level.done)
     }
@@ -69,21 +70,21 @@ class NihonGameTests: XCTestCase {
     func testGiveTheUserHasAnsweredAndTheGameIsOverAndTheGameIsTheLastofTheGroupWhenWeCheckIfTheUserSuccessedThenItReturnTrueAndUnlockNextGroup() {
         // Given
         level = group!.getLevels()!.last
-        let game = Game(level: level!)
+        let game = Game(currentPath: currentPath!)
 
         for _ in 0..<GameConstant.questionsByLevel {
             game.userAnswered(isCorrect: true)
             game.setNewQuestion(numberOfBadAnswer: 2)
         }
 
-        game.level.unlockNextLevel()
+        game.level.levelFinished()
         XCTAssertTrue(game.isLevelOver())
         XCTAssertTrue(game.level.done)
     }
 
     func testGiveTheUserHasAnsweredAndTheGameIsOverWhenWeCheckIfTheUserSuccessedThenItReturnFalse() {
         // Given
-        let game = Game(level: level!)
+        let game = Game(currentPath: currentPath!)
         for _ in 0..<GameConstant.questionsByLevel {
             game.userAnswered(isCorrect: false)
             game.setNewQuestion(numberOfBadAnswer: 2)
@@ -97,7 +98,7 @@ class NihonGameTests: XCTestCase {
         level?.newGameData?.learningScore = 0
 
         // then
-        let game = Game(level: level!)
+        let game = Game(currentPath: currentPath!)
 
         // When
         XCTAssertNotNil(game.needToShowTutorial())
@@ -107,7 +108,7 @@ class NihonGameTests: XCTestCase {
         // Given
 
         // then
-        let game = Game(level: level!)
+        let game = Game(currentPath: currentPath!)
         game.level.changeScore(increase: true)
         game.level.newGameData?.learningScore = 10
         // When

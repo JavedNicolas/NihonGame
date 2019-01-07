@@ -26,7 +26,7 @@ class SQAnswerView : UIView {
 
     // MARK:- setters
     func setFrameFromConstraint() {
-        self.layer.borderWidth = 3
+        self.layer.borderWidth = 1
         self.layer.borderColor = DesignConstant.black5Alpha.cgColor
     }
 

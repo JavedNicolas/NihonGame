@@ -16,6 +16,7 @@ protocol Level {
     var newGameData : GameData? { get }
     var questionToAsk : Int { get }
     var stars : Int16 { get }
+    var done : Bool { get }
 
     // MARK:- Functions
     mutating func startLevel()

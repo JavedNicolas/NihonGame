@@ -17,7 +17,6 @@ class LevelTest: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         let modes = GameModes.shared.getGameModes()
         let mode = modes[currentModeID]
-        GameModes.shared.currentMode = mode
         let group = mode.getGroups()![0]
         level = group.getLevels()![5]
     }
@@ -28,7 +27,7 @@ class LevelTest: XCTestCase {
         level?.done = true
 
         // When
-        level?.levelfinished()
+        level?.levelFinished()
 
         // Then
         XCTAssertNotEqual(0, level?.score)
