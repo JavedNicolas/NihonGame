@@ -23,11 +23,12 @@ class TrainingViewController : UIViewController {
     // MARK:- function
     override func viewDidLoad() {
         setVC()
+        guard let trainingSegmentedControl = trainingSegmentedControl else { return }
+        trainingSegmentedControl.selectedSegmentIndex = 0
     }
 
     override func viewDidAppear(_ animated: Bool) {
         guard let trainingSegmentedControl = trainingSegmentedControl else { return }
-        trainingSegmentedControl.selectedSegmentIndex = 0
         modeChanged(trainingSegmentedControl)
     }
 
