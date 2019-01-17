@@ -65,11 +65,11 @@ class Group: NSManagedObject {
         guard let mode = self.parentGameMode, let groups = mode.getGroups(), let groupIndex = groups.firstIndex(of: groupBefore) else {
             return
         }
-
-        if let levels = groups[groupIndex + 1].getLevels(), let levelToUnlock = levels.first {
+        let nextGroup = groups[groupIndex + 1]
+        if let levels = nextGroup.getLevels(), let levelToUnlock = levels.first {
             levelToUnlock.locked = false
+            nextGroup.locked = false
         }
-
     }
 
     /** get formated Levels */
