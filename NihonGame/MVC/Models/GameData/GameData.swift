@@ -112,9 +112,11 @@ class GameData : NSManagedObject {
      */
     func changeScore(increase: Bool) {
         if increase {
-            learningScore += GameDataConstant.scoreIncrementation.int64
+            if learningScore != GameDataConstant.MaxScoreForLearningLevel.int64 {
+                learningScore += GameDataConstant.scoreIncrementation.int64
+            }
         }else {
-            if learningScore != 0{
+            if learningScore != 0 && learningScore != GameDataConstant.scoreDecrementation.int64 {
                 learningScore -= GameDataConstant.scoreDecrementation.int64
             }
         }
