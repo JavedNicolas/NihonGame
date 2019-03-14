@@ -7,7 +7,7 @@
 */
 
 // MARK: - Menu Titles
-"Kanji_Mode_Menu" = "Game Mode : Kanji";
+"Main_Menu_Title" = "Main Menu";
 
 // MARK:- ViewController Names
 "Main_Menu_VC" = "Game";
@@ -28,6 +28,8 @@
 "Back_Text" = "Back";
 "Close_Text" = "Close";
 "Training_Button" = "Train !";
+"Standard_Mode" = "Standard Mod";
+"Nihon_Game_Mode" = "Nihon Game Mod";
 
 //MARK:- Label text
 "New_Game_Data_Text" = "New Element !";
@@ -41,6 +43,7 @@
 "Find_Text" = "Find : ";
 "Progression_Text" = "Completion :";
 "Swipe_Question_Text" = "Is this correct ?\n Swipe the question to answer !";
+"Loading_Text" = "Loading ...";
 
 //MARK:- Learning Level
 "Learning_Level_1" = "New";

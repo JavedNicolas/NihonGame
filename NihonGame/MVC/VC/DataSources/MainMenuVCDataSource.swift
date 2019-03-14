@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension MainMenuViewController : UITableViewDataSource {
+extension StandarModeMainMenuVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuItems.count
     }

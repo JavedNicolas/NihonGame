@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension MainMenuViewController : UITableViewDelegate {
+extension StandarModeMainMenuVC : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let coordinator = GroupMenuCoordinator(currentViewController: self, gameMode: menuItems[indexPath.row])
         coordinator.start()
