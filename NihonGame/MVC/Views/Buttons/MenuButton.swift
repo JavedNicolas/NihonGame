@@ -60,7 +60,7 @@ class MenuButton : UIView {
     }
 
     /** set a label and return it */
-    private func setLabel(text: String) -> UILabel {
+    override internal func setLabel(text: String) -> UILabel {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width / 3, height: self.frame.height))
         label.textAlignment = .center
         label.text = text

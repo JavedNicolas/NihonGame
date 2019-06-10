@@ -16,4 +16,14 @@ extension UIViewController {
         alert.addAction(alertAction)
         return alert
     }
+
+
+    @objc func setLabel(text: String) -> UILabel {
+        let label = UILabel()
+        label.text = text
+        label.textAlignment = .center
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 35)
+        return label
+    }
 }

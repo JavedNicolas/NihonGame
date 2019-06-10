@@ -63,14 +63,6 @@ class MainMenuViewController : UIViewController {
         return button
     }
 
-    func setLabel(text: String) -> UILabel {
-        let label = UILabel()
-        label.text = text
-        label.textAlignment = .center
-        label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 35)
-        return label
-    }
 
     @objc func loadStandardMode() {
         loadingView = LoadingView(frame: self.view.frame)

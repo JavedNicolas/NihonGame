@@ -23,6 +23,9 @@
 "Level_Failed" = "Too Bad, you did not get enough point to finish this level ! But You can try Again!";
 
 // MARK:- Buttons text
+"Login_Button" = "Login in";
+"Register_Button" = "Sign up";
+"Understood_Text" = "J'ai Compris !";
 "UnderStood_Text" = "Understood !";
 "Go_Back_To_Menu_Text" = "Go back to menu";
 "Back_Text" = "Back";
@@ -32,6 +35,11 @@
 "Nihon_Game_Mode" = "Nihon Game Mod";
 
 //MARK:- Label text
+"Login_Title_Text" = "Connection";
+"Login_Area_Text" = "Sign in:";
+"Login_Text" = "Login :";
+"Password_Text" = "Password :";
+"Register_Area_Text" = "Register :";
 "New_Game_Data_Text" = "New Element !";
 "Congratulation_Text" = "Congratulation !";
 "Try_Again_Text" = "Try again !";

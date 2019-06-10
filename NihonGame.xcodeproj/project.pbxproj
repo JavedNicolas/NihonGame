@@ -38,6 +38,9 @@
 		37282EF62170EB20001D22DC /* HiraganaGroupList.json in Resources */ = {isa = PBXBuildFile; fileRef = 37282EF52170EB20001D22DC /* HiraganaGroupList.json */; };
 		37282EF82170F236001D22DC /* Hiragana.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37282EF72170F236001D22DC /* Hiragana.swift */; };
 		37282EFE217204E0001D22DC /* ViewControllerErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37282EFD217204E0001D22DC /* ViewControllerErrorExtension.swift */; };
+		372D697622AE28720036565C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372D697522AE28720036565C /* LoginViewController.swift */; };
+		372D697922AE302F0036565C /* LoginFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372D697822AE302F0036565C /* LoginFormView.swift */; };
+		372D697B22AE30D60036565C /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372D697A22AE30D60036565C /* ViewExtension.swift */; };
 		372E448121678A4B0079B5DF /* SQQuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E448021678A4B0079B5DF /* SQQuestionView.swift */; };
 		372E44842167A5A10079B5DF /* SQAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372E44832167A5A10079B5DF /* SQAnswerView.swift */; };
 		373570F1215D14540033A5F7 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373570F0215D14540033A5F7 /* Group.swift */; };
@@ -161,6 +164,9 @@
 		37282EF52170EB20001D22DC /* HiraganaGroupList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HiraganaGroupList.json; sourceTree = "<group>"; };
 		37282EF72170F236001D22DC /* Hiragana.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hiragana.swift; sourceTree = "<group>"; };
 		37282EFD217204E0001D22DC /* ViewControllerErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerErrorExtension.swift; sourceTree = "<group>"; };
+		372D697522AE28720036565C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		372D697822AE302F0036565C /* LoginFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormView.swift; sourceTree = "<group>"; };
+		372D697A22AE30D60036565C /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		372E448021678A4B0079B5DF /* SQQuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQQuestionView.swift; sourceTree = "<group>"; };
 		372E44832167A5A10079B5DF /* SQAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQAnswerView.swift; sourceTree = "<group>"; };
 		373570F0215D14540033A5F7 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
@@ -314,6 +320,14 @@
 			path = Hiragana;
 			sourceTree = "<group>";
 		};
+		372D697722AE30200036565C /* Forms */ = {
+			isa = PBXGroup;
+			children = (
+				372D697822AE302F0036565C /* LoginFormView.swift */,
+			);
+			path = Forms;
+			sourceTree = "<group>";
+		};
 		372E44822167A5750079B5DF /* SimpleQuestionMode */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,6 +452,7 @@
 				3776D5DE214B91A500536A8D /* DataSources */,
 				3776D5DD214B919500536A8D /* Delegate */,
 				3748473E214A377D006E35D1 /* Coordinator */,
+				372D697522AE28720036565C /* LoginViewController.swift */,
 				37DFE0B021F0AFE30009ED0F /* MainMenuViewController.swift */,
 				370DA7D1216B435900AA243C /* StandarModeMainMenuVC.swift */,
 				3776D5EB2150D2C100536A8D /* GroupMenuViewController.swift */,
@@ -471,6 +486,7 @@
 		3761305E213E648900FBCA24 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				372D697722AE30200036565C /* Forms */,
 				37DFE0B421F0C3690009ED0F /* Extension */,
 				37613073213FC5B900FBCA24 /* InterfaceBuilding */,
 				3765F64C2166300600A4D64D /* QuestionMode */,
@@ -658,6 +674,7 @@
 			isa = PBXGroup;
 			children = (
 				37DFE0B521F0C37B0009ED0F /* Button.swift */,
+				372D697A22AE30D60036565C /* ViewExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -765,6 +782,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 3761302A213E644700FBCA24;
 			productRefGroup = 37613034213E644700FBCA24 /* Products */;
@@ -818,8 +836,10 @@
 				370B1E7B216F6175007B03FE /* TableView.swift in Sources */,
 				370DA7DA216B45EC00AA243C /* GameModeButton.swift in Sources */,
 				372E448121678A4B0079B5DF /* SQQuestionView.swift in Sources */,
+				372D697B22AE30D60036565C /* ViewExtension.swift in Sources */,
 				3765F6372161F6B700A4D64D /* ModeDatas.swift in Sources */,
 				3725CEE0216E1E9400C9301F /* EndLevelViewController.swift in Sources */,
+				372D697622AE28720036565C /* LoginViewController.swift in Sources */,
 				37685A182153808800D8B585 /* LevelMenuCoordinator.swift in Sources */,
 				37E0B0312158C0BD0064019F /* GameGroupButton.swift in Sources */,
 				3725CEDE216E1C7100C9301F /* PopUpStackView.swift in Sources */,
@@ -894,6 +914,7 @@
 				37DFE0B321F0B3E40009ED0F /* MainCoordinator.swift in Sources */,
 				3754809F215A505100CE2335 /* GameData.swift in Sources */,
 				3743A3A1215B73290012B02A /* IntExtension.swift in Sources */,
+				372D697922AE302F0036565C /* LoginFormView.swift in Sources */,
 				370DA7D0216B42E600AA243C /* GroupMenuCoordinator.swift in Sources */,
 				3761306A213FB4D200FBCA24 /* Constant.swift in Sources */,
 				3725CED6216CB2C700C9301F /* GameDataPresentationViewController.swift in Sources */,

@@ -14,7 +14,7 @@ class SettingsTableViewCell : UITableViewCell {
     private let label = UILabel()
     var message : String = "" {
         didSet {
-            setLabel(text: message)
+            setMessage(text: message)
         }
     }
 
@@ -30,7 +30,7 @@ class SettingsTableViewCell : UITableViewCell {
 
     // MARK:- setters
     /** Set setting label */
-    private func setLabel(text: String) {
+    private func setMessage(text: String) {
         setloadingView()
         label.text = text
         label.textAlignment = .center
